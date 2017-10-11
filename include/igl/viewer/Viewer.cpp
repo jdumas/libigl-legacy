@@ -967,8 +967,10 @@ namespace viewer
     glfwSetWindowSizeCallback(window,glfw_window_size);
     glfwSetMouseButtonCallback(window,glfw_mouse_press);
     glfwSetScrollCallback(window,glfw_mouse_scroll);
-    glfwSetCharModsCallback(window,glfw_char_mods_callback);
     glfwSetDropCallback(window,glfw_drop_callback);
+    #ifndef LIBIGL_WITH_EMSCRIPTEN
+    glfwSetCharModsCallback(window,glfw_char_mods_callback);
+    #endif
 
     // Handle retina displays (windows and mac)
     int width, height;

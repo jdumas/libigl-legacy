@@ -336,7 +336,9 @@ IGL_INLINE void igl::viewer::OpenGL_state::bind_overlay_points()
 
 IGL_INLINE void igl::viewer::OpenGL_state::draw_mesh(bool solid)
 {
+  #ifndef LIBIGL_WITH_EMSCRIPTEN
   glPolygonMode(GL_FRONT_AND_BACK, solid ? GL_FILL : GL_LINE);
+  #endif
 
   /* Avoid Z-buffer fighting between filled triangles & wireframe lines */
   if (solid)
@@ -347,7 +349,9 @@ IGL_INLINE void igl::viewer::OpenGL_state::draw_mesh(bool solid)
   glDrawElements(GL_TRIANGLES, 3*F_vbo.cols(), GL_UNSIGNED_INT, 0);
 
   glDisable(GL_POLYGON_OFFSET_FILL);
+  #ifndef LIBIGL_WITH_EMSCRIPTEN
   glPolygonMode(GL_FRONT_AND_BACK, GL_FILL);
+  #endif
 }
 
 IGL_INLINE void igl::viewer::OpenGL_state::draw_overlay_lines()

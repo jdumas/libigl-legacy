@@ -264,7 +264,9 @@ IGL_INLINE void igl::viewer::ViewerCore::draw(
       glUniformMatrix4fv(modeli, 1, GL_FALSE, model.data());
       glUniformMatrix4fv(viewi, 1, GL_FALSE, view.data());
       glUniformMatrix4fv(proji, 1, GL_FALSE, proj.data());
+      #ifndef LIBIGL_WITH_EMSCRIPTEN
       glPointSize(point_size);
+      #endif
 
       opengl.draw_overlay_points();
     }

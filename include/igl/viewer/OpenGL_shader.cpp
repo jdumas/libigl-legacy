@@ -59,12 +59,16 @@ IGL_INLINE bool igl::viewer::OpenGL_shader::init(
     glAttachShader(program_shader, geometry_shader);
 
     /* This covers only basic cases and may need to be modified */
+    #ifndef LIBIGL_WITH_EMSCRIPTEN
     glProgramParameteri(program_shader, GL_GEOMETRY_INPUT_TYPE, GL_TRIANGLES);
     glProgramParameteri(program_shader, GL_GEOMETRY_OUTPUT_TYPE, GL_TRIANGLES);
     glProgramParameteri(program_shader, GL_GEOMETRY_VERTICES_OUT, geometry_shader_max_vertices);
+    #endif
   }
 
+  #ifndef LIBIGL_WITH_EMSCRIPTEN
   glBindFragDataLocation(program_shader, 0, fragment_data_name.c_str());
+  #endif
   glLinkProgram(program_shader);
 
   GLint status;
