@@ -1,0 +1,1386 @@
+
+
+
+
+<!DOCTYPE html>
+<html lang="en" class="no-js">
+  <head>
+    
+      <meta charset="utf-8">
+      <meta name="viewport" content="width=device-width,initial-scale=1">
+      <meta http-equiv="x-ua-compatible" content="ie=edge">
+      
+      
+      
+      
+        <meta name="lang:clipboard.copy" content="Copy to clipboard">
+      
+        <meta name="lang:clipboard.copied" content="Copied to clipboard">
+      
+        <meta name="lang:search.language" content="en">
+      
+        <meta name="lang:search.pipeline.stopwords" content="True">
+      
+        <meta name="lang:search.pipeline.trimmer" content="True">
+      
+        <meta name="lang:search.result.none" content="No matching documents">
+      
+        <meta name="lang:search.result.one" content="1 matching document">
+      
+        <meta name="lang:search.result.other" content="# matching documents">
+      
+        <meta name="lang:search.tokenizer" content="[\s\-]+">
+      
+      <link rel="shortcut icon" href="../../assets/images/favicon.png">
+      <meta name="generator" content="mkdocs-0.17.3, mkdocs-material-2.7.0">
+    
+    
+      
+        <title>Chapter 3: Matrices and Linear Algebra - libigl</title>
+      
+    
+    
+      <link rel="stylesheet" href="../../assets/stylesheets/application.78aab2dc.css">
+      
+        <link rel="stylesheet" href="../../assets/stylesheets/application-palette.6079476c.css">
+      
+    
+    
+      <script src="../../assets/javascripts/modernizr.1aa3b519.js"></script>
+    
+    
+      <link href="https://fonts.gstatic.com" rel="preconnect" crossorigin>
+      
+        <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Roboto:300,400,400i,700|Roboto+Mono">
+        <style>body,input{font-family:"Roboto","Helvetica Neue",Helvetica,Arial,sans-serif}code,kbd,pre{font-family:"Roboto Mono","Courier New",Courier,monospace}</style>
+      
+      <link rel="stylesheet" href="https://fonts.googleapis.com/icon?family=Material+Icons">
+    
+    
+    
+  </head>
+  
+    
+    
+    <body dir="ltr" data-md-color-primary="light-blue" data-md-color-accent="blue">
+  
+    <svg class="md-svg">
+      <defs>
+        
+        
+      </defs>
+    </svg>
+    <input class="md-toggle" data-md-toggle="drawer" type="checkbox" id="drawer">
+    <input class="md-toggle" data-md-toggle="search" type="checkbox" id="search">
+    <label class="md-overlay" data-md-component="overlay" for="drawer"></label>
+    
+      <a href="#chapter-3-matrices-and-linear-algebra" tabindex="1" class="md-skip">
+        Skip to content
+      </a>
+    
+    
+      <header class="md-header" data-md-component="header">
+  <nav class="md-header-nav md-grid">
+    <div class="md-flex">
+      <div class="md-flex__cell md-flex__cell--shrink">
+        <a href="../.." title="libigl" class="md-header-nav__button md-logo">
+          
+            <i class="md-icon">details</i>
+          
+        </a>
+      </div>
+      <div class="md-flex__cell md-flex__cell--shrink">
+        <label class="md-icon md-icon--menu md-header-nav__button" for="drawer"></label>
+      </div>
+      <div class="md-flex__cell md-flex__cell--stretch">
+        <div class="md-flex__ellipsis md-header-nav__title" data-md-component="title">
+          
+            
+              <span class="md-header-nav__topic">
+                libigl
+              </span>
+              <span class="md-header-nav__topic">
+                Chapter 3: Matrices and Linear Algebra
+              </span>
+            
+          
+        </div>
+      </div>
+      <div class="md-flex__cell md-flex__cell--shrink">
+        
+          
+            <label class="md-icon md-icon--search md-header-nav__button" for="search"></label>
+            
+<div class="md-search" data-md-component="search" role="dialog">
+  <label class="md-search__overlay" for="search"></label>
+  <div class="md-search__inner" role="search">
+    <form class="md-search__form" name="search">
+      <input type="text" class="md-search__input" name="query" placeholder="Search" autocapitalize="off" autocorrect="off" autocomplete="off" spellcheck="false" data-md-component="query" data-md-state="active">
+      <label class="md-icon md-search__icon" for="search"></label>
+      <button type="reset" class="md-icon md-search__icon" data-md-component="reset" tabindex="-1">
+        &#xE5CD;
+      </button>
+    </form>
+    <div class="md-search__output">
+      <div class="md-search__scrollwrap" data-md-scrollfix>
+        <div class="md-search-result" data-md-component="result">
+          <div class="md-search-result__meta">
+            Type to start searching
+          </div>
+          <ol class="md-search-result__list"></ol>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+          
+        
+      </div>
+      
+    </div>
+  </nav>
+</header>
+    
+    <div class="md-container">
+      
+        
+      
+      
+      <main class="md-main">
+        <div class="md-main__inner md-grid" data-md-component="container">
+          
+            
+              <div class="md-sidebar md-sidebar--primary" data-md-component="navigation">
+                <div class="md-sidebar__scrollwrap">
+                  <div class="md-sidebar__inner">
+                    <nav class="md-nav md-nav--primary" data-md-level="0">
+  <label class="md-nav__title md-nav__title--site" for="drawer">
+    <span class="md-nav__button md-logo">
+      
+        <i class="md-icon">details</i>
+      
+    </span>
+    libigl
+  </label>
+  
+  <ul class="md-nav__list" data-md-scrollfix>
+    
+      
+      
+      
+
+
+  <li class="md-nav__item">
+    <a href="../.." title="Home" class="md-nav__link">
+      Home
+    </a>
+  </li>
+
+    
+      
+      
+      
+
+  
+
+
+  <li class="md-nav__item md-nav__item--active md-nav__item--nested">
+    
+      <input class="md-toggle md-nav__toggle" data-md-toggle="nav-2" type="checkbox" id="nav-2" checked>
+    
+    <label class="md-nav__link" for="nav-2">
+      Tutorial
+    </label>
+    <nav class="md-nav" data-md-component="collapsible" data-md-level="1">
+      <label class="md-nav__title" for="nav-2">
+        Tutorial
+      </label>
+      <ul class="md-nav__list" data-md-scrollfix>
+        
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="../chapter-1/" title="Chapter 1: Introduction to libig" class="md-nav__link">
+      Chapter 1: Introduction to libig
+    </a>
+  </li>
+
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="../chapter-2/" title="Chapter 2: Discrete Geometric Quantities and Operators" class="md-nav__link">
+      Chapter 2: Discrete Geometric Quantities and Operators
+    </a>
+  </li>
+
+        
+          
+          
+          
+
+  
+
+
+  <li class="md-nav__item md-nav__item--active">
+    
+    <input class="md-toggle md-nav__toggle" data-md-toggle="toc" type="checkbox" id="toc">
+    
+      
+    
+    
+      <label class="md-nav__link md-nav__link--active" for="toc">
+        Chapter 3: Matrices and Linear Algebra
+      </label>
+    
+    <a href="./" title="Chapter 3: Matrices and Linear Algebra" class="md-nav__link md-nav__link--active">
+      Chapter 3: Matrices and Linear Algebra
+    </a>
+    
+      
+<nav class="md-nav md-nav--secondary">
+  
+  
+    
+  
+  
+    <label class="md-nav__title" for="toc">Table of contents</label>
+    <ul class="md-nav__list" data-md-scrollfix>
+      
+        <li class="md-nav__item">
+  <a href="#slice" title="Slice" class="md-nav__link">
+    Slice
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#sort" title="Sort" class="md-nav__link">
+    Sort
+  </a>
+  
+    <nav class="md-nav">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#other-matlab-style-functions" title="Other Matlab-style functions" class="md-nav__link">
+    Other Matlab-style functions
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#laplace-equation" title="Laplace equation" class="md-nav__link">
+    Laplace equation
+  </a>
+  
+    <nav class="md-nav">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#quadratic-energy-minimization" title="Quadratic energy minimization" class="md-nav__link">
+    Quadratic energy minimization
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#linear-equality-constraints" title="Linear equality constraints" class="md-nav__link">
+    Linear equality constraints
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#quadratic-programming" title="Quadratic programming" class="md-nav__link">
+    Quadratic programming
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#eigen-decomposition" title="Eigen Decomposition" class="md-nav__link">
+    Eigen Decomposition
+  </a>
+  
+</li>
+      
+      
+      
+      
+      
+    </ul>
+  
+</nav>
+    
+  </li>
+
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="../chapter-4/" title="Chapter 4: Shape Deformation" class="md-nav__link">
+      Chapter 4: Shape Deformation
+    </a>
+  </li>
+
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="../chapter-5/" title="Chapter 5: Parametrization" class="md-nav__link">
+      Chapter 5: Parametrization
+    </a>
+  </li>
+
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="../chapter-6/" title="Chapter 6: External libraries" class="md-nav__link">
+      Chapter 6: External libraries
+    </a>
+  </li>
+
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="../chapter-7/" title="Chapter 7: Miscellaneous" class="md-nav__link">
+      Chapter 7: Miscellaneous
+    </a>
+  </li>
+
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="../chapter-8/" title="Chapter 8: Outlook for continuing development" class="md-nav__link">
+      Chapter 8: Outlook for continuing development
+    </a>
+  </li>
+
+        
+      </ul>
+    </nav>
+  </li>
+
+    
+      
+      
+      
+
+
+  <li class="md-nav__item md-nav__item--nested">
+    
+      <input class="md-toggle md-nav__toggle" data-md-toggle="nav-3" type="checkbox" id="nav-3">
+    
+    <label class="md-nav__link" for="nav-3">
+      Contributing
+    </label>
+    <nav class="md-nav" data-md-component="collapsible" data-md-level="1">
+      <label class="md-nav__title" for="nav-3">
+        Contributing
+      </label>
+      <ul class="md-nav__list" data-md-scrollfix>
+        
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="../../style-guidelines/" title="Style Guidelines" class="md-nav__link">
+      Style Guidelines
+    </a>
+  </li>
+
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="../../CONTRIBUTING/" title="Bug Report" class="md-nav__link">
+      Bug Report
+    </a>
+  </li>
+
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="../../before-submitting-pull-request/" title="Creating a Pull Request" class="md-nav__link">
+      Creating a Pull Request
+    </a>
+  </li>
+
+        
+      </ul>
+    </nav>
+  </li>
+
+    
+      
+      
+      
+
+
+  <li class="md-nav__item md-nav__item--nested">
+    
+      <input class="md-toggle md-nav__toggle" data-md-toggle="nav-4" type="checkbox" id="nav-4">
+    
+    <label class="md-nav__link" for="nav-4">
+      Misc
+    </label>
+    <nav class="md-nav" data-md-component="collapsible" data-md-level="1">
+      <label class="md-nav__title" for="nav-4">
+        Misc
+      </label>
+      <ul class="md-nav__list" data-md-scrollfix>
+        
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="../../coding-guidelines/" title="Coding Tips" class="md-nav__link">
+      Coding Tips
+    </a>
+  </li>
+
+        
+      </ul>
+    </nav>
+  </li>
+
+    
+      
+      
+      
+
+
+  <li class="md-nav__item">
+    <a href="../../faq/" title="FAQ" class="md-nav__link">
+      FAQ
+    </a>
+  </li>
+
+    
+      
+      
+      
+
+
+  <li class="md-nav__item md-nav__item--nested">
+    
+      <input class="md-toggle md-nav__toggle" data-md-toggle="nav-6" type="checkbox" id="nav-6">
+    
+    <label class="md-nav__link" for="nav-6">
+      About
+    </label>
+    <nav class="md-nav" data-md-component="collapsible" data-md-level="1">
+      <label class="md-nav__title" for="nav-6">
+        About
+      </label>
+      <ul class="md-nav__list" data-md-scrollfix>
+        
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="../../RELEASE_HISTORY/" title="Release History" class="md-nav__link">
+      Release History
+    </a>
+  </li>
+
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="../../LICENSE/" title="License" class="md-nav__link">
+      License
+    </a>
+  </li>
+
+        
+      </ul>
+    </nav>
+  </li>
+
+    
+  </ul>
+</nav>
+                  </div>
+                </div>
+              </div>
+            
+            
+              <div class="md-sidebar md-sidebar--secondary" data-md-component="toc">
+                <div class="md-sidebar__scrollwrap">
+                  <div class="md-sidebar__inner">
+                    
+<nav class="md-nav md-nav--secondary">
+  
+  
+    
+  
+  
+    <label class="md-nav__title" for="toc">Table of contents</label>
+    <ul class="md-nav__list" data-md-scrollfix>
+      
+        <li class="md-nav__item">
+  <a href="#slice" title="Slice" class="md-nav__link">
+    Slice
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#sort" title="Sort" class="md-nav__link">
+    Sort
+  </a>
+  
+    <nav class="md-nav">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#other-matlab-style-functions" title="Other Matlab-style functions" class="md-nav__link">
+    Other Matlab-style functions
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#laplace-equation" title="Laplace equation" class="md-nav__link">
+    Laplace equation
+  </a>
+  
+    <nav class="md-nav">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#quadratic-energy-minimization" title="Quadratic energy minimization" class="md-nav__link">
+    Quadratic energy minimization
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#linear-equality-constraints" title="Linear equality constraints" class="md-nav__link">
+    Linear equality constraints
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#quadratic-programming" title="Quadratic programming" class="md-nav__link">
+    Quadratic programming
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#eigen-decomposition" title="Eigen Decomposition" class="md-nav__link">
+    Eigen Decomposition
+  </a>
+  
+</li>
+      
+      
+      
+      
+      
+    </ul>
+  
+</nav>
+                  </div>
+                </div>
+              </div>
+            
+          
+          <div class="md-content">
+            <article class="md-content__inner md-typeset">
+              
+                
+                
+                <h1 id="chapter-3-matrices-and-linear-algebra">Chapter 3: Matrices and linear algebra<a class="headerlink" href="#chapter-3-matrices-and-linear-algebra" title="Permanent link">&para;</a></h1>
+<p>Libigl relies heavily on the Eigen library for dense and sparse linear algebra
+routines. Besides geometry processing routines, libigl has linear algebra
+routines which bootstrap Eigen and make it feel even more similar to a high-level
+algebra library such as Matlab.</p>
+<h2 id="slice">Slice<a class="headerlink" href="#slice" title="Permanent link">&para;</a></h2>
+<p>A very familiar and powerful routine in Matlab is array slicing. This allows
+reading from or writing to a possibly non-contiguous sub-matrix. Let's consider
+the Matlab code:</p>
+<div class="codehilite"><pre><span></span><span class="n">B</span> <span class="p">=</span> <span class="n">A</span><span class="p">(</span><span class="n">R</span><span class="p">,</span><span class="n">C</span><span class="p">);</span>
+</pre></div>
+
+<p>If <code class="codehilite">A</code> is a <span><span class="MathJax_Preview">m \times n</span><script type="math/tex">m \times n</script></span> matrix and <code class="codehilite">R</code> is a <span><span class="MathJax_Preview">j</span><script type="math/tex">j</script></span>-long list of row-indices
+(between 1 and <span><span class="MathJax_Preview">m</span><script type="math/tex">m</script></span>) and <code class="codehilite">C</code> is a <span><span class="MathJax_Preview">k</span><script type="math/tex">k</script></span>-long list of column-indices, then as a
+result <code class="codehilite">B</code> will be a <span><span class="MathJax_Preview">j \times k</span><script type="math/tex">j \times k</script></span> matrix drawing elements from <code class="codehilite">A</code> according to
+<code class="codehilite">R</code> and <code class="codehilite">C</code>. In libigl, the same functionality is provided by the <code class="codehilite">slice</code>
+function (<a href="../301_Slice/main.cpp">Example 301</a>):</p>
+<div class="codehilite"><pre><span></span><span class="n">VectorXi</span> <span class="n">R</span><span class="p">,</span><span class="n">C</span><span class="p">;</span>
+<span class="n">MatrixXd</span> <span class="n">A</span><span class="p">,</span><span class="n">B</span><span class="p">;</span>
+<span class="p">...</span>
+<span class="n">igl</span><span class="o">::</span><span class="n">slice</span><span class="p">(</span><span class="n">A</span><span class="p">,</span><span class="n">R</span><span class="p">,</span><span class="n">C</span><span class="p">,</span><span class="n">B</span><span class="p">);</span>
+</pre></div>
+
+<p>Note that <code class="codehilite">A</code> and <code class="codehilite">B</code> could also be sparse matrices.</p>
+<p>Similarly, consider the Matlab code:</p>
+<div class="codehilite"><pre><span></span><span class="n">A</span><span class="p">(</span><span class="n">R</span><span class="p">,</span><span class="n">C</span><span class="p">)</span> <span class="p">=</span> <span class="n">B</span><span class="p">;</span>
+</pre></div>
+
+<p>Now, the selection is on the left-hand side so the <span><span class="MathJax_Preview">j \times k</span><script type="math/tex">j \times k</script></span> matrix  <code class="codehilite">B</code> is
+being <em>written into</em> the submatrix of <code class="codehilite">A</code> determined by <code class="codehilite">R</code> and <code class="codehilite">C</code>. This
+functionality is provided in libigl using <code class="codehilite">slice_into</code>:</p>
+<div class="codehilite"><pre><span></span><span class="n">igl</span><span class="o">::</span><span class="n">slice_into</span><span class="p">(</span><span class="n">B</span><span class="p">,</span><span class="n">R</span><span class="p">,</span><span class="n">C</span><span class="p">,</span><span class="n">A</span><span class="p">);</span>
+</pre></div>
+
+<p><img alt="The example Slice shows how to use igl::slice to change the colors for
+triangles on a mesh." src="../images/decimated-knight-slice-color.jpg" /></p>
+<h2 id="sort">Sort<a class="headerlink" href="#sort" title="Permanent link">&para;</a></h2>
+<p>Matlab and other higher-level languages make it very easy to extract indices of
+sorting and comparison routines. For example in Matlab, one can write:</p>
+<div class="codehilite"><pre><span></span><span class="p">[</span><span class="n">Y</span><span class="p">,</span><span class="n">I</span><span class="p">]</span> <span class="p">=</span> <span class="n">sort</span><span class="p">(</span><span class="n">X</span><span class="p">,</span><span class="mi">1</span><span class="p">,</span><span class="s">&#39;ascend&#39;</span><span class="p">);</span>
+</pre></div>
+
+<p>so if <code class="codehilite">X</code> is a <span><span class="MathJax_Preview">m \times n</span><script type="math/tex">m \times n</script></span> matrix then <code class="codehilite">Y</code> will also be an <span><span class="MathJax_Preview">m \times n</span><script type="math/tex">m \times n</script></span> matrix
+with entries sorted along dimension <code class="codehilite">1</code> in <code class="codehilite">&#39;ascend&#39;</code>ing order. The second
+output <code class="codehilite">I</code> is a <span><span class="MathJax_Preview">m \times n</span><script type="math/tex">m \times n</script></span> matrix of indices such that <code class="codehilite">Y(i,j) =X(I(i,j),j);</code>. That is, <code class="codehilite">I</code> reveals how <code class="codehilite">X</code> is sorted into <code class="codehilite">Y</code>.</p>
+<p>This same functionality is supported in libigl:</p>
+<div class="codehilite"><pre><span></span><span class="n">igl</span><span class="o">::</span><span class="n">sort</span><span class="p">(</span><span class="n">X</span><span class="p">,</span><span class="mi">1</span><span class="p">,</span><span class="nb">true</span><span class="p">,</span><span class="n">Y</span><span class="p">,</span><span class="n">I</span><span class="p">);</span>
+</pre></div>
+
+<p>Similarly, sorting entire rows can be accomplished in Matlab using:</p>
+<div class="codehilite"><pre><span></span><span class="p">[</span><span class="n">Y</span><span class="p">,</span><span class="n">I</span><span class="p">]</span> <span class="p">=</span> <span class="n">sortrows</span><span class="p">(</span><span class="n">X</span><span class="p">,</span><span class="s">&#39;ascend&#39;</span><span class="p">);</span>
+</pre></div>
+
+<p>where now <code class="codehilite">I</code> is a <span><span class="MathJax_Preview">m</span><script type="math/tex">m</script></span> vector of indices such that <code class="codehilite">Y = X(I,:)</code>.</p>
+<p>In libigl, this is supported with</p>
+<p><div class="codehilite"><pre><span></span><span class="n">igl</span><span class="o">::</span><span class="n">sortrows</span><span class="p">(</span><span class="n">X</span><span class="p">,</span><span class="nb">true</span><span class="p">,</span><span class="n">Y</span><span class="p">,</span><span class="n">I</span><span class="p">);</span>
+</pre></div>
+where again <code class="codehilite">I</code> reveals the index of sort so that it can be reproduced with
+<code class="codehilite">igl::slice(X,I,1,Y)</code>.</p>
+<p>Analogous functions are available in libigl for: <code class="codehilite">max</code>, <code class="codehilite">min</code>, and <code class="codehilite">unique</code>.</p>
+<p><img alt="The example Sort shows how to use igl::sortrows to
+pseudocolor triangles according to their barycenters' sorted
+order (Example 302)." src="../images/decimated-knight-sort-color.jpg" /></p>
+<h3 id="other-matlab-style-functions">Other Matlab-style functions<a class="headerlink" href="#other-matlab-style-functions" title="Permanent link">&para;</a></h3>
+<p>Libigl implements a variety of other routines with the same api and
+functionality as common Matlab functions.</p>
+<table>
+<thead>
+<tr>
+<th align="left">Name</th>
+<th align="left">Description</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td align="left"><code class="codehilite">igl::all</code></td>
+<td align="left">Whether all elements are non-zero (true)</td>
+</tr>
+<tr>
+<td align="left"><code class="codehilite">igl::any</code></td>
+<td align="left">Whether any elements are non-zero (true)</td>
+</tr>
+<tr>
+<td align="left"><code class="codehilite">igl::cat</code></td>
+<td align="left">Concatenate two matrices (especially useful for dealing with Eigen sparse matrices)</td>
+</tr>
+<tr>
+<td align="left"><code class="codehilite">igl::ceil</code></td>
+<td align="left">Round entries up to nearest integer</td>
+</tr>
+<tr>
+<td align="left"><code class="codehilite">igl::cumsum</code></td>
+<td align="left">Cumulative sum of matrix elements</td>
+</tr>
+<tr>
+<td align="left"><code class="codehilite">igl::colon</code></td>
+<td align="left">Act like Matlab's <code class="codehilite">:</code>, similar to Eigen's <code class="codehilite">LinSpaced</code></td>
+</tr>
+<tr>
+<td align="left"><code class="codehilite">igl::components</code></td>
+<td align="left">Connected components of graph (cf. Matlab's <code class="codehilite">graphconncomp</code>)</td>
+</tr>
+<tr>
+<td align="left"><code class="codehilite">igl::count</code></td>
+<td align="left">Count non-zeros in rows or columns</td>
+</tr>
+<tr>
+<td align="left"><code class="codehilite">igl::cross</code></td>
+<td align="left">Cross product per-row</td>
+</tr>
+<tr>
+<td align="left"><code class="codehilite">igl::cumsum</code></td>
+<td align="left">Cumulative summation</td>
+</tr>
+<tr>
+<td align="left"><code class="codehilite">igl::dot</code></td>
+<td align="left">dot product per-row</td>
+</tr>
+<tr>
+<td align="left"><code class="codehilite">igl::eigs</code></td>
+<td align="left">Solve sparse eigen value problem</td>
+</tr>
+<tr>
+<td align="left"><code class="codehilite">igl::find</code></td>
+<td align="left">Find subscripts of non-zero entries</td>
+</tr>
+<tr>
+<td align="left"><code class="codehilite">igl::floor</code></td>
+<td align="left">Round entries down to nearest integer</td>
+</tr>
+<tr>
+<td align="left"><code class="codehilite">igl::histc</code></td>
+<td align="left">Counting occurrences for building a histogram</td>
+</tr>
+<tr>
+<td align="left"><code class="codehilite">igl::hsv_to_rgb</code></td>
+<td align="left">Convert HSV colors to RGB (cf. Matlab's <code class="codehilite">hsv2rgb</code>)</td>
+</tr>
+<tr>
+<td align="left"><code class="codehilite">igl::intersect</code></td>
+<td align="left">Set intersection of matrix elements.</td>
+</tr>
+<tr>
+<td align="left"><code class="codehilite">igl::isdiag</code></td>
+<td align="left">Determine whether matrix is diagonal</td>
+</tr>
+<tr>
+<td align="left"><code class="codehilite">igl::ismember</code></td>
+<td align="left">Determine whether elements in A occur in B</td>
+</tr>
+<tr>
+<td align="left"><code class="codehilite">igl::jet</code></td>
+<td align="left">Quantized colors along the rainbow.</td>
+</tr>
+<tr>
+<td align="left"><code class="codehilite">igl::max</code></td>
+<td align="left">Compute maximum entry per row or column</td>
+</tr>
+<tr>
+<td align="left"><code class="codehilite">igl::median</code></td>
+<td align="left">Compute the median per column</td>
+</tr>
+<tr>
+<td align="left"><code class="codehilite">igl::min</code></td>
+<td align="left">Compute minimum entry per row or column</td>
+</tr>
+<tr>
+<td align="left"><code class="codehilite">igl::mod</code></td>
+<td align="left">Compute per element modulo</td>
+</tr>
+<tr>
+<td align="left"><code class="codehilite">igl::mode</code></td>
+<td align="left">Compute the mode per column</td>
+</tr>
+<tr>
+<td align="left"><code class="codehilite">igl::null</code></td>
+<td align="left">Compute the null space basis of a matrix</td>
+</tr>
+<tr>
+<td align="left"><code class="codehilite">igl::nchoosek</code></td>
+<td align="left">Compute all k-size combinations of n-long vector</td>
+</tr>
+<tr>
+<td align="left"><code class="codehilite">igl::orth</code></td>
+<td align="left">Orthogonalization of a basis</td>
+</tr>
+<tr>
+<td align="left"><code class="codehilite">igl::parula</code></td>
+<td align="left">Generate a quantized colormap from blue to yellow</td>
+</tr>
+<tr>
+<td align="left"><code class="codehilite">igl::pinv</code></td>
+<td align="left">Compute Moore-Penrose pseudoinverse</td>
+</tr>
+<tr>
+<td align="left"><code class="codehilite">igl::randperm</code></td>
+<td align="left">Generate a random permutation of [0,...,n-1]</td>
+</tr>
+<tr>
+<td align="left"><code class="codehilite">igl::rgb_to_hsv</code></td>
+<td align="left">Convert RGB colors to HSV (cf. Matlab's <code class="codehilite">rgb2hsv</code>)</td>
+</tr>
+<tr>
+<td align="left"><code class="codehilite">igl::repmat</code></td>
+<td align="left">Repeat a matrix along columns and rows</td>
+</tr>
+<tr>
+<td align="left"><code class="codehilite">igl::round</code></td>
+<td align="left">Per-element round to whole number</td>
+</tr>
+<tr>
+<td align="left"><code class="codehilite">igl::setdiff</code></td>
+<td align="left">Set difference of matrix elements</td>
+</tr>
+<tr>
+<td align="left"><code class="codehilite">igl::setunion</code></td>
+<td align="left">Set union of matrix elements</td>
+</tr>
+<tr>
+<td align="left"><code class="codehilite">igl::setxor</code></td>
+<td align="left">Set exclusive "or" of matrix elements</td>
+</tr>
+<tr>
+<td align="left"><code class="codehilite">igl::slice</code></td>
+<td align="left">Slice parts of matrix using index lists: (cf. Matlab's <code class="codehilite">B = A(I,J)</code>)</td>
+</tr>
+<tr>
+<td align="left"><code class="codehilite">igl::slice_mask</code></td>
+<td align="left">Slice parts of matrix using boolean masks: (cf. Matlab's <code class="codehilite">B = A(M,N)</code>)</td>
+</tr>
+<tr>
+<td align="left"><code class="codehilite">igl::slice_into</code></td>
+<td align="left">Slice left-hand side of matrix assignment using index lists (cf. Matlab's <code class="codehilite">B(I,J) = A</code>)</td>
+</tr>
+<tr>
+<td align="left"><code class="codehilite">igl::sort</code></td>
+<td align="left">Sort elements or rows of matrix</td>
+</tr>
+<tr>
+<td align="left"><code class="codehilite">igl::speye</code></td>
+<td align="left">Identity as sparse matrix</td>
+</tr>
+<tr>
+<td align="left"><code class="codehilite">igl::sum</code></td>
+<td align="left">Sum along columns or rows (of sparse matrix)</td>
+</tr>
+<tr>
+<td align="left"><code class="codehilite">igl::unique</code></td>
+<td align="left">Extract unique elements or rows of matrix</td>
+</tr>
+</tbody>
+</table>
+<h2 id="laplace-equation">Laplace equation<a class="headerlink" href="#laplace-equation" title="Permanent link">&para;</a></h2>
+<p>A common linear system in geometry processing is the Laplace equation:</p>
+<p><span><span class="MathJax_Preview">∆z = 0</span><script type="math/tex">∆z = 0</script></span></p>
+<p>subject to some boundary conditions, for example Dirichlet boundary conditions
+(fixed value):</p>
+<p><span><span class="MathJax_Preview">\left.z\right|_{\partial{S}} = z_{bc}</span><script type="math/tex">\left.z\right|_{\partial{S}} = z_{bc}</script></span></p>
+<p>In the discrete setting, the linear system can be written as:</p>
+<p><span><span class="MathJax_Preview">\mathbf{L} \mathbf{z} = \mathbf{0}</span><script type="math/tex">\mathbf{L} \mathbf{z} = \mathbf{0}</script></span></p>
+<p>where <span><span class="MathJax_Preview">\mathbf{L}</span><script type="math/tex">\mathbf{L}</script></span> is the <span><span class="MathJax_Preview">n \times n</span><script type="math/tex">n \times n</script></span> discrete Laplacian and <span><span class="MathJax_Preview">\mathbf{z}</span><script type="math/tex">\mathbf{z}</script></span> is a
+vector of per-vertex values. Most of <span><span class="MathJax_Preview">\mathbf{z}</span><script type="math/tex">\mathbf{z}</script></span> correspond to interior
+vertices and are unknown, but some of <span><span class="MathJax_Preview">\mathbf{z}</span><script type="math/tex">\mathbf{z}</script></span> represent values at boundary
+vertices. Their values are known so we may move their corresponding terms to
+the right-hand side.</p>
+<p>Conceptually, this is very easy if we have sorted <span><span class="MathJax_Preview">\mathbf{z}</span><script type="math/tex">\mathbf{z}</script></span> so that interior
+vertices come first and then boundary vertices:</p>
+<p><span><span class="MathJax_Preview"><span><span class="MathJax_Preview">\left(\begin{array}{cc}
+ \mathbf{L}_{in,in} &amp; \mathbf{L}_{in,b}\\
+ \mathbf{L}_{b,in} &amp; \mathbf{L}_{b,b}\end{array}\right)
+ \left(\begin{array}{c}
+ \mathbf{z}_{in}\\
+ \mathbf{z}_{b}\end{array}\right) =
+ \left(\begin{array}{c}
+ \mathbf{0}_{in}\\
+ \mathbf{z}_{bc}\end{array}\right)</span><script type="math/tex">\left(\begin{array}{cc}
+ \mathbf{L}_{in,in} & \mathbf{L}_{in,b}\\
+ \mathbf{L}_{b,in} & \mathbf{L}_{b,b}\end{array}\right)
+ \left(\begin{array}{c}
+ \mathbf{z}_{in}\\
+ \mathbf{z}_{b}\end{array}\right) =
+ \left(\begin{array}{c}
+ \mathbf{0}_{in}\\
+ \mathbf{z}_{bc}\end{array}\right)</script></span></span><script type="math/tex"><span><span class="MathJax_Preview">\left(\begin{array}{cc}
+ \mathbf{L}_{in,in} &amp; \mathbf{L}_{in,b}\\
+ \mathbf{L}_{b,in} &amp; \mathbf{L}_{b,b}\end{array}\right)
+ \left(\begin{array}{c}
+ \mathbf{z}_{in}\\
+ \mathbf{z}_{b}\end{array}\right) =
+ \left(\begin{array}{c}
+ \mathbf{0}_{in}\\
+ \mathbf{z}_{bc}\end{array}\right)</span><script type="math/tex">\left(\begin{array}{cc}
+ \mathbf{L}_{in,in} & \mathbf{L}_{in,b}\\
+ \mathbf{L}_{b,in} & \mathbf{L}_{b,b}\end{array}\right)
+ \left(\begin{array}{c}
+ \mathbf{z}_{in}\\
+ \mathbf{z}_{b}\end{array}\right) =
+ \left(\begin{array}{c}
+ \mathbf{0}_{in}\\
+ \mathbf{z}_{bc}\end{array}\right)</script></span></script></span></p>
+<p>The bottom block of equations is no longer meaningful so we'll only consider
+the top block:</p>
+<p><span><span class="MathJax_Preview"><span><span class="MathJax_Preview">\left(\begin{array}{cc}
+ \mathbf{L}_{in,in} &amp; \mathbf{L}_{in,b}\end{array}\right)
+ \left(\begin{array}{c}
+ \mathbf{z}_{in}\\
+ \mathbf{z}_{b}\end{array}\right) =
+ \mathbf{0}_{in}</span><script type="math/tex">\left(\begin{array}{cc}
+ \mathbf{L}_{in,in} & \mathbf{L}_{in,b}\end{array}\right)
+ \left(\begin{array}{c}
+ \mathbf{z}_{in}\\
+ \mathbf{z}_{b}\end{array}\right) =
+ \mathbf{0}_{in}</script></span></span><script type="math/tex"><span><span class="MathJax_Preview">\left(\begin{array}{cc}
+ \mathbf{L}_{in,in} &amp; \mathbf{L}_{in,b}\end{array}\right)
+ \left(\begin{array}{c}
+ \mathbf{z}_{in}\\
+ \mathbf{z}_{b}\end{array}\right) =
+ \mathbf{0}_{in}</span><script type="math/tex">\left(\begin{array}{cc}
+ \mathbf{L}_{in,in} & \mathbf{L}_{in,b}\end{array}\right)
+ \left(\begin{array}{c}
+ \mathbf{z}_{in}\\
+ \mathbf{z}_{b}\end{array}\right) =
+ \mathbf{0}_{in}</script></span></script></span></p>
+<p>We can move the known values to the right-hand side:</p>
+<p><span><span class="MathJax_Preview"><span><span class="MathJax_Preview">\mathbf{L}_{in,in}
+ \mathbf{z}_{in} = -
+ \mathbf{L}_{in,b}
+ \mathbf{z}_{b}</span><script type="math/tex">\mathbf{L}_{in,in}
+ \mathbf{z}_{in} = -
+ \mathbf{L}_{in,b}
+ \mathbf{z}_{b}</script></span></span><script type="math/tex"><span><span class="MathJax_Preview">\mathbf{L}_{in,in}
+ \mathbf{z}_{in} = -
+ \mathbf{L}_{in,b}
+ \mathbf{z}_{b}</span><script type="math/tex">\mathbf{L}_{in,in}
+ \mathbf{z}_{in} = -
+ \mathbf{L}_{in,b}
+ \mathbf{z}_{b}</script></span></script></span></p>
+<p>Finally we can solve this equation for the unknown values at interior vertices
+<span><span class="MathJax_Preview">\mathbf{z}_{in}</span><script type="math/tex">\mathbf{z}_{in}</script></span>.</p>
+<p>However, our vertices will often not be sorted in this way. One option would be to sort <code class="codehilite">V</code>,
+then proceed as above and then <em>unsort</em> the solution <code class="codehilite">Z</code> to match <code class="codehilite">V</code>. However,
+this solution is not very general.</p>
+<p>With array slicing no explicit sort is needed. Instead we can <em>slice-out</em>
+submatrix blocks (<span><span class="MathJax_Preview">\mathbf{L}_{in,in}</span><script type="math/tex">\mathbf{L}_{in,in}</script></span>, <span><span class="MathJax_Preview">\mathbf{L}_{in,b}</span><script type="math/tex">\mathbf{L}_{in,b}</script></span>, etc.) and follow
+the linear algebra above directly. Then we can slice the solution <em>into</em> the
+rows of <code class="codehilite">Z</code> corresponding to the interior vertices (<a href="../303_LaplaceEquation/main.cpp">Example 303</a>).</p>
+<p><img alt="The LaplaceEquation example solves a Laplace equation with Dirichlet
+boundary conditions." src="../images/camelhead-laplace-equation.jpg" /></p>
+<h3 id="quadratic-energy-minimization">Quadratic energy minimization<a class="headerlink" href="#quadratic-energy-minimization" title="Permanent link">&para;</a></h3>
+<p>The same Laplace equation may be equivalently derived by minimizing Dirichlet
+energy subject to the same boundary conditions:</p>
+<p><span><span class="MathJax_Preview">\mathop{\text{minimize }}_z \frac{1}{2}\int\limits_S \|\nabla z\|^2 dA</span><script type="math/tex">\mathop{\text{minimize }}_z \frac{1}{2}\int\limits_S \|\nabla z\|^2 dA</script></span></p>
+<p>On our discrete mesh, recall that this becomes</p>
+<p><span><span class="MathJax_Preview">\mathop{\text{minimize }}_\mathbf{z}  \frac{1}{2}\mathbf{z}^T \mathbf{G}^T \mathbf{D}
+ \mathbf{G} \mathbf{z} \rightarrow \mathop{\text{minimize }}_\mathbf{z} \mathbf{z}^T \mathbf{L} \mathbf{z}</span><script type="math/tex">\mathop{\text{minimize }}_\mathbf{z}  \frac{1}{2}\mathbf{z}^T \mathbf{G}^T \mathbf{D}
+ \mathbf{G} \mathbf{z} \rightarrow \mathop{\text{minimize }}_\mathbf{z} \mathbf{z}^T \mathbf{L} \mathbf{z}</script></span></p>
+<p>The general problem of minimizing some energy over a mesh subject to fixed
+value boundary conditions is so wide spread that libigl has a dedicated api for
+solving such systems.</p>
+<p>Let us consider a general quadratic minimization problem subject to different
+common constraints:</p>
+<p><span><span class="MathJax_Preview"><span><span class="MathJax_Preview">\mathop{\text{minimize }}_\mathbf{z}  \frac{1}{2}\mathbf{z}^T \mathbf{Q} \mathbf{z} +
+ \mathbf{z}^T \mathbf{B} + \text{constant},</span><script type="math/tex">\mathop{\text{minimize }}_\mathbf{z}  \frac{1}{2}\mathbf{z}^T \mathbf{Q} \mathbf{z} +
+ \mathbf{z}^T \mathbf{B} + \text{constant},</script></span></span><script type="math/tex"><span><span class="MathJax_Preview">\mathop{\text{minimize }}_\mathbf{z}  \frac{1}{2}\mathbf{z}^T \mathbf{Q} \mathbf{z} +
+ \mathbf{z}^T \mathbf{B} + \text{constant},</span><script type="math/tex">\mathop{\text{minimize }}_\mathbf{z}  \frac{1}{2}\mathbf{z}^T \mathbf{Q} \mathbf{z} +
+ \mathbf{z}^T \mathbf{B} + \text{constant},</script></span></script></span></p>
+<p>subject to</p>
+<p><span><span class="MathJax_Preview"><span><span class="MathJax_Preview">\mathbf{z}_b = \mathbf{z}_{bc} \text{ and } \mathbf{A}_{eq} \mathbf{z} =
+ \mathbf{B}_{eq},</span><script type="math/tex">\mathbf{z}_b = \mathbf{z}_{bc} \text{ and } \mathbf{A}_{eq} \mathbf{z} =
+ \mathbf{B}_{eq},</script></span></span><script type="math/tex"><span><span class="MathJax_Preview">\mathbf{z}_b = \mathbf{z}_{bc} \text{ and } \mathbf{A}_{eq} \mathbf{z} =
+ \mathbf{B}_{eq},</span><script type="math/tex">\mathbf{z}_b = \mathbf{z}_{bc} \text{ and } \mathbf{A}_{eq} \mathbf{z} =
+ \mathbf{B}_{eq},</script></span></script></span></p>
+<p>where</p>
+<ul>
+<li><span><span class="MathJax_Preview">\mathbf{Q}</span><script type="math/tex">\mathbf{Q}</script></span> is a (usually sparse) <span><span class="MathJax_Preview">n \times n</span><script type="math/tex">n \times n</script></span> positive semi-definite
+    matrix of quadratic coefficients (Hessian),</li>
+<li><span><span class="MathJax_Preview">\mathbf{B}</span><script type="math/tex">\mathbf{B}</script></span> is a <span><span class="MathJax_Preview">n \times 1</span><script type="math/tex">n \times 1</script></span> vector of linear coefficients,</li>
+<li><span><span class="MathJax_Preview">\mathbf{z}_b</span><script type="math/tex">\mathbf{z}_b</script></span> is a <span><span class="MathJax_Preview">|b| \times 1</span><script type="math/tex">|b| \times 1</script></span> portion of
+<span><span class="MathJax_Preview">\mathbf{z}</span><script type="math/tex">\mathbf{z}</script></span> corresponding to boundary or <em>fixed</em> vertices,</li>
+<li><span><span class="MathJax_Preview">\mathbf{z}_{bc}</span><script type="math/tex">\mathbf{z}_{bc}</script></span> is a <span><span class="MathJax_Preview">|b| \times 1</span><script type="math/tex">|b| \times 1</script></span> vector of known values corresponding to
+    <span><span class="MathJax_Preview">\mathbf{z}_b</span><script type="math/tex">\mathbf{z}_b</script></span>,</li>
+<li><span><span class="MathJax_Preview">\mathbf{A}_{eq}</span><script type="math/tex">\mathbf{A}_{eq}</script></span> is a (usually sparse) <span><span class="MathJax_Preview">m \times n</span><script type="math/tex">m \times n</script></span> matrix of linear
+    equality constraint coefficients (one row per constraint), and</li>
+<li><span><span class="MathJax_Preview">\mathbf{B}_{eq}</span><script type="math/tex">\mathbf{B}_{eq}</script></span> is a <span><span class="MathJax_Preview">m \times 1</span><script type="math/tex">m \times 1</script></span> vector of linear equality constraint
+    right-hand side values.</li>
+</ul>
+<p>This specification is overly general as we could write <span><span class="MathJax_Preview">\mathbf{z}_b =
+\mathbf{z}_{bc}</span><script type="math/tex">\mathbf{z}_b =
+\mathbf{z}_{bc}</script></span> as rows of <span><span class="MathJax_Preview">\mathbf{A}_{eq} \mathbf{z} =
+\mathbf{B}_{eq}</span><script type="math/tex">\mathbf{A}_{eq} \mathbf{z} =
+\mathbf{B}_{eq}</script></span>, but these fixed value constraints appear so often that they
+merit a dedicated place in the API.</p>
+<p>In libigl, solving such quadratic optimization problems is split into two
+routines: precomputation and solve. Precomputation only depends on the
+quadratic coefficients, known value indices and linear constraint coefficients:</p>
+<div class="codehilite"><pre><span></span><span class="n">igl</span><span class="o">::</span><span class="n">min_quad_with_fixed_data</span> <span class="n">mqwf</span><span class="p">;</span>
+<span class="n">igl</span><span class="o">::</span><span class="n">min_quad_with_fixed_precompute</span><span class="p">(</span><span class="n">Q</span><span class="p">,</span><span class="n">b</span><span class="p">,</span><span class="n">Aeq</span><span class="p">,</span><span class="nb">true</span><span class="p">,</span><span class="n">mqwf</span><span class="p">);</span>
+</pre></div>
+
+<p>The output is a struct <code class="codehilite">mqwf</code> which contains the system matrix factorization
+and is used during solving with arbitrary linear terms, known values, and
+constraint in the right-hand sides:</p>
+<div class="codehilite"><pre><span></span><span class="n">igl</span><span class="o">::</span><span class="n">min_quad_with_fixed_solve</span><span class="p">(</span><span class="n">mqwf</span><span class="p">,</span><span class="n">B</span><span class="p">,</span><span class="n">bc</span><span class="p">,</span><span class="n">Beq</span><span class="p">,</span><span class="n">Z</span><span class="p">);</span>
+</pre></div>
+
+<p>The output <code class="codehilite">Z</code> is a <span><span class="MathJax_Preview">n \times 1</span><script type="math/tex">n \times 1</script></span> vector of solutions with fixed values
+correctly placed to match the mesh vertices <code class="codehilite">V</code>.</p>
+<h2 id="linear-equality-constraints">Linear equality constraints<a class="headerlink" href="#linear-equality-constraints" title="Permanent link">&para;</a></h2>
+<p>We saw above that <code class="codehilite">min_quad_with_fixed_*</code> in libigl provides a compact way to
+solve general quadratic programs. Let's consider another example, this time
+with active linear equality constraints. Specifically let's solve the
+<code class="codehilite">bi-Laplace equation</code> or equivalently minimize the Laplace energy:</p>
+<p><span><span class="MathJax_Preview"><span><span class="MathJax_Preview">\Delta^2 z = 0 \leftrightarrow \mathop{\text{minimize }}\limits_z \frac{1}{2}
+ \int\limits_S (\Delta z)^2 dA</span><script type="math/tex">\Delta^2 z = 0 \leftrightarrow \mathop{\text{minimize }}\limits_z \frac{1}{2}
+ \int\limits_S (\Delta z)^2 dA</script></span></span><script type="math/tex"><span><span class="MathJax_Preview">\Delta^2 z = 0 \leftrightarrow \mathop{\text{minimize }}\limits_z \frac{1}{2}
+ \int\limits_S (\Delta z)^2 dA</span><script type="math/tex">\Delta^2 z = 0 \leftrightarrow \mathop{\text{minimize }}\limits_z \frac{1}{2}
+ \int\limits_S (\Delta z)^2 dA</script></span></script></span></p>
+<p>subject to fixed value constraints and a linear equality constraint:</p>
+<p><span><span class="MathJax_Preview">z_{a} = 1, z_{b} = -1</span><script type="math/tex">z_{a} = 1, z_{b} = -1</script></span> and <span><span class="MathJax_Preview">z_{c} = z_{d}</span><script type="math/tex">z_{c} = z_{d}</script></span>.</p>
+<p>Notice that we can rewrite the last constraint in the familiar form from above:</p>
+<p><span><span class="MathJax_Preview">z_{c} - z_{d} = 0.</span><script type="math/tex">z_{c} - z_{d} = 0.</script></span></p>
+<p>Now we can assembly <code class="codehilite">Aeq</code> as a <span><span class="MathJax_Preview">1 \times n</span><script type="math/tex">1 \times n</script></span> sparse matrix with a coefficient
+<span><span class="MathJax_Preview">1</span><script type="math/tex">1</script></span> in the column corresponding to vertex <span><span class="MathJax_Preview">c</span><script type="math/tex">c</script></span> and a <span><span class="MathJax_Preview">-1</span><script type="math/tex">-1</script></span> at <span><span class="MathJax_Preview">d</span><script type="math/tex">d</script></span>. The right-hand
+side <code class="codehilite">Beq</code> is simply zero.</p>
+<p>Internally, <code class="codehilite">min_quad_with_fixed_*</code> solves using the Lagrange Multiplier
+method. This method adds additional variables for each linear constraint (in
+general a <span><span class="MathJax_Preview">m \times 1</span><script type="math/tex">m \times 1</script></span> vector of variables <span><span class="MathJax_Preview">\lambda</span><script type="math/tex">\lambda</script></span>) and then solves the
+saddle problem:</p>
+<p><span><span class="MathJax_Preview"><span><span class="MathJax_Preview">\mathop{\text{find saddle }}_{\mathbf{z},\lambda}\, \frac{1}{2}\mathbf{z}^T \mathbf{Q} \mathbf{z} +
+  \mathbf{z}^T \mathbf{B} + \text{constant} + \lambda^T\left(\mathbf{A}_{eq}
+ \mathbf{z} - \mathbf{B}_{eq}\right)</span><script type="math/tex">\mathop{\text{find saddle }}_{\mathbf{z},\lambda}\, \frac{1}{2}\mathbf{z}^T \mathbf{Q} \mathbf{z} +
+  \mathbf{z}^T \mathbf{B} + \text{constant} + \lambda^T\left(\mathbf{A}_{eq}
+ \mathbf{z} - \mathbf{B}_{eq}\right)</script></span></span><script type="math/tex"><span><span class="MathJax_Preview">\mathop{\text{find saddle }}_{\mathbf{z},\lambda}\, \frac{1}{2}\mathbf{z}^T \mathbf{Q} \mathbf{z} +
+  \mathbf{z}^T \mathbf{B} + \text{constant} + \lambda^T\left(\mathbf{A}_{eq}
+ \mathbf{z} - \mathbf{B}_{eq}\right)</span><script type="math/tex">\mathop{\text{find saddle }}_{\mathbf{z},\lambda}\, \frac{1}{2}\mathbf{z}^T \mathbf{Q} \mathbf{z} +
+  \mathbf{z}^T \mathbf{B} + \text{constant} + \lambda^T\left(\mathbf{A}_{eq}
+ \mathbf{z} - \mathbf{B}_{eq}\right)</script></span></script></span></p>
+<p>This can be rewritten in a more familiar form by stacking <span><span class="MathJax_Preview">\mathbf{z}</span><script type="math/tex">\mathbf{z}</script></span> and
+<span><span class="MathJax_Preview">\lambda</span><script type="math/tex">\lambda</script></span> into one <span><span class="MathJax_Preview">(m+n) \times 1</span><script type="math/tex">(m+n) \times 1</script></span> vector of unknowns:</p>
+<p><span><span class="MathJax_Preview"><span><span class="MathJax_Preview">\mathop{\text{find saddle }}_{\mathbf{z},\lambda}\,
+ \frac{1}{2}
+ \left(
+  \mathbf{z}^T
+  \lambda^T
+ \right)
+ \left(
+  \begin{array}{cc}
+  \mathbf{Q}      &amp; \mathbf{A}_{eq}^T\\
+  \mathbf{A}_{eq} &amp; 0
+  \end{array}
+ \right)
+ \left(
+  \begin{array}{c}
+  \mathbf{z}\\
+  \lambda
+  \end{array}
+ \right) +
+ \left(
+  \mathbf{z}^T
+  \lambda^T
+ \right)
+ \left(
+  \begin{array}{c}
+  \mathbf{B}\\
+  -\mathbf{B}_{eq}
+  \end{array}
+  \right)
+  + \text{constant}</span><script type="math/tex">\mathop{\text{find saddle }}_{\mathbf{z},\lambda}\,
+ \frac{1}{2}
+ \left(
+  \mathbf{z}^T
+  \lambda^T
+ \right)
+ \left(
+  \begin{array}{cc}
+  \mathbf{Q}      & \mathbf{A}_{eq}^T\\
+  \mathbf{A}_{eq} & 0
+  \end{array}
+ \right)
+ \left(
+  \begin{array}{c}
+  \mathbf{z}\\
+  \lambda
+  \end{array}
+ \right) +
+ \left(
+  \mathbf{z}^T
+  \lambda^T
+ \right)
+ \left(
+  \begin{array}{c}
+  \mathbf{B}\\
+  -\mathbf{B}_{eq}
+  \end{array}
+  \right)
+  + \text{constant}</script></span></span><script type="math/tex"><span><span class="MathJax_Preview">\mathop{\text{find saddle }}_{\mathbf{z},\lambda}\,
+ \frac{1}{2}
+ \left(
+  \mathbf{z}^T
+  \lambda^T
+ \right)
+ \left(
+  \begin{array}{cc}
+  \mathbf{Q}      &amp; \mathbf{A}_{eq}^T\\
+  \mathbf{A}_{eq} &amp; 0
+  \end{array}
+ \right)
+ \left(
+  \begin{array}{c}
+  \mathbf{z}\\
+  \lambda
+  \end{array}
+ \right) +
+ \left(
+  \mathbf{z}^T
+  \lambda^T
+ \right)
+ \left(
+  \begin{array}{c}
+  \mathbf{B}\\
+  -\mathbf{B}_{eq}
+  \end{array}
+  \right)
+  + \text{constant}</span><script type="math/tex">\mathop{\text{find saddle }}_{\mathbf{z},\lambda}\,
+ \frac{1}{2}
+ \left(
+  \mathbf{z}^T
+  \lambda^T
+ \right)
+ \left(
+  \begin{array}{cc}
+  \mathbf{Q}      & \mathbf{A}_{eq}^T\\
+  \mathbf{A}_{eq} & 0
+  \end{array}
+ \right)
+ \left(
+  \begin{array}{c}
+  \mathbf{z}\\
+  \lambda
+  \end{array}
+ \right) +
+ \left(
+  \mathbf{z}^T
+  \lambda^T
+ \right)
+ \left(
+  \begin{array}{c}
+  \mathbf{B}\\
+  -\mathbf{B}_{eq}
+  \end{array}
+  \right)
+  + \text{constant}</script></span></script></span></p>
+<p>Differentiating with respect to <span><span class="MathJax_Preview">\left( \mathbf{z}^T \lambda^T \right)</span><script type="math/tex">\left( \mathbf{z}^T \lambda^T \right)</script></span> reveals
+a linear system and we can solve for <span><span class="MathJax_Preview">\mathbf{z}</span><script type="math/tex">\mathbf{z}</script></span> and <span><span class="MathJax_Preview">\lambda</span><script type="math/tex">\lambda</script></span>. The only
+difference from the straight quadratic <em>minimization</em> system, is that this
+saddle problem system will not be positive definite. Thus, we must use a
+different factorization technique (LDLT rather than LLT): libigl's
+<code class="codehilite">min_quad_with_fixed_precompute</code> automatically chooses the correct solver in
+the presence of linear equality constraints (<a href="../304_LinearEqualityConstraints/main.cpp">Example 304</a>).</p>
+<p><img alt="The example LinearEqualityConstraints first solves with just fixed value
+constraints (left: 1 and -1 on the left hand and foot respectively), then
+solves with an additional linear equality constraint (right: points on right
+hand and foot constrained to be equal)." src="../images/cheburashka-biharmonic-leq.jpg" /></p>
+<h2 id="quadratic-programming">Quadratic programming<a class="headerlink" href="#quadratic-programming" title="Permanent link">&para;</a></h2>
+<p>We can generalize the quadratic optimization in the previous section even more
+by allowing inequality constraints. Specifically box constraints (lower and
+upper bounds):</p>
+<p><span><span class="MathJax_Preview">\mathbf{l} \le \mathbf{z} \le \mathbf{u},</span><script type="math/tex">\mathbf{l} \le \mathbf{z} \le \mathbf{u},</script></span></p>
+<p>where <span><span class="MathJax_Preview">\mathbf{l},\mathbf{u}</span><script type="math/tex">\mathbf{l},\mathbf{u}</script></span> are <span><span class="MathJax_Preview">n \times 1</span><script type="math/tex">n \times 1</script></span> vectors of lower and upper
+bounds
+and general linear inequality constraints:</p>
+<p><span><span class="MathJax_Preview">\mathbf{A}_{ieq} \mathbf{z} \le \mathbf{B}_{ieq},</span><script type="math/tex">\mathbf{A}_{ieq} \mathbf{z} \le \mathbf{B}_{ieq},</script></span></p>
+<p>where <span><span class="MathJax_Preview">\mathbf{A}_{ieq}</span><script type="math/tex">\mathbf{A}_{ieq}</script></span> is a <span><span class="MathJax_Preview">k \times n</span><script type="math/tex">k \times n</script></span> matrix of linear coefficients and
+<span><span class="MathJax_Preview">\mathbf{B}_{ieq}</span><script type="math/tex">\mathbf{B}_{ieq}</script></span> is a <span><span class="MathJax_Preview">k \times 1</span><script type="math/tex">k \times 1</script></span> matrix of constraint right-hand sides.</p>
+<p>Again, we are overly general as the box constraints could be written as
+rows of the linear inequality constraints, but bounds appear frequently enough
+to merit a dedicated api.</p>
+<p>Libigl implements its own active set routine for solving <em>quadratric programs</em>
+(QPs). This algorithm works by iteratively "activating" violated inequality
+constraints by enforcing them as equalities and "deactivating" constraints
+which are no longer needed.</p>
+<p>After deciding which constraints are active at each iteration, the problem
+reduces to a quadratic minimization subject to linear <em>equality</em> constraints,
+and the method from the previous section is invoked. This is repeated until convergence.</p>
+<p>Currently the implementation is efficient for box constraints and sparse
+non-overlapping linear inequality constraints.</p>
+<p>Unlike alternative interior-point methods, the active set method benefits from
+a warm-start (initial guess for the solution vector <span><span class="MathJax_Preview">\mathbf{z}</span><script type="math/tex">\mathbf{z}</script></span>).</p>
+<div class="codehilite"><pre><span></span><span class="n">igl</span><span class="o">::</span><span class="n">active_set_params</span> <span class="n">as</span><span class="p">;</span>
+<span class="c1">// Z is optional initial guess and output</span>
+<span class="n">igl</span><span class="o">::</span><span class="n">active_set</span><span class="p">(</span><span class="n">Q</span><span class="p">,</span><span class="n">B</span><span class="p">,</span><span class="n">b</span><span class="p">,</span><span class="n">bc</span><span class="p">,</span><span class="n">Aeq</span><span class="p">,</span><span class="n">Beq</span><span class="p">,</span><span class="n">Aieq</span><span class="p">,</span><span class="n">Bieq</span><span class="p">,</span><span class="n">lx</span><span class="p">,</span><span class="n">ux</span><span class="p">,</span><span class="n">as</span><span class="p">,</span><span class="n">Z</span><span class="p">);</span>
+</pre></div>
+
+<p><img alt=" Example 305 uses an active set solver to optimize
+discrete biharmonic kernels [#rustamov_2011][] at multiple scales
+." src="../images/cheburashka-multiscale-biharmonic-kernels.jpg" /></p>
+<h2 id="eigen-decomposition">Eigen Decomposition<a class="headerlink" href="#eigen-decomposition" title="Permanent link">&para;</a></h2>
+<p>Libigl has rudimentary support for extracting eigen pairs of a generalized
+eigen value problem:</p>
+<p><span><span class="MathJax_Preview">Ax = \lambda B x</span><script type="math/tex">Ax = \lambda B x</script></span></p>
+<p>where <span><span class="MathJax_Preview">A</span><script type="math/tex">A</script></span> is a sparse symmetric matrix and <span><span class="MathJax_Preview">B</span><script type="math/tex">B</script></span> is a sparse positive definite
+matrix. Most commonly in geometry processing, we let <span><span class="MathJax_Preview">A=L</span><script type="math/tex">A=L</script></span> the cotangent
+Laplacian and <span><span class="MathJax_Preview">B=M</span><script type="math/tex">B=M</script></span> the per-vertex mass matrix (e.g. [#vallet_2008][]).
+Typically applications will make use of the <em>low frequency</em> eigen modes.
+Analogous to the Fourier decomposition, a function <span><span class="MathJax_Preview">f</span><script type="math/tex">f</script></span> on a surface can be
+represented via its spectral decomposition of the eigen modes of the
+Laplace-Beltrami:</p>
+<p><span><span class="MathJax_Preview">f = \sum\limits_{i=1}^\infty a_i \phi_i</span><script type="math/tex">f = \sum\limits_{i=1}^\infty a_i \phi_i</script></span></p>
+<p>where each <span><span class="MathJax_Preview">\phi_i</span><script type="math/tex">\phi_i</script></span> is an eigen function satisfying: <span><span class="MathJax_Preview">\Delta \phi_i = \lambda_i
+\phi_i</span><script type="math/tex">\Delta \phi_i = \lambda_i
+\phi_i</script></span> and <span><span class="MathJax_Preview">a_i</span><script type="math/tex">a_i</script></span> are scalar coefficients. For a discrete triangle mesh, a
+completely analogous decomposition exists, albeit with finite sum:</p>
+<p><span><span class="MathJax_Preview">\mathbf{f} = \sum\limits_{i=1}^n a_i \phi_i</span><script type="math/tex">\mathbf{f} = \sum\limits_{i=1}^n a_i \phi_i</script></span></p>
+<p>where now a column vector of values at vertices <span><span class="MathJax_Preview">\mathbf{f} \in \mathcal{R}^n</span><script type="math/tex">\mathbf{f} \in \mathcal{R}^n</script></span>
+specifies a piecewise linear function and <span><span class="MathJax_Preview">\phi_i \in \mathcal{R}^n</span><script type="math/tex">\phi_i \in \mathcal{R}^n</script></span> is an
+eigen vector satisfying:</p>
+<p><span><span class="MathJax_Preview">\mathbf{L} \phi_i = \lambda_i \mathbf{M} \phi_i</span><script type="math/tex">\mathbf{L} \phi_i = \lambda_i \mathbf{M} \phi_i</script></span>.</p>
+<p>Note that Vallet &amp; Levy [#vallet_2008][] propose solving a symmetrized
+<em>standard</em> eigen problem <span><span class="MathJax_Preview">\mathbf{M}^{-1/2}\mathbf{L}\mathbf{M}^{-1/2} \phi_i
+= \lambda_i \phi_i</span><script type="math/tex">\mathbf{M}^{-1/2}\mathbf{L}\mathbf{M}^{-1/2} \phi_i
+= \lambda_i \phi_i</script></span>. Libigl implements a generalized eigen problem solver so
+this unnecessary symmetrization can be avoided.</p>
+<p>Often the sum above is <em>truncated</em> to the first <span><span class="MathJax_Preview">k</span><script type="math/tex">k</script></span> eigen vectors. If the low
+frequency modes are chosen, i.e. those corresponding to small <span><span class="MathJax_Preview">\lambda_i</span><script type="math/tex">\lambda_i</script></span>
+values, then this truncation effectively <em>regularizes</em> <span><span class="MathJax_Preview">\mathbf{f}</span><script type="math/tex">\mathbf{f}</script></span> to smooth,
+slowly changing functions over the mesh (e.g. [#hildebrandt_2011][]). Modal
+analysis and model subspaces have been used frequently in real-time deformation
+(e.g. [#barbic_2005][]).</p>
+<p>In <a href="../306_EigenDecomposition/main.cpp">Example 306</a>), the first 5 eigen vectors
+of the discrete Laplace-Beltrami operator are computed and displayed in
+pseudo-color atop the beetle. Eigen vectors are computed using <code class="codehilite">igl::eigs</code>
+(mirroring MATLAB's <code class="codehilite">eigs</code>). The 5 eigen vectors are placed into the columns
+of <code class="codehilite">U</code> and the eigen values are placed into the entries of <code class="codehilite">S</code>:</p>
+<div class="codehilite"><pre><span></span><span class="n">SparseMatrix</span><span class="o">&lt;</span><span class="kt">double</span><span class="o">&gt;</span> <span class="n">L</span><span class="p">,</span><span class="n">M</span><span class="p">;</span>
+<span class="n">igl</span><span class="o">::</span><span class="n">cotmatrix</span><span class="p">(</span><span class="n">V</span><span class="p">,</span><span class="n">F</span><span class="p">,</span><span class="n">L</span><span class="p">);</span>
+<span class="n">igl</span><span class="o">::</span><span class="n">massmatrix</span><span class="p">(</span><span class="n">V</span><span class="p">,</span><span class="n">F</span><span class="p">,</span><span class="n">igl</span><span class="o">::</span><span class="n">MASSMATRIX_TYPE_DEFAULT</span><span class="p">,</span><span class="n">M</span><span class="p">);</span>
+<span class="n">Eigen</span><span class="o">::</span><span class="n">MatrixXd</span> <span class="n">U</span><span class="p">;</span>
+<span class="n">Eigen</span><span class="o">::</span><span class="n">VectorXd</span> <span class="n">S</span><span class="p">;</span>
+<span class="n">igl</span><span class="o">::</span><span class="n">eigs</span><span class="p">(</span><span class="n">L</span><span class="p">,</span><span class="n">M</span><span class="p">,</span><span class="mi">5</span><span class="p">,</span><span class="n">igl</span><span class="o">::</span><span class="n">EIGS_TYPE_SM</span><span class="p">,</span><span class="n">U</span><span class="p">,</span><span class="n">S</span><span class="p">);</span>
+</pre></div>
+
+<p><img alt="(Example 306) Low frequency eigen vectors
+of the discrete Laplace-Beltrami operator vary smoothly and slowly over the
+_Beetle_." src="../images/beetle-eigen-decomposition.gif" /></p>
+                
+                  
+                
+              
+              
+                
+              
+            </article>
+          </div>
+        </div>
+      </main>
+      
+        
+<footer class="md-footer">
+  
+    <div class="md-footer-nav">
+      <nav class="md-footer-nav__inner md-grid">
+        
+          <a href="../chapter-2/" title="Chapter 2: Discrete Geometric Quantities and Operators" class="md-flex md-footer-nav__link md-footer-nav__link--prev" rel="prev">
+            <div class="md-flex__cell md-flex__cell--shrink">
+              <i class="md-icon md-icon--arrow-back md-footer-nav__button"></i>
+            </div>
+            <div class="md-flex__cell md-flex__cell--stretch md-footer-nav__title">
+              <span class="md-flex__ellipsis">
+                <span class="md-footer-nav__direction">
+                  Previous
+                </span>
+                Chapter 2: Discrete Geometric Quantities and Operators
+              </span>
+            </div>
+          </a>
+        
+        
+          <a href="../chapter-4/" title="Chapter 4: Shape Deformation" class="md-flex md-footer-nav__link md-footer-nav__link--next" rel="next">
+            <div class="md-flex__cell md-flex__cell--stretch md-footer-nav__title">
+              <span class="md-flex__ellipsis">
+                <span class="md-footer-nav__direction">
+                  Next
+                </span>
+                Chapter 4: Shape Deformation
+              </span>
+            </div>
+            <div class="md-flex__cell md-flex__cell--shrink">
+              <i class="md-icon md-icon--arrow-forward md-footer-nav__button"></i>
+            </div>
+          </a>
+        
+      </nav>
+    </div>
+  
+  <div class="md-footer-meta md-typeset">
+    <div class="md-footer-meta__inner md-grid">
+      <div class="md-footer-copyright">
+        
+        powered by
+        <a href="http://www.mkdocs.org">MkDocs</a>
+        and
+        <a href="https://squidfunk.github.io/mkdocs-material/">
+          Material for MkDocs</a>
+      </div>
+      
+        
+      
+    </div>
+  </div>
+</footer>
+      
+    </div>
+    
+      <script src="../../assets/javascripts/application.8eb9be28.js"></script>
+      
+      <script>app.initialize({version:"0.17.3",url:{base:"../.."}})</script>
+      
+        <script src="https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.0/MathJax.js?config=TeX-MML-AM_CHTML"></script>
+      
+    
+    
+      
+    
+  </body>
+</html>

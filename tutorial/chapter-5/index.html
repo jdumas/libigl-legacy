@@ -1,0 +1,989 @@
+
+
+
+
+<!DOCTYPE html>
+<html lang="en" class="no-js">
+  <head>
+    
+      <meta charset="utf-8">
+      <meta name="viewport" content="width=device-width,initial-scale=1">
+      <meta http-equiv="x-ua-compatible" content="ie=edge">
+      
+      
+      
+      
+        <meta name="lang:clipboard.copy" content="Copy to clipboard">
+      
+        <meta name="lang:clipboard.copied" content="Copied to clipboard">
+      
+        <meta name="lang:search.language" content="en">
+      
+        <meta name="lang:search.pipeline.stopwords" content="True">
+      
+        <meta name="lang:search.pipeline.trimmer" content="True">
+      
+        <meta name="lang:search.result.none" content="No matching documents">
+      
+        <meta name="lang:search.result.one" content="1 matching document">
+      
+        <meta name="lang:search.result.other" content="# matching documents">
+      
+        <meta name="lang:search.tokenizer" content="[\s\-]+">
+      
+      <link rel="shortcut icon" href="../../assets/images/favicon.png">
+      <meta name="generator" content="mkdocs-0.17.3, mkdocs-material-2.7.0">
+    
+    
+      
+        <title>Chapter 5: Parametrization - libigl</title>
+      
+    
+    
+      <link rel="stylesheet" href="../../assets/stylesheets/application.78aab2dc.css">
+      
+        <link rel="stylesheet" href="../../assets/stylesheets/application-palette.6079476c.css">
+      
+    
+    
+      <script src="../../assets/javascripts/modernizr.1aa3b519.js"></script>
+    
+    
+      <link href="https://fonts.gstatic.com" rel="preconnect" crossorigin>
+      
+        <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Roboto:300,400,400i,700|Roboto+Mono">
+        <style>body,input{font-family:"Roboto","Helvetica Neue",Helvetica,Arial,sans-serif}code,kbd,pre{font-family:"Roboto Mono","Courier New",Courier,monospace}</style>
+      
+      <link rel="stylesheet" href="https://fonts.googleapis.com/icon?family=Material+Icons">
+    
+    
+    
+  </head>
+  
+    
+    
+    <body dir="ltr" data-md-color-primary="light-blue" data-md-color-accent="blue">
+  
+    <svg class="md-svg">
+      <defs>
+        
+        
+      </defs>
+    </svg>
+    <input class="md-toggle" data-md-toggle="drawer" type="checkbox" id="drawer">
+    <input class="md-toggle" data-md-toggle="search" type="checkbox" id="search">
+    <label class="md-overlay" data-md-component="overlay" for="drawer"></label>
+    
+      <a href="#chapter-5-parametrization-chapter5parametrization" tabindex="1" class="md-skip">
+        Skip to content
+      </a>
+    
+    
+      <header class="md-header" data-md-component="header">
+  <nav class="md-header-nav md-grid">
+    <div class="md-flex">
+      <div class="md-flex__cell md-flex__cell--shrink">
+        <a href="../.." title="libigl" class="md-header-nav__button md-logo">
+          
+            <i class="md-icon">details</i>
+          
+        </a>
+      </div>
+      <div class="md-flex__cell md-flex__cell--shrink">
+        <label class="md-icon md-icon--menu md-header-nav__button" for="drawer"></label>
+      </div>
+      <div class="md-flex__cell md-flex__cell--stretch">
+        <div class="md-flex__ellipsis md-header-nav__title" data-md-component="title">
+          
+            
+              <span class="md-header-nav__topic">
+                libigl
+              </span>
+              <span class="md-header-nav__topic">
+                Chapter 5: Parametrization
+              </span>
+            
+          
+        </div>
+      </div>
+      <div class="md-flex__cell md-flex__cell--shrink">
+        
+          
+            <label class="md-icon md-icon--search md-header-nav__button" for="search"></label>
+            
+<div class="md-search" data-md-component="search" role="dialog">
+  <label class="md-search__overlay" for="search"></label>
+  <div class="md-search__inner" role="search">
+    <form class="md-search__form" name="search">
+      <input type="text" class="md-search__input" name="query" placeholder="Search" autocapitalize="off" autocorrect="off" autocomplete="off" spellcheck="false" data-md-component="query" data-md-state="active">
+      <label class="md-icon md-search__icon" for="search"></label>
+      <button type="reset" class="md-icon md-search__icon" data-md-component="reset" tabindex="-1">
+        &#xE5CD;
+      </button>
+    </form>
+    <div class="md-search__output">
+      <div class="md-search__scrollwrap" data-md-scrollfix>
+        <div class="md-search-result" data-md-component="result">
+          <div class="md-search-result__meta">
+            Type to start searching
+          </div>
+          <ol class="md-search-result__list"></ol>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+          
+        
+      </div>
+      
+    </div>
+  </nav>
+</header>
+    
+    <div class="md-container">
+      
+        
+      
+      
+      <main class="md-main">
+        <div class="md-main__inner md-grid" data-md-component="container">
+          
+            
+              <div class="md-sidebar md-sidebar--primary" data-md-component="navigation">
+                <div class="md-sidebar__scrollwrap">
+                  <div class="md-sidebar__inner">
+                    <nav class="md-nav md-nav--primary" data-md-level="0">
+  <label class="md-nav__title md-nav__title--site" for="drawer">
+    <span class="md-nav__button md-logo">
+      
+        <i class="md-icon">details</i>
+      
+    </span>
+    libigl
+  </label>
+  
+  <ul class="md-nav__list" data-md-scrollfix>
+    
+      
+      
+      
+
+
+  <li class="md-nav__item">
+    <a href="../.." title="Home" class="md-nav__link">
+      Home
+    </a>
+  </li>
+
+    
+      
+      
+      
+
+  
+
+
+  <li class="md-nav__item md-nav__item--active md-nav__item--nested">
+    
+      <input class="md-toggle md-nav__toggle" data-md-toggle="nav-2" type="checkbox" id="nav-2" checked>
+    
+    <label class="md-nav__link" for="nav-2">
+      Tutorial
+    </label>
+    <nav class="md-nav" data-md-component="collapsible" data-md-level="1">
+      <label class="md-nav__title" for="nav-2">
+        Tutorial
+      </label>
+      <ul class="md-nav__list" data-md-scrollfix>
+        
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="../chapter-1/" title="Chapter 1: Introduction to libig" class="md-nav__link">
+      Chapter 1: Introduction to libig
+    </a>
+  </li>
+
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="../chapter-2/" title="Chapter 2: Discrete Geometric Quantities and Operators" class="md-nav__link">
+      Chapter 2: Discrete Geometric Quantities and Operators
+    </a>
+  </li>
+
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="../chapter-3/" title="Chapter 3: Matrices and Linear Algebra" class="md-nav__link">
+      Chapter 3: Matrices and Linear Algebra
+    </a>
+  </li>
+
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="../chapter-4/" title="Chapter 4: Shape Deformation" class="md-nav__link">
+      Chapter 4: Shape Deformation
+    </a>
+  </li>
+
+        
+          
+          
+          
+
+  
+
+
+  <li class="md-nav__item md-nav__item--active">
+    
+    <input class="md-toggle md-nav__toggle" data-md-toggle="toc" type="checkbox" id="toc">
+    
+      
+    
+    
+      <label class="md-nav__link md-nav__link--active" for="toc">
+        Chapter 5: Parametrization
+      </label>
+    
+    <a href="./" title="Chapter 5: Parametrization" class="md-nav__link md-nav__link--active">
+      Chapter 5: Parametrization
+    </a>
+    
+      
+<nav class="md-nav md-nav--secondary">
+  
+  
+    
+  
+  
+    <label class="md-nav__title" for="toc">Table of contents</label>
+    <ul class="md-nav__list" data-md-scrollfix>
+      
+        <li class="md-nav__item">
+  <a href="#harmonic-parametrization-harmonicparametrization" title="Harmonic parametrization [harmonicparametrization]" class="md-nav__link">
+    Harmonic parametrization [harmonicparametrization]
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#least-squares-conformal-maps-leastsquareconformalmaps" title="Least squares conformal maps [leastsquareconformalmaps]" class="md-nav__link">
+    Least squares conformal maps [leastsquareconformalmaps]
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#as-rigid-as-possible-parametrization-asrigidaspossible" title="As-rigid-as-possible parametrization [asrigidaspossible]" class="md-nav__link">
+    As-rigid-as-possible parametrization [asrigidaspossible]
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#n-rotationally-symmetric-tangent-fields-nrotationallysymmetrictangetfields" title="N-rotationally symmetric tangent fields [nrotationallysymmetrictangetfields]" class="md-nav__link">
+    N-rotationally symmetric tangent fields [nrotationallysymmetrictangetfields]
+  </a>
+  
+    <nav class="md-nav">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#global-seamless-integer-grid-parametrization-globalseamlessintegergridparametrization" title="Global, seamless integer-grid parametrization [globalseamlessintegergridparametrization]" class="md-nav__link">
+    Global, seamless integer-grid parametrization [globalseamlessintegergridparametrization]
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#combing-and-cutting" title="Combing and cutting" class="md-nav__link">
+    Combing and cutting
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#poisson-parametrization" title="Poisson parametrization" class="md-nav__link">
+    Poisson parametrization
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#anisotropic-remeshing-anisotropicremeshingusingframefields" title="Anisotropic remeshing [anisotropicremeshingusingframefields]" class="md-nav__link">
+    Anisotropic remeshing [anisotropicremeshingusingframefields]
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#planarization-planarization" title="Planarization [planarization]" class="md-nav__link">
+    Planarization [planarization]
+  </a>
+  
+</li>
+      
+      
+      
+      
+      
+    </ul>
+  
+</nav>
+    
+  </li>
+
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="../chapter-6/" title="Chapter 6: External libraries" class="md-nav__link">
+      Chapter 6: External libraries
+    </a>
+  </li>
+
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="../chapter-7/" title="Chapter 7: Miscellaneous" class="md-nav__link">
+      Chapter 7: Miscellaneous
+    </a>
+  </li>
+
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="../chapter-8/" title="Chapter 8: Outlook for continuing development" class="md-nav__link">
+      Chapter 8: Outlook for continuing development
+    </a>
+  </li>
+
+        
+      </ul>
+    </nav>
+  </li>
+
+    
+      
+      
+      
+
+
+  <li class="md-nav__item md-nav__item--nested">
+    
+      <input class="md-toggle md-nav__toggle" data-md-toggle="nav-3" type="checkbox" id="nav-3">
+    
+    <label class="md-nav__link" for="nav-3">
+      Contributing
+    </label>
+    <nav class="md-nav" data-md-component="collapsible" data-md-level="1">
+      <label class="md-nav__title" for="nav-3">
+        Contributing
+      </label>
+      <ul class="md-nav__list" data-md-scrollfix>
+        
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="../../style-guidelines/" title="Style Guidelines" class="md-nav__link">
+      Style Guidelines
+    </a>
+  </li>
+
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="../../CONTRIBUTING/" title="Bug Report" class="md-nav__link">
+      Bug Report
+    </a>
+  </li>
+
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="../../before-submitting-pull-request/" title="Creating a Pull Request" class="md-nav__link">
+      Creating a Pull Request
+    </a>
+  </li>
+
+        
+      </ul>
+    </nav>
+  </li>
+
+    
+      
+      
+      
+
+
+  <li class="md-nav__item md-nav__item--nested">
+    
+      <input class="md-toggle md-nav__toggle" data-md-toggle="nav-4" type="checkbox" id="nav-4">
+    
+    <label class="md-nav__link" for="nav-4">
+      Misc
+    </label>
+    <nav class="md-nav" data-md-component="collapsible" data-md-level="1">
+      <label class="md-nav__title" for="nav-4">
+        Misc
+      </label>
+      <ul class="md-nav__list" data-md-scrollfix>
+        
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="../../coding-guidelines/" title="Coding Tips" class="md-nav__link">
+      Coding Tips
+    </a>
+  </li>
+
+        
+      </ul>
+    </nav>
+  </li>
+
+    
+      
+      
+      
+
+
+  <li class="md-nav__item">
+    <a href="../../faq/" title="FAQ" class="md-nav__link">
+      FAQ
+    </a>
+  </li>
+
+    
+      
+      
+      
+
+
+  <li class="md-nav__item md-nav__item--nested">
+    
+      <input class="md-toggle md-nav__toggle" data-md-toggle="nav-6" type="checkbox" id="nav-6">
+    
+    <label class="md-nav__link" for="nav-6">
+      About
+    </label>
+    <nav class="md-nav" data-md-component="collapsible" data-md-level="1">
+      <label class="md-nav__title" for="nav-6">
+        About
+      </label>
+      <ul class="md-nav__list" data-md-scrollfix>
+        
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="../../RELEASE_HISTORY/" title="Release History" class="md-nav__link">
+      Release History
+    </a>
+  </li>
+
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="../../LICENSE/" title="License" class="md-nav__link">
+      License
+    </a>
+  </li>
+
+        
+      </ul>
+    </nav>
+  </li>
+
+    
+  </ul>
+</nav>
+                  </div>
+                </div>
+              </div>
+            
+            
+              <div class="md-sidebar md-sidebar--secondary" data-md-component="toc">
+                <div class="md-sidebar__scrollwrap">
+                  <div class="md-sidebar__inner">
+                    
+<nav class="md-nav md-nav--secondary">
+  
+  
+    
+  
+  
+    <label class="md-nav__title" for="toc">Table of contents</label>
+    <ul class="md-nav__list" data-md-scrollfix>
+      
+        <li class="md-nav__item">
+  <a href="#harmonic-parametrization-harmonicparametrization" title="Harmonic parametrization [harmonicparametrization]" class="md-nav__link">
+    Harmonic parametrization [harmonicparametrization]
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#least-squares-conformal-maps-leastsquareconformalmaps" title="Least squares conformal maps [leastsquareconformalmaps]" class="md-nav__link">
+    Least squares conformal maps [leastsquareconformalmaps]
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#as-rigid-as-possible-parametrization-asrigidaspossible" title="As-rigid-as-possible parametrization [asrigidaspossible]" class="md-nav__link">
+    As-rigid-as-possible parametrization [asrigidaspossible]
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#n-rotationally-symmetric-tangent-fields-nrotationallysymmetrictangetfields" title="N-rotationally symmetric tangent fields [nrotationallysymmetrictangetfields]" class="md-nav__link">
+    N-rotationally symmetric tangent fields [nrotationallysymmetrictangetfields]
+  </a>
+  
+    <nav class="md-nav">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#global-seamless-integer-grid-parametrization-globalseamlessintegergridparametrization" title="Global, seamless integer-grid parametrization [globalseamlessintegergridparametrization]" class="md-nav__link">
+    Global, seamless integer-grid parametrization [globalseamlessintegergridparametrization]
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#combing-and-cutting" title="Combing and cutting" class="md-nav__link">
+    Combing and cutting
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#poisson-parametrization" title="Poisson parametrization" class="md-nav__link">
+    Poisson parametrization
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#anisotropic-remeshing-anisotropicremeshingusingframefields" title="Anisotropic remeshing [anisotropicremeshingusingframefields]" class="md-nav__link">
+    Anisotropic remeshing [anisotropicremeshingusingframefields]
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#planarization-planarization" title="Planarization [planarization]" class="md-nav__link">
+    Planarization [planarization]
+  </a>
+  
+</li>
+      
+      
+      
+      
+      
+    </ul>
+  
+</nav>
+                  </div>
+                </div>
+              </div>
+            
+          
+          <div class="md-content">
+            <article class="md-content__inner md-typeset">
+              
+                
+                
+                <h1 id="chapter-5-parametrization-chapter5parametrization">Chapter 5: Parametrization [chapter5:parametrization]<a class="headerlink" href="#chapter-5-parametrization-chapter5parametrization" title="Permanent link">&para;</a></h1>
+<p>In computer graphics, we denote as surface parametrization a map from the
+surface to \(\mathbf{R}^2\). It is usually encoded by a new set of 2D
+coordinates for each vertex of the mesh (and possibly also by a new set of
+faces in one to one correspondence with the faces of the original surface).
+Note that
+this definition is the <em>inverse</em> of the classical differential geometry
+definition.</p>
+<p>A parametrization has many applications, ranging from texture mapping to
+surface remeshing. Many algorithms have been proposed, and they can be broadly
+divided in four families:</p>
+<ol>
+<li>
+<p><strong>Single patch, fixed boundary</strong>: these algorithm can parametrize a
+disk-like part of the surface given fixed 2D positions for its boundary. These
+algorithms are efficient and simple, but they usually produce high-distortion maps due to the fixed boundary.</p>
+</li>
+<li>
+<p><strong>Single patch, free boundary:</strong> these algorithms let the boundary
+deform freely, greatly reducing the map distortion. Care should be taken to
+prevent the border to self-intersect.</p>
+</li>
+<li>
+<p><strong>Global parametrization</strong>: these algorithms work on meshes with arbitrary
+genus. They initially cut the mesh in multiple patches that can be separately parametrized. The generated maps are discontinuous on the cuts (often referred as <em>seams</em>).</p>
+</li>
+<li>
+<p><strong>Global seamless parametrization</strong>: these are global parametrization algorithm that hides the seams, making the parametrization "continuous", under specific assumptions that we will discuss later.</p>
+</li>
+</ol>
+<h2 id="harmonic-parametrization-harmonicparametrization"><a href="#harmonicparametrization">Harmonic parametrization</a> [harmonicparametrization]<a class="headerlink" href="#harmonic-parametrization-harmonicparametrization" title="Permanent link">&para;</a></h2>
+<p>Harmonic parametrization [#eck_2005][] is a single patch, fixed boundary parametrization
+algorithm that computes the 2D coordinates of the flattened mesh as two
+harmonic functions.</p>
+<p>The algorithm is divided in 3 steps:</p>
+<ol>
+<li>Detect of the boundary vertices</li>
+<li>Map the boundary vertices to a circle</li>
+<li>Compute two harmonic functions (one for u and one for the v coordinate). The harmonic functions use the fixed vertices on the circle as boundary constraints.</li>
+</ol>
+<p>The algorithm can be coded using libigl as follows:</p>
+<div class="codehilite"><pre><span></span><span class="n">Eigen</span><span class="o">::</span><span class="n">VectorXi</span> <span class="n">bnd</span><span class="p">;</span>
+<span class="n">igl</span><span class="o">::</span><span class="n">boundary_loop</span><span class="p">(</span><span class="n">V</span><span class="p">,</span><span class="n">F</span><span class="p">,</span><span class="n">bnd</span><span class="p">);</span>
+
+<span class="n">Eigen</span><span class="o">::</span><span class="n">MatrixXd</span> <span class="n">bnd_uv</span><span class="p">;</span>
+<span class="n">igl</span><span class="o">::</span><span class="n">map_vertices_to_circle</span><span class="p">(</span><span class="n">V</span><span class="p">,</span><span class="n">bnd</span><span class="p">,</span><span class="n">bnd_uv</span><span class="p">);</span>
+
+<span class="n">igl</span><span class="o">::</span><span class="n">harmonic</span><span class="p">(</span><span class="n">V</span><span class="p">,</span><span class="n">F</span><span class="p">,</span><span class="n">bnd</span><span class="p">,</span><span class="n">bnd_uv</span><span class="p">,</span><span class="mi">1</span><span class="p">,</span><span class="n">V_uv</span><span class="p">);</span>
+</pre></div>
+
+<p>where <code class="codehilite">bnd</code> contains the indices of the boundary vertices, bnd_uv their position on the UV plane, and "1" denotes that we want to compute an harmonic function (2 will be for biharmonic, 3 for triharmonic, etc.). Note that each of the three
+functions is designed to be reusable in other parametrization algorithms.</p>
+<p>A UV parametrization can be visualized in the viewer with:</p>
+<div class="codehilite"><pre><span></span><span class="n">viewer</span><span class="p">.</span><span class="n">data</span><span class="p">().</span><span class="n">set_uv</span><span class="p">(</span><span class="n">V_uv</span><span class="p">);</span>
+</pre></div>
+
+<p>The UV coordinates are then used to apply a procedural checkerboard texture to the
+mesh (<a href="../501_HarmonicParam/main.cpp">Example 501</a>).</p>
+<p><img alt="(Example 501) Harmonic parametrization. (left)
+mesh with texture, (right) UV parametrization with
+texture" src="../images/501_HarmonicParam.png" /></p>
+<h2 id="least-squares-conformal-maps-leastsquareconformalmaps"><a href="#leastsquareconformalmaps">Least squares conformal maps</a> [leastsquareconformalmaps]<a class="headerlink" href="#least-squares-conformal-maps-leastsquareconformalmaps" title="Permanent link">&para;</a></h2>
+<p>Least squares conformal maps parametrization [#levy_2002][] minimizes the
+conformal (angular) distortion of the parametrization. Differently from
+harmonic parametrization, it does not need to have a fixed boundary.</p>
+<p>LSCM minimizes the following energy:</p>
+<p>\[ E_{LSCM}(\mathbf{u},\mathbf{v}) = \int_X \frac{1}{2}| \nabla \mathbf{u}^{\perp} - \nabla \mathbf{v} |^2 dA \]</p>
+<p>which can be rewritten in matrix form as [#mullen_2008][]:</p>
+<p>\[ E_{LSCM}(\mathbf{u},\mathbf{v}) = \frac{1}{2} [\mathbf{u},\mathbf{v}]^t (L_c - 2A) [\mathbf{u},\mathbf{v}] \]</p>
+<p>where <span><span class="MathJax_Preview">L_c</span><script type="math/tex">L_c</script></span> is the cotangent Laplacian matrix and <span><span class="MathJax_Preview">A</span><script type="math/tex">A</script></span> is a matrix such that
+<span><span class="MathJax_Preview">[\mathbf{u},\mathbf{v}]^t A  [\mathbf{u},\mathbf{v}]</span><script type="math/tex">[\mathbf{u},\mathbf{v}]^t A  [\mathbf{u},\mathbf{v}]</script></span> is equal to the <a href="http://en.wikipedia.org/wiki/Vector_area">vector
+area</a> of the mesh.</p>
+<p>Using libigl, this matrix energy can be written in a few lines of code. The
+cotangent matrix can be computed using <code class="codehilite">igl::cotmatrix</code>:</p>
+<div class="codehilite"><pre><span></span><span class="n">SparseMatrix</span><span class="o">&lt;</span><span class="kt">double</span><span class="o">&gt;</span> <span class="n">L</span><span class="p">;</span>
+<span class="n">igl</span><span class="o">::</span><span class="n">cotmatrix</span><span class="p">(</span><span class="n">V</span><span class="p">,</span><span class="n">F</span><span class="p">,</span><span class="n">L</span><span class="p">);</span>
+</pre></div>
+
+<p>Note that we want to apply the Laplacian matrix to the u and v coordinates at
+the same time, thus we need to extend it taking the left
+Kronecker product with a 2x2 identity matrix:</p>
+<div class="codehilite"><pre><span></span><span class="n">SparseMatrix</span><span class="o">&lt;</span><span class="kt">double</span><span class="o">&gt;</span> <span class="n">L_flat</span><span class="p">;</span>
+<span class="n">igl</span><span class="o">::</span><span class="n">repdiag</span><span class="p">(</span><span class="n">L</span><span class="p">,</span><span class="mi">2</span><span class="p">,</span><span class="n">L_flat</span><span class="p">);</span>
+</pre></div>
+
+<p>The area matrix is computed with <code class="codehilite">igl::vector_area_matrix</code>:</p>
+<div class="codehilite"><pre><span></span><span class="n">SparseMatrix</span><span class="o">&lt;</span><span class="kt">double</span><span class="o">&gt;</span> <span class="n">A</span><span class="p">;</span>
+<span class="n">igl</span><span class="o">::</span><span class="n">vector_area_matrix</span><span class="p">(</span><span class="n">F</span><span class="p">,</span><span class="n">A</span><span class="p">);</span>
+</pre></div>
+
+<p>The final energy matrix is <span><span class="MathJax_Preview">L_{flat} - 2A</span><script type="math/tex">L_{flat} - 2A</script></span>. Note that in this
+case we do not need to fix the boundary. To remove the null space of the energy and make the minimum unique, it is sufficient to fix two arbitrary
+vertices to two arbitrary positions. The full source code is provided in <a href="../502_LSCMParam/main.cpp">Example 502</a>.</p>
+<p><img alt="(Example 502) LSCM parametrization. (left) mesh
+with texture, (right) UV parametrization" src="../images/502_LSCMParam.png" /></p>
+<h2 id="as-rigid-as-possible-parametrization-asrigidaspossible"><a href="#asrigidaspossible">As-rigid-as-possible parametrization</a> [asrigidaspossible]<a class="headerlink" href="#as-rigid-as-possible-parametrization-asrigidaspossible" title="Permanent link">&para;</a></h2>
+<p>As-rigid-as-possible parametrization [#liu_2008][] is a powerful single-patch,
+non-linear algorithm to compute a parametrization that strives to preserve
+distances (and thus angles). The idea is very similar to ARAP surface
+deformation: each triangle is mapped to the plane trying to preserve its
+original shape, up to a rigid rotation.</p>
+<p>The algorithm can be implemented reusing the functions discussed in the
+deformation chapter: <code class="codehilite">igl::arap_precomputation</code> and <code class="codehilite">igl::arap_solve</code>. The only
+difference is that the optimization has to be done in 2D instead of 3D and that
+we need to compute a starting point. While for 3D deformation the optimization
+is bootstrapped with the original mesh, this is not the case for ARAP
+parametrization since the starting point must be a 2D mesh. In <a href="../503_ARAPParam/main.cpp">Example
+503</a>, we initialize the optimization with harmonic
+parametrization. Similarly to LSCM, the boundary is free to deform to minimize
+the distortion.</p>
+<p><img alt="(Example 503) As-Rigid-As-Possible parametrization.
+(left) mesh with texture, (right) UV parametrization with
+texture" src="../images/503_ARAPParam.png" /></p>
+<h2 id="n-rotationally-symmetric-tangent-fields-nrotationallysymmetrictangetfields"><a href="#nrotationallysymmetrictangetfields">N-rotationally symmetric tangent fields</a> [nrotationallysymmetrictangetfields]<a class="headerlink" href="#n-rotationally-symmetric-tangent-fields-nrotationallysymmetrictangetfields" title="Permanent link">&para;</a></h2>
+<p>The design of tangent fields is a basic tool used to design guidance fields for
+uniform quadrilateral and hexahedral remeshing. Libigl contains an
+implementation of all the state-of-the-art algorithms to design N-RoSy fields
+and their generalizations.</p>
+<p>In libigl, tangent unit-length vector fields are piece-wise constant on the
+faces of a triangle mesh, and they are described by one or more vectors per-face. The function</p>
+<div class="codehilite"><pre><span></span><span class="n">igl</span><span class="o">::</span><span class="n">nrosy</span><span class="p">(</span><span class="n">V</span><span class="p">,</span><span class="n">F</span><span class="p">,</span><span class="n">b</span><span class="p">,</span><span class="n">bc</span><span class="p">,</span><span class="n">b_soft</span><span class="p">,</span><span class="n">b_soft_weight</span><span class="p">,</span><span class="n">bc_soft</span><span class="p">,</span><span class="n">N</span><span class="p">,</span><span class="mf">0.5</span><span class="p">,</span>
+           <span class="n">output_field</span><span class="p">,</span><span class="n">output_singularities</span><span class="p">);</span>
+</pre></div>
+
+<p>creates a smooth unit-length vector field (N=1) starting from a sparse set of
+constrained faces, whose indices are listed in b and their constrained value is
+specified in bc. The functions supports soft_constraints (b_soft,
+b_soft_weight, bc_soft), and returns the interpolated field for each face of
+the triangle mesh (output_field), plus the singularities of the field
+(output_singularities).</p>
+<p><img alt="Design of a unit-length vector field" src="../images/504_vector_field.png" /></p>
+<p>The singularities are vertices where the field vanishes (highlighted in red in
+the figure above). <code class="codehilite">igl::nrosy</code> can also generate N-RoSy fields [#levy_2008][],
+which are a generalization of vector fields where in every face the vector is
+defined up to a constant rotation of <span><span class="MathJax_Preview">2\pi / N</span><script type="math/tex">2\pi / N</script></span>. As can be observed in
+the following figure, the singularities of the fields generated with different
+N are of different types and they appear in different positions.</p>
+<p><img alt="Design of a 2-,4- and 9-RoSy field" src="../images/504_nrosy_field.png" /></p>
+<p>We demonstrate how to call and plot N-RoSy fields in <a href="../504_NRosyDesign/main.cpp">Example
+504</a>, where the degree of the field can be change
+pressing the number keys. <code class="codehilite">igl::nrosy</code> implements the algorithm proposed in
+[#bommes_2009][]. N-RoSy fields can also be interpolated with many other algorithms,
+see the library <a href="https://github.com/avaxman/libdirectional">libdirectional</a> for
+a reference implementation of the most popular ones. For a complete categorization
+of fields used in various applications see Vaxman et al. 2016 [#vaxman_2016].</p>
+<h3 id="global-seamless-integer-grid-parametrization-globalseamlessintegergridparametrization"><a href="#globalseamlessintegergridparametrization">Global, seamless integer-grid parametrization</a> [globalseamlessintegergridparametrization]<a class="headerlink" href="#global-seamless-integer-grid-parametrization-globalseamlessintegergridparametrization" title="Permanent link">&para;</a></h3>
+<p>The previous parametrization methods were focusing on creating parametrizations
+of surface patches aimed at texture mapping or baking of other surface
+properties such as normals and high-frequency details. Global, seamless
+parametrization aims at parametrizing complex shapes with a parametrization
+that is aligned with a given set of directions for the purpose of surface
+remeshing. In libigl, we provide a reference  implementation of the pipeline
+proposed in the mixed integer quadrangulation paper [#bommes_2009][].</p>
+<p>The first step involves the design of a 4-RoSy field (sometimes called <em>cross</em>
+field) that describes the alignment of the edges of the desired quadrilateral
+remeshing. The field constraints are usually manually specified or extracted
+from the principal curvature directions. In [<a href="../506_FrameField/main.cpp">Example
+506</a>], we simply fix one face in a random direction.</p>
+<p><img alt="Initial cross field prescribing the edge alignment." src="../images/505_MIQ_1.png" /></p>
+<h3 id="combing-and-cutting">Combing and cutting<a class="headerlink" href="#combing-and-cutting" title="Permanent link">&para;</a></h3>
+<p>Given the cross field, we now want to cut the surface so that it becomes
+homeomorphic to a disk. While this could be done directly on the cross-field, we
+opt to perform this operation on its bisector field (a copy of the field
+rotated by 45 degrees) since it is more stable and generic. Working on the
+bisectors allow us to take as input generalized, non-orthogonal and non-unit
+length cross fields.</p>
+<p>We thus rotate the field,</p>
+<p><img alt="Bisector field." src="../images/505_MIQ_2.png" /></p>
+<p>and we remove the rotation ambiguity by assigning to each face a u and a v
+direction. The assignment is done with a breadth-first search starting from a
+random face.</p>
+<p><img alt="Combed bisector field." src="../images/505_MIQ_3.png" /></p>
+<p>You can imagine this process as combing an hairy surface: you will be able to
+comb part of it, but at some point you will not be able to consistently comb
+the entire surface (<a href="http://en.wikipedia.org/wiki/Hairy_ball_theorem">Hairy ball
+theorem</a>). The discontinuities
+in the combing define the cut graph:</p>
+<p><img alt="Cut graph." src="../images/505_MIQ_4.png" /></p>
+<p>Finally, we rotate the combed field by 45 degrees to undo the initial degrees
+rotation:</p>
+<p><img alt="Combed cross field." src="../images/505_MIQ_5.png" /></p>
+<p>The combed cross field can be seen as the ideal Jacobian of the parametrization
+that will be computed in the next section.</p>
+<h3 id="poisson-parametrization">Poisson parametrization<a class="headerlink" href="#poisson-parametrization" title="Permanent link">&para;</a></h3>
+<p>The mesh is cut along the seams and a parametrization is computed trying to
+find two scalar functions whose gradient matches the combed cross field
+directions. This is a classical Poisson problem, that is solved minimizing the
+following quadratic energy:</p>
+<p>\[ E(\mathbf{u},\mathbf{v}) = |\nabla \mathbf{u} - X_u|^2 + |\nabla \mathbf{v} - X_v|^2 \]</p>
+<p>where <span><span class="MathJax_Preview">X_u</span><script type="math/tex">X_u</script></span> and <span><span class="MathJax_Preview">X_u</span><script type="math/tex">X_u</script></span> denotes the combed cross field. Solving this
+problem generates a parametrization whose u and v isolines are aligned with the
+input cross field.</p>
+<p><img alt="Poisson parametrization." src="../images/505_MIQ_8.png" /></p>
+<p>We hide the seams by adding integer constraints to the Poisson problem
+that align the isolines on both sides of each seam [#bommes_2009].</p>
+<p><img alt="Seamless Poisson parametrization." src="../images/505_MIQ_7.png" /></p>
+<p>Note that this parametrization can only be used for remeshing purposes, since
+it contains many overlaps.</p>
+<p><img alt="Seamless Poisson parametrization (in 2D)." src="../images/505_MIQ_6.png" /></p>
+<p>A quad mesh can be extracted from this parametrization using
+<a href="https://github.com/hcebke/libQEx">libQEx</a> (not included in libigl).
+The full pipeline is implemented in <a href="../505_MIQ/main.cpp">Example 505</a>.</p>
+<h2 id="anisotropic-remeshing-anisotropicremeshingusingframefields"><a href="#anisotropicremeshingusingframefields">Anisotropic remeshing</a> [anisotropicremeshingusingframefields]<a class="headerlink" href="#anisotropic-remeshing-anisotropicremeshingusingframefields" title="Permanent link">&para;</a></h2>
+<p>Anisotropic and non-uniform quad remeshing is important to concentrate the
+elements in the regions with more details. It is possible to extend the MIQ
+quad meshing framework to generate anisotropic quad meshes using a mesh
+deformation approach [#panozzo_2014][].</p>
+<p>The input of the anisotropic remeshing algorithm is a sparse set of constraints
+that define the shape and scale of the desired quads. This can be encoded as a
+frame field, which is a pair of non-orthogonal and non-unit length vectors. The
+frame field can be interpolated by decomposing it in a 4-RoSy field and a
+unique affine transformation. The two parts can then be interpolated
+separately, using <code class="codehilite">igl::nrosy</code> for the cross field, and an harmonic interpolant
+for the affine part.</p>
+<p><img alt="Interpolation of a frame field. Colors on the vectors denote the desired
+scale. The red faces contains the frame field
+constraints." src="../images/506_FrameField_1.png" /></p>
+<p>After the interpolation, the surface is warped to transform each frame into an
+orthogonal and unit length cross (i.e. removing the scaling and skewness from
+the frame). This deformation defines a new embedding (and a new metric) for the
+surface.</p>
+<p><img alt="The surface is deformed to transform the frame field in a cross
+field." src="../images/506_FrameField_2.png" /></p>
+<p>The deformed surface can the be isotropically remeshed using the MIQ algorithm
+that has been presented in the previous section.</p>
+<p><img alt="The deformed surface is isotropically remeshed." src="../images/506_FrameField_3.png" /></p>
+<p>The UV coordinates of the deformed surface can then be used to transport the
+parametrization to the original surface, where the isolines will trace a quad
+mesh whose elements are similar to the shape prescribed in the input frame
+field.</p>
+<p><img alt="The global parametrization is lifted to the original surface to create the
+anisotropic quad meshing." src="../images/506_FrameField_4.png" /></p>
+<p>Our implementation (<a href="../506_FrameField/main.cpp">Example 506</a>) uses MIQ to
+generate the UV parametrization, but other algorithms could be applied: the
+only desiderata is that the generated quad mesh should be as isotropic as
+possible.</p>
+<h2 id="planarization-planarization"><a href="#planarization">Planarization</a> [planarization]<a class="headerlink" href="#planarization-planarization" title="Permanent link">&para;</a></h2>
+<p>A quad mesh can be transformed in a planar quad mesh with Shape-Up
+[#bouaziz_2012], a local/global approach that uses the global step to enforce
+surface continuity and the local step to enforce planarity.</p>
+<p><a href="../507_Planarization/main.cpp">Example 507</a> planarizes a quad mesh until it
+satisfies a user-given planarity threshold.</p>
+<p><img alt="A non-planar quad mesh (left) is planarized using the libigl function
+igl::planarize (right). The colors represent the planarity of the
+quads." src="../images/509_Planarization.png" /></p>
+                
+                  
+                
+              
+              
+                
+              
+            </article>
+          </div>
+        </div>
+      </main>
+      
+        
+<footer class="md-footer">
+  
+    <div class="md-footer-nav">
+      <nav class="md-footer-nav__inner md-grid">
+        
+          <a href="../chapter-4/" title="Chapter 4: Shape Deformation" class="md-flex md-footer-nav__link md-footer-nav__link--prev" rel="prev">
+            <div class="md-flex__cell md-flex__cell--shrink">
+              <i class="md-icon md-icon--arrow-back md-footer-nav__button"></i>
+            </div>
+            <div class="md-flex__cell md-flex__cell--stretch md-footer-nav__title">
+              <span class="md-flex__ellipsis">
+                <span class="md-footer-nav__direction">
+                  Previous
+                </span>
+                Chapter 4: Shape Deformation
+              </span>
+            </div>
+          </a>
+        
+        
+          <a href="../chapter-6/" title="Chapter 6: External libraries" class="md-flex md-footer-nav__link md-footer-nav__link--next" rel="next">
+            <div class="md-flex__cell md-flex__cell--stretch md-footer-nav__title">
+              <span class="md-flex__ellipsis">
+                <span class="md-footer-nav__direction">
+                  Next
+                </span>
+                Chapter 6: External libraries
+              </span>
+            </div>
+            <div class="md-flex__cell md-flex__cell--shrink">
+              <i class="md-icon md-icon--arrow-forward md-footer-nav__button"></i>
+            </div>
+          </a>
+        
+      </nav>
+    </div>
+  
+  <div class="md-footer-meta md-typeset">
+    <div class="md-footer-meta__inner md-grid">
+      <div class="md-footer-copyright">
+        
+        powered by
+        <a href="http://www.mkdocs.org">MkDocs</a>
+        and
+        <a href="https://squidfunk.github.io/mkdocs-material/">
+          Material for MkDocs</a>
+      </div>
+      
+        
+      
+    </div>
+  </div>
+</footer>
+      
+    </div>
+    
+      <script src="../../assets/javascripts/application.8eb9be28.js"></script>
+      
+      <script>app.initialize({version:"0.17.3",url:{base:"../.."}})</script>
+      
+        <script src="https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.0/MathJax.js?config=TeX-MML-AM_CHTML"></script>
+      
+    
+    
+      
+    
+  </body>
+</html>
