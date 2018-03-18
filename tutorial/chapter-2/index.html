@@ -204,8 +204,8 @@
 
 
   <li class="md-nav__item">
-    <a href="../chapter-1/" title="Chapter 1: Introduction to libig" class="md-nav__link">
-      Chapter 1: Introduction to libig
+    <a href="../chapter-1/" title="Chapter 1: Introduction to libigl" class="md-nav__link">
+      Chapter 1: Introduction to libigl
     </a>
   </li>
 
@@ -327,6 +327,13 @@
         <li class="md-nav__item">
   <a href="#geodesic" title="Geodesic" class="md-nav__link">
     Geodesic
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#references" title="References" class="md-nav__link">
+    References
   </a>
   
 </li>
@@ -684,6 +691,13 @@
   
 </li>
       
+        <li class="md-nav__item">
+  <a href="#references" title="References" class="md-nav__link">
+    References
+  </a>
+  
+</li>
+      
       
       
       
@@ -834,7 +848,7 @@ as a matrix multiplication taking vertex values to triangle values:</p>
 <p><span><span class="MathJax_Preview">\nabla f \approx \mathbf{G}\,\mathbf{f},</span><script type="math/tex">\nabla f \approx \mathbf{G}\,\mathbf{f},</script></span></p>
 <p>where <span><span class="MathJax_Preview">\mathbf{f}</span><script type="math/tex">\mathbf{f}</script></span> is <span><span class="MathJax_Preview">n\times 1</span><script type="math/tex">n\times 1</script></span> and <span><span class="MathJax_Preview">\mathbf{G}</span><script type="math/tex">\mathbf{G}</script></span> is an <span><span class="MathJax_Preview">md\times n</span><script type="math/tex">md\times n</script></span> sparse
 matrix. This matrix <span><span class="MathJax_Preview">\mathbf{G}</span><script type="math/tex">\mathbf{G}</script></span> can be derived geometrically, e.g.
-[ch. 2][#jacobson_thesis_2013].
+ch. 2<sup id="fnref:jacobson_thesis_2013"><a class="footnote-ref" href="#fn:jacobson_thesis_2013" rel="footnote">1</a></sup>.
 Libigl's <code class="codehilite">grad</code> function computes <span><span class="MathJax_Preview">\mathbf{G}</span><script type="math/tex">\mathbf{G}</script></span> for
 triangle and tetrahedral meshes (<a href="../204_Gradient/main.cpp">Example 204</a>):</p>
 <p><img alt="The Gradient example computes gradients of an input function on a mesh and
@@ -955,6 +969,17 @@ computes the closest geodesic distances of each vertex in VT or face in FT, from
 </pre></div>
 <img alt="Example 206 allows to interactively pick the source vertex and displays the distance using a periodic color pattern.
 " src="../images/geodesicdistance.jpg" /></p>
+<h2 id="references">References<a class="headerlink" href="#references" title="Permanent link">&para;</a></h2>
+<div class="footnote">
+<hr />
+<ol>
+<li id="fn:jacobson_thesis_2013">
+<p>Alec Jacobson,
+<a href="https://www.google.com/search?q=Algorithms+and+Interfaces+for+Real-Time+Deformation+of+2D+and+3D+Shapes"><em>Algorithms and Interfaces for Real-Time Deformation of 2D and 3D Shapes</em></a>,
+2013.&#160;<a class="footnote-backref" href="#fnref:jacobson_thesis_2013" rev="footnote" title="Jump back to footnote 1 in the text">&#8617;</a></p>
+</li>
+</ol>
+</div>
                 
                   
                 
@@ -973,7 +998,7 @@ computes the closest geodesic distances of each vertex in VT or face in FT, from
     <div class="md-footer-nav">
       <nav class="md-footer-nav__inner md-grid">
         
-          <a href="../chapter-1/" title="Chapter 1: Introduction to libig" class="md-flex md-footer-nav__link md-footer-nav__link--prev" rel="prev">
+          <a href="../chapter-1/" title="Chapter 1: Introduction to libigl" class="md-flex md-footer-nav__link md-footer-nav__link--prev" rel="prev">
             <div class="md-flex__cell md-flex__cell--shrink">
               <i class="md-icon md-icon--arrow-back md-footer-nav__button"></i>
             </div>
@@ -982,7 +1007,7 @@ computes the closest geodesic distances of each vertex in VT or face in FT, from
                 <span class="md-footer-nav__direction">
                   Previous
                 </span>
-                Chapter 1: Introduction to libig
+                Chapter 1: Introduction to libigl
               </span>
             </div>
           </a>
