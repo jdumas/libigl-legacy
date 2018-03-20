@@ -36,7 +36,7 @@
     
     
       
-        <title>Coding Tips - libigl</title>
+        <title>Example Project - libigl</title>
       
     
     
@@ -74,7 +74,7 @@
     <input class="md-toggle" data-md-toggle="search" type="checkbox" id="search">
     <label class="md-overlay" data-md-component="overlay" for="drawer"></label>
     
-      <a href="#libigl-coding-tips-aka-how-to-code-a-siggraph-project" tabindex="1" class="md-skip">
+      <a href="#libigl-example-project" tabindex="1" class="md-skip">
         Skip to content
       </a>
     
@@ -100,7 +100,7 @@
                 libigl
               </span>
               <span class="md-header-nav__topic">
-                Coding Tips
+                Example Project
               </span>
             
           
@@ -301,10 +301,12 @@
       
       
 
+  
 
-  <li class="md-nav__item md-nav__item--nested">
+
+  <li class="md-nav__item md-nav__item--active md-nav__item--nested">
     
-      <input class="md-toggle md-nav__toggle" data-md-toggle="nav-3" type="checkbox" id="nav-3">
+      <input class="md-toggle md-nav__toggle" data-md-toggle="nav-3" type="checkbox" id="nav-3" checked>
     
     <label class="md-nav__link" for="nav-3">
       Compilation
@@ -320,11 +322,70 @@
           
           
 
+  
 
-  <li class="md-nav__item">
-    <a href="../example-project/" title="Example Project" class="md-nav__link">
+
+  <li class="md-nav__item md-nav__item--active">
+    
+    <input class="md-toggle md-nav__toggle" data-md-toggle="toc" type="checkbox" id="toc">
+    
+      
+    
+    
+      <label class="md-nav__link md-nav__link--active" for="toc">
+        Example Project
+      </label>
+    
+    <a href="./" title="Example Project" class="md-nav__link md-nav__link--active">
       Example Project
     </a>
+    
+      
+<nav class="md-nav md-nav--secondary">
+  
+  
+    
+  
+  
+    <label class="md-nav__title" for="toc">Table of contents</label>
+    <ul class="md-nav__list" data-md-scrollfix>
+      
+        <li class="md-nav__item">
+  <a href="#see-the-tutorial-first" title="See the tutorial first" class="md-nav__link">
+    See the tutorial first
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#compile" title="Compile" class="md-nav__link">
+    Compile
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#run" title="Run" class="md-nav__link">
+    Run
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#dependencies" title="Dependencies" class="md-nav__link">
+    Dependencies
+  </a>
+  
+</li>
+      
+      
+      
+      
+      
+    </ul>
+  
+</nav>
+    
   </li>
 
         
@@ -433,12 +494,10 @@
       
       
 
-  
 
-
-  <li class="md-nav__item md-nav__item--active md-nav__item--nested">
+  <li class="md-nav__item md-nav__item--nested">
     
-      <input class="md-toggle md-nav__toggle" data-md-toggle="nav-5" type="checkbox" id="nav-5" checked>
+      <input class="md-toggle md-nav__toggle" data-md-toggle="nav-5" type="checkbox" id="nav-5">
     
     <label class="md-nav__link" for="nav-5">
       Misc
@@ -454,112 +513,11 @@
           
           
 
-  
 
-
-  <li class="md-nav__item md-nav__item--active">
-    
-    <input class="md-toggle md-nav__toggle" data-md-toggle="toc" type="checkbox" id="toc">
-    
-      
-    
-    
-      <label class="md-nav__link md-nav__link--active" for="toc">
-        Coding Tips
-      </label>
-    
-    <a href="./" title="Coding Tips" class="md-nav__link md-nav__link--active">
+  <li class="md-nav__item">
+    <a href="../coding-guidelines/" title="Coding Tips" class="md-nav__link">
       Coding Tips
     </a>
-    
-      
-<nav class="md-nav md-nav--secondary">
-  
-  
-    
-  
-  
-    <label class="md-nav__title" for="toc">Table of contents</label>
-    <ul class="md-nav__list" data-md-scrollfix>
-      
-        <li class="md-nav__item">
-  <a href="#1-serialize-it-all" title="1. Serialize it all" class="md-nav__link">
-    1. Serialize it all
-  </a>
-  
-</li>
-      
-        <li class="md-nav__item">
-  <a href="#2-always-assert" title="2. Always assert" class="md-nav__link">
-    2. Always assert
-  </a>
-  
-</li>
-      
-        <li class="md-nav__item">
-  <a href="#3-plot-everything" title="3. Plot everything" class="md-nav__link">
-    3. Plot everything
-  </a>
-  
-</li>
-      
-        <li class="md-nav__item">
-  <a href="#4-if-the-compilation-time-after-a-code-change-is-more-than-five-seconds-you-are-doing-it-wrong" title="4. If the compilation time after a code change is more than five seconds, you are doing it wrong" class="md-nav__link">
-    4. If the compilation time after a code change is more than five seconds, you are doing it wrong
-  </a>
-  
-</li>
-      
-        <li class="md-nav__item">
-  <a href="#5-commit-often-and-with-a-meaningful-description" title="5. Commit often (and with a meaningful description)" class="md-nav__link">
-    5. Commit often (and with a meaningful description)
-  </a>
-  
-</li>
-      
-        <li class="md-nav__item">
-  <a href="#6-dependencies-are-evil-avoid-them" title="6. Dependencies are evil, avoid them" class="md-nav__link">
-    6. Dependencies are evil, avoid them
-  </a>
-  
-</li>
-      
-        <li class="md-nav__item">
-  <a href="#7-global-variables-are-not-evil-use-them" title="7. Global variables are not evil, use them" class="md-nav__link">
-    7. Global variables are not evil, use them
-  </a>
-  
-</li>
-      
-        <li class="md-nav__item">
-  <a href="#8-prototype-first" title="8. Prototype first" class="md-nav__link">
-    8. Prototype first
-  </a>
-  
-</li>
-      
-        <li class="md-nav__item">
-  <a href="#9-avoid-explicit-pointers" title="9. Avoid explicit pointers" class="md-nav__link">
-    9. Avoid explicit pointers
-  </a>
-  
-</li>
-      
-        <li class="md-nav__item">
-  <a href="#10-if-your-program-crashes-fix-it-now" title="10. If your program crashes, fix it now!" class="md-nav__link">
-    10. If your program crashes, fix it now!
-  </a>
-  
-</li>
-      
-      
-      
-      
-      
-    </ul>
-  
-</nav>
-    
   </li>
 
         
@@ -649,71 +607,29 @@
     <ul class="md-nav__list" data-md-scrollfix>
       
         <li class="md-nav__item">
-  <a href="#1-serialize-it-all" title="1. Serialize it all" class="md-nav__link">
-    1. Serialize it all
+  <a href="#see-the-tutorial-first" title="See the tutorial first" class="md-nav__link">
+    See the tutorial first
   </a>
   
 </li>
       
         <li class="md-nav__item">
-  <a href="#2-always-assert" title="2. Always assert" class="md-nav__link">
-    2. Always assert
+  <a href="#compile" title="Compile" class="md-nav__link">
+    Compile
   </a>
   
 </li>
       
         <li class="md-nav__item">
-  <a href="#3-plot-everything" title="3. Plot everything" class="md-nav__link">
-    3. Plot everything
+  <a href="#run" title="Run" class="md-nav__link">
+    Run
   </a>
   
 </li>
       
         <li class="md-nav__item">
-  <a href="#4-if-the-compilation-time-after-a-code-change-is-more-than-five-seconds-you-are-doing-it-wrong" title="4. If the compilation time after a code change is more than five seconds, you are doing it wrong" class="md-nav__link">
-    4. If the compilation time after a code change is more than five seconds, you are doing it wrong
-  </a>
-  
-</li>
-      
-        <li class="md-nav__item">
-  <a href="#5-commit-often-and-with-a-meaningful-description" title="5. Commit often (and with a meaningful description)" class="md-nav__link">
-    5. Commit often (and with a meaningful description)
-  </a>
-  
-</li>
-      
-        <li class="md-nav__item">
-  <a href="#6-dependencies-are-evil-avoid-them" title="6. Dependencies are evil, avoid them" class="md-nav__link">
-    6. Dependencies are evil, avoid them
-  </a>
-  
-</li>
-      
-        <li class="md-nav__item">
-  <a href="#7-global-variables-are-not-evil-use-them" title="7. Global variables are not evil, use them" class="md-nav__link">
-    7. Global variables are not evil, use them
-  </a>
-  
-</li>
-      
-        <li class="md-nav__item">
-  <a href="#8-prototype-first" title="8. Prototype first" class="md-nav__link">
-    8. Prototype first
-  </a>
-  
-</li>
-      
-        <li class="md-nav__item">
-  <a href="#9-avoid-explicit-pointers" title="9. Avoid explicit pointers" class="md-nav__link">
-    9. Avoid explicit pointers
-  </a>
-  
-</li>
-      
-        <li class="md-nav__item">
-  <a href="#10-if-your-program-crashes-fix-it-now" title="10. If your program crashes, fix it now!" class="md-nav__link">
-    10. If your program crashes, fix it now!
+  <a href="#dependencies" title="Dependencies" class="md-nav__link">
+    Dependencies
   </a>
   
 </li>
@@ -735,29 +651,44 @@
               
                 
                 
-                <h1 id="libigl-coding-tips-aka-how-to-code-a-siggraph-project">Libigl Coding Tips (aka "How to code a SIGGRAPH project")<a class="headerlink" href="#libigl-coding-tips-aka-how-to-code-a-siggraph-project" title="Permanent link">&para;</a></h1>
-<p>This is a short list of coding tips that will greatly reduce your pain and suffering before (and after) the SIGGRAPH deadline.</p>
-<h3 id="1-serialize-it-all">1. Serialize it all<a class="headerlink" href="#1-serialize-it-all" title="Permanent link">&para;</a></h3>
-<p>The entire state of your application should be serializable, i.e. It should be possible to save it into a binary file and reload it at any point. This drastically simplifies debugging, since you can serialize just before a crash happens and debug from that point without running your complete algorithm again. Serializing all results shown in the paper's figures enables quicker editing iterations before (and after) the deadline. It also allows you to share your results with others that wish to compare with your method. An additional tip is to serialize the state of the application on the window close event and automatically reload it when you launch it again.</p>
-<h3 id="2-always-assert">2. Always assert<a class="headerlink" href="#2-always-assert" title="Permanent link">&para;</a></h3>
-<p>Even if you know what you are doing, always assert, you will be surprised. Assertion is a powerful but underused feature available in all programming languages. It is essential for writing research code since often you will have to implement algorithms that turns out to not be doing what you expect: in these cases it is important to know if the algorithm is flawed or if there is a bug in your implementation. Discarding a good idea  because of a coding bug is frustrating and unfortunately common. Assertion is an ideal way to reduce the chances of introducing bugs in your code and, differently from unit testing, requires a very minor programming effort. You should use them extensively.</p>
-<h3 id="3-plot-everything">3. Plot everything<a class="headerlink" href="#3-plot-everything" title="Permanent link">&para;</a></h3>
-<p>If you can visually plot the results or some intermediate steps of your algorithm, do it, even if you think your implementation is correct! It is a lot easier to find bugs or to get an intuition on an algorithm by looking at a plot than by looking at the code.</p>
-<h3 id="4-if-the-compilation-time-after-a-code-change-is-more-than-five-seconds-you-are-doing-it-wrong">4. If the compilation time after a code change is more than five seconds, you are doing it wrong<a class="headerlink" href="#4-if-the-compilation-time-after-a-code-change-is-more-than-five-seconds-you-are-doing-it-wrong" title="Permanent link">&para;</a></h3>
-<p>You will change your code hundreds of times every day for months. Let's say that you will change it a hundred times a day (which is a  very conservative estimate): if the compilation takes one minute, you will waste almost two hours every day, just waiting! What is even worse, is that since it is only 1-2 minutes at a time, it will not even be sufficient to prepare a coffee. Spend the hour or two that is needed to get your code to compile in a few seconds, you will benefit from it in the same day already, and the time saved over an entire project will be gigantic.</p>
-<h3 id="5-commit-often-and-with-a-meaningful-description">5. Commit often (and with a meaningful description)<a class="headerlink" href="#5-commit-often-and-with-a-meaningful-description" title="Permanent link">&para;</a></h3>
-<p>Use a distributed version control system (git,hg), and keep the repository on a remote host. Commit often and put meaningful comments. This will serve you as an emergency backup and it will always allow you to have a running version of your code whenever your advisor is passing by and asking to see some results. She will be impressed and you will not have to quickly fix your build with your boss breathing down your neck.</p>
-<h3 id="6-dependencies-are-evil-avoid-them">6. Dependencies are evil, avoid them<a class="headerlink" href="#6-dependencies-are-evil-avoid-them" title="Permanent link">&para;</a></h3>
-<p>Keep your code simple and with minimal external dependencies. Spending a day or two to code something from scratch while avoiding to use third party code is usually an investment that pays off. The more code you have in your algorithm that is not written by you, the harder debugging becomes. In particular, refrain from building your entire project on code that you do not understand to avoid bad surprises just before the deadline. If you must use code written by others, spend the time that is needed to fully understand what it does, and link it statically so that it will be easy to place breakpoints inside it.</p>
-<h3 id="7-global-variables-are-not-evil-use-them">7. Global variables are not evil, use them<a class="headerlink" href="#7-global-variables-are-not-evil-use-them" title="Permanent link">&para;</a></h3>
-<p>Global variables are often extremely useful --- if you think you need one, use it. They are indeed dangerous for large projects, but you are not coding one of those, you are coding a prototype to test a research idea. I suggest to keep one single copy of your entire application state in a global variable (or a singleton class) that can be serialized (see tip 1). This variable should include everything rendered on screen and all the temporary data produced by your algorithm. This will allow you to easily access all the data in your project for plotting or debugging purposes.</p>
-<h3 id="8-prototype-first">8. Prototype first<a class="headerlink" href="#8-prototype-first" title="Permanent link">&para;</a></h3>
-<p>Don’t preemptively optimize and try to quickly write code that is clean and correct. It is common to try multiple different approaches to solve a new problem before finding the right one. This means that the majority of the code that you will write will not be used at the end of the project. While you should still write high-quality and bug-free code to make sure that your results is correct, you definitely do not want to spend time optimizing it before you are sure that is the right approach. In particular, it is helpful to learn a good prototyping language (Python, matlab) and use it for the early stages of the project and switch to (or mix it with) c++ only after finding a promising direction.</p>
-<h3 id="9-avoid-explicit-pointers">9. Avoid explicit pointers<a class="headerlink" href="#9-avoid-explicit-pointers" title="Permanent link">&para;</a></h3>
-<p>Do yourself a favor, do not use explicit pointers. If you use a language that supports explicit pointers, use them only if you really have to. And even in that case, keep them isolated in a single file and be very careful with them. Writing data inside another variable by accident might not trigger a crash, and simply produce strange artifacts that might convince you that a promising research direction does not work, while the problem lies in a nasty bug in your code. There is no reason to take that risk during prototyping, just avoid them and leave them for the end of the project in case they become necessary to optimize your code.</p>
-<h3 id="10-if-your-program-crashes-fix-it-now">10. If your program crashes, fix it now!<a class="headerlink" href="#10-if-your-program-crashes-fix-it-now" title="Permanent link">&para;</a></h3>
-<p>If your program crashes, don't close your eyes and move on. Try to make it happen again, debug it and fix it immediately. These bugs are a nightmare to find, and the more code you add on top of a bug will just make it harder to find. If you don't fix it, due to Murphy's law, it will start to be problematic only a few days before the deadline and you will have no time to fix it at that point.</p>
-<p><em>Daniele Panozzo</em></p>
+                <h1 id="libigl-example-project">libigl example project<a class="headerlink" href="#libigl-example-project" title="Permanent link">&para;</a></h1>
+<p>A blank project example showing how to use libigl and cmake. Feel free and
+encouraged to copy or fork this project as a way of starting a new personal
+project using libigl.</p>
+<h2 id="see-the-tutorial-first">See the tutorial first<a class="headerlink" href="#see-the-tutorial-first" title="Permanent link">&para;</a></h2>
+<p>Then build, run and understand the <a href="http://libigl.github.io/libigl/tutorial/tutorial.html">libigl
+tutorial</a>.</p>
+<h2 id="compile">Compile<a class="headerlink" href="#compile" title="Permanent link">&para;</a></h2>
+<p>Compile this project using the standard cmake routine:</p>
+<div class="codehilite"><pre><span></span>mkdir build
+cd build
+cmake ..
+make
+</pre></div>
+
+
+<p>This should find and build the dependencies and create a <code class="codehilite">example_bin</code> binary.</p>
+<h2 id="run">Run<a class="headerlink" href="#run" title="Permanent link">&para;</a></h2>
+<p>From within the <code class="codehilite">build</code> directory just issue:</p>
+<div class="codehilite"><pre><span></span>./example_bin
+</pre></div>
+
+
+<p>A glfw app should launch displaying a 3D cube.</p>
+<h2 id="dependencies">Dependencies<a class="headerlink" href="#dependencies" title="Permanent link">&para;</a></h2>
+<p>The only dependencies are stl, eigen, <a href="../libigl.github.io/libigl/">libigl</a> and
+the dependencies of the <code class="codehilite">igl::opengl::glfw::Viewer</code>.</p>
+<p>We recommend you to install libigl using git via:</p>
+<div class="codehilite"><pre><span></span>git clone https://github.com/libigl/libigl.git
+cd libigl/
+git checkout 6ebc585611d27d8e2038bbbf9cb4910c51713848
+git submodule update --init --recursive
+cd ..
+</pre></div>
+
+
+<p>If you have installed libigl at <code class="codehilite">/path/to/libigl/</code> then a good place to clone
+this library is <code class="codehilite">/path/to/libigl-example-project/</code>.</p>
                 
                   
                 
@@ -776,7 +707,7 @@
     <div class="md-footer-nav">
       <nav class="md-footer-nav__inner md-grid">
         
-          <a href="../unit-tests/" title="Unit Tests" class="md-flex md-footer-nav__link md-footer-nav__link--prev" rel="prev">
+          <a href="../tutorial/chapter-8/" title="Chapter 8: Outlook for continuing development" class="md-flex md-footer-nav__link md-footer-nav__link--prev" rel="prev">
             <div class="md-flex__cell md-flex__cell--shrink">
               <i class="md-icon md-icon--arrow-back md-footer-nav__button"></i>
             </div>
@@ -785,19 +716,19 @@
                 <span class="md-footer-nav__direction">
                   Previous
                 </span>
-                Unit Tests
+                Chapter 8: Outlook for continuing development
               </span>
             </div>
           </a>
         
         
-          <a href="../faq/" title="FAQ" class="md-flex md-footer-nav__link md-footer-nav__link--next" rel="next">
+          <a href="../static-library/" title="Static Library" class="md-flex md-footer-nav__link md-footer-nav__link--next" rel="next">
             <div class="md-flex__cell md-flex__cell--stretch md-footer-nav__title">
               <span class="md-flex__ellipsis">
                 <span class="md-footer-nav__direction">
                   Next
                 </span>
-                FAQ
+                Static Library
               </span>
             </div>
             <div class="md-flex__cell md-flex__cell--shrink">

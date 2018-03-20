@@ -4,7 +4,7 @@
     
     <url>
      <loc>/</loc>
-     <lastmod>2018-03-18</lastmod>
+     <lastmod>2018-03-20</lastmod>
      <changefreq>daily</changefreq>
     </url>
     
@@ -13,49 +13,71 @@
         
     <url>
      <loc>/tutorial/chapter-1/</loc>
-     <lastmod>2018-03-18</lastmod>
+     <lastmod>2018-03-20</lastmod>
      <changefreq>daily</changefreq>
     </url>
         
     <url>
      <loc>/tutorial/chapter-2/</loc>
-     <lastmod>2018-03-18</lastmod>
+     <lastmod>2018-03-20</lastmod>
      <changefreq>daily</changefreq>
     </url>
         
     <url>
      <loc>/tutorial/chapter-3/</loc>
-     <lastmod>2018-03-18</lastmod>
+     <lastmod>2018-03-20</lastmod>
      <changefreq>daily</changefreq>
     </url>
         
     <url>
      <loc>/tutorial/chapter-4/</loc>
-     <lastmod>2018-03-18</lastmod>
+     <lastmod>2018-03-20</lastmod>
      <changefreq>daily</changefreq>
     </url>
         
     <url>
      <loc>/tutorial/chapter-5/</loc>
-     <lastmod>2018-03-18</lastmod>
+     <lastmod>2018-03-20</lastmod>
      <changefreq>daily</changefreq>
     </url>
         
     <url>
      <loc>/tutorial/chapter-6/</loc>
-     <lastmod>2018-03-18</lastmod>
+     <lastmod>2018-03-20</lastmod>
      <changefreq>daily</changefreq>
     </url>
         
     <url>
      <loc>/tutorial/chapter-7/</loc>
-     <lastmod>2018-03-18</lastmod>
+     <lastmod>2018-03-20</lastmod>
      <changefreq>daily</changefreq>
     </url>
         
     <url>
      <loc>/tutorial/chapter-8/</loc>
-     <lastmod>2018-03-18</lastmod>
+     <lastmod>2018-03-20</lastmod>
+     <changefreq>daily</changefreq>
+    </url>
+        
+    
+
+    
+        
+    <url>
+     <loc>/example-project/</loc>
+     <lastmod>2018-03-20</lastmod>
+     <changefreq>daily</changefreq>
+    </url>
+        
+    <url>
+     <loc>/static-library/</loc>
+     <lastmod>2018-03-20</lastmod>
+     <changefreq>daily</changefreq>
+    </url>
+        
+    <url>
+     <loc>/third-party/</loc>
+     <lastmod>2018-03-20</lastmod>
      <changefreq>daily</changefreq>
     </url>
         
@@ -65,19 +87,25 @@
         
     <url>
      <loc>/style-guidelines/</loc>
-     <lastmod>2018-03-18</lastmod>
+     <lastmod>2018-03-20</lastmod>
      <changefreq>daily</changefreq>
     </url>
         
     <url>
      <loc>/CONTRIBUTING/</loc>
-     <lastmod>2018-03-18</lastmod>
+     <lastmod>2018-03-20</lastmod>
      <changefreq>daily</changefreq>
     </url>
         
     <url>
      <loc>/before-submitting-pull-request/</loc>
-     <lastmod>2018-03-18</lastmod>
+     <lastmod>2018-03-20</lastmod>
+     <changefreq>daily</changefreq>
+    </url>
+        
+    <url>
+     <loc>/unit-tests/</loc>
+     <lastmod>2018-03-20</lastmod>
      <changefreq>daily</changefreq>
     </url>
         
@@ -87,7 +115,7 @@
         
     <url>
      <loc>/coding-guidelines/</loc>
-     <lastmod>2018-03-18</lastmod>
+     <lastmod>2018-03-20</lastmod>
      <changefreq>daily</changefreq>
     </url>
         
@@ -96,7 +124,7 @@
     
     <url>
      <loc>/faq/</loc>
-     <lastmod>2018-03-18</lastmod>
+     <lastmod>2018-03-20</lastmod>
      <changefreq>daily</changefreq>
     </url>
     
@@ -105,13 +133,13 @@
         
     <url>
      <loc>/RELEASE_HISTORY/</loc>
-     <lastmod>2018-03-18</lastmod>
+     <lastmod>2018-03-20</lastmod>
      <changefreq>daily</changefreq>
     </url>
         
     <url>
      <loc>/LICENSE/</loc>
-     <lastmod>2018-03-18</lastmod>
+     <lastmod>2018-03-20</lastmod>
      <changefreq>daily</changefreq>
     </url>
         
