@@ -57,6 +57,8 @@
       <link rel="stylesheet" href="https://fonts.googleapis.com/icon?family=Material+Icons">
     
     
+      <link rel="stylesheet" href="../ ">
+    
     
   </head>
   
@@ -511,9 +513,117 @@
 
 
   <li class="md-nav__item">
+    <a href="../matlab-to-eigen/" title="Matlab-libigl Cheatsheet" class="md-nav__link">
+      Matlab-libigl Cheatsheet
+    </a>
+  </li>
+
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
     <a href="../coding-guidelines/" title="Coding Tips" class="md-nav__link">
       Coding Tips
     </a>
+  </li>
+
+        
+          
+          
+          
+
+
+  <li class="md-nav__item md-nav__item--nested">
+    
+      <input class="md-toggle md-nav__toggle" data-md-toggle="nav-5-3" type="checkbox" id="nav-5-3">
+    
+    <label class="md-nav__link" for="nav-5-3">
+      File Formats
+    </label>
+    <nav class="md-nav" data-md-component="collapsible" data-md-level="2">
+      <label class="md-nav__title" for="nav-5-3">
+        File Formats
+      </label>
+      <ul class="md-nav__list" data-md-scrollfix>
+        
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="../file-formats/" title="List" class="md-nav__link">
+      List
+    </a>
+  </li>
+
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="../file-formats/bf/" title="bf" class="md-nav__link">
+      bf
+    </a>
+  </li>
+
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="../file-formats/dmat/" title="dmat" class="md-nav__link">
+      dmat
+    </a>
+  </li>
+
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="../file-formats/rbr/" title="rbr" class="md-nav__link">
+      rbr
+    </a>
+  </li>
+
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="../file-formats/tgf/" title="tgf" class="md-nav__link">
+      tgf
+    </a>
+  </li>
+
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="../file-formats/xml/" title="xml" class="md-nav__link">
+      xml
+    </a>
+  </li>
+
+        
+      </ul>
+    </nav>
   </li>
 
         
@@ -647,36 +757,35 @@
                 
                   <h1>External Dependencies</h1>
                 
-                <p>This directory contains external libraries which are either difficult to
-obtain, difficult to compile or patched for libigl.</p>
+                <p>The <code class="codehilite">external/</code> directory contains external libraries which are either difficult to obtain, difficult to compile or patched for libigl.</p>
 <h2 id="anttweakbar">AntTweakBar<a class="headerlink" href="#anttweakbar" title="Permanent link">&para;</a></h2>
-<p>Patched to support copying and pasting from text fields (see
-<a href="http://www.alecjacobson.com/weblog/?p=2378">http://www.alecjacobson.com/weblog/?p=2378</a>)</p>
-<p>Added makefiles for Mac OS X with modern GCC (AntTweakBar/src/Makefile.osx.igl)
-and for building with Mesa (AntTweakBar/src/Makefile.mesa.igl)</p>
+<p>Patched to support copying and pasting from text fields (see <a href="http://www.alecjacobson.com/weblog/?p=2378">http://www.alecjacobson.com/weblog/?p=2378</a>)</p>
+<p>Added makefiles for Mac OS X with modern GCC (AntTweakBar/src/Makefile.osx.igl) and for building with Mesa (AntTweakBar/src/Makefile.mesa.igl)</p>
 <h2 id="embree">Embree<a class="headerlink" href="#embree" title="Permanent link">&para;</a></h2>
-<p>Install <code class="codehilite">ispc</code>  and <code class="codehilite">tbb</code> for example (<code class="codehilite">brew install ispc tbb</code>),
-then</p>
+<p>Install <code class="codehilite">ispc</code>  and <code class="codehilite">tbb</code> for example (<code class="codehilite">brew install ispc tbb</code>), then</p>
 <div class="codehilite"><pre><span></span>mkdir build
-cd build
-cmake -DCMAKE_C_COMPILER=/usr/bin/gcc -DCMAKE_CXX_COMPILER=/usr/bin/g++ -DCMAKE_BUILD_TYPE=Release ..
+<span class="nb">cd</span> build
+cmake -DCMAKE_C_COMPILER<span class="o">=</span>/usr/bin/gcc -DCMAKE_CXX_COMPILER<span class="o">=</span>/usr/bin/g++ -DCMAKE_BUILD_TYPE<span class="o">=</span>Release ..
 make
 </pre></div>
-
 
 <h2 id="tinyxml2">TinyXML2<a class="headerlink" href="#tinyxml2" title="Permanent link">&para;</a></h2>
 <p>double precision bug fixes:</p>
 <p>tinyxml2.h line 1286 add function:</p>
-<p>void SetAttribute( const char* name, float value ) {
-    XMLAttribute* a = FindOrCreateAttribute( name );
-    a-&gt;SetAttribute( value );
-}</p>
+<div class="codehilite"><pre><span></span><span class="kt">void</span> <span class="nf">SetAttribute</span><span class="p">(</span> <span class="k">const</span> <span class="kt">char</span><span class="o">*</span> <span class="n">name</span><span class="p">,</span> <span class="kt">float</span> <span class="n">value</span> <span class="p">)</span> <span class="p">{</span>
+    <span class="n">XMLAttribute</span><span class="o">*</span> <span class="n">a</span> <span class="o">=</span> <span class="n">FindOrCreateAttribute</span><span class="p">(</span> <span class="n">name</span> <span class="p">);</span>
+    <span class="n">a</span><span class="o">-&gt;</span><span class="n">SetAttribute</span><span class="p">(</span> <span class="n">value</span> <span class="p">);</span>
+<span class="p">}</span>
+</pre></div>
+
 <p>tinyxml2.cpp line 434 replace with:</p>
-<p>TIXML_SNPRINTF( buffer, bufferSize, "%.15e", v );</p>
+<div class="codehilite"><pre><span></span><span class="n">TIXML_SNPRINTF</span><span class="p">(</span> <span class="n">buffer</span><span class="p">,</span> <span class="n">bufferSize</span><span class="p">,</span> <span class="s">&quot;%.15e&quot;</span><span class="p">,</span> <span class="n">v</span> <span class="p">);</span>
+</pre></div>
+
 <h2 id="cgal">CGAL<a class="headerlink" href="#cgal" title="Permanent link">&para;</a></h2>
 <p>CGAL can be built as a CMake external project thanks to the <code class="codehilite">CMakeLists.txt</code> provided in this folder. While this is mainly intended as a convenience for Windows users, and CI builds on AppVeyor, this should work on Linux/macOS as well. To build CGAL and Boost with the provided CMake script, build this folder as you would compile any CMake project (use CMake GUI and MSVC on Windows):</p>
 <div class="codehilite"><pre><span></span>mkdir build
-cd build
+<span class="nb">cd</span> build
 cmake ..
 make -j4
 </pre></div>
