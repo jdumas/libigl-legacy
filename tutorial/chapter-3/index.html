@@ -938,7 +938,7 @@ the Matlab code:</p>
 (between 1 and <span><span class="MathJax_Preview">m</span><script type="math/tex">m</script></span>) and <code class="codehilite">C</code> is a <span><span class="MathJax_Preview">k</span><script type="math/tex">k</script></span>-long list of column-indices, then as a
 result <code class="codehilite">B</code> will be a <span><span class="MathJax_Preview">j \times k</span><script type="math/tex">j \times k</script></span> matrix drawing elements from <code class="codehilite">A</code> according to
 <code class="codehilite">R</code> and <code class="codehilite">C</code>. In libigl, the same functionality is provided by the <code class="codehilite">slice</code>
-function (<a href="../301_Slice/main.cpp">Example 301</a>):</p>
+function (<a href="https://github.com/libigl/libigl/tree/master/tutorial/301_Slice/main.cpp">Example 301</a>):</p>
 <div class="codehilite"><pre><span></span><span class="n">VectorXi</span> <span class="n">R</span><span class="p">,</span><span class="n">C</span><span class="p">;</span>
 <span class="n">MatrixXd</span> <span class="n">A</span><span class="p">,</span><span class="n">B</span><span class="p">;</span>
 <span class="p">...</span>
@@ -982,7 +982,7 @@ output <code class="codehilite">I</code> is a <span><span class="MathJax_Preview
 where again <code class="codehilite">I</code> reveals the index of sort so that it can be reproduced with
 <code class="codehilite">igl::slice(X,I,1,Y)</code>.</p>
 <p>Analogous functions are available in libigl for: <code class="codehilite">max</code>, <code class="codehilite">min</code>, and <code class="codehilite">unique</code>.</p>
-<figure><img alt="The example Sort shows how to use igl::sortrows to pseudocolor triangles according to their barycenters' sorted order (Example 302)." src="../images/decimated-knight-sort-color.jpg" /><figcaption>The example <code class="codehilite">Sort</code> shows how to use <code class="codehilite">igl::sortrows</code> to pseudocolor triangles according to their barycenters&rsquo; sorted order (<a href="../302_Sort/main.cpp">Example 302</a>).</figcaption>
+<figure><img alt="The example Sort shows how to use igl::sortrows to pseudocolor triangles according to their barycenters' sorted order (Example 302)." src="../images/decimated-knight-sort-color.jpg" /><figcaption>The example <code class="codehilite">Sort</code> shows how to use <code class="codehilite">igl::sortrows</code> to pseudocolor triangles according to their barycenters&rsquo; sorted order (<a href="https://github.com/libigl/libigl/tree/master/tutorial/302_Sort/main.cpp">Example 302</a>).</figcaption>
 </figure>
 <h3 id="other-matlab-style-functions">Other Matlab-style functions<a class="headerlink" href="#other-matlab-style-functions" title="Permanent link">&para;</a></h3>
 <p>Libigl implements a variety of other routines with the same api and
@@ -1255,7 +1255,7 @@ this solution is not very general.</p>
 <p>With array slicing no explicit sort is needed. Instead we can <em>slice-out</em>
 submatrix blocks (<span><span class="MathJax_Preview">\mathbf{L}_{in,in}</span><script type="math/tex">\mathbf{L}_{in,in}</script></span>, <span><span class="MathJax_Preview">\mathbf{L}_{in,b}</span><script type="math/tex">\mathbf{L}_{in,b}</script></span>, etc.) and follow
 the linear algebra above directly. Then we can slice the solution <em>into</em> the
-rows of <code class="codehilite">Z</code> corresponding to the interior vertices (<a href="../303_LaplaceEquation/main.cpp">Example 303</a>).</p>
+rows of <code class="codehilite">Z</code> corresponding to the interior vertices (<a href="https://github.com/libigl/libigl/tree/master/tutorial/303_LaplaceEquation/main.cpp">Example 303</a>).</p>
 <figure><img alt="The LaplaceEquation example solves a Laplace equation with Dirichlet boundary conditions." src="../images/camelhead-laplace-equation.jpg" /><figcaption>The <code class="codehilite">LaplaceEquation</code> example solves a Laplace equation with Dirichlet boundary conditions.</figcaption>
 </figure>
 <h3 id="quadratic-energy-minimization">Quadratic energy minimization<a class="headerlink" href="#quadratic-energy-minimization" title="Permanent link">&para;</a></h3>
@@ -1437,7 +1437,7 @@ difference from the straight quadratic <em>minimization</em> system, is that thi
 saddle problem system will not be positive definite. Thus, we must use a
 different factorization technique (LDLT rather than LLT): libigl&rsquo;s
 <code class="codehilite">min_quad_with_fixed_precompute</code> automatically chooses the correct solver in
-the presence of linear equality constraints (<a href="../304_LinearEqualityConstraints/main.cpp">Example 304</a>).</p>
+the presence of linear equality constraints (<a href="https://github.com/libigl/libigl/tree/master/tutorial/304_LinearEqualityConstraints/main.cpp">Example 304</a>).</p>
 <figure><img alt="The example LinearEqualityConstraints first solves with just fixed value constraints (left: 1 and -1 on the left hand and foot respectively), then solves with an additional linear equality constraint (right: points on right hand and foot constrained to be equal)." src="../images/cheburashka-biharmonic-leq.jpg" /><figcaption>The example <code class="codehilite">LinearEqualityConstraints</code> first solves with just fixed value constraints (left: 1 and -1 on the left hand and foot respectively), then solves with an additional linear equality constraint (right: points on right hand and foot constrained to be equal).</figcaption>
 </figure>
 <h2 id="quadratic-programming">Quadratic programming<a class="headerlink" href="#quadratic-programming" title="Permanent link">&para;</a></h2>
@@ -1503,7 +1503,7 @@ values, then this truncation effectively <em>regularizes</em> <span><span class=
 slowly changing functions over the mesh (e.g. <sup id="fnref:hildebrandt_2011"><a class="footnote-ref" href="#fn:hildebrandt_2011" rel="footnote">2</a></sup>). Modal
 analysis and model subspaces have been used frequently in real-time deformation
 (e.g. <sup id="fnref:barbic_2005"><a class="footnote-ref" href="#fn:barbic_2005" rel="footnote">1</a></sup>).</p>
-<p>In <a href="../306_EigenDecomposition/main.cpp">Example 306</a>), the first 5 eigen vectors
+<p>In <a href="https://github.com/libigl/libigl/tree/master/tutorial/306_EigenDecomposition/main.cpp">Example 306</a>), the first 5 eigen vectors
 of the discrete Laplace-Beltrami operator are computed and displayed in
 pseudo-color atop the beetle. Eigen vectors are computed using <code class="codehilite">igl::eigs</code>
 (mirroring MATLAB&rsquo;s <code class="codehilite">eigs</code>). The 5 eigen vectors are placed into the columns
@@ -1516,7 +1516,7 @@ of <code class="codehilite">U</code> and the eigen values are placed into the en
 <span class="n">igl</span><span class="o">::</span><span class="n">eigs</span><span class="p">(</span><span class="n">L</span><span class="p">,</span><span class="n">M</span><span class="p">,</span><span class="mi">5</span><span class="p">,</span><span class="n">igl</span><span class="o">::</span><span class="n">EIGS_TYPE_SM</span><span class="p">,</span><span class="n">U</span><span class="p">,</span><span class="n">S</span><span class="p">);</span>
 </pre></div>
 
-<figure><img alt="(Example 306) Low frequency eigen vectors of the discrete Laplace-Beltrami operator vary smoothly and slowly over the _Beetle_." src="../images/beetle-eigen-decomposition.gif" /><figcaption>(<a href="../306_EigenDecomposition/main.cpp">Example 306</a>) Low frequency eigen vectors of the discrete Laplace-Beltrami operator vary smoothly and slowly over the <em>Beetle</em>.</figcaption>
+<figure><img alt="(Example 306) Low frequency eigen vectors of the discrete Laplace-Beltrami operator vary smoothly and slowly over the _Beetle_." src="../images/beetle-eigen-decomposition.gif" /><figcaption>(<a href="https://github.com/libigl/libigl/tree/master/tutorial/306_EigenDecomposition/main.cpp">Example 306</a>) Low frequency eigen vectors of the discrete Laplace-Beltrami operator vary smoothly and slowly over the <em>Beetle</em>.</figcaption>
 </figure>
 <h2 id="references">References<a class="headerlink" href="#references" title="Permanent link">&para;</a></h2>
 <div class="footnote">

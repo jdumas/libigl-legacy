@@ -1051,12 +1051,12 @@ Similarly, a mesh can be written in an OBJ file using:</p>
 <div class="codehilite"><pre><span></span><span class="n">igl</span><span class="o">::</span><span class="n">writeOBJ</span><span class="p">(</span><span class="s">&quot;cube.obj&quot;</span><span class="p">,</span><span class="n">V</span><span class="p">,</span><span class="n">F</span><span class="p">);</span>
 </pre></div>
 
-<p><a href="../101_FileIO/main.cpp">Example 101</a> contains a simple mesh
+<p><a href="https://github.com/libigl/libigl/tree/master/tutorial/101_FileIO/main.cpp">Example 101</a> contains a simple mesh
 converter from OFF to OBJ format.</p>
 <h2 id="visualizing-surfaces">Visualizing surfaces<a class="headerlink" href="#visualizing-surfaces" title="Permanent link">&para;</a></h2>
 <p>Libigl provides an glfw-based OpenGL 3.2 viewer to visualize surfaces, their
 properties and additional debugging information.</p>
-<p>The following code (<a href="../102_DrawMesh/main.cpp">Example 102</a>) is a basic skeleton
+<p>The following code (<a href="https://github.com/libigl/libigl/tree/master/tutorial/102_DrawMesh/main.cpp">Example 102</a>) is a basic skeleton
 for all the examples that will be used in the tutorial.
 It is a standalone application that loads a mesh and uses the viewer to
 render it.</p>
@@ -1083,8 +1083,8 @@ render it.</p>
 Additional properties can be plotted on the mesh (as we will see later),
 and it is possible to extend the viewer with standard OpenGL code.
 Please see the documentation in
-<a href="../../include/igl/opengl/glfw/Viewer.h">Viewer.h</a> for more details.</p>
-<figure><img alt="(Example 102) loads and draws a mesh." src="../images/102_DrawMesh.png" /><figcaption>(<a href="../102_DrawMesh/main.cpp">Example 102</a>) loads and draws a mesh.</figcaption>
+<a href="https://github.com/libigl/libigl/tree/master/include/igl/opengl/glfw/Viewer.h">Viewer.h</a> for more details.</p>
+<figure><img alt="(Example 102) loads and draws a mesh." src="../images/102_DrawMesh.png" /><figcaption>(<a href="https://github.com/libigl/libigl/tree/master/tutorial/102_DrawMesh/main.cpp">Example 102</a>) loads and draws a mesh.</figcaption>
 </figure>
 <h2 id="interaction-with-keyboard-and-mouse">Interaction with keyboard and mouse<a class="headerlink" href="#interaction-with-keyboard-and-mouse" title="Permanent link">&para;</a></h2>
 <p>Keyboard and mouse events triggers callbacks that can be registered in the
@@ -1100,7 +1100,7 @@ viewer. The viewer supports the following callbacks:</p>
 </pre></div>
 
 <p>A keyboard callback can be used to visualize multiple meshes or different
-stages of an algorithm, as demonstrated in <a href="../103_Events/main.cpp">Example 103</a>, where
+stages of an algorithm, as demonstrated in <a href="https://github.com/libigl/libigl/tree/master/tutorial/103_Events/main.cpp">Example 103</a>, where
 the keyboard callback changes the visualized mesh depending on the key pressed:</p>
 <div class="codehilite"><pre><span></span><span class="kt">bool</span> <span class="nf">key_down</span><span class="p">(</span><span class="n">igl</span><span class="o">::</span><span class="n">opengl</span><span class="o">::</span><span class="n">glfw</span><span class="o">::</span><span class="n">Viewer</span><span class="o">&amp;</span> <span class="n">viewer</span><span class="p">,</span> <span class="kt">unsigned</span> <span class="kt">char</span> <span class="n">key</span><span class="p">,</span> <span class="kt">int</span> <span class="n">modifier</span><span class="p">)</span>
 <span class="p">{</span>
@@ -1132,7 +1132,7 @@ useful, for example, to disable the default mouse event handling if you want to
 control the camera directly in your code.</p>
 <p>The viewer can be extended using plugins, which are classes that implements all
 the viewer&rsquo;s callbacks. See the
-<a href="../../include/igl/opengl/glfw/ViewerPlugin.h">Viewer_plugin</a> for more details.</p>
+<a href="https://github.com/libigl/libigl/tree/master/include/igl/opengl/glfw/ViewerPlugin.h">Viewer_plugin</a> for more details.</p>
 <h2 id="scalar-field-visualization">Scalar field visualization<a class="headerlink" href="#scalar-field-visualization" title="Permanent link">&para;</a></h2>
 <p>Colors and normals can be associated to faces or vertices using the
 set_colors function:</p>
@@ -1148,7 +1148,7 @@ scalar function is converted to colors using a color transfer function, which
 maps a scalar value between 0 and 1 to a color. A simple example of a scalar
 field defined on a surface is the z coordinate of each point, which can be
 extract from our mesh representation by taking the last column of <code class="codehilite">V</code>
-(<a href="../104_Colors/main.cpp">Example 104</a>). The function <code class="codehilite">igl::jet</code> can be used to
+(<a href="https://github.com/libigl/libigl/tree/master/tutorial/104_Colors/main.cpp">Example 104</a>). The function <code class="codehilite">igl::jet</code> can be used to
 convert it to colors:</p>
 <div class="codehilite"><pre><span></span><span class="n">Eigen</span><span class="o">::</span><span class="n">VectorXd</span> <span class="n">Z</span> <span class="o">=</span> <span class="n">V</span><span class="p">.</span><span class="n">col</span><span class="p">(</span><span class="mi">2</span><span class="p">);</span>
 <span class="n">igl</span><span class="o">::</span><span class="n">jet</span><span class="p">(</span><span class="n">Z</span><span class="p">,</span><span class="nb">true</span><span class="p">,</span><span class="n">C</span><span class="p">);</span>
@@ -1156,7 +1156,7 @@ convert it to colors:</p>
 
 <p>The first row extracts the third column from <code class="codehilite">V</code> (the z coordinate of each
 vertex) and the second calls a libigl functions that converts a scalar field to colors. The second parameter of jet normalizes the scalar field to lie between 0 and 1 before applying the transfer function.</p>
-<figure><img alt="(Example 104) igl::jet converts a scalar field to a color field." src="../images/104_Colors.png" /><figcaption>(<a href="../104_Colors/main.cpp">Example 104</a>) igl::jet converts a scalar field to a color field.</figcaption>
+<figure><img alt="(Example 104) igl::jet converts a scalar field to a color field." src="../images/104_Colors.png" /><figcaption>(<a href="https://github.com/libigl/libigl/tree/master/tutorial/104_Colors/main.cpp">Example 104</a>) igl::jet converts a scalar field to a color field.</figcaption>
 </figure>
 <p><code class="codehilite">igl::jet</code> is an example of a standard function in libigl: it takes simple
 types and can be easily reused for many different tasks.  Not committing to
@@ -1175,7 +1175,7 @@ heavy data structures types favors simplicity, ease of use and reusability.</p>
 </pre></div>
 
 <p>Draws a label containing the string str at the position p, which is a vector of length 3.</p>
-<p>These functions are demonstrate in <a href="../105_Overlays/main.cpp">Example 105</a> where
+<p>These functions are demonstrate in <a href="https://github.com/libigl/libigl/tree/master/tutorial/105_Overlays/main.cpp">Example 105</a> where
 the bounding box of a mesh is plotted using lines and points.
 Using matrices to encode the mesh and its attributes allows to write short and
 efficient code for many operations, avoiding to write for loops. For example,
@@ -1184,13 +1184,13 @@ the bounding box of a mesh can be found by taking the colwise maximum and minimu
 <span class="n">Eigen</span><span class="o">::</span><span class="n">Vector3d</span> <span class="n">M</span> <span class="o">=</span> <span class="n">V</span><span class="p">.</span><span class="n">colwise</span><span class="p">().</span><span class="n">maxCoeff</span><span class="p">();</span>
 </pre></div>
 
-<figure><img alt="(Example 105) The bounding box of a mesh is shown using overlays." src="../images/105_Overlays.png" /><figcaption>(<a href="../105_Overlays/main.cpp">Example 105</a>) The bounding box of a mesh is shown using overlays.</figcaption>
+<figure><img alt="(Example 105) The bounding box of a mesh is shown using overlays." src="../images/105_Overlays.png" /><figcaption>(<a href="https://github.com/libigl/libigl/tree/master/tutorial/105_Overlays/main.cpp">Example 105</a>) The bounding box of a mesh is shown using overlays.</figcaption>
 </figure>
 <h2 id="viewer-menu">Viewer Menu<a class="headerlink" href="#viewer-menu" title="Permanent link">&para;</a></h2>
 <p>As of latest version, the viewer uses a new menu and completely replaces
 <a href="http://anttweakbar.sourceforge.net/doc/">AntTweakBar</a> and
 <a href="https://github.com/wjakob/nanogui">nanogui</a> with <a href="https://github.com/ocornut/imgui">Dear ImGui</a>. To extend the default menu of the
-viewer and to expose more user defined variables you have to implement a custom interface, as in <a href="../106_ViewerMenu/main.cpp">Example 106</a>:
+viewer and to expose more user defined variables you have to implement a custom interface, as in <a href="https://github.com/libigl/libigl/tree/master/tutorial/106_ViewerMenu/main.cpp">Example 106</a>:
 <div class="codehilite"><pre><span></span><span class="c1">// Add content to the default menu window</span>
 <span class="n">menu</span><span class="p">.</span><span class="n">callback_draw_viewer_menu</span> <span class="o">=</span> <span class="p">[</span><span class="o">&amp;</span><span class="p">]()</span>
 <span class="p">{</span>
@@ -1266,7 +1266,7 @@ viewer and to expose more user defined variables you have to implement a custom 
 <span class="p">};</span>
 </pre></div>
 
-<figure><img alt="(Example 106) The UI of the viewer can be easily customized." src="../images/106_ViewerMenu.png" /><figcaption>(<a href="../106_ViewerMenu/main.cpp">Example 106</a>) The UI of the viewer can be easily customized.</figcaption>
+<figure><img alt="(Example 106) The UI of the viewer can be easily customized." src="../images/106_ViewerMenu.png" /><figcaption>(<a href="https://github.com/libigl/libigl/tree/master/tutorial/106_ViewerMenu/main.cpp">Example 106</a>) The UI of the viewer can be easily customized.</figcaption>
 </figure>
 <h2 id="multiple-meshes">Multiple Meshes<a class="headerlink" href="#multiple-meshes" title="Permanent link">&para;</a></h2>
 <p>Libigl&rsquo;s <code class="codehilite">igl::opengl::glfw::Viewer</code> provides basic support for rendering
@@ -1275,7 +1275,7 @@ multiple meshes.</p>
 field. By default it his is set to <code class="codehilite">0</code>, so in the typical case of a single mesh
 <code class="codehilite">viewer.data()</code> returns the <code class="codehilite">igl::ViewerData</code> corresponding to the one
 and only mesh.</p>
-<figure><img alt="(Example 107) The igl::opengl::glfw::Viewer can render multiple meshes, each with its own attributes like colors." src="../images/multiple-meshes.png" /><figcaption>(<a href="../107_MultipleMeshes/main.cpp">Example 107</a>) The <code class="codehilite">igl::opengl::glfw::Viewer</code> can render multiple meshes, each with its own attributes like colors.</figcaption>
+<figure><img alt="(Example 107) The igl::opengl::glfw::Viewer can render multiple meshes, each with its own attributes like colors." src="../images/multiple-meshes.png" /><figcaption>(<a href="https://github.com/libigl/libigl/tree/master/tutorial/107_MultipleMeshes/main.cpp">Example 107</a>) The <code class="codehilite">igl::opengl::glfw::Viewer</code> can render multiple meshes, each with its own attributes like colors.</figcaption>
 </figure>
                 
                   

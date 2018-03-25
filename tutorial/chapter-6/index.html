@@ -1094,7 +1094,7 @@ parameter, exposed in the function <code class="codehilite">serialize_xml()</cod
 </pre></div>
 
 <p>For user defined types derive from <code class="codehilite">XMLSerializable</code>.</p>
-<p>The code snippets above are extracted from <a href="../601_Serialization/main.cpp">Example
+<p>The code snippets above are extracted from <a href="https://github.com/libigl/libigl/tree/master/tutorial/601_Serialization/main.cpp">Example
 601</a>. We strongly suggest that you make the entire
 state of your application always serializable since it will save you a lot of
 troubles when you will be preparing figures for a scientific report. It is very
@@ -1109,7 +1109,7 @@ the syntax and fast protototyping features of matlab. In particular, the use of
 an external Matlab script in a libigl application allows to change the Matlab
 code while the C++ application is running, greatly increasing coding
 efficiency.</p>
-<p>We demonstrate how to integrate Matlab in a libigl application in <a href="../602_Matlab/main.cpp">Example
+<p>We demonstrate how to integrate Matlab in a libigl application in <a href="https://github.com/libigl/libigl/tree/master/tutorial/602_Matlab/main.cpp">Example
 602</a>. The example uses Matlab to compute the
 Eigenfunctions of the discrete Laplacian operator, relying on libigl for mesh
 IO, visualization and for computing the Laplacian operator.</p>
@@ -1205,7 +1205,7 @@ copy standard output from a C++ program into a Matlab IDE. The code:</p>
 <p>It is also possible to call libigl functions from matlab, compiling them as MEX
 functions. This can be used to offload to C++ code the computationally
 intensive parts of a Matlab application.</p>
-<p>We provide a wrapper for <code class="codehilite">igl::readOBJ</code> in <a href="../603_MEX/compileMEX.m">Example 603</a>.
+<p>We provide a wrapper for <code class="codehilite">igl::readOBJ</code> in <a href="https://github.com/libigl/libigl/tree/master/tutorial/603_MEX/compileMEX.m">Example 603</a>.
 We plan to provide wrappers for all our functions in the future, if you are
 interested in this feature (or if you want to help implementing it) please let
 us know.</p>
@@ -1222,14 +1222,14 @@ task in geometry processing. We provide wrappers in libigl to
 points contained in holes of the triangulation (#H by 2) and (<code class="codehilite">V2</code>,<code class="codehilite">F2</code>) is the
 generated triangulation. Additional parameters can be passed to <code class="codehilite">triangle</code>, to
 control the quality: <code class="codehilite">&quot;a0.005q&quot;</code> enforces a bound on the maximal area of the
-triangles and a minimal angle of 20 degrees. In <a href="../604_Triangle/main.cpp">Example
+triangles and a minimal angle of 20 degrees. In <a href="https://github.com/libigl/libigl/tree/master/tutorial/604_Triangle/main.cpp">Example
 604</a>, the interior of a square (excluded a smaller square
 in its interior) is triangulated.</p>
 <figure><img alt="Triangulation of the interior of a polygon." src="../images/604_Triangle.png" /><figcaption>Triangulation of the interior of a polygon.</figcaption>
 </figure>
 <h2 id="tetrahedralization-of-closed-surfaces">Tetrahedralization of closed surfaces<a class="headerlink" href="#tetrahedralization-of-closed-surfaces" title="Permanent link">&para;</a></h2>
 <p>Similarly, the interior of a closed manifold surface can be tetrahedralized
-using the function <code class="codehilite">igl::tetrahedralize</code> which wraps the Tetgen library (<a href="../605_Tetgen/main.cpp">Example
+using the function <code class="codehilite">igl::tetrahedralize</code> which wraps the Tetgen library (<a href="https://github.com/libigl/libigl/tree/master/tutorial/605_Tetgen/main.cpp">Example
 605</a>):</p>
 <div class="codehilite"><pre><span></span><span class="n">igl</span><span class="o">::</span><span class="n">tetrahedralize</span><span class="p">(</span><span class="n">V</span><span class="p">,</span><span class="n">F</span><span class="p">,</span><span class="s">&quot;pq1.414&quot;</span><span class="p">,</span> <span class="n">TV</span><span class="p">,</span><span class="n">TT</span><span class="p">,</span><span class="n">TF</span><span class="p">);</span>
 </pre></div>
@@ -1257,7 +1257,7 @@ number of casted rays can be controlled (usually at least 300-500 rays are
 required to get a smooth result) and the result is returned in <code class="codehilite">AO</code>, as a
 single scalar for each sample.</p>
 <p>Ambient occlusion can be used to darken the surface colors, as shown in
-<a href="../606_AmbientOcclusion/main.c">Example 606</a></p>
+<a href="https://github.com/libigl/libigl/tree/master/tutorial/606_AmbientOcclusion/main.c">Example 606</a></p>
 <figure><img alt="A mesh rendered without (left) and with (right) ambient occlusion." src="../images/606_AmbientOcclusion.png" /><figcaption>A mesh rendered without (left) and with (right) ambient occlusion.</figcaption>
 </figure>
 <h2 id="screen-capture">Screen Capture<a class="headerlink" href="#screen-capture" title="Permanent link">&para;</a></h2>
@@ -1278,7 +1278,7 @@ memory buffer using the function, <code class="codehilite">igl::opengl::ViewerCo
 <span class="n">igl</span><span class="o">::</span><span class="n">png</span><span class="o">::</span><span class="n">writePNG</span><span class="p">(</span><span class="n">R</span><span class="p">,</span><span class="n">G</span><span class="p">,</span><span class="n">B</span><span class="p">,</span><span class="n">A</span><span class="p">,</span><span class="s">&quot;out.png&quot;</span><span class="p">);</span>
 </pre></div>
 
-<p>In <a href="../607_ScreenCapture/main.cpp">Example 607</a> a scene is rendered in a temporary
+<p>In <a href="https://github.com/libigl/libigl/tree/master/tutorial/607_ScreenCapture/main.cpp">Example 607</a> a scene is rendered in a temporary
 png and used to texture a quadrilateral.</p>
 <h2 id="locally-injective-maps">Locally Injective Maps<a class="headerlink" href="#locally-injective-maps" title="Permanent link">&para;</a></h2>
 <p>Extreme deformations or parametrizations with high-distortion might flip
@@ -1286,7 +1286,7 @@ elements.  This is undesirable in many applications, and it is possible to
 avoid it by introducing a non-linear constraints that guarantees that the area
 of every element remain positive.</p>
 <p>Libigl can be used to compute Locally Injective Maps <sup id="fnref:schuller_2013"><a class="footnote-ref" href="#fn:schuller_2013" rel="footnote">1</a></sup> using a variety of
-deformation energies. A simple deformation of a 2D grid is computed in <a href="../608_LIM/main.cpp">Example
+deformation energies. A simple deformation of a 2D grid is computed in <a href="https://github.com/libigl/libigl/tree/master/tutorial/608_LIM/main.cpp">Example
 608</a>.</p>
 <figure><img alt="A mesh (left) deformed using Laplacian editing (middle) and with Laplacian editing plus the anti-flipping constraints (right)." src="../images/608_LIM.png" /><figcaption>A mesh (left) deformed using Laplacian editing (middle) and with Laplacian editing plus the anti-flipping constraints (right).</figcaption>
 </figure>
@@ -1339,7 +1339,7 @@ intersection) the boundary of the corresponding cells are extracted.</p>
 </pre></div>
 
 <p>The following figure shows each boolean operation on two meshes.</p>
-<figure><img alt="The example Boolean conducts boolean operations on the _Cheburashka_ (red) and _Knight_ (green). From left to right: union, intersection, set minus, symmetric difference (XOR), &quot;resolve&quot;. Bottom row reveals inner surfaces, darker color indicates back-facing triangles." src="../images/cheburashka-knight-boolean.jpg" /><figcaption>The example <a href="../609_Boolean/main.cpp">Boolean</a> conducts boolean operations on the <em>Cheburashka</em> (red) and <em>Knight</em> (green). From left to right: union, intersection, set minus, symmetric difference (XOR), &ldquo;resolve&rdquo;. Bottom row reveals inner surfaces, darker color indicates back-facing triangles.</figcaption>
+<figure><img alt="The example Boolean conducts boolean operations on the _Cheburashka_ (red) and _Knight_ (green). From left to right: union, intersection, set minus, symmetric difference (XOR), &quot;resolve&quot;. Bottom row reveals inner surfaces, darker color indicates back-facing triangles." src="../images/cheburashka-knight-boolean.jpg" /><figcaption>The example <a href="https://github.com/libigl/libigl/tree/master/tutorial/609_Boolean/main.cpp">Boolean</a> conducts boolean operations on the <em>Cheburashka</em> (red) and <em>Knight</em> (green). From left to right: union, intersection, set minus, symmetric difference (XOR), &ldquo;resolve&rdquo;. Bottom row reveals inner surfaces, darker color indicates back-facing triangles.</figcaption>
 </figure>
 <p>The union, symmetric difference and &ldquo;resolve&rdquo; have the same outward
 appearance, but differ in their treatment of internal structures. The union has
@@ -1376,9 +1376,9 @@ of three cylinders:</p>
 
 <figure><img alt="A CSG Tree represents a shape as a combination of binary boolean operations" src="../images/cube-sphere-cylinders-csg-tree.jpg" /><figcaption>A CSG Tree represents a shape as a combination of binary boolean operations</figcaption>
 </figure>
-<p>Example <a href="../610_CSGTree/main.cpp">610</a> computes each intermediary CSG result and
+<p>Example <a href="https://github.com/libigl/libigl/tree/master/tutorial/610_CSGTree/main.cpp">610</a> computes each intermediary CSG result and
 then the final composite.</p>
-<figure><img alt="Example 610 computes  complex CSG Tree operation on 5 input meshes." src="../images/cube-sphere-cylinders-csg.gif" /><figcaption>Example <a href="../610_CSGTree/main.cpp">610</a> computes  complex CSG Tree operation on 5 input meshes.</figcaption>
+<figure><img alt="Example 610 computes  complex CSG Tree operation on 5 input meshes." src="../images/cube-sphere-cylinders-csg.gif" /><figcaption>Example <a href="https://github.com/libigl/libigl/tree/master/tutorial/610_CSGTree/main.cpp">610</a> computes  complex CSG Tree operation on 5 input meshes.</figcaption>
 </figure>
 <h2 id="references">References<a class="headerlink" href="#references" title="Permanent link">&para;</a></h2>
 <div class="footnote">

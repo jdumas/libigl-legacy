@@ -1049,7 +1049,7 @@ deformation field and then recover the deformed positions:</p>
 <span class="n">U</span> <span class="o">=</span> <span class="n">V</span><span class="o">+</span><span class="n">D</span><span class="p">;</span>
 </pre></div>
 
-<figure><img alt="The BiharmonicDeformation example deforms a statue's head as a _biharmonic surface_ (top) and using a _biharmonic displacements_ (bottom)." src="../images/max-biharmonic.jpg" /><figcaption>The <a href="../401_BiharmonicDeformation/main.cpp">BiharmonicDeformation</a> example deforms a statue&rsquo;s head as a <em>biharmonic surface</em> (top) and using a <em>biharmonic displacements</em> (bottom).</figcaption>
+<figure><img alt="The BiharmonicDeformation example deforms a statue's head as a _biharmonic surface_ (top) and using a _biharmonic displacements_ (bottom)." src="../images/max-biharmonic.jpg" /><figcaption>The <a href="https://github.com/libigl/libigl/tree/master/tutorial/401_BiharmonicDeformation/main.cpp">BiharmonicDeformation</a> example deforms a statue&rsquo;s head as a <em>biharmonic surface</em> (top) and using a <em>biharmonic displacements</em> (bottom).</figcaption>
 </figure>
 <h4 id="relationship-to-differential-coordinates-and-laplacian-surface-editing">Relationship to &ldquo;differential coordinates&rdquo; and Laplacian surface editing<a class="headerlink" href="#relationship-to-differential-coordinates-and-laplacian-surface-editing" title="Permanent link">&para;</a></h4>
 <p>Biharmonic functions (whether positions or displacements) are solutions to the
@@ -1079,7 +1079,7 @@ implies <span><span class="MathJax_Preview">C^1</span><script type="math/tex">C^
 <span class="n">igl</span><span class="o">::</span><span class="n">harmonic</span><span class="p">(</span><span class="n">V</span><span class="p">,</span><span class="n">F</span><span class="p">,</span><span class="n">b</span><span class="p">,</span><span class="n">bc</span><span class="p">,</span><span class="n">k</span><span class="p">,</span><span class="n">Z</span><span class="p">);</span>
 </pre></div>
 
-<figure><img alt="The PolyharmonicDeformation example deforms a flat domain (left) into a bump as a solution to various kk-harmonic PDEs." src="../images/bump-k-harmonic.jpg" /><figcaption>The <a href="../402_PolyharmonicDeformation/main.cpp">PolyharmonicDeformation</a> example deforms a flat domain (left) into a bump as a solution to various <span><span class="MathJax_Preview">k</span><script type="math/tex">k</script></span>-harmonic PDEs.</figcaption>
+<figure><img alt="The PolyharmonicDeformation example deforms a flat domain (left) into a bump as a solution to various kk-harmonic PDEs." src="../images/bump-k-harmonic.jpg" /><figcaption>The <a href="https://github.com/libigl/libigl/tree/master/tutorial/402_PolyharmonicDeformation/main.cpp">PolyharmonicDeformation</a> example deforms a flat domain (left) into a bump as a solution to various <span><span class="MathJax_Preview">k</span><script type="math/tex">k</script></span>-harmonic PDEs.</figcaption>
 </figure>
 <h2 id="bounded-biharmonic-weights">Bounded biharmonic weights<a class="headerlink" href="#bounded-biharmonic-weights" title="Permanent link">&para;</a></h2>
 <p>In computer animation, shape deformation is often referred to as &ldquo;skinning&rdquo;.
@@ -1126,7 +1126,7 @@ parition of unity and encourage sparsity:</p>
 <p><span><span class="MathJax_Preview">0\le w_i \le 1</span><script type="math/tex">0\le w_i \le 1</script></span> and <span><span class="MathJax_Preview">\sum\limits_{i=1}^m w_i = 1.</span><script type="math/tex">\sum\limits_{i=1}^m w_i = 1.</script></span></p>
 <p>This is a quadratic programming problem and libigl solves it using its active
 set solver or by calling out to <a href="http://www.mosek.com">Mosek</a>.</p>
-<figure><img alt="The example BoundedBiharmonicWeights computes weights for a tetrahedral mesh given a skeleton (top) and then animates a linear blend skinning deformation (bottom)." src="../images/hand-bbw.jpg" /><figcaption>The example <a href="../403_BoundedBiharmonicWeights/main.cpp">BoundedBiharmonicWeights</a> computes weights for a tetrahedral mesh given a skeleton (top) and then animates a linear blend skinning deformation (bottom).</figcaption>
+<figure><img alt="The example BoundedBiharmonicWeights computes weights for a tetrahedral mesh given a skeleton (top) and then animates a linear blend skinning deformation (bottom)." src="../images/hand-bbw.jpg" /><figcaption>The example <a href="https://github.com/libigl/libigl/tree/master/tutorial/403_BoundedBiharmonicWeights/main.cpp">BoundedBiharmonicWeights</a> computes weights for a tetrahedral mesh given a skeleton (top) and then animates a linear blend skinning deformation (bottom).</figcaption>
 </figure>
 <h2 id="dual-quaternion-skinning">Dual quaternion skinning<a class="headerlink" href="#dual-quaternion-skinning" title="Permanent link">&para;</a></h2>
 <p>Even with high quality weights, linear blend skinning is limited. In
@@ -1169,7 +1169,7 @@ internally converts to the dual quaternion representation before blending:</p>
 <span class="n">igl</span><span class="o">::</span><span class="n">dqs</span><span class="p">(</span><span class="n">V</span><span class="p">,</span><span class="n">W</span><span class="p">,</span><span class="n">vQ</span><span class="p">,</span><span class="n">vT</span><span class="p">,</span><span class="n">U</span><span class="p">);</span>
 </pre></div>
 
-<figure><img alt="The example DualQuaternionSkinning compares linear blend skinning (top) to dual quaternion skinning (bottom), highlighting LBS's candy wrapper effect (middle) and joint collapse (right)." src="../images/arm-dqs.jpg" /><figcaption>The example <a href="../404_DualQuaternionSkinning/main.cpp">DualQuaternionSkinning</a> compares linear blend skinning (top) to dual quaternion skinning (bottom), highlighting LBS&rsquo;s candy wrapper effect (middle) and joint collapse (right).</figcaption>
+<figure><img alt="The example DualQuaternionSkinning compares linear blend skinning (top) to dual quaternion skinning (bottom), highlighting LBS's candy wrapper effect (middle) and joint collapse (right)." src="../images/arm-dqs.jpg" /><figcaption>The example <a href="https://github.com/libigl/libigl/tree/master/tutorial/404_DualQuaternionSkinning/main.cpp">DualQuaternionSkinning</a> compares linear blend skinning (top) to dual quaternion skinning (bottom), highlighting LBS&rsquo;s candy wrapper effect (middle) and joint collapse (right).</figcaption>
 </figure>
 <h2 id="as-rigid-as-possible">As-rigid-as-possible<a class="headerlink" href="#as-rigid-as-possible" title="Permanent link">&para;</a></h2>
 <p>Skinning and other linear methods for deformation are inherently limited.
@@ -1260,7 +1260,7 @@ certain constraints on the positions of vertices in <code class="codehilite">b</
 <p>Libigl&rsquo;s implementation of as-rigid-as-possible deformation takes advantage of
 the highly optimized singular value decomposition code from McAdams et al.
 <sup id="fnref:mcadams_2011"><a class="footnote-ref" href="#fn:mcadams_2011" rel="footnote">8</a></sup> which leverages SSE intrinsics.</p>
-<figure><img alt="The example AsRigidAsPossible deforms a surface as if it were made of an elastic material" src="../images/decimated-knight-arap.jpg" /><figcaption>The example <a href="../405_AsRigidAsPossible/main.cpp">AsRigidAsPossible</a> deforms a surface as if it were made of an elastic material</figcaption>
+<figure><img alt="The example AsRigidAsPossible deforms a surface as if it were made of an elastic material" src="../images/decimated-knight-arap.jpg" /><figcaption>The example <a href="https://github.com/libigl/libigl/tree/master/tutorial/405_AsRigidAsPossible/main.cpp">AsRigidAsPossible</a> deforms a surface as if it were made of an elastic material</figcaption>
 </figure>
 <p>The concept of local rigidity will be revisited shortly in the context of
 surface parameterization.</p>
@@ -1354,7 +1354,7 @@ advance, one could also cluster according to a &ldquo;geodesic embedding&rdquo; 
 biharmonic distance embedding.</p>
 <p>In this light, we can think of the &ldquo;spokes+rims&rdquo; style surface ARAP as a (slight and
 redundant) clustering of the per-triangle edge-sets.</p>
-<figure><img alt="The example FastAutomaticSkinningTransformations compares a full (slow) ARAP deformation on a detailed shape (left of middle), to ARAP with grouped rotation edge sets (right of middle), to the very fast subpsace method (right)." src="../images/armadillo-fast.jpg" /><figcaption>The example <a href="../406_FastAutomaticSkinningTransformations/main.cpp">FastAutomaticSkinningTransformations</a> compares a full (slow) ARAP deformation on a detailed shape (left of middle), to ARAP with grouped rotation edge sets (right of middle), to the very fast subpsace method (right).</figcaption>
+<figure><img alt="The example FastAutomaticSkinningTransformations compares a full (slow) ARAP deformation on a detailed shape (left of middle), to ARAP with grouped rotation edge sets (right of middle), to the very fast subpsace method (right)." src="../images/armadillo-fast.jpg" /><figcaption>The example <a href="https://github.com/libigl/libigl/tree/master/tutorial/406_FastAutomaticSkinningTransformations/main.cpp">FastAutomaticSkinningTransformations</a> compares a full (slow) ARAP deformation on a detailed shape (left of middle), to ARAP with grouped rotation edge sets (right of middle), to the very fast subpsace method (right).</figcaption>
 </figure>
 <h2 id="biharmonic-coordinates">Biharmonic Coordinates<a class="headerlink" href="#biharmonic-coordinates" title="Permanent link">&para;</a></h2>
 <p>Linear blend skinning (as <a href="#boundedbiharmonicweights">above</a>) deforms a mesh by
@@ -1420,7 +1420,7 @@ handles):</p>
 <div class="codehilite"><pre><span></span><span class="n">igl</span><span class="o">::</span><span class="n">biharmonic_coordinates</span><span class="p">(</span><span class="n">V</span><span class="p">,</span><span class="n">F</span><span class="p">,</span><span class="n">S</span><span class="p">,</span><span class="n">W</span><span class="p">);</span>
 </pre></div>
 
-<figure><img alt="(Example 407) shows a physics simulation on a coarse orange mesh. The vertices of this mesh become control points for a biharmonic coordinates deformation of the blue high-resolution mesh." src="../images/octopus-biharmonic-coordinates-physics.gif" /><figcaption>(<a href="../407_BiharmonicCoordinates/main.cpp">Example 407</a>) shows a physics simulation on a coarse orange mesh. The vertices of this mesh become control points for a biharmonic coordinates deformation of the blue high-resolution mesh.</figcaption>
+<figure><img alt="(Example 407) shows a physics simulation on a coarse orange mesh. The vertices of this mesh become control points for a biharmonic coordinates deformation of the blue high-resolution mesh." src="../images/octopus-biharmonic-coordinates-physics.gif" /><figcaption>(<a href="https://github.com/libigl/libigl/tree/master/tutorial/407_BiharmonicCoordinates/main.cpp">Example 407</a>) shows a physics simulation on a coarse orange mesh. The vertices of this mesh become control points for a biharmonic coordinates deformation of the blue high-resolution mesh.</figcaption>
 </figure>
 <h2 id="references">References<a class="headerlink" href="#references" title="Permanent link">&para;</a></h2>
 <div class="footnote">

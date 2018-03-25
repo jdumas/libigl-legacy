@@ -971,7 +971,7 @@ geometry operators. It also provides an introduction to basic drawing and
 coloring routines of our viewer.</p>
 <h2 id="normals">Normals<a class="headerlink" href="#normals" title="Permanent link">&para;</a></h2>
 <p>Surface normals are a basic quantity necessary for rendering a surface. There
-are a variety of ways to compute and store normals on a triangle mesh. <a href="../201_Normals/main.cpp">Example
+are a variety of ways to compute and store normals on a triangle mesh. <a href="https://github.com/libigl/libigl/tree/master/tutorial/201_Normals/main.cpp">Example
 201</a> demonstrates how to compute and visualize normals
 with libigl.</p>
 <h3 id="per-face">Per-face<a class="headerlink" href="#per-face" title="Permanent link">&para;</a></h3>
@@ -1034,7 +1034,7 @@ on a triangle mesh is via a vertex&rsquo;s <em>angular deficit</em>:</p>
 <p>where <span><span class="MathJax_Preview">N(i)</span><script type="math/tex">N(i)</script></span> are the triangles incident on vertex <span><span class="MathJax_Preview">i</span><script type="math/tex">i</script></span> and <span><span class="MathJax_Preview">θ_{ij}</span><script type="math/tex">θ_{ij}</script></span> is the angle
 at vertex <span><span class="MathJax_Preview">i</span><script type="math/tex">i</script></span> in triangle <span><span class="MathJax_Preview">j</span><script type="math/tex">j</script></span> <sup id="fnref:meyer_2003"><a class="footnote-ref" href="#fn:meyer_2003" rel="footnote">3</a></sup>.</p>
 <p>Just like the continuous analog, our discrete Gaussian curvature reveals
-elliptic, hyperbolic and parabolic vertices on the domain, as demonstrated in <a href="../202_GaussianCurvature/main.cpp">Example 202</a>.</p>
+elliptic, hyperbolic and parabolic vertices on the domain, as demonstrated in <a href="https://github.com/libigl/libigl/tree/master/tutorial/202_GaussianCurvature/main.cpp">Example 202</a>.</p>
 <figure><img alt="The GaussianCurvature example computes discrete Gaussian curvature and visualizes it in pseudocolor." src="../images/bumpy-gaussian-curvature.jpg" /><figcaption>The <code class="codehilite">GaussianCurvature</code> example computes discrete Gaussian curvature and visualizes it in pseudocolor.</figcaption>
 </figure>
 <h2 id="curvature-directions">Curvature directions<a class="headerlink" href="#curvature-directions" title="Permanent link">&para;</a></h2>
@@ -1069,7 +1069,7 @@ directions <sup id="fnref3:meyer_2003"><a class="footnote-ref" href="#fn:meyer_2
 <p>Alternatively, a robust method for determining principal curvatures is via
 quadric fitting <sup id="fnref:panozzo_2010"><a class="footnote-ref" href="#fn:panozzo_2010" rel="footnote">5</a></sup>. In the neighborhood around every vertex, a
 best-fit quadric is found and principal curvature values and directions are
-analytically computed on this quadric (<a href="../203_curvatureDirections/main.cpp">Example
+analytically computed on this quadric (<a href="https://github.com/libigl/libigl/tree/master/tutorial/203_curvatureDirections/main.cpp">Example
 203</a>).</p>
 <figure><img alt="The CurvatureDirections example computes principal curvatures via quadric fitting and visualizes mean curvature in pseudocolor and principal directions with a cross field." src="../images/fertility-principal-curvature.jpg" /><figcaption>The <code class="codehilite">CurvatureDirections</code> example computes principal curvatures via quadric fitting and visualizes mean curvature in pseudocolor and principal directions with a cross field.</figcaption>
 </figure>
@@ -1098,7 +1098,7 @@ as a matrix multiplication taking vertex values to triangle values:</p>
 matrix. This matrix <span><span class="MathJax_Preview">\mathbf{G}</span><script type="math/tex">\mathbf{G}</script></span> can be derived geometrically, e.g.
 ch. 2<sup id="fnref:jacobson_thesis_2013"><a class="footnote-ref" href="#fn:jacobson_thesis_2013" rel="footnote">1</a></sup>.
 Libigl&rsquo;s <code class="codehilite">grad</code> function computes <span><span class="MathJax_Preview">\mathbf{G}</span><script type="math/tex">\mathbf{G}</script></span> for
-triangle and tetrahedral meshes (<a href="../204_Gradient/main.cpp">Example 204</a>):</p>
+triangle and tetrahedral meshes (<a href="https://github.com/libigl/libigl/tree/master/tutorial/204_Gradient/main.cpp">Example 204</a>):</p>
 <figure><img alt="The Gradient example computes gradients of an input function on a mesh and visualizes the vector field." src="../images/cheburashka-gradient.jpg" /><figcaption>The <code class="codehilite">Gradient</code> example computes gradients of an input function on a mesh and visualizes the vector field.</figcaption>
 </figure>
 <h2 id="laplacian">Laplacian<a class="headerlink" href="#laplacian" title="Permanent link">&para;</a></h2>
@@ -1164,7 +1164,7 @@ tetrahedral meshes, building both with fast geometric rules rather than &ldquo;b
 book&rdquo; FEM construction which involves many (small) matrix inversions, cf.
 <sup id="fnref:sharf_2007"><a class="footnote-ref" href="#fn:sharf_2007" rel="footnote">6</a></sup>.</p>
 <p>The operator applied to mesh vertex positions amounts to smoothing by <em>flowing</em>
-the surface along the mean curvature normal direction (<a href="../205_Laplacian/main.cpp">Example 205</a>). Note that this is equivalent to minimizing surface area.</p>
+the surface along the mean curvature normal direction (<a href="https://github.com/libigl/libigl/tree/master/tutorial/205_Laplacian/main.cpp">Example 205</a>). Note that this is equivalent to minimizing surface area.</p>
 <figure><img alt="The Laplacian example computes conformalized mean curvature flow using the cotangent Laplacian 2." src="../images/cow-curvature-flow.jpg" /><figcaption>The <code class="codehilite">Laplacian</code> example computes conformalized mean curvature flow using the cotangent Laplacian <sup id="fnref2:kazhdan_2012"><a class="footnote-ref" href="#fn:kazhdan_2012" rel="footnote">2</a></sup>.</figcaption>
 </figure>
 <h3 id="mass-matrix">Mass matrix<a class="headerlink" href="#mass-matrix" title="Permanent link">&para;</a></h3>
@@ -1215,7 +1215,7 @@ computes the closest geodesic distances of each vertex in VT or face in FT, from
 <span class="n">Eigen</span><span class="o">::</span><span class="n">VectorXd</span> <span class="n">d</span><span class="p">;</span>
 <span class="n">igl</span><span class="o">::</span><span class="n">exact_geodesic</span><span class="p">(</span><span class="n">V</span><span class="p">,</span><span class="n">F</span><span class="p">,</span><span class="n">VS</span><span class="p">,</span><span class="n">FS</span><span class="p">,</span><span class="n">VT</span><span class="p">,</span><span class="n">FT</span><span class="p">,</span><span class="n">d</span><span class="p">);</span>
 </pre></div></p>
-<figure><img alt="Example 206 allows to interactively pick the source vertex and displays the distance using a periodic color pattern." src="../images/geodesicdistance.jpg" /><figcaption><a href="../206_GeodesicDistance/main.cpp">Example 206</a> allows to interactively pick the source vertex and displays the distance using a periodic color pattern.</figcaption>
+<figure><img alt="Example 206 allows to interactively pick the source vertex and displays the distance using a periodic color pattern." src="../images/geodesicdistance.jpg" /><figcaption><a href="https://github.com/libigl/libigl/tree/master/tutorial/206_GeodesicDistance/main.cpp">Example 206</a> allows to interactively pick the source vertex and displays the distance using a periodic color pattern.</figcaption>
 </figure>
 <h2 id="references">References<a class="headerlink" href="#references" title="Permanent link">&para;</a></h2>
 <div class="footnote">

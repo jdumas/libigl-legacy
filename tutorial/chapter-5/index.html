@@ -981,8 +981,8 @@ functions is designed to be reusable in other parametrization algorithms.</p>
 </pre></div>
 
 <p>The UV coordinates are then used to apply a procedural checkerboard texture to the
-mesh (<a href="../501_HarmonicParam/main.cpp">Example 501</a>).</p>
-<figure><img alt="(Example 501) Harmonic parametrization. (left) mesh with texture, (right) UV parametrization with texture" src="../images/501_HarmonicParam.png" /><figcaption>(<a href="../tutorial/501_HarmonicParam/main.cpp">Example 501</a>) Harmonic parametrization. (left) mesh with texture, (right) UV parametrization with texture</figcaption>
+mesh (<a href="https://github.com/libigl/libigl/tree/master/tutorial/501_HarmonicParam/main.cpp">Example 501</a>).</p>
+<figure><img alt="(Example 501) Harmonic parametrization. (left) mesh with texture, (right) UV parametrization with texture" src="../images/501_HarmonicParam.png" /><figcaption>(<a href="https://github.com/libigl/libigl/tree/master/tutorial/501_HarmonicParam/main.cpp">Example 501</a>) Harmonic parametrization. (left) mesh with texture, (right) UV parametrization with texture</figcaption>
 </figure>
 <h2 id="least-squares-conformal-maps">Least squares conformal maps<a class="headerlink" href="#least-squares-conformal-maps" title="Permanent link">&para;</a></h2>
 <p>Least squares conformal maps parametrization <sup id="fnref:levy_2002"><a class="footnote-ref" href="#fn:levy_2002" rel="footnote">4</a></sup> minimizes the
@@ -1015,8 +1015,8 @@ Kronecker product with a 2x2 identity matrix:</p>
 
 <p>The final energy matrix is <span><span class="MathJax_Preview">L_{flat} - 2A</span><script type="math/tex">L_{flat} - 2A</script></span>. Note that in this
 case we do not need to fix the boundary. To remove the null space of the energy and make the minimum unique, it is sufficient to fix two arbitrary
-vertices to two arbitrary positions. The full source code is provided in <a href="../502_LSCMParam/main.cpp">Example 502</a>.</p>
-<figure><img alt="(Example 502) LSCM parametrization. (left) mesh with texture, (right) UV parametrization" src="../images/502_LSCMParam.png" /><figcaption>(<a href="../502_LSCMParam/main.cpp">Example 502</a>) LSCM parametrization. (left) mesh with texture, (right) UV parametrization</figcaption>
+vertices to two arbitrary positions. The full source code is provided in <a href="https://github.com/libigl/libigl/tree/master/tutorial/502_LSCMParam/main.cpp">Example 502</a>.</p>
+<figure><img alt="(Example 502) LSCM parametrization. (left) mesh with texture, (right) UV parametrization" src="../images/502_LSCMParam.png" /><figcaption>(<a href="https://github.com/libigl/libigl/tree/master/tutorial/502_LSCMParam/main.cpp">Example 502</a>) LSCM parametrization. (left) mesh with texture, (right) UV parametrization</figcaption>
 </figure>
 <h2 id="as-rigid-as-possible-parametrization">As-rigid-as-possible parametrization<a class="headerlink" href="#as-rigid-as-possible-parametrization" title="Permanent link">&para;</a></h2>
 <p>As-rigid-as-possible parametrization <sup id="fnref:liu_2008"><a class="footnote-ref" href="#fn:liu_2008" rel="footnote">6</a></sup> is a powerful single-patch,
@@ -1029,11 +1029,11 @@ deformation chapter: <code class="codehilite">igl::arap_precomputation</code> an
 difference is that the optimization has to be done in 2D instead of 3D and that
 we need to compute a starting point. While for 3D deformation the optimization
 is bootstrapped with the original mesh, this is not the case for ARAP
-parametrization since the starting point must be a 2D mesh. In <a href="../503_ARAPParam/main.cpp">Example
+parametrization since the starting point must be a 2D mesh. In <a href="https://github.com/libigl/libigl/tree/master/tutorial/503_ARAPParam/main.cpp">Example
 503</a>, we initialize the optimization with harmonic
 parametrization. Similarly to LSCM, the boundary is free to deform to minimize
 the distortion.</p>
-<figure><img alt="(Example 503) As-Rigid-As-Possible parametrization. (left) mesh with texture, (right) UV parametrization with texture" src="../images/503_ARAPParam.png" /><figcaption>(<a href="../502_ARAPParam/main.cpp">Example 503</a>) As-Rigid-As-Possible parametrization. (left) mesh with texture, (right) UV parametrization with texture</figcaption>
+<figure><img alt="(Example 503) As-Rigid-As-Possible parametrization. (left) mesh with texture, (right) UV parametrization with texture" src="../images/503_ARAPParam.png" /><figcaption>(<a href="https://github.com/libigl/libigl/tree/master/tutorial/502_ARAPParam/main.cpp">Example 503</a>) As-Rigid-As-Possible parametrization. (left) mesh with texture, (right) UV parametrization with texture</figcaption>
 </figure>
 <h2 id="n-rotationally-symmetric-tangent-fields">N-rotationally symmetric tangent fields<a class="headerlink" href="#n-rotationally-symmetric-tangent-fields" title="Permanent link">&para;</a></h2>
 <p>The design of tangent fields is a basic tool used to design guidance fields for
@@ -1062,7 +1062,7 @@ the following figure, the singularities of the fields generated with different
 N are of different types and they appear in different positions.</p>
 <figure><img alt="Design of a 2-,4- and 9-RoSy field" src="../images/504_nrosy_field.png" /><figcaption>Design of a 2-,4- and 9-RoSy field</figcaption>
 </figure>
-<p>We demonstrate how to call and plot N-RoSy fields in <a href="../504_NRosyDesign/main.cpp">Example
+<p>We demonstrate how to call and plot N-RoSy fields in <a href="https://github.com/libigl/libigl/tree/master/tutorial/504_NRosyDesign/main.cpp">Example
 504</a>, where the degree of the field can be change
 pressing the number keys. <code class="codehilite">igl::nrosy</code> implements the algorithm proposed in
 <sup id="fnref:bommes_2009"><a class="footnote-ref" href="#fn:bommes_2009" rel="footnote">1</a></sup>. N-RoSy fields can also be interpolated with many other algorithms,
@@ -1080,7 +1080,7 @@ proposed in the mixed integer quadrangulation paper <sup id="fnref2:bommes_2009"
 <p>The first step involves the design of a 4-RoSy field (sometimes called <em>cross</em>
 field) that describes the alignment of the edges of the desired quadrilateral
 remeshing. The field constraints are usually manually specified or extracted
-from the principal curvature directions. In [<a href="../506_FrameField/main.cpp">Example
+from the principal curvature directions. In [<a href="https://github.com/libigl/libigl/tree/master/tutorial/506_FrameField/main.cpp">Example
 506</a>], we simply fix one face in a random direction.</p>
 <figure><img alt="Initial cross field prescribing the edge alignment." src="../images/505_MIQ_1.png" /><figcaption>Initial cross field prescribing the edge alignment.</figcaption>
 </figure>
@@ -1133,7 +1133,7 @@ it contains many overlaps.</p>
 </figure>
 <p>A quad mesh can be extracted from this parametrization using
 <a href="https://github.com/hcebke/libQEx">libQEx</a> (not included in libigl).
-The full pipeline is implemented in <a href="../505_MIQ/main.cpp">Example 505</a>.</p>
+The full pipeline is implemented in <a href="https://github.com/libigl/libigl/tree/master/tutorial/505_MIQ/main.cpp">Example 505</a>.</p>
 <h2 id="anisotropic-remeshing">Anisotropic remeshing<a class="headerlink" href="#anisotropic-remeshing" title="Permanent link">&para;</a></h2>
 <p>Anisotropic and non-uniform quad remeshing is important to concentrate the
 elements in the regions with more details. It is possible to extend the MIQ
@@ -1164,7 +1164,7 @@ mesh whose elements are similar to the shape prescribed in the input frame
 field.</p>
 <figure><img alt="The global parametrization is lifted to the original surface to create the anisotropic quad meshing." src="../images/506_FrameField_4.png" /><figcaption>The global parametrization is lifted to the original surface to create the anisotropic quad meshing.</figcaption>
 </figure>
-<p>Our implementation (<a href="../506_FrameField/main.cpp">Example 506</a>) uses MIQ to
+<p>Our implementation (<a href="https://github.com/libigl/libigl/tree/master/tutorial/506_FrameField/main.cpp">Example 506</a>) uses MIQ to
 generate the UV parametrization, but other algorithms could be applied: the
 only desiderata is that the generated quad mesh should be as isotropic as
 possible.</p>
@@ -1172,7 +1172,7 @@ possible.</p>
 <p>A quad mesh can be transformed in a planar quad mesh with Shape-Up
 <sup id="fnref:bouaziz_2012"><a class="footnote-ref" href="#fn:bouaziz_2012" rel="footnote">2</a></sup>, a local/global approach that uses the global step to enforce
 surface continuity and the local step to enforce planarity.</p>
-<p><a href="../507_Planarization/main.cpp">Example 507</a> planarizes a quad mesh until it
+<p><a href="https://github.com/libigl/libigl/tree/master/tutorial/507_Planarization/main.cpp">Example 507</a> planarizes a quad mesh until it
 satisfies a user-given planarity threshold.</p>
 <h2 id="references">References<a class="headerlink" href="#references" title="Permanent link">&para;</a></h2>
 <figure><img alt="A non-planar quad mesh (left) is planarized using the libigl function igl::planarize (right). The colors represent the planarity of the quads." src="../images/509_Planarization.png" /><figcaption>A non-planar quad mesh (left) is planarized using the libigl function igl::planarize (right). The colors represent the planarity of the quads.</figcaption>

@@ -1031,7 +1031,7 @@ interesting functions in this chapter to highlight.</p>
 <p>Libigl contains various mesh statistics, including face angles, face areas and
 the detection of singular vertices, which are vertices with more or less than 6
 neighbours in triangulations or 4 in quadrangulations.</p>
-<p>The example <a href="../701_Statistics/main.cpp">Statistics</a> computes these quantities and
+<p>The example <a href="https://github.com/libigl/libigl/tree/master/tutorial/701_Statistics/main.cpp">Statistics</a> computes these quantities and
 does a basic statistic analysis that allows to estimate the isometry and
 regularity of a mesh:</p>
 <div class="codehilite"><pre><span></span>Irregular vertices:
@@ -1096,7 +1096,7 @@ counting how many (signed) times <code class="codehilite">(V,F)</code> <em>wraps
 if <code class="codehilite">(V,F)</code> is not closed or not even manifold (but at least consistently
 oriented), then <span><span class="MathJax_Preview">w(\mathbf{p})</span><script type="math/tex">w(\mathbf{p})</script></span> tends smoothly toward 1 as <span><span class="MathJax_Preview">\mathbf{p}</span><script type="math/tex">\mathbf{p}</script></span> is
 <em>more</em> inside <code class="codehilite">(V,F)</code>, and toward 0 as <span><span class="MathJax_Preview">\mathbf{p}</span><script type="math/tex">\mathbf{p}</script></span> is more outside.</p>
-<figure><img alt="Example 702 computes the generalized winding number function for a tetrahedral mesh inside a cat with holes and self intersections (gold). The silver mesh is surface of the extracted interior tets, and slices show the winding number function on all tets in the convex hull: blue (~0), green (~1), yellow (~2)." src="../images/big-sigcat-winding-number.gif" /><figcaption>Example <a href="../702_WindingNumber/main.cpp">702</a> computes the generalized winding number function for a tetrahedral mesh inside a cat with holes and self intersections (gold). The silver mesh is surface of the extracted interior tets, and slices show the winding number function on all tets in the convex hull: blue (~0), green (~1), yellow (~2).</figcaption>
+<figure><img alt="Example 702 computes the generalized winding number function for a tetrahedral mesh inside a cat with holes and self intersections (gold). The silver mesh is surface of the extracted interior tets, and slices show the winding number function on all tets in the convex hull: blue (~0), green (~1), yellow (~2)." src="../images/big-sigcat-winding-number.gif" /><figcaption>Example <a href="https://github.com/libigl/libigl/tree/master/tutorial/702_WindingNumber/main.cpp">702</a> computes the generalized winding number function for a tetrahedral mesh inside a cat with holes and self intersections (gold). The silver mesh is surface of the extracted interior tets, and slices show the winding number function on all tets in the convex hull: blue (~0), green (~1), yellow (~2).</figcaption>
 </figure>
 <h2 id="mesh-decimation">Mesh Decimation<a class="headerlink" href="#mesh-decimation" title="Permanent link">&para;</a></h2>
 <p>The study of mesh simplification or <em>decimation</em> is nearly as old as meshes
@@ -1203,7 +1203,7 @@ remembered in <code class="codehilite">C</code>. If not valid, then the edge is 
 reinserted with infinite cost.</p>
 <figure><img alt="Example 703 conducts edge collapses on the fertility model." src="../images/fertility-edge-collapse.gif" /><figcaption>Example 703 conducts edge collapses on the fertility model.</figcaption>
 </figure>
-<p>The <a href="../703_Decimation/main.cpp">Example 703</a> demonstrates using this priority
+<p>The <a href="https://github.com/libigl/libigl/tree/master/tutorial/703_Decimation/main.cpp">Example 703</a> demonstrates using this priority
 queue based approach with the simple shortest-edge-midpoint cost/placement
 strategy discussed above.</p>
 <h2 id="signed-distances">Signed Distances<a class="headerlink" href="#signed-distances" title="Permanent link">&para;</a></h2>
@@ -1292,7 +1292,7 @@ is located.</p>
 contains signed (unsquared) distances and the extra output <code class="codehilite">N</code> (only set when
 <code class="codehilite">type == SIGNED_DISTANCE_TYPE_PSEUDON</code>) contains the normals used for signing
 with the pseudo-normal test.</p>
-<figure><img alt="Example 704 computes signed distance on slices through the bunny." src="../images/bunny-signed-distance.gif" /><figcaption>Example <a href="../704_SignedDistance/main.cpp">704</a> computes signed distance on slices through the bunny.</figcaption>
+<figure><img alt="Example 704 computes signed distance on slices through the bunny." src="../images/bunny-signed-distance.gif" /><figcaption>Example <a href="https://github.com/libigl/libigl/tree/master/tutorial/704_SignedDistance/main.cpp">704</a> computes signed distance on slices through the bunny.</figcaption>
 </figure>
 <h2 id="marching-cubes">Marching Cubes<a class="headerlink" href="#marching-cubes" title="Permanent link">&para;</a></h2>
 <p>Often 3D data is captured as scalar field defined over space <span><span class="MathJax_Preview">f(\mathbf{x}) :
@@ -1317,7 +1317,7 @@ input scalar field <code class="codehilite">S</code> sampled at vertex locations
 <div class="codehilite"><pre><span></span><span class="n">igl</span><span class="o">::</span><span class="n">marching_cubes</span><span class="p">(</span><span class="n">S</span><span class="p">,</span><span class="n">GV</span><span class="p">,</span><span class="n">nx</span><span class="p">,</span><span class="n">ny</span><span class="p">,</span><span class="n">nz</span><span class="p">,</span><span class="n">V</span><span class="p">,</span><span class="n">F</span><span class="p">);</span>
 </pre></div>
 
-<figure><img alt="(Example 705) samples signed distance to the input mesh (left) and then reconstructs the surface using marching cubes to contour the 0-level set (center). For comparison, clamping this signed distance field to an indicator function and contouring reveals serious aliasing artifacts." src="../images/armadillo-marching-cubes.jpg" /><figcaption>(<a href="../705_MarchingCubes/main.cpp">Example 705</a>) samples signed distance to the input mesh (left) and then reconstructs the surface using marching cubes to contour the 0-level set (center). For comparison, clamping this signed distance field to an indicator function and contouring reveals serious aliasing artifacts.</figcaption>
+<figure><img alt="(Example 705) samples signed distance to the input mesh (left) and then reconstructs the surface using marching cubes to contour the 0-level set (center). For comparison, clamping this signed distance field to an indicator function and contouring reveals serious aliasing artifacts." src="../images/armadillo-marching-cubes.jpg" /><figcaption>(<a href="https://github.com/libigl/libigl/tree/master/tutorial/705_MarchingCubes/main.cpp">Example 705</a>) samples signed distance to the input mesh (left) and then reconstructs the surface using marching cubes to contour the 0-level set (center). For comparison, clamping this signed distance field to an indicator function and contouring reveals serious aliasing artifacts.</figcaption>
 </figure>
 <h2 id="facet-orientation">Facet Orientation<a class="headerlink" href="#facet-orientation" title="Permanent link">&para;</a></h2>
 <p>Models from the web occasionally arrive <em>unorientated</em> in the sense that
@@ -1349,7 +1349,7 @@ occluded</em> (lighter, i.e., facing more void space).</p>
 </pre></div>
 
 <p>The boolean vector <code class="codehilite">I</code> reveals which rows of <code class="codehilite">F</code> have been flipped in <code class="codehilite">FF</code>.</p>
-<figure><img alt="(Example 706) loads a truck model with inconsistent orientations (back facing triangles shown darker). Orientable patches are uniquely colored and then oriented to face outward (middle left). Alternatively, each individual triangle is considered a &quot;patch&quot; (middle right) and oriented outward independently." src="../images/truck-facet-orientation.jpg" /><figcaption>(<a href="../706_FacetOrientation/main.cpp">Example 706</a>) loads a truck model with inconsistent orientations (back facing triangles shown darker). Orientable patches are uniquely colored and then oriented to face outward (middle left). Alternatively, each individual triangle is considered a &ldquo;patch&rdquo; (middle right) and oriented outward independently.</figcaption>
+<figure><img alt="(Example 706) loads a truck model with inconsistent orientations (back facing triangles shown darker). Orientable patches are uniquely colored and then oriented to face outward (middle left). Alternatively, each individual triangle is considered a &quot;patch&quot; (middle right) and oriented outward independently." src="../images/truck-facet-orientation.jpg" /><figcaption>(<a href="https://github.com/libigl/libigl/tree/master/tutorial/706_FacetOrientation/main.cpp">Example 706</a>) loads a truck model with inconsistent orientations (back facing triangles shown darker). Orientable patches are uniquely colored and then oriented to face outward (middle left). Alternatively, each individual triangle is considered a &ldquo;patch&rdquo; (middle right) and oriented outward independently.</figcaption>
 </figure>
 <h2 id="swept-volume">Swept Volume<a class="headerlink" href="#swept-volume" title="Permanent link">&para;</a></h2>
 <p>The swept volume <span><span class="MathJax_Preview">S</span><script type="math/tex">S</script></span> of a moving solid object <span><span class="MathJax_Preview">A</span><script type="math/tex">A</script></span> can be defined as any point in
@@ -1391,14 +1391,14 @@ output surface mesh will be <code class="codehilite">(SV,SF)</code> after callin
 <p>The <code class="codehilite">isolevel</code> parameter can be set to zero to approximate the exact swept
 volume, greater than zero to approximate a positive offset of the swept volume
 or less than zero to approximate a negative offset.</p>
-<figure><img alt="(Example 707) computes the surface of the swept volume (silver) of the bunny model undergoing a rigid motion (gold)." src="../images/bunny-swept-volume.gif" /><figcaption>(<a href="../707_SweptVolume/main.cpp">Example 707</a>) computes the surface of the swept volume (silver) of the bunny model undergoing a rigid motion (gold).</figcaption>
+<figure><img alt="(Example 707) computes the surface of the swept volume (silver) of the bunny model undergoing a rigid motion (gold)." src="../images/bunny-swept-volume.gif" /><figcaption>(<a href="https://github.com/libigl/libigl/tree/master/tutorial/707_SweptVolume/main.cpp">Example 707</a>) computes the surface of the swept volume (silver) of the bunny model undergoing a rigid motion (gold).</figcaption>
 </figure>
 <h2 id="picking">Picking<a class="headerlink" href="#picking" title="Permanent link">&para;</a></h2>
 <p>Picking vertices and faces using the mouse is very common in geometry
 processing applications. While this might seem a simple operation, its
 implementation is not straightforward. Libigl contains a function that solves this problem using the
 <a href="https://software.intel.com/en-us/articles/embree-photo-realistic-ray-tracing-kernels">Embree</a>
-raycaster. Its usage is demonstrated in <a href="../708_Picking/main.cpp">Example 708</a>:</p>
+raycaster. Its usage is demonstrated in <a href="https://github.com/libigl/libigl/tree/master/tutorial/708_Picking/main.cpp">Example 708</a>:</p>
 <div class="codehilite"><pre><span></span><span class="kt">bool</span> <span class="n">hit</span> <span class="o">=</span> <span class="n">igl</span><span class="o">::</span><span class="n">unproject_onto_mesh</span><span class="p">(</span>
   <span class="n">Vector2f</span><span class="p">(</span><span class="n">x</span><span class="p">,</span><span class="n">y</span><span class="p">),</span>
   <span class="n">F</span><span class="p">,</span>
@@ -1418,7 +1418,7 @@ projection matrix respectively; <code class="codehilite">viewport</code> is the 
 contains a <a href="http://en.wikipedia.org/wiki/Bounding_volume_hierarchy">Bounding Volume
 Hierarchy</a> constructed
 by Embree, and <code class="codehilite">fid</code> and <code class="codehilite">vid</code> are the picked face and vertex, respectively.</p>
-<figure><img alt="(Example 708) Picking via ray casting. The selected vertices are colored in red." src="../images/607_Picking.png" /><figcaption>(<a href="../708_Picking/main.cpp">Example 708</a>) Picking via ray casting. The selected vertices are colored in red.</figcaption>
+<figure><img alt="(Example 708) Picking via ray casting. The selected vertices are colored in red." src="../images/607_Picking.png" /><figcaption>(<a href="https://github.com/libigl/libigl/tree/master/tutorial/708_Picking/main.cpp">Example 708</a>) Picking via ray casting. The selected vertices are colored in red.</figcaption>
 </figure>
 <h2 id="vector-field-visualization">Vector Field Visualization<a class="headerlink" href="#vector-field-visualization" title="Permanent link">&para;</a></h2>
 <p>Vector fields on surfaces are commonly visualized by tracing <a href="https://en.wikipedia.org/wiki/Streamlines,_streaklines,_and_pathlines">streamlines</a>. Libigl
@@ -1426,15 +1426,15 @@ supports the seeding and tracing of streamlines, for both simple vector fields
 and for N-rosy fields. The seeds for the streamlines are initialized using <code class="codehilite">streamlines_init</code>,
 and the lines are traced using <code class="codehilite">streamlines_next</code>. Each call to <code class="codehilite">streamlines_next</code> extends
 each line by one triangle, allowing interactive rendering of the traced lines, as demonstrated
-in <a href="../709_VectorFieldVisualizer/main.cpp">Example 709</a>.</p>
-<figure><img alt="(Example 709) Interactive streamlines tracing." src="../images/streamlines.jpg" /><figcaption>(<a href="../709_VectorFieldVisualizer/main.cpp">Example 709</a>) Interactive streamlines tracing.</figcaption>
+in <a href="https://github.com/libigl/libigl/tree/master/tutorial/709_VectorFieldVisualizer/main.cpp">Example 709</a>.</p>
+<figure><img alt="(Example 709) Interactive streamlines tracing." src="../images/streamlines.jpg" /><figcaption>(<a href="https://github.com/libigl/libigl/tree/master/tutorial/709_VectorFieldVisualizer/main.cpp">Example 709</a>) Interactive streamlines tracing.</figcaption>
 </figure>
 <h2 id="scalable-locally-injective-maps">Scalable Locally Injective Maps<a class="headerlink" href="#scalable-locally-injective-maps" title="Permanent link">&para;</a></h2>
 <p>The Scalable Locally Injective Maps <sup id="fnref:rabinovich_2016"><a class="footnote-ref" href="#fn:rabinovich_2016" rel="footnote">8</a></sup> algorithm allows to
 compute locally injective maps on massive datasets. The algorithm shares many
 similarities with ARAP, but uses a reweighting scheme to minimize arbitrary
 distortion energies, including those that prevent the introduction of flips.</p>
-<p><a href="../710_SLIM/main.cpp">Example 710</a> contains three demos: (1) an example of large
+<p><a href="https://github.com/libigl/libigl/tree/master/tutorial/710_SLIM/main.cpp">Example 710</a> contains three demos: (1) an example of large
 scale 2D parametrization, (2) an example of 2D deformation with soft
 constraints, and (3) an example of 3D deformation with soft constraints. The
 implementation in libigl is self-contained and relies on Eigen for the solution
@@ -1496,20 +1496,20 @@ Hessian boundary conditions instead, which corresponds to the hessian energy
 with the matrix <code class="codehilite">QH = H&#39;*(M2\H)</code>, where <code class="codehilite">H</code> is a finite element Hessian and
 <code class="codehilite">M2</code> is a stacked mass matrix. The matrices <code class="codehilite">H</code> and <code class="codehilite">QH</code> are implemented in
 libigl as <code class="codehilite">igl::hessian</code> and <code class="codehilite">igl::hessian_energy</code> respectively. An example
-of how to use the function is given in <a href="../712_DataSmoothing/main.cpp">Example 712</a>.</p>
+of how to use the function is given in <a href="https://github.com/libigl/libigl/tree/master/tutorial/712_DataSmoothing/main.cpp">Example 712</a>.</p>
 <p>In the following image the differences between the Laplacian energy with
 zero Neumann boundary conditions and the Hessian energy can be clearly seen:
 whereas the zero Neumann boundary condition in the third image bias the isolines
 of the function to be perpendicular to the boundary, the Hessian energy gives
 an unbiased result.</p>
-<figure><img alt="(Example 712) From left to right: a function on the beetle mesh, the function with added noise, the result of smoothing with the Laplacian energy and zero Neumann boundary conditions, and the result of smoothing with the Hessian energy." src="../images/712_beetles.jpg" /><figcaption>(<a href="../712_DataSmoothing/main.cpp">Example 712</a>) From left to right: a function on the beetle mesh, the function with added noise, the result of smoothing with the Laplacian energy and zero Neumann boundary conditions, and the result of smoothing with the Hessian energy.</figcaption>
+<figure><img alt="(Example 712) From left to right: a function on the beetle mesh, the function with added noise, the result of smoothing with the Laplacian energy and zero Neumann boundary conditions, and the result of smoothing with the Hessian energy." src="../images/712_beetles.jpg" /><figcaption>(<a href="https://github.com/libigl/libigl/tree/master/tutorial/712_DataSmoothing/main.cpp">Example 712</a>) From left to right: a function on the beetle mesh, the function with added noise, the result of smoothing with the Laplacian energy and zero Neumann boundary conditions, and the result of smoothing with the Hessian energy.</figcaption>
 </figure>
 <h2 id="shapeup-projections">ShapeUp Projections<a class="headerlink" href="#shapeup-projections" title="Permanent link">&para;</a></h2>
 <p>Our input is a set of points <span><span class="MathJax_Preview">P_0</span><script type="math/tex">P_0</script></span> (not necessarily part of any mesh), and a set of constraints <span><span class="MathJax_Preview">S=\left\{S_1,S_2,...S_m\right\}</span><script type="math/tex">S=\left\{S_1,S_2,...S_m\right\}</script></span>, where each constraint is defined on a different, and sparse, subset of <span><span class="MathJax_Preview">P_0</span><script type="math/tex">P_0</script></span>. We wish to create a new set of points <span><span class="MathJax_Preview">P</span><script type="math/tex">P</script></span> that are close to the original set <span><span class="MathJax_Preview">P_0</span><script type="math/tex">P_0</script></span> (each point with corresponding indices), while adhering to the constraints. Other objectives, such as smoothness, can be employed. The constraints can be nonlinear, which makes the problem nonconvex, difficult, and without a guaranteed global optimum. A very popular lightweight approach to such problems is a local-global iterative algorithm, comprising these two steps:</p>
 <p>For iteration <span><span class="MathJax_Preview">k</span><script type="math/tex">k</script></span>:
 1. <em>Local step</em>: compute the projections of the set <span><span class="MathJax_Preview">P_{k-1}</span><script type="math/tex">P_{k-1}</script></span> onto <span><span class="MathJax_Preview">S</span><script type="math/tex">S</script></span>, individually per constraint; that would mean fragmenting each point that appears in multiple constraints. That can be a nonlinear operation, but if the constraints are sparse, it is a a set of many small systems.
 2. <em>Global step</em>: integrate the set <span><span class="MathJax_Preview">P_k</span><script type="math/tex">P_k</script></span> to be as close as possible to the projected fragmented set, with auxiliary objective functions possible. That results in a global, but quadratic objective function. Moreover, the resulting linear system has a constant matrix, and therefore can be pre-factored.</p>
-<p>The version we implement in libigl is the general version described by <sup id="fnref:bouaziz_2012"><a class="footnote-ref" href="#fn:bouaziz_2012" rel="footnote">2</a></sup>, and is in two files: <code class="codehilite">&lt;igl/shapeup.h&gt;</code> and <code class="codehilite">&lt;igl/shapeup_local_projections.h&gt;</code>. A demo implementing regularity constraints (creating a mesh in which each face is as regular as possible) is in <a href="../713_Shapeup/main.cpp">Example 713</a>. </p>
+<p>The version we implement in libigl is the general version described by <sup id="fnref:bouaziz_2012"><a class="footnote-ref" href="#fn:bouaziz_2012" rel="footnote">2</a></sup>, and is in two files: <code class="codehilite">&lt;igl/shapeup.h&gt;</code> and <code class="codehilite">&lt;igl/shapeup_local_projections.h&gt;</code>. A demo implementing regularity constraints (creating a mesh in which each face is as regular as possible) is in <a href="https://github.com/libigl/libigl/tree/master/tutorial/713_Shapeup/main.cpp">Example 713</a>. </p>
 <p>The local step is instantiated by a function of type <code class="codehilite">igl::shapeup_projection_function</code>. The global step is done by two functions: <code class="codehilite">igl::shapeup_precomputation()</code>, which precomputes the matrices required for the global step, and <code class="codehilite">igl::shapeup_solve()</code>, which solves the problem, according to the initial solution <span><span class="MathJax_Preview">P_0</span><script type="math/tex">P_0</script></span> and the input local projection function. The data struct <code class="codehilite">igl::ShapeUpData</code> contains the information necessary to run the algorithm, and can be configured; for instance, the self-explanatory variable <code class="codehilite">Maxiterations</code>.</p>
 <p>The global step minimizes the following energy:</p>
 <div>
@@ -1521,7 +1521,7 @@ an unbiased result.</p>
 </script>
 </div>
 <p>where the <span><span class="MathJax_Preview">\lambda</span><script type="math/tex">\lambda</script></span> coefficients are encoded in <code class="codehilite">igl::ShapeUpData</code>, and can be updated <strong>prior</strong> to calling <code class="codehilite">igl::shapeup_precomputation()</code>. The <span><span class="MathJax_Preview">E_{shape}</span><script type="math/tex">E_{shape}</script></span> component is the integration energy (fitting <span><span class="MathJax_Preview">P_k</span><script type="math/tex">P_k</script></span> to the local projections). The <span><span class="MathJax_Preview">E_{close}</span><script type="math/tex">E_{close}</script></span> component is adherence to positional constraints, given by <code class="codehilite">b</code> and <code class="codehilite">bc</code> parameters. The <span><span class="MathJax_Preview">E_{smooth}</span><script type="math/tex">E_{smooth}</script></span> component is an optional objective function, to minimize differences (in the Dirichlet sense) between points, encodes by &ldquo;edges&rdquo; in parameter <code class="codehilite">E</code>. Both <span><span class="MathJax_Preview">E_{close}</span><script type="math/tex">E_{close}</script></span> and <span><span class="MathJax_Preview">E_{shape}</span><script type="math/tex">E_{shape}</script></span> are also weighted by <code class="codehilite">wClose</code> and <code class="codehilite">wShape</code> function parameters, respectively.</p>
-<figure><img alt="(Example 713) The half-tunnel mesh (left) has been optimized to be almost perfectly regular (right). The color scale is between \lbrack 0,0.05 \rbrack\lbrack 0,0.05 \rbrack, measuring the average normalized deviation of the angles of each face from 90^{\circ}90^{\circ}." src="../images/713_ShapeUp.png" /><figcaption>(<a href="../713_ShapeUp/main.cpp">Example 713</a>) The half-tunnel mesh (left) has been optimized to be almost perfectly regular (right). The color scale is between <span><span class="MathJax_Preview">\lbrack 0,0.05 \rbrack</span><script type="math/tex">\lbrack 0,0.05 \rbrack</script></span>, measuring the average normalized deviation of the angles of each face from <span><span class="MathJax_Preview">90^{\circ}</span><script type="math/tex">90^{\circ}</script></span>.</figcaption>
+<figure><img alt="(Example 713) The half-tunnel mesh (left) has been optimized to be almost perfectly regular (right). The color scale is between \lbrack 0,0.05 \rbrack\lbrack 0,0.05 \rbrack, measuring the average normalized deviation of the angles of each face from 90^{\circ}90^{\circ}." src="../images/713_ShapeUp.png" /><figcaption>(<a href="https://github.com/libigl/libigl/tree/master/tutorial/713_ShapeUp/main.cpp">Example 713</a>) The half-tunnel mesh (left) has been optimized to be almost perfectly regular (right). The color scale is between <span><span class="MathJax_Preview">\lbrack 0,0.05 \rbrack</span><script type="math/tex">\lbrack 0,0.05 \rbrack</script></span>, measuring the average normalized deviation of the angles of each face from <span><span class="MathJax_Preview">90^{\circ}</span><script type="math/tex">90^{\circ}</script></span>.</figcaption>
 </figure>
 <h2 id="references">References<a class="headerlink" href="#references" title="Permanent link">&para;</a></h2>
 <div class="footnote">
