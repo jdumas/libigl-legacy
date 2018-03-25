@@ -723,8 +723,8 @@
                 
                 <h1 id="libigl-file-formats">libigl file formats<a class="headerlink" href="#libigl-file-formats" title="Permanent link">&para;</a></h1>
 <ul>
-<li><a href="./bf.html">.bf</a> ASCII files for representing skeletal bone &ldquo;forests&rdquo;</li>
-<li><a href="./dmat.html">.dmat</a> uncompressed ASCII/binary files for dense matrices</li>
+<li><a href="./bf">.bf</a> ASCII files for representing skeletal bone &ldquo;forests&rdquo;</li>
+<li><a href="./dmat">.dmat</a> uncompressed ASCII/binary files for dense matrices</li>
 <li><em>.ele</em> Element (triangle or tet) list. This format comes in similar flavors: <a href="http://tetgen.berlios.de/fformats.ele.html">tetgen&rsquo;s</a>, <a href="http://www.cs.berkeley.edu/~jrs/stellar/#fileformats">stellar&rsquo;s</a>, and <a href="https://www.cs.cmu.edu/~quake/triangle.ele.html">triangle&rsquo;s</a>. The formats of TetGen and stellar are identical upto conventions on index ordering and number of allowed attributes (unverified).</li>
 <li><a href="http://wias-berlin.de/software/tetgen/fformats.face.html">.face</a> TetGen&rsquo;s file format for simplicial facets.</li>
 <li><a href="http://www.ann.jussieu.fr/frey/publications/RT-0253.pdf#page=33">.mesh</a> Medit&rsquo;s triangle surface mesh + tetrahedral volume mesh file format, see page 33, section 7.2.1</li>
@@ -734,12 +734,12 @@
 <li><a href="http://en.wikipedia.org/wiki/PLY_%28file_format%29">.ply</a> Polygon File Format, supporting ASCII and binary encoding</li>
 <li><a href="https://en.wikipedia.org/wiki/Portable_Network_Graphics">.png</a> Portable Network Graphics image file. IGLLIB (in the libiglpng extra) supports png image files via the <a href="https://github.com/yig/yimg">yimg</a> library. Alpha channels and compression are supported.</li>
 <li><em>.poly</em> Piecewise-linear complex. This format comes in many similar but importantly different flavors: <a href="https://www.cs.cmu.edu/~quake/triangle.poly.html">triangle&rsquo;s</a>, <a href="http://tetgen.berlios.de/fformats.poly.html">tetgen&rsquo;s</a>, <a href="http://sparse-meshing.com/svr/0.2.1/format-poly.html">pyramid/SVR&rsquo;s</a></li>
-<li><a href="./rbr.html">.rbr</a> ASCII files for saving state of ReAntTweakBar</li>
+<li><a href="./rbr">.rbr</a> ASCII files for saving state of ReAntTweakBar</li>
 <li><a href="http://en.wikipedia.org/wiki/STL_(file_format)">.stl</a> 3D Systems&rsquo;CAD and 3D printing mesh file format. ASCII and binary versions.</li>
 <li><a href="http://en.wikipedia.org/wiki/Truevision_TGA">.tga</a> Truevision TGA or TARGA image file format. IGLLIB supports only very basic reading and writing RGB/RGBA files without colormaps and (unverified) run-length compression.</li>
-<li><a href="./tgf.html">.tgf</a> ASCII files for representing control handle graphs</li>
+<li><a href="./tgf">.tgf</a> ASCII files for representing control handle graphs</li>
 <li><a href="http://en.wikipedia.org/wiki/VRML#WRL_File_Format">.wrl</a> VRML (Virtual Reality Modeling Language) file format for 3D scenes.</li>
-<li><a href="./xml.html">.xml</a> XMLSerializer&rsquo;s file format containing the serialization of object data structures.</li>
+<li><a href="./xml">.xml</a> XMLSerializer&rsquo;s file format containing the serialization of object data structures.</li>
 </ul>
 <h3 id="triangle-mesh-file-format-performance">Triangle mesh file format performance<a class="headerlink" href="#triangle-mesh-file-format-performance" title="Permanent link">&para;</a></h3>
 <p><a href="http://en.wikipedia.org/wiki/Wavefront_.obj_file#File_format">.obj</a> and <a href="http://tetgen.berlios.de/fformats.off.html">.off</a> file formats support meshes with arbitrary polygon degrees. However, often we are only working with triangle meshes. Further, .obj files do not have useful headers revealing the number of elements. For triangle meshes, .off and .obj are inferior file formats to the <a href="http://www.ann.jussieu.fr/frey/publications/RT-0253.pdf#page=33">.mesh</a> file format. The current (version 0.1.6) IO functions for these file formats perform as follows for reading and writing a 300,000 triangle mesh:</p>
@@ -755,7 +755,7 @@
 
 <p>This reveals that .mesh is 6.5x faster than .obj and about 2.5x faster than .off.</p>
 <p>While .obj files support normals, it is typically much faster to (re)compute normals from the geometry using <code class="codehilite">per_face_normals</code>, <code class="codehilite">per_vertex_normals</code>, <code class="codehilite">per_corner_normals</code> than to read and write them to files.</p>
-<p>It gets even better if you&rsquo;re willing to use a nonstandard format. If your triangle mesh is in (<code class="codehilite">V</code>,<code class="codehilite">F</code>) then you can read and write those variables as dense matrices of doubles to <a href="./dmat.html">.dmat</a> uncompressed <strong>binary</strong> files. This not only ensures perfect precision but also big speed ups. On that same 300,000 triangle mesh, .dmat achieves:</p>
+<p>It gets even better if you&rsquo;re willing to use a nonstandard format. If your triangle mesh is in (<code class="codehilite">V</code>,<code class="codehilite">F</code>) then you can read and write those variables as dense matrices of doubles to <a href="./dmat">.dmat</a> uncompressed <strong>binary</strong> files. This not only ensures perfect precision but also big speed ups. On that same 300,000 triangle mesh, .dmat achieves:</p>
 <div class="codehilite"><pre><span></span><span class="n">writeDMAT</span><span class="o">:</span> <span class="mf">0.0384338</span> <span class="n">secs</span>
 
 <span class="n">readDMAT</span><span class="o">:</span>  <span class="mf">0.0117921</span> <span class="n">secs</span>

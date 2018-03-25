@@ -382,6 +382,13 @@
   
 </li>
       
+        <li class="md-nav__item">
+  <a href="#references" title="References" class="md-nav__link">
+    References
+  </a>
+  
+</li>
+      
       
       
       
@@ -868,6 +875,13 @@
   
 </li>
       
+        <li class="md-nav__item">
+  <a href="#references" title="References" class="md-nav__link">
+    References
+  </a>
+  
+</li>
+      
       
       
       
@@ -1204,7 +1218,7 @@ png and used to texture a quadrilateral.</p>
 elements.  This is undesirable in many applications, and it is possible to
 avoid it by introducing a non-linear constraints that guarantees that the area
 of every element remain positive.</p>
-<p>Libigl can be used to compute Locally Injective Maps [#schuller_2013][] using a variety of
+<p>Libigl can be used to compute Locally Injective Maps <sup id="fnref:schuller_2013"><a class="footnote-ref" href="#fn:schuller_2013" rel="footnote">1</a></sup> using a variety of
 deformation energies. A simple deformation of a 2D grid is computed in <a href="../608_LIM/main.cpp">Example
 608</a>.</p>
 <figure><img alt="A mesh (left) deformed using Laplacian editing (middle) and with Laplacian editing plus the anti-flipping constraints (right)." src="../images/608_LIM.png" /><figcaption>A mesh (left) deformed using Laplacian editing (middle) and with Laplacian editing plus the anti-flipping constraints (right).</figcaption>
@@ -1244,7 +1258,7 @@ Instead we expect our users to be working with <em>explicit</em> triangle mesh
 compute robustly with boundary representations, but are nonetheless useful.</p>
 <p>To compute a boolean operation on a triangle mesh with vertices <code class="codehilite">VA</code> and
 triangles <code class="codehilite">FA</code> and another mesh <code class="codehilite">VB</code> and <code class="codehilite">FB</code>, libigl first computes a unified
-&ldquo;mesh arrangement&rdquo; (see [#zhou_2016][]) with vertices <code class="codehilite">V</code> and triangles <code class="codehilite">F</code> where all triangle-triangle
+&ldquo;mesh arrangement&rdquo; (see <sup id="fnref:zhou_2016"><a class="footnote-ref" href="#fn:zhou_2016" rel="footnote">2</a></sup>[]) with vertices <code class="codehilite">V</code> and triangles <code class="codehilite">F</code> where all triangle-triangle
 intersections have been &ldquo;resolved&rdquo;. That is, edges and vertices are added
 exactly at the intersection lines, so the resulting <em>non-manifold</em> mesh <code class="codehilite">(V,F)</code>
 has no self-intersections.</p>
@@ -1299,6 +1313,18 @@ of three cylinders:</p>
 then the final composite.</p>
 <figure><img alt="Example 610 computes  complex CSG Tree operation on 5 input meshes." src="../images/cube-sphere-cylinders-csg.gif" /><figcaption>Example <a href="../610_CSGTree/main.cpp">610</a> computes  complex CSG Tree operation on 5 input meshes.</figcaption>
 </figure>
+<h2 id="references">References<a class="headerlink" href="#references" title="Permanent link">&para;</a></h2>
+<div class="footnote">
+<hr />
+<ol>
+<li id="fn:schuller_2013">
+<p>Christian Schüller, Ladislav Kavan, Daniele Panozzo, Olga Sorkine-Hornung.  <a href="http://igl.ethz.ch/projects/LIM/">Locally Injective Mappings</a>, 2013.&#160;<a class="footnote-backref" href="#fnref:schuller_2013" rev="footnote" title="Jump back to footnote 1 in the text">&#8617;</a></p>
+</li>
+<li id="fn:zhou_2016">
+<p>Qingnan Zhou, Eitan Grinspun, Denis Zorin. <a href="https://www.google.com/search?q=Mesh+Arrangements+for+Solid+Geometry">Mesh Arrangements for Solid Geometry</a>, 2016&#160;<a class="footnote-backref" href="#fnref:zhou_2016" rev="footnote" title="Jump back to footnote 2 in the text">&#8617;</a></p>
+</li>
+</ol>
+</div>
                 
                   
                 

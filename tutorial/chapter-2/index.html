@@ -965,7 +965,7 @@ surface is.</p>
 on a triangle mesh is via a vertex&rsquo;s <em>angular deficit</em>:</p>
 <p><span><span class="MathJax_Preview">k_G(v_i) = 2π - \sum\limits_{j\in N(i)}θ_{ij},</span><script type="math/tex">k_G(v_i) = 2π - \sum\limits_{j\in N(i)}θ_{ij},</script></span></p>
 <p>where <span><span class="MathJax_Preview">N(i)</span><script type="math/tex">N(i)</script></span> are the triangles incident on vertex <span><span class="MathJax_Preview">i</span><script type="math/tex">i</script></span> and <span><span class="MathJax_Preview">θ_{ij}</span><script type="math/tex">θ_{ij}</script></span> is the angle
-at vertex <span><span class="MathJax_Preview">i</span><script type="math/tex">i</script></span> in triangle <span><span class="MathJax_Preview">j</span><script type="math/tex">j</script></span> [][#meyer_2003].</p>
+at vertex <span><span class="MathJax_Preview">i</span><script type="math/tex">i</script></span> in triangle <span><span class="MathJax_Preview">j</span><script type="math/tex">j</script></span> <sup id="fnref:meyer_2003"><a class="footnote-ref" href="#fn:meyer_2003" rel="footnote">3</a></sup>.</p>
 <p>Just like the continuous analog, our discrete Gaussian curvature reveals
 elliptic, hyperbolic and parabolic vertices on the domain, as demonstrated in <a href="../202_GaussianCurvature/main.cpp">Example 202</a>.</p>
 <figure><img alt="The GaussianCurvature example computes discrete Gaussian curvature and visualizes it in pseudocolor." src="../images/bumpy-gaussian-curvature.jpg" /><figcaption>The <code class="codehilite">GaussianCurvature</code> example computes discrete Gaussian curvature and visualizes it in pseudocolor.</figcaption>
@@ -982,7 +982,7 @@ applied to the surface positions. The result is a so-called mean-curvature
 normal:</p>
 <p><span><span class="MathJax_Preview">-\Delta \mathbf{x} = H \mathbf{n}.</span><script type="math/tex">-\Delta \mathbf{x} = H \mathbf{n}.</script></span></p>
 <p>It is easy to compute this on a discrete triangle mesh in libigl using the
-cotangent Laplace-Beltrami operator [][#meyer_2003].</p>
+cotangent Laplace-Beltrami operator <sup id="fnref2:meyer_2003"><a class="footnote-ref" href="#fn:meyer_2003" rel="footnote">3</a></sup>.</p>
 <div class="codehilite"><pre><span></span><span class="cp">#include</span> <span class="cpf">&lt;igl/cotmatrix.h&gt;</span><span class="cp"></span>
 <span class="cp">#include</span> <span class="cpf">&lt;igl/massmatrix.h&gt;</span><span class="cp"></span>
 <span class="cp">#include</span> <span class="cpf">&lt;igl/invert_diag.h&gt;</span><span class="cp"></span>
@@ -998,9 +998,9 @@ cotangent Laplace-Beltrami operator [][#meyer_2003].</p>
 
 <p>Combined with the angle defect definition of discrete Gaussian curvature, one
 can define principal curvatures and use least squares fitting to find
-directions [][#meyer_2003].</p>
+directions <sup id="fnref3:meyer_2003"><a class="footnote-ref" href="#fn:meyer_2003" rel="footnote">3</a></sup>.</p>
 <p>Alternatively, a robust method for determining principal curvatures is via
-quadric fitting [][#panozzo_2010]. In the neighborhood around every vertex, a
+quadric fitting <sup id="fnref:panozzo_2010"><a class="footnote-ref" href="#fn:panozzo_2010" rel="footnote">5</a></sup>. In the neighborhood around every vertex, a
 best-fit quadric is found and principal curvature values and directions are
 analytically computed on this quadric (<a href="../203_curvatureDirections/main.cpp">Example
 203</a>).</p>
@@ -1095,17 +1095,17 @@ of the Dirichlet energy (sum of squared gradients):</p>
 <p>Libigl implements discrete &ldquo;cotangent&rdquo; Laplacians for triangles meshes and
 tetrahedral meshes, building both with fast geometric rules rather than &ldquo;by the
 book&rdquo; FEM construction which involves many (small) matrix inversions, cf.
-[#sharf_2007][].</p>
+<sup id="fnref:sharf_2007"><a class="footnote-ref" href="#fn:sharf_2007" rel="footnote">6</a></sup>.</p>
 <p>The operator applied to mesh vertex positions amounts to smoothing by <em>flowing</em>
 the surface along the mean curvature normal direction (<a href="../205_Laplacian/main.cpp">Example 205</a>). Note that this is equivalent to minimizing surface area.</p>
-<figure><img alt="The Laplacian example computes conformalized mean curvature flow using the cotangent Laplacian [#kazhdan_2012][]." src="../images/cow-curvature-flow.jpg" /><figcaption>The <code class="codehilite">Laplacian</code> example computes conformalized mean curvature flow using the cotangent Laplacian [#kazhdan_2012][].</figcaption>
+<figure><img alt="The Laplacian example computes conformalized mean curvature flow using the cotangent Laplacian 2." src="../images/cow-curvature-flow.jpg" /><figcaption>The <code class="codehilite">Laplacian</code> example computes conformalized mean curvature flow using the cotangent Laplacian <sup id="fnref2:kazhdan_2012"><a class="footnote-ref" href="#fn:kazhdan_2012" rel="footnote">2</a></sup>.</figcaption>
 </figure>
 <h3 id="mass-matrix">Mass matrix<a class="headerlink" href="#mass-matrix" title="Permanent link">&para;</a></h3>
 <p>The mass matrix <span><span class="MathJax_Preview">\mathbf{M}</span><script type="math/tex">\mathbf{M}</script></span> is another <span><span class="MathJax_Preview">n \times n</span><script type="math/tex">n \times n</script></span> matrix which takes vertex
 values to vertex values. From an FEM point of view, it is a discretization of
 the inner-product: it accounts for the area around each vertex. Consequently,
 <span><span class="MathJax_Preview">\mathbf{M}</span><script type="math/tex">\mathbf{M}</script></span> is often a diagonal matrix, such that <span><span class="MathJax_Preview">M_{ii}</span><script type="math/tex">M_{ii}</script></span> is the barycentric
-or voronoi area around vertex <span><span class="MathJax_Preview">i</span><script type="math/tex">i</script></span> in the mesh [#meyer_2003][]. The inverse of
+or voronoi area around vertex <span><span class="MathJax_Preview">i</span><script type="math/tex">i</script></span> in the mesh <sup id="fnref4:meyer_2003"><a class="footnote-ref" href="#fn:meyer_2003" rel="footnote">3</a></sup>. The inverse of
 this matrix is also very useful as it transforms integrated quantities into
 point-wise quantities, e.g.:</p>
 <p><span><span class="MathJax_Preview">\Delta f \approx \mathbf{M}^{-1} \mathbf{L} \mathbf{f}.</span><script type="math/tex">\Delta f \approx \mathbf{M}^{-1} \mathbf{L} \mathbf{f}.</script></span></p>
@@ -1135,7 +1135,7 @@ a <span><span class="MathJax_Preview">n \times md</span><script type="math/tex">
 to scalar divergence values at vertices.</p>
 <h2 id="geodesic">Geodesic<a class="headerlink" href="#geodesic" title="Permanent link">&para;</a></h2>
 <p>The discrete geodesic distance between two points is the length of the shortest path between then restricted to the surface. For triangle meshes, such a path is made of a set of segments which can be either edges of the mesh or crossing a triangle.</p>
-<p>Libigl includes a wrapper for the exact geodesic algorithm [#mitchell_1987] developed by Danil Kirsanov (<a href="https://code.google.com/archive/p/geodesic/">https://code.google.com/archive/p/geodesic/</a>), exposing it through an Eigen-based API. The function 
+<p>Libigl includes a wrapper for the exact geodesic algorithm <sup id="fnref:mitchell_1987"><a class="footnote-ref" href="#fn:mitchell_1987" rel="footnote">4</a></sup> developed by Danil Kirsanov (<a href="https://code.google.com/archive/p/geodesic/">https://code.google.com/archive/p/geodesic/</a>), exposing it through an Eigen-based API. The function 
 <div class="codehilite"><pre><span></span><span class="n">igl</span><span class="o">::</span><span class="n">exact_geodesic</span><span class="p">(</span><span class="n">V</span><span class="p">,</span><span class="n">F</span><span class="p">,</span><span class="n">VS</span><span class="p">,</span><span class="n">FS</span><span class="p">,</span><span class="n">VT</span><span class="p">,</span><span class="n">FT</span><span class="p">,</span><span class="n">d</span><span class="p">);</span>
 </pre></div>
 computes the closest geodesic distances of each vertex in VT or face in FT, from the source vertices VS or faces FS of the input mesh V,F. The output is writted in the vector d, which lists first the distances for the vertices in VT, and then for the faces in FT. For example, if you want to compute the distance from the vertex with id <code class="codehilite">vid</code>, to all vertices of F you can use:
@@ -1156,6 +1156,21 @@ computes the closest geodesic distances of each vertex in VT or face in FT, from
 <ol>
 <li id="fn:jacobson_thesis_2013">
 <p>Alec Jacobson, <a href="https://www.google.com/search?q=Algorithms+and+Interfaces+for+Real-Time+Deformation+of+2D+and+3D+Shapes"><em>Algorithms and Interfaces for Real-Time Deformation of 2D and 3D Shapes</em></a>, 2013.&#160;<a class="footnote-backref" href="#fnref:jacobson_thesis_2013" rev="footnote" title="Jump back to footnote 1 in the text">&#8617;</a></p>
+</li>
+<li id="fn:kazhdan_2012">
+<p>Michael Kazhdan, Jake Solomon, Mirela Ben-Chen, <a href="https://www.google.com/search?q=Can+Mean-Curvature+Flow+Be+Made+Non-Singular">Can Mean-Curvature Flow Be Made Non-Singular</a>, 2012.&#160;<a class="footnote-backref" href="#fnref:kazhdan_2012" rev="footnote" title="Jump back to footnote 2 in the text">&#8617;</a><a class="footnote-backref" href="#fnref2:kazhdan_2012" rev="footnote" title="Jump back to footnote 2 in the text">&#8617;</a></p>
+</li>
+<li id="fn:meyer_2003">
+<p>Mark Meyer, Mathieu Desbrun, Peter Schröder and Alan H.  Barr, <a href="https://www.google.com/search?q=Discrete+Differential-Geometry+Operators+for+Triangulated+2-Manifolds">Discrete Differential-Geometry Operators for Triangulated 2-Manifolds</a>, 2003.&#160;<a class="footnote-backref" href="#fnref:meyer_2003" rev="footnote" title="Jump back to footnote 3 in the text">&#8617;</a><a class="footnote-backref" href="#fnref2:meyer_2003" rev="footnote" title="Jump back to footnote 3 in the text">&#8617;</a><a class="footnote-backref" href="#fnref3:meyer_2003" rev="footnote" title="Jump back to footnote 3 in the text">&#8617;</a><a class="footnote-backref" href="#fnref4:meyer_2003" rev="footnote" title="Jump back to footnote 3 in the text">&#8617;</a></p>
+</li>
+<li id="fn:mitchell_1987">
+<p>Joseph S. B. Mitchell, David M. Mount, Christos H. Papadimitriou. <a href="https://www.google.com/search?q=The+Discrete+Geodesic+Problem">The Discrete Geodesic Problem</a>, 1987&#160;<a class="footnote-backref" href="#fnref:mitchell_1987" rev="footnote" title="Jump back to footnote 4 in the text">&#8617;</a></p>
+</li>
+<li id="fn:panozzo_2010">
+<p>Daniele Panozzo, Enrico Puppo, Luigi Rocca, <a href="https://www.google.com/search?q=Efficient+Multi-scale+Curvature+and+Crease+Estimation">Efficient Multi-scale Curvature and Crease Estimation</a>, 2010.&#160;<a class="footnote-backref" href="#fnref:panozzo_2010" rev="footnote" title="Jump back to footnote 5 in the text">&#8617;</a></p>
+</li>
+<li id="fn:sharf_2007">
+<p>Andrei Sharf, Thomas Lewiner, Gil Shklarski, Sivan Toledo, and Daniel Cohen-Or. <a href="https://www.google.com/search?q=Interactive+topology-aware+surface+reconstruction">Interactive topology-aware surface reconstruction</a>, 2007.&#160;<a class="footnote-backref" href="#fnref:sharf_2007" rev="footnote" title="Jump back to footnote 6 in the text">&#8617;</a></p>
 </li>
 </ol>
 </div>

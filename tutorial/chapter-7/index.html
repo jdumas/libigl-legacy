@@ -422,6 +422,13 @@
   
 </li>
       
+        <li class="md-nav__item">
+  <a href="#references" title="References" class="md-nav__link">
+    References
+  </a>
+  
+</li>
+      
       
       
       
@@ -924,6 +931,13 @@
   
 </li>
       
+        <li class="md-nav__item">
+  <a href="#references" title="References" class="md-nav__link">
+    References
+  </a>
+  
+</li>
+      
       
       
       
@@ -993,11 +1007,18 @@ then the problem becomes determining which of these tets are <em>inside</em> the
 mesh and which are outside. That is, which should be kept and which should be
 removed.</p>
 <p>The &ldquo;Generalized Winding Number&rdquo; is a robust method for determined
-inside and outside for troublesome meshes [#jacobson_2013][].  The generalized
+inside and outside for troublesome meshes <sup id="fnref:jacobson_2013"><a class="footnote-ref" href="#fn:jacobson_2013" rel="footnote">5</a></sup>.  The generalized
 winding number with respect to <code class="codehilite">(V,F)</code> at some point <span><span class="MathJax_Preview">\mathbf{p} \in
 \mathcal{R}^3</span><script type="math/tex">\mathbf{p} \in
 \mathcal{R}^3</script></span> is defined as scalar function:</p>
-<p><span><span class="MathJax_Preview"><span><span class="MathJax_Preview">w(\mathbf{p}) = \sum\limits_{f_i\in F} \frac{1}{4\pi}\Omega_{f_i}(\mathbf{p})</span><script type="math/tex">w(\mathbf{p}) = \sum\limits_{f_i\in F} \frac{1}{4\pi}\Omega_{f_i}(\mathbf{p})</script></span></span><script type="math/tex"><span><span class="MathJax_Preview">w(\mathbf{p}) = \sum\limits_{f_i\in F} \frac{1}{4\pi}\Omega_{f_i}(\mathbf{p})</span><script type="math/tex">w(\mathbf{p}) = \sum\limits_{f_i\in F} \frac{1}{4\pi}\Omega_{f_i}(\mathbf{p})</script></span></script></span></p>
+<div>
+<div class="MathJax_Preview">
+ w(\mathbf{p}) = \sum\limits_{f_i\in F} \frac{1}{4\pi}\Omega_{f_i}(\mathbf{p})
+</div>
+<script type="math/tex; mode=display">
+ w(\mathbf{p}) = \sum\limits_{f_i\in F} \frac{1}{4\pi}\Omega_{f_i}(\mathbf{p})
+</script>
+</div>
 <p>where <span><span class="MathJax_Preview">\Omega_{f_i}</span><script type="math/tex">\Omega_{f_i}</script></span> is the <em>solid angle</em> subtended by <span><span class="MathJax_Preview">f_i</span><script type="math/tex">f_i</script></span> (the ith face in
 <code class="codehilite">F</code>) at the point <span><span class="MathJax_Preview">\mathbf{p}</span><script type="math/tex">\mathbf{p}</script></span>. This solid angle contribution is a simple,
 closed-form expression involving <code class="codehilite">atan2</code> and some dot-products.</p>
@@ -1018,7 +1039,7 @@ variety of different paradigms for solving this problem and state-of-the-art
 methods are fairly advanced.</p>
 <p>One family of mesh decimation methods operates by successively remove elements
 from the mesh. In particular, Hoppe advocates for successively remove or rather
-collapsing edges [#hoppe_1996][]. The generic form of this technique is to
+collapsing edges <sup id="fnref:hoppe_1996"><a class="footnote-ref" href="#fn:hoppe_1996" rel="footnote">4</a></sup>[]. The generic form of this technique is to
 construct a sequence of n meshes from the initial high-resolution mesh <span><span class="MathJax_Preview">M_0</span><script type="math/tex">M_0</script></span> to
 the lowest resolution mesh <span><span class="MathJax_Preview">M_n</span><script type="math/tex">M_n</script></span> by collapsing a single edge:</p>
 <p><span><span class="MathJax_Preview">M_0 \mathop{\longrightarrow}_\text{edge collapse}
@@ -1181,8 +1202,8 @@ it&rsquo;s best to reuse the AABB hierarchy that&rsquo;s being built during
 <h3 id="signed-distance">Signed distance<a class="headerlink" href="#signed-distance" title="Permanent link">&para;</a></h3>
 <p>Finally, from the closest point or the winding number it&rsquo;s possible to <em>sign</em>
 this distance. In <code class="codehilite">igl::signed_distance</code> we provide two methods for signing:
-the so-called &ldquo;pseudo-normal test&rdquo; [#baerentzen_2005][] and the generalized
-winding number [#jacobson_2013][].</p>
+the so-called &ldquo;pseudo-normal test&rdquo; <sup id="fnref:baerentzen_2005"><a class="footnote-ref" href="#fn:baerentzen_2005" rel="footnote">1</a></sup>[] and the generalized
+winding number <sup id="fnref2:jacobson_2013"><a class="footnote-ref" href="#fn:jacobson_2013" rel="footnote">5</a></sup>[].</p>
 <p>The pseudo-normal test (see also <code class="codehilite">igl::pseudonormal_test</code>) assumes the input
 mesh is a watertight (closed, non-self-intersecting, manifold) mesh. Then given
 a query point <span><span class="MathJax_Preview">\mathbf{q}</span><script type="math/tex">\mathbf{q}</script></span> and its closest point <span><span class="MathJax_Preview">\mathbf{c} \in (V,F)</span><script type="math/tex">\mathbf{c} \in (V,F)</script></span>, it
@@ -1215,7 +1236,7 @@ iso-surface at value <span><span class="MathJax_Preview">v</span><script type="m
 <span><span class="MathJax_Preview">\mathcal{R}^3</span><script type="math/tex">\mathcal{R}^3</script></span> such that <span><span class="MathJax_Preview">f(\mathbf{x}) = v</span><script type="math/tex">f(\mathbf{x}) = v</script></span>. A core problem in geometry
 processing is to extract an iso-surface as a triangle mesh for further
 mesh-based processing or visualization. This is referred to as iso-contouring.</p>
-<p>&ldquo;Marching Cubes&rdquo; [#lorensen_1987] is a <a href="https://en.wikipedia.org/wiki/Marching_cubes">famous
+<p>&ldquo;Marching Cubes&rdquo; <sup id="fnref:lorensen_1987"><a class="footnote-ref" href="#fn:lorensen_1987" rel="footnote">7</a></sup> is a <a href="https://en.wikipedia.org/wiki/Marching_cubes">famous
 method</a> for iso-contouring
 tri-linear functions <span><span class="MathJax_Preview">f</span><script type="math/tex">f</script></span> on a regular lattice (aka grid). The core idea of this
 method is to contour the iso-surface passing through each cell  (if it does at
@@ -1249,7 +1270,7 @@ enforce a consistent facet orientation in the output faces <code class="codehili
 <p>For (closed or nearly closed) surfaces representing the boundary of a solid
 object, libigl provides a routine to reorient faces so that the vertex ordering
 corresponds to a counter-clockwise ordering of the vertices with a
-right-hand-rule normal pointing outward. This method [#takayama14][] assumes
+right-hand-rule normal pointing outward. This method <sup id="fnref:takayama14"><a class="footnote-ref" href="#fn:takayama14" rel="footnote">10</a></sup>[] assumes
 that <a href="https://www.reddit.com/r/askscience/comments/32otgx/which_as_a_is_more_empty_an_atom_or_the_universe/">most of the universe is
 empty</a>.
 That is, most points in space are outside of the solid object than inside.
@@ -1291,10 +1312,10 @@ discretizing time at a finite step of steps <span><span class="MathJax_Preview">
 and by 2) discretizing space with a regular grid and representing the distance
 field using trilinear interpolation of grid values. Finally the output mesh,
 <span><span class="MathJax_Preview">\partial S</span><script type="math/tex">\partial S</script></span> is approximated by contouring using Marching Cubes
-[#lorensen_1987].</p>
+<sup id="fnref2:lorensen_1987"><a class="footnote-ref" href="#fn:lorensen_1987" rel="footnote">7</a></sup>.</p>
 <p>This method is similar to one described by Schroeder et al. in 1994
-[#schroeder_1994], and the one used in conjunction with boolean operations by
-Garg et al. 2016 [#garg_2016].</p>
+<sup id="fnref:schroeder_1994"><a class="footnote-ref" href="#fn:schroeder_1994" rel="footnote">9</a></sup>, and the one used in conjunction with boolean operations by
+Garg et al. 2016 <sup id="fnref:garg_2016"><a class="footnote-ref" href="#fn:garg_2016" rel="footnote">3</a></sup>.</p>
 <p>In libigl, if your input solid&rsquo;s surface is represented by <code class="codehilite">(V,F)</code> then the
 output surface mesh will be <code class="codehilite">(SV,SF)</code> after calling:</p>
 <div class="codehilite"><pre><span></span><span class="n">igl</span><span class="o">::</span><span class="n">copyleft</span><span class="o">::</span><span class="n">swept_volume</span><span class="p">(</span><span class="n">V</span><span class="p">,</span><span class="n">F</span><span class="p">,</span><span class="n">num_time_steps</span><span class="p">,</span><span class="n">grid_size</span><span class="p">,</span><span class="n">isolevel</span><span class="p">,</span><span class="n">SV</span><span class="p">,</span><span class="n">SF</span><span class="p">);</span>
@@ -1342,7 +1363,7 @@ in <a href="../709_VectorFieldVisualizer/main.cpp">Example 709</a>.</p>
 <figure><img alt="(Example 709) Interactive streamlines tracing." src="../images/streamlines.jpg" /><figcaption>(<a href="../709_VectorFieldVisualizer/main.cpp">Example 709</a>) Interactive streamlines tracing.</figcaption>
 </figure>
 <h2 id="scalable-locally-injective-maps">Scalable Locally Injective Maps<a class="headerlink" href="#scalable-locally-injective-maps" title="Permanent link">&para;</a></h2>
-<p>The Scalable Locally Injective Maps [#rabinovich_2016] algorithm allows to
+<p>The Scalable Locally Injective Maps <sup id="fnref:rabinovich_2016"><a class="footnote-ref" href="#fn:rabinovich_2016" rel="footnote">8</a></sup> algorithm allows to
 compute locally injective maps on massive datasets. The algorithm shares many
 similarities with ARAP, but uses a reweighting scheme to minimize arbitrary
 distortion energies, including those that prevent the introduction of flips.</p>
@@ -1374,7 +1395,7 @@ each triangle <span><span class="MathJax_Preview">(i_a,i_b,i_c)</span><script ty
 a finer and finer mesh.</p>
 <p>The subdivision method of <code class="codehilite">igl::loop</code> is not in plane. The vertices of the
 refined mesh are moved to weight combinations of their neighbors: the mesh is
-smoothed as it is refined [#loop_1987]. This and other <em>smooth subdivision</em>
+smoothed as it is refined <sup id="fnref:loop_1987"><a class="footnote-ref" href="#fn:loop_1987" rel="footnote">6</a></sup>. This and other <em>smooth subdivision</em>
 methods can be understood as generalizations of spline curves to surfaces. In
 particular the Loop subdivision method will converge to a <span><span class="MathJax_Preview">C^1</span><script type="math/tex">C^1</script></span> surface as we
 consider the limit of recursive applications of subdivision. Away from
@@ -1421,15 +1442,56 @@ an unbiased result.</p>
 <p>For iteration <span><span class="MathJax_Preview">k</span><script type="math/tex">k</script></span>:
 1. <em>Local step</em>: compute the projections of the set <span><span class="MathJax_Preview">P_{k-1}</span><script type="math/tex">P_{k-1}</script></span> onto <span><span class="MathJax_Preview">S</span><script type="math/tex">S</script></span>, individually per constraint; that would mean fragmenting each point that appears in multiple constraints. That can be a nonlinear operation, but if the constraints are sparse, it is a a set of many small systems.
 2. <em>Global step</em>: integrate the set <span><span class="MathJax_Preview">P_k</span><script type="math/tex">P_k</script></span> to be as close as possible to the projected fragmented set, with auxiliary objective functions possible. That results in a global, but quadratic objective function. Moreover, the resulting linear system has a constant matrix, and therefore can be pre-factored.</p>
-<p>The version we implement in libigl is the general version described by [#bouaziz_2012], and is in two files: <code class="codehilite">&lt;igl/shapeup.h&gt;</code> and <code class="codehilite">&lt;igl/shapeup_local_projections.h&gt;</code>. A demo implementing regularity constraints (creating a mesh in which each face is as regular as possible) is in <a href="../713_Shapeup/main.cpp">Example 713</a>. </p>
+<p>The version we implement in libigl is the general version described by <sup id="fnref:bouaziz_2012"><a class="footnote-ref" href="#fn:bouaziz_2012" rel="footnote">2</a></sup>, and is in two files: <code class="codehilite">&lt;igl/shapeup.h&gt;</code> and <code class="codehilite">&lt;igl/shapeup_local_projections.h&gt;</code>. A demo implementing regularity constraints (creating a mesh in which each face is as regular as possible) is in <a href="../713_Shapeup/main.cpp">Example 713</a>. </p>
 <p>The local step is instantiated by a function of type <code class="codehilite">igl::shapeup_projection_function</code>. The global step is done by two functions: <code class="codehilite">igl::shapeup_precomputation()</code>, which precomputes the matrices required for the global step, and <code class="codehilite">igl::shapeup_solve()</code>, which solves the problem, according to the initial solution <span><span class="MathJax_Preview">P_0</span><script type="math/tex">P_0</script></span> and the input local projection function. The data struct <code class="codehilite">igl::ShapeUpData</code> contains the information necessary to run the algorithm, and can be configured; for instance, the self-explanatory variable <code class="codehilite">Maxiterations</code>.</p>
 <p>The global step minimizes the following energy:</p>
 <div>
-<div class="MathJax_Preview">E_{total}=\lambda_{shape}E_{shape}+\lambda_{close}E_{close}+\lambda_{smooth}E_{smooth},</div>
-<script type="math/tex; mode=display">E_{total}=\lambda_{shape}E_{shape}+\lambda_{close}E_{close}+\lambda_{smooth}E_{smooth},</script>
+<div class="MathJax_Preview">
+  E_{total}=\lambda_{shape}E_{shape}+\lambda_{close}E_{close}+\lambda_{smooth}E_{smooth},
+</div>
+<script type="math/tex; mode=display">
+  E_{total}=\lambda_{shape}E_{shape}+\lambda_{close}E_{close}+\lambda_{smooth}E_{smooth},
+</script>
 </div>
 <p>where the <span><span class="MathJax_Preview">\lambda</span><script type="math/tex">\lambda</script></span> coefficients are encoded in <code class="codehilite">igl::ShapeUpData</code>, and can be updated <strong>prior</strong> to calling <code class="codehilite">igl::shapeup_precomputation()</code>. The <span><span class="MathJax_Preview">E_{shape}</span><script type="math/tex">E_{shape}</script></span> component is the integration energy (fitting <span><span class="MathJax_Preview">P_k</span><script type="math/tex">P_k</script></span> to the local projections). The <span><span class="MathJax_Preview">E_{close}</span><script type="math/tex">E_{close}</script></span> component is adherence to positional constraints, given by <code class="codehilite">b</code> and <code class="codehilite">bc</code> parameters. The <span><span class="MathJax_Preview">E_{smooth}</span><script type="math/tex">E_{smooth}</script></span> component is an optional objective function, to minimize differences (in the Dirichlet sense) between points, encodes by &ldquo;edges&rdquo; in parameter <code class="codehilite">E</code>. Both <span><span class="MathJax_Preview">E_{close}</span><script type="math/tex">E_{close}</script></span> and <span><span class="MathJax_Preview">E_{shape}</span><script type="math/tex">E_{shape}</script></span> are also weighted by <code class="codehilite">wClose</code> and <code class="codehilite">wShape</code> function parameters, respectively.</p>
-<p><img alt="(Example 713) The half-tunnel mesh (left) has been optimized to be almost perfectly regular (right). The color scale is between [0,0.05][0,0.05], measuring the average normalized deviation of the angles of each face from 90^{\circ}90^{\circ}." src="../images/713_ShapeUp.png" /></p>
+<figure><img alt="(Example 713) The half-tunnel mesh (left) has been optimized to be almost perfectly regular (right). The color scale is between \lbrack 0,0.05 \rbrack\lbrack 0,0.05 \rbrack, measuring the average normalized deviation of the angles of each face from 90^{\circ}90^{\circ}." src="../images/713_ShapeUp.png" /><figcaption>(<a href="../713_ShapeUp/main.cpp">Example 713</a>) The half-tunnel mesh (left) has been optimized to be almost perfectly regular (right). The color scale is between <span><span class="MathJax_Preview">\lbrack 0,0.05 \rbrack</span><script type="math/tex">\lbrack 0,0.05 \rbrack</script></span>, measuring the average normalized deviation of the angles of each face from <span><span class="MathJax_Preview">90^{\circ}</span><script type="math/tex">90^{\circ}</script></span>.</figcaption>
+</figure>
+<h2 id="references">References<a class="headerlink" href="#references" title="Permanent link">&para;</a></h2>
+<div class="footnote">
+<hr />
+<ol>
+<li id="fn:baerentzen_2005">
+<p>J Andreas Baerentzen and Henrik Aanaes. <a href="https://www.google.com/search?q=Signed+distance+computation+using+the+angle+weighted+pseudonormal">Signed distance computation using the angle weighted pseudonormal</a>, 2005.&#160;<a class="footnote-backref" href="#fnref:baerentzen_2005" rev="footnote" title="Jump back to footnote 1 in the text">&#8617;</a></p>
+</li>
+<li id="fn:bouaziz_2012">
+<p>Sofien Bouaziz, Mario Deuss, Yuliy Schwartzburg, Thibaut Weise, Mark Pauly <a href="http://lgg.epfl.ch/publications/2012/shapeup.pdf">Shape-Up: Shaping Discrete Geometry with Projections</a>, 2012&#160;<a class="footnote-backref" href="#fnref:bouaziz_2012" rev="footnote" title="Jump back to footnote 2 in the text">&#8617;</a></p>
+</li>
+<li id="fn:garg_2016">
+<p>Akash Garg, Alec Jacobson, Eitan Grinspun. <a href="https://www.google.com/search?q=Computational+Design+of+Reconfigurables">Computational Design of Reconfigurables</a>, 2016&#160;<a class="footnote-backref" href="#fnref:garg_2016" rev="footnote" title="Jump back to footnote 3 in the text">&#8617;</a></p>
+</li>
+<li id="fn:hoppe_1996">
+<p>Hugues Hoppe. <a href="https://www.google.com/search?q=Progressive+meshes">Progressive Meshes</a>, 1996&#160;<a class="footnote-backref" href="#fnref:hoppe_1996" rev="footnote" title="Jump back to footnote 4 in the text">&#8617;</a></p>
+</li>
+<li id="fn:jacobson_2013">
+<p>Alec Jacobson, Ladislav Kavan, and Olga Sorkine. <a href="https://www.google.com/search?q=Robust+Inside-Outside+Segmentation+using+Generalized+Winding+Numbers">Robust Inside-Outside Segmentation using Generalized Winding Numbers</a>, 2013.&#160;<a class="footnote-backref" href="#fnref:jacobson_2013" rev="footnote" title="Jump back to footnote 5 in the text">&#8617;</a><a class="footnote-backref" href="#fnref2:jacobson_2013" rev="footnote" title="Jump back to footnote 5 in the text">&#8617;</a></p>
+</li>
+<li id="fn:loop_1987">
+<p>Charles Loop. <a href="https://www.google.com/search?q=smooth+subdivision+surfaces+based+on+triangles">Smooth Subdivision Surfaces Based on Triangles</a>, 1987.&#160;<a class="footnote-backref" href="#fnref:loop_1987" rev="footnote" title="Jump back to footnote 6 in the text">&#8617;</a></p>
+</li>
+<li id="fn:lorensen_1987">
+<p>W.E. Lorensen and Harvey E. Cline. <a href="https://www.google.com/search?q=Marching+cubes:+A+high+resolution+3d+surface+construction+algorithm">Marching cubes: A high resolution 3d surface construction algorithm</a>, 1987.&#160;<a class="footnote-backref" href="#fnref:lorensen_1987" rev="footnote" title="Jump back to footnote 7 in the text">&#8617;</a><a class="footnote-backref" href="#fnref2:lorensen_1987" rev="footnote" title="Jump back to footnote 7 in the text">&#8617;</a></p>
+</li>
+<li id="fn:rabinovich_2016">
+<p>Michael Rabinovich, Roi Poranne, Daniele Panozzo, Olga Sorkine-Hornung. <a href="http://cs.nyu.edu/~panozzo/papers/SLIM-2016.pdf">Scalable Locally Injective Mappings</a>, 2016.&#160;<a class="footnote-backref" href="#fnref:rabinovich_2016" rev="footnote" title="Jump back to footnote 8 in the text">&#8617;</a></p>
+</li>
+<li id="fn:schroeder_1994">
+<p>William J. Schroeder, William E. Lorensen, and Steve Linthicum. <a href="https://www.google.com/search?q=implicit+modeling+of+swept+surfaces+and+volumes">Implicit Modeling of Swept Surfaces and Volumes</a>, 1994.&#160;<a class="footnote-backref" href="#fnref:schroeder_1994" rev="footnote" title="Jump back to footnote 9 in the text">&#8617;</a></p>
+</li>
+<li id="fn:takayama14">
+<p>Kenshi Takayama, Alec Jacobson, Ladislav Kavan, Olga Sorkine-Hornung. <a href="https://www.google.com/search?q=A+Simple+Method+for+Correcting+Facet+Orientations+in+Polygon+Meshes+Based+on+Ray+Casting">A Simple Method for Correcting Facet Orientations in Polygon Meshes Based on Ray Casting</a>, 2014.&#160;<a class="footnote-backref" href="#fnref:takayama14" rev="footnote" title="Jump back to footnote 10 in the text">&#8617;</a></p>
+</li>
+</ol>
+</div>
                 
                   
                 

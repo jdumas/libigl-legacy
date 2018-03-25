@@ -324,6 +324,13 @@
   
 </li>
       
+        <li class="md-nav__item">
+  <a href="#references" title="References" class="md-nav__link">
+    References
+  </a>
+  
+</li>
+      
       
       
       
@@ -824,6 +831,13 @@
   
 </li>
       
+        <li class="md-nav__item">
+  <a href="#references" title="References" class="md-nav__link">
+    References
+  </a>
+  
+</li>
+      
       
       
       
@@ -1107,7 +1121,9 @@ vertices. Their values are known so we may move their corresponding terms to
 the right-hand side.</p>
 <p>Conceptually, this is very easy if we have sorted <span><span class="MathJax_Preview">\mathbf{z}</span><script type="math/tex">\mathbf{z}</script></span> so that interior
 vertices come first and then boundary vertices:</p>
-<p><span><span class="MathJax_Preview"><span><span class="MathJax_Preview">\left(\begin{array}{cc}
+<div>
+<div class="MathJax_Preview">
+ \left(\begin{array}{cc}
  \mathbf{L}_{in,in} &amp; \mathbf{L}_{in,b}\\
  \mathbf{L}_{b,in} &amp; \mathbf{L}_{b,b}\end{array}\right)
  \left(\begin{array}{c}
@@ -1115,7 +1131,10 @@ vertices come first and then boundary vertices:</p>
  \mathbf{z}_{b}\end{array}\right) =
  \left(\begin{array}{c}
  \mathbf{0}_{in}\\
- \mathbf{z}_{bc}\end{array}\right)</span><script type="math/tex">\left(\begin{array}{cc}
+ \mathbf{z}_{bc}\end{array}\right)
+</div>
+<script type="math/tex; mode=display">
+ \left(\begin{array}{cc}
  \mathbf{L}_{in,in} & \mathbf{L}_{in,b}\\
  \mathbf{L}_{b,in} & \mathbf{L}_{b,b}\end{array}\right)
  \left(\begin{array}{c}
@@ -1123,60 +1142,44 @@ vertices come first and then boundary vertices:</p>
  \mathbf{z}_{b}\end{array}\right) =
  \left(\begin{array}{c}
  \mathbf{0}_{in}\\
- \mathbf{z}_{bc}\end{array}\right)</script></span></span><script type="math/tex"><span><span class="MathJax_Preview">\left(\begin{array}{cc}
- \mathbf{L}_{in,in} &amp; \mathbf{L}_{in,b}\\
- \mathbf{L}_{b,in} &amp; \mathbf{L}_{b,b}\end{array}\right)
- \left(\begin{array}{c}
- \mathbf{z}_{in}\\
- \mathbf{z}_{b}\end{array}\right) =
- \left(\begin{array}{c}
- \mathbf{0}_{in}\\
- \mathbf{z}_{bc}\end{array}\right)</span><script type="math/tex">\left(\begin{array}{cc}
- \mathbf{L}_{in,in} & \mathbf{L}_{in,b}\\
- \mathbf{L}_{b,in} & \mathbf{L}_{b,b}\end{array}\right)
- \left(\begin{array}{c}
- \mathbf{z}_{in}\\
- \mathbf{z}_{b}\end{array}\right) =
- \left(\begin{array}{c}
- \mathbf{0}_{in}\\
- \mathbf{z}_{bc}\end{array}\right)</script></span></script></span></p>
+ \mathbf{z}_{bc}\end{array}\right)
+</script>
+</div>
 <p>The bottom block of equations is no longer meaningful so we&rsquo;ll only consider
 the top block:</p>
-<p><span><span class="MathJax_Preview"><span><span class="MathJax_Preview">\left(\begin{array}{cc}
+<div>
+<div class="MathJax_Preview">
+ \left(\begin{array}{cc}
  \mathbf{L}_{in,in} &amp; \mathbf{L}_{in,b}\end{array}\right)
  \left(\begin{array}{c}
  \mathbf{z}_{in}\\
  \mathbf{z}_{b}\end{array}\right) =
- \mathbf{0}_{in}</span><script type="math/tex">\left(\begin{array}{cc}
+ \mathbf{0}_{in}
+</div>
+<script type="math/tex; mode=display">
+ \left(\begin{array}{cc}
  \mathbf{L}_{in,in} & \mathbf{L}_{in,b}\end{array}\right)
  \left(\begin{array}{c}
  \mathbf{z}_{in}\\
  \mathbf{z}_{b}\end{array}\right) =
- \mathbf{0}_{in}</script></span></span><script type="math/tex"><span><span class="MathJax_Preview">\left(\begin{array}{cc}
- \mathbf{L}_{in,in} &amp; \mathbf{L}_{in,b}\end{array}\right)
- \left(\begin{array}{c}
- \mathbf{z}_{in}\\
- \mathbf{z}_{b}\end{array}\right) =
- \mathbf{0}_{in}</span><script type="math/tex">\left(\begin{array}{cc}
- \mathbf{L}_{in,in} & \mathbf{L}_{in,b}\end{array}\right)
- \left(\begin{array}{c}
- \mathbf{z}_{in}\\
- \mathbf{z}_{b}\end{array}\right) =
- \mathbf{0}_{in}</script></span></script></span></p>
+ \mathbf{0}_{in}
+</script>
+</div>
 <p>We can move the known values to the right-hand side:</p>
-<p><span><span class="MathJax_Preview"><span><span class="MathJax_Preview">\mathbf{L}_{in,in}
+<div>
+<div class="MathJax_Preview">
+ \mathbf{L}_{in,in}
  \mathbf{z}_{in} = -
  \mathbf{L}_{in,b}
- \mathbf{z}_{b}</span><script type="math/tex">\mathbf{L}_{in,in}
+ \mathbf{z}_{b}
+</div>
+<script type="math/tex; mode=display">
+ \mathbf{L}_{in,in}
  \mathbf{z}_{in} = -
  \mathbf{L}_{in,b}
- \mathbf{z}_{b}</script></span></span><script type="math/tex"><span><span class="MathJax_Preview">\mathbf{L}_{in,in}
- \mathbf{z}_{in} = -
- \mathbf{L}_{in,b}
- \mathbf{z}_{b}</span><script type="math/tex">\mathbf{L}_{in,in}
- \mathbf{z}_{in} = -
- \mathbf{L}_{in,b}
- \mathbf{z}_{b}</script></span></script></span></p>
+ \mathbf{z}_{b}
+</script>
+</div>
 <p>Finally we can solve this equation for the unknown values at interior vertices
 <span><span class="MathJax_Preview">\mathbf{z}_{in}</span><script type="math/tex">\mathbf{z}_{in}</script></span>.</p>
 <p>However, our vertices will often not be sorted in this way. One option would be to sort <code class="codehilite">V</code>,
@@ -1201,17 +1204,27 @@ value boundary conditions is so wide spread that libigl has a dedicated api for
 solving such systems.</p>
 <p>Let us consider a general quadratic minimization problem subject to different
 common constraints:</p>
-<p><span><span class="MathJax_Preview"><span><span class="MathJax_Preview">\mathop{\text{minimize }}_\mathbf{z}  \frac{1}{2}\mathbf{z}^T \mathbf{Q} \mathbf{z} +
- \mathbf{z}^T \mathbf{B} + \text{constant},</span><script type="math/tex">\mathop{\text{minimize }}_\mathbf{z}  \frac{1}{2}\mathbf{z}^T \mathbf{Q} \mathbf{z} +
- \mathbf{z}^T \mathbf{B} + \text{constant},</script></span></span><script type="math/tex"><span><span class="MathJax_Preview">\mathop{\text{minimize }}_\mathbf{z}  \frac{1}{2}\mathbf{z}^T \mathbf{Q} \mathbf{z} +
- \mathbf{z}^T \mathbf{B} + \text{constant},</span><script type="math/tex">\mathop{\text{minimize }}_\mathbf{z}  \frac{1}{2}\mathbf{z}^T \mathbf{Q} \mathbf{z} +
- \mathbf{z}^T \mathbf{B} + \text{constant},</script></span></script></span></p>
+<div>
+<div class="MathJax_Preview">
+ \mathop{\text{minimize }}_\mathbf{z}  \frac{1}{2}\mathbf{z}^T \mathbf{Q} \mathbf{z} +
+ \mathbf{z}^T \mathbf{B} + \text{constant},
+</div>
+<script type="math/tex; mode=display">
+ \mathop{\text{minimize }}_\mathbf{z}  \frac{1}{2}\mathbf{z}^T \mathbf{Q} \mathbf{z} +
+ \mathbf{z}^T \mathbf{B} + \text{constant},
+</script>
+</div>
 <p>subject to</p>
-<p><span><span class="MathJax_Preview"><span><span class="MathJax_Preview">\mathbf{z}_b = \mathbf{z}_{bc} \text{ and } \mathbf{A}_{eq} \mathbf{z} =
- \mathbf{B}_{eq},</span><script type="math/tex">\mathbf{z}_b = \mathbf{z}_{bc} \text{ and } \mathbf{A}_{eq} \mathbf{z} =
- \mathbf{B}_{eq},</script></span></span><script type="math/tex"><span><span class="MathJax_Preview">\mathbf{z}_b = \mathbf{z}_{bc} \text{ and } \mathbf{A}_{eq} \mathbf{z} =
- \mathbf{B}_{eq},</span><script type="math/tex">\mathbf{z}_b = \mathbf{z}_{bc} \text{ and } \mathbf{A}_{eq} \mathbf{z} =
- \mathbf{B}_{eq},</script></span></script></span></p>
+<div>
+<div class="MathJax_Preview">
+ \mathbf{z}_b = \mathbf{z}_{bc} \text{ and } \mathbf{A}_{eq} \mathbf{z} =
+ \mathbf{B}_{eq},
+</div>
+<script type="math/tex; mode=display">
+ \mathbf{z}_b = \mathbf{z}_{bc} \text{ and } \mathbf{A}_{eq} \mathbf{z} =
+ \mathbf{B}_{eq},
+</script>
+</div>
 <p>where</p>
 <ul>
 <li><span><span class="MathJax_Preview">\mathbf{Q}</span><script type="math/tex">\mathbf{Q}</script></span> is a (usually sparse) <span><span class="MathJax_Preview">n \times n</span><script type="math/tex">n \times n</script></span> positive semi-definite
@@ -1252,11 +1265,16 @@ correctly placed to match the mesh vertices <code class="codehilite">V</code>.</
 solve general quadratic programs. Let&rsquo;s consider another example, this time
 with active linear equality constraints. Specifically let&rsquo;s solve the
 <code class="codehilite">bi-Laplace equation</code> or equivalently minimize the Laplace energy:</p>
-<p><span><span class="MathJax_Preview"><span><span class="MathJax_Preview">\Delta^2 z = 0 \leftrightarrow \mathop{\text{minimize }}\limits_z \frac{1}{2}
- \int\limits_S (\Delta z)^2 dA</span><script type="math/tex">\Delta^2 z = 0 \leftrightarrow \mathop{\text{minimize }}\limits_z \frac{1}{2}
- \int\limits_S (\Delta z)^2 dA</script></span></span><script type="math/tex"><span><span class="MathJax_Preview">\Delta^2 z = 0 \leftrightarrow \mathop{\text{minimize }}\limits_z \frac{1}{2}
- \int\limits_S (\Delta z)^2 dA</span><script type="math/tex">\Delta^2 z = 0 \leftrightarrow \mathop{\text{minimize }}\limits_z \frac{1}{2}
- \int\limits_S (\Delta z)^2 dA</script></span></script></span></p>
+<div>
+<div class="MathJax_Preview">
+ \Delta^2 z = 0 \leftrightarrow \mathop{\text{minimize }}\limits_z \frac{1}{2}
+ \int\limits_S (\Delta z)^2 dA
+</div>
+<script type="math/tex; mode=display">
+ \Delta^2 z = 0 \leftrightarrow \mathop{\text{minimize }}\limits_z \frac{1}{2}
+ \int\limits_S (\Delta z)^2 dA
+</script>
+</div>
 <p>subject to fixed value constraints and a linear equality constraint:</p>
 <p><span><span class="MathJax_Preview">z_{a} = 1, z_{b} = -1</span><script type="math/tex">z_{a} = 1, z_{b} = -1</script></span> and <span><span class="MathJax_Preview">z_{c} = z_{d}</span><script type="math/tex">z_{c} = z_{d}</script></span>.</p>
 <p>Notice that we can rewrite the last constraint in the familiar form from above:</p>
@@ -1268,15 +1286,18 @@ side <code class="codehilite">Beq</code> is simply zero.</p>
 method. This method adds additional variables for each linear constraint (in
 general a <span><span class="MathJax_Preview">m \times 1</span><script type="math/tex">m \times 1</script></span> vector of variables <span><span class="MathJax_Preview">\lambda</span><script type="math/tex">\lambda</script></span>) and then solves the
 saddle problem:</p>
-<p><span><span class="MathJax_Preview"><span><span class="MathJax_Preview">\mathop{\text{find saddle }}_{\mathbf{z},\lambda}\, \frac{1}{2}\mathbf{z}^T \mathbf{Q} \mathbf{z} +
+<div>
+<div class="MathJax_Preview">
+  \mathop{\text{find saddle }}_{\mathbf{z},\lambda}\, \frac{1}{2}\mathbf{z}^T \mathbf{Q} \mathbf{z} +
   \mathbf{z}^T \mathbf{B} + \text{constant} + \lambda^T\left(\mathbf{A}_{eq}
- \mathbf{z} - \mathbf{B}_{eq}\right)</span><script type="math/tex">\mathop{\text{find saddle }}_{\mathbf{z},\lambda}\, \frac{1}{2}\mathbf{z}^T \mathbf{Q} \mathbf{z} +
+ \mathbf{z} - \mathbf{B}_{eq}\right)
+</div>
+<script type="math/tex; mode=display">
+  \mathop{\text{find saddle }}_{\mathbf{z},\lambda}\, \frac{1}{2}\mathbf{z}^T \mathbf{Q} \mathbf{z} +
   \mathbf{z}^T \mathbf{B} + \text{constant} + \lambda^T\left(\mathbf{A}_{eq}
- \mathbf{z} - \mathbf{B}_{eq}\right)</script></span></span><script type="math/tex"><span><span class="MathJax_Preview">\mathop{\text{find saddle }}_{\mathbf{z},\lambda}\, \frac{1}{2}\mathbf{z}^T \mathbf{Q} \mathbf{z} +
-  \mathbf{z}^T \mathbf{B} + \text{constant} + \lambda^T\left(\mathbf{A}_{eq}
- \mathbf{z} - \mathbf{B}_{eq}\right)</span><script type="math/tex">\mathop{\text{find saddle }}_{\mathbf{z},\lambda}\, \frac{1}{2}\mathbf{z}^T \mathbf{Q} \mathbf{z} +
-  \mathbf{z}^T \mathbf{B} + \text{constant} + \lambda^T\left(\mathbf{A}_{eq}
- \mathbf{z} - \mathbf{B}_{eq}\right)</script></span></script></span></p>
+ \mathbf{z} - \mathbf{B}_{eq}\right)
+</script>
+</div>
 <p>This can be rewritten in a more familiar form by stacking <span><span class="MathJax_Preview">\mathbf{z}</span><script type="math/tex">\mathbf{z}</script></span> and
 <span><span class="MathJax_Preview">\lambda</span><script type="math/tex">\lambda</script></span> into one <span><span class="MathJax_Preview">(m+n) \times 1</span><script type="math/tex">(m+n) \times 1</script></span> vector of unknowns:</p>
 <div>
@@ -1382,14 +1403,14 @@ a warm-start (initial guess for the solution vector <span><span class="MathJax_P
 <span class="n">igl</span><span class="o">::</span><span class="n">active_set</span><span class="p">(</span><span class="n">Q</span><span class="p">,</span><span class="n">B</span><span class="p">,</span><span class="n">b</span><span class="p">,</span><span class="n">bc</span><span class="p">,</span><span class="n">Aeq</span><span class="p">,</span><span class="n">Beq</span><span class="p">,</span><span class="n">Aieq</span><span class="p">,</span><span class="n">Bieq</span><span class="p">,</span><span class="n">lx</span><span class="p">,</span><span class="n">ux</span><span class="p">,</span><span class="n">as</span><span class="p">,</span><span class="n">Z</span><span class="p">);</span>
 </pre></div>
 
-<p><img alt=" Example 305 uses an active set solver to optimize discrete biharmonic kernels [#rustamov_2011][] at multiple scales ." src="../images/cheburashka-multiscale-biharmonic-kernels.jpg" /></p>
+<p><img alt=" Example 305 uses an active set solver to optimize discrete biharmonic kernels 3 at multiple scales ." src="../images/cheburashka-multiscale-biharmonic-kernels.jpg" /></p>
 <h2 id="eigen-decomposition">Eigen Decomposition<a class="headerlink" href="#eigen-decomposition" title="Permanent link">&para;</a></h2>
 <p>Libigl has rudimentary support for extracting eigen pairs of a generalized
 eigen value problem:</p>
 <p><span><span class="MathJax_Preview">Ax = \lambda B x</span><script type="math/tex">Ax = \lambda B x</script></span></p>
 <p>where <span><span class="MathJax_Preview">A</span><script type="math/tex">A</script></span> is a sparse symmetric matrix and <span><span class="MathJax_Preview">B</span><script type="math/tex">B</script></span> is a sparse positive definite
 matrix. Most commonly in geometry processing, we let <span><span class="MathJax_Preview">A=L</span><script type="math/tex">A=L</script></span> the cotangent
-Laplacian and <span><span class="MathJax_Preview">B=M</span><script type="math/tex">B=M</script></span> the per-vertex mass matrix (e.g. [#vallet_2008][]).
+Laplacian and <span><span class="MathJax_Preview">B=M</span><script type="math/tex">B=M</script></span> the per-vertex mass matrix (e.g. <sup id="fnref:vallet_2008"><a class="footnote-ref" href="#fn:vallet_2008" rel="footnote">4</a></sup>).
 Typically applications will make use of the <em>low frequency</em> eigen modes.
 Analogous to the Fourier decomposition, a function <span><span class="MathJax_Preview">f</span><script type="math/tex">f</script></span> on a surface can be
 represented via its spectral decomposition of the eigen modes of the
@@ -1404,7 +1425,7 @@ completely analogous decomposition exists, albeit with finite sum:</p>
 specifies a piecewise linear function and <span><span class="MathJax_Preview">\phi_i \in \mathcal{R}^n</span><script type="math/tex">\phi_i \in \mathcal{R}^n</script></span> is an
 eigen vector satisfying:</p>
 <p><span><span class="MathJax_Preview">\mathbf{L} \phi_i = \lambda_i \mathbf{M} \phi_i</span><script type="math/tex">\mathbf{L} \phi_i = \lambda_i \mathbf{M} \phi_i</script></span>.</p>
-<p>Note that Vallet &amp; Levy [#vallet_2008][] propose solving a symmetrized
+<p>Note that Vallet &amp; Levy <sup id="fnref2:vallet_2008"><a class="footnote-ref" href="#fn:vallet_2008" rel="footnote">4</a></sup> propose solving a symmetrized
 <em>standard</em> eigen problem <span><span class="MathJax_Preview">\mathbf{M}^{-1/2}\mathbf{L}\mathbf{M}^{-1/2} \phi_i
 = \lambda_i \phi_i</span><script type="math/tex">\mathbf{M}^{-1/2}\mathbf{L}\mathbf{M}^{-1/2} \phi_i
 = \lambda_i \phi_i</script></span>. Libigl implements a generalized eigen problem solver so
@@ -1412,9 +1433,9 @@ this unnecessary symmetrization can be avoided.</p>
 <p>Often the sum above is <em>truncated</em> to the first <span><span class="MathJax_Preview">k</span><script type="math/tex">k</script></span> eigen vectors. If the low
 frequency modes are chosen, i.e. those corresponding to small <span><span class="MathJax_Preview">\lambda_i</span><script type="math/tex">\lambda_i</script></span>
 values, then this truncation effectively <em>regularizes</em> <span><span class="MathJax_Preview">\mathbf{f}</span><script type="math/tex">\mathbf{f}</script></span> to smooth,
-slowly changing functions over the mesh (e.g. [#hildebrandt_2011][]). Modal
+slowly changing functions over the mesh (e.g. <sup id="fnref:hildebrandt_2011"><a class="footnote-ref" href="#fn:hildebrandt_2011" rel="footnote">2</a></sup>). Modal
 analysis and model subspaces have been used frequently in real-time deformation
-(e.g. [#barbic_2005][]).</p>
+(e.g. <sup id="fnref:barbic_2005"><a class="footnote-ref" href="#fn:barbic_2005" rel="footnote">1</a></sup>).</p>
 <p>In <a href="../306_EigenDecomposition/main.cpp">Example 306</a>), the first 5 eigen vectors
 of the discrete Laplace-Beltrami operator are computed and displayed in
 pseudo-color atop the beetle. Eigen vectors are computed using <code class="codehilite">igl::eigs</code>
@@ -1430,6 +1451,24 @@ of <code class="codehilite">U</code> and the eigen values are placed into the en
 
 <figure><img alt="(Example 306) Low frequency eigen vectors of the discrete Laplace-Beltrami operator vary smoothly and slowly over the _Beetle_." src="../images/beetle-eigen-decomposition.gif" /><figcaption>(<a href="../306_EigenDecomposition/main.cpp">Example 306</a>) Low frequency eigen vectors of the discrete Laplace-Beltrami operator vary smoothly and slowly over the <em>Beetle</em>.</figcaption>
 </figure>
+<h2 id="references">References<a class="headerlink" href="#references" title="Permanent link">&para;</a></h2>
+<div class="footnote">
+<hr />
+<ol>
+<li id="fn:barbic_2005">
+<p>Jernej Barbic and Doug James. <a href="https://www.google.com/search?q=Real-Time+Subspace+Integration+for+St.Venant-Kirchhoff+Deformable+Models">Real-Time Subspace Integration for St.Venant-Kirchhoff Deformable Models</a>, 2005.&#160;<a class="footnote-backref" href="#fnref:barbic_2005" rev="footnote" title="Jump back to footnote 1 in the text">&#8617;</a></p>
+</li>
+<li id="fn:hildebrandt_2011">
+<p>Klaus Hildebrandt, Christian Schulz, Christoph von Tycowicz, and Konrad Polthier. <a href="https://www.google.com/search?q=Interactive+Surface+Modeling+using+Modal+Analysis">Interactive Surface Modeling using Modal Analysis</a>, 2011.&#160;<a class="footnote-backref" href="#fnref:hildebrandt_2011" rev="footnote" title="Jump back to footnote 2 in the text">&#8617;</a></p>
+</li>
+<li id="fn:rustamov_2011">
+<p>Raid M. Rustamov, <a href="https://www.google.com/search?q=Multiscale+Biharmonic+Kernels">Multiscale Biharmonic Kernels</a>, 2011.&#160;<a class="footnote-backref" href="#fnref:rustamov_2011" rev="footnote" title="Jump back to footnote 3 in the text">&#8617;</a></p>
+</li>
+<li id="fn:vallet_2008">
+<p>Bruno Vallet and Bruno Lévy. <a href="https://www.google.com/search?q=Spectral+Geometry+Processing+with+Manifold+Harmonics">Spectral Geometry Processing with Manifold Harmonics</a>, 2008.&#160;<a class="footnote-backref" href="#fnref:vallet_2008" rev="footnote" title="Jump back to footnote 4 in the text">&#8617;</a><a class="footnote-backref" href="#fnref2:vallet_2008" rev="footnote" title="Jump back to footnote 4 in the text">&#8617;</a></p>
+</li>
+</ol>
+</div>
                 
                   
                 

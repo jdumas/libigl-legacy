@@ -349,6 +349,13 @@
   
 </li>
       
+        <li class="md-nav__item">
+  <a href="#references" title="References" class="md-nav__link">
+    References
+  </a>
+  
+</li>
+      
       
       
       
@@ -826,6 +833,13 @@
   
 </li>
       
+        <li class="md-nav__item">
+  <a href="#references" title="References" class="md-nav__link">
+    References
+  </a>
+  
+</li>
+      
       
       
       
@@ -874,7 +888,7 @@ genus. They initially cut the mesh in multiple patches that can be separately pa
 </li>
 </ol>
 <h2 id="harmonic-parametrization">Harmonic parametrization<a class="headerlink" href="#harmonic-parametrization" title="Permanent link">&para;</a></h2>
-<p>Harmonic parametrization [#eck_2005][] is a single patch, fixed boundary parametrization
+<p>Harmonic parametrization <sup id="fnref:eck_2005"><a class="footnote-ref" href="#fn:eck_2005" rel="footnote">3</a></sup> is a single patch, fixed boundary parametrization
 algorithm that computes the 2D coordinates of the flattened mesh as two
 harmonic functions.</p>
 <p>The algorithm is divided in 3 steps:</p>
@@ -901,15 +915,15 @@ functions is designed to be reusable in other parametrization algorithms.</p>
 
 <p>The UV coordinates are then used to apply a procedural checkerboard texture to the
 mesh (<a href="../501_HarmonicParam/main.cpp">Example 501</a>).</p>
-<figure><img alt="(Example 501) Harmonic parametrization. (left) mesh with texture, (right) UV parametrization with texture" src="../images/501_HarmonicParam.png" /><figcaption>(<a href="../501_HarmonicParam/main.cpp">Example 501</a>) Harmonic parametrization. (left) mesh with texture, (right) UV parametrization with texture</figcaption>
+<figure><img alt="(Example 501) Harmonic parametrization. (left) mesh with texture, (right) UV parametrization with texture" src="../images/501_HarmonicParam.png" /><figcaption>(<a href="../tutorial/501_HarmonicParam/main.cpp">Example 501</a>) Harmonic parametrization. (left) mesh with texture, (right) UV parametrization with texture</figcaption>
 </figure>
 <h2 id="least-squares-conformal-maps">Least squares conformal maps<a class="headerlink" href="#least-squares-conformal-maps" title="Permanent link">&para;</a></h2>
-<p>Least squares conformal maps parametrization [#levy_2002][] minimizes the
+<p>Least squares conformal maps parametrization <sup id="fnref:levy_2002"><a class="footnote-ref" href="#fn:levy_2002" rel="footnote">4</a></sup> minimizes the
 conformal (angular) distortion of the parametrization. Differently from
 harmonic parametrization, it does not need to have a fixed boundary.</p>
 <p>LSCM minimizes the following energy:</p>
 <p>\[ E_{LSCM}(\mathbf{u},\mathbf{v}) = \int_X \frac{1}{2}| \nabla \mathbf{u}^{\perp} - \nabla \mathbf{v} |^2 dA \]</p>
-<p>which can be rewritten in matrix form as [#mullen_2008][]:</p>
+<p>which can be rewritten in matrix form as <sup id="fnref:mullen_2008"><a class="footnote-ref" href="#fn:mullen_2008" rel="footnote">7</a></sup>:</p>
 <p>\[ E_{LSCM}(\mathbf{u},\mathbf{v}) = \frac{1}{2} [\mathbf{u},\mathbf{v}]^t (L_c - 2A) [\mathbf{u},\mathbf{v}] \]</p>
 <p>where <span><span class="MathJax_Preview">L_c</span><script type="math/tex">L_c</script></span> is the cotangent Laplacian matrix and <span><span class="MathJax_Preview">A</span><script type="math/tex">A</script></span> is a matrix such that
 <span><span class="MathJax_Preview">[\mathbf{u},\mathbf{v}]^t A  [\mathbf{u},\mathbf{v}]</span><script type="math/tex">[\mathbf{u},\mathbf{v}]^t A  [\mathbf{u},\mathbf{v}]</script></span> is equal to the <a href="http://en.wikipedia.org/wiki/Vector_area">vector
@@ -938,7 +952,7 @@ vertices to two arbitrary positions. The full source code is provided in <a href
 <figure><img alt="(Example 502) LSCM parametrization. (left) mesh with texture, (right) UV parametrization" src="../images/502_LSCMParam.png" /><figcaption>(<a href="../502_LSCMParam/main.cpp">Example 502</a>) LSCM parametrization. (left) mesh with texture, (right) UV parametrization</figcaption>
 </figure>
 <h2 id="as-rigid-as-possible-parametrization">As-rigid-as-possible parametrization<a class="headerlink" href="#as-rigid-as-possible-parametrization" title="Permanent link">&para;</a></h2>
-<p>As-rigid-as-possible parametrization [#liu_2008][] is a powerful single-patch,
+<p>As-rigid-as-possible parametrization <sup id="fnref:liu_2008"><a class="footnote-ref" href="#fn:liu_2008" rel="footnote">6</a></sup> is a powerful single-patch,
 non-linear algorithm to compute a parametrization that strives to preserve
 distances (and thus angles). The idea is very similar to ARAP surface
 deformation: each triangle is mapped to the plane trying to preserve its
@@ -974,7 +988,7 @@ the triangle mesh (output_field), plus the singularities of the field
 <figure><img alt="Design of a unit-length vector field" src="../images/504_vector_field.png" /><figcaption>Design of a unit-length vector field</figcaption>
 </figure>
 <p>The singularities are vertices where the field vanishes (highlighted in red in
-the figure above). <code class="codehilite">igl::nrosy</code> can also generate N-RoSy fields [#levy_2008][],
+the figure above). <code class="codehilite">igl::nrosy</code> can also generate N-RoSy fields <sup id="fnref:levy_2008"><a class="footnote-ref" href="#fn:levy_2008" rel="footnote">5</a></sup>,
 which are a generalization of vector fields where in every face the vector is
 defined up to a constant rotation of <span><span class="MathJax_Preview">2\pi / N</span><script type="math/tex">2\pi / N</script></span>. As can be observed in
 the following figure, the singularities of the fields generated with different
@@ -984,10 +998,10 @@ N are of different types and they appear in different positions.</p>
 <p>We demonstrate how to call and plot N-RoSy fields in <a href="../504_NRosyDesign/main.cpp">Example
 504</a>, where the degree of the field can be change
 pressing the number keys. <code class="codehilite">igl::nrosy</code> implements the algorithm proposed in
-[#bommes_2009][]. N-RoSy fields can also be interpolated with many other algorithms,
+<sup id="fnref:bommes_2009"><a class="footnote-ref" href="#fn:bommes_2009" rel="footnote">1</a></sup>. N-RoSy fields can also be interpolated with many other algorithms,
 see the library <a href="https://github.com/avaxman/libdirectional">libdirectional</a> for
 a reference implementation of the most popular ones. For a complete categorization
-of fields used in various applications see Vaxman et al. 2016 [#vaxman_2016].</p>
+of fields used in various applications see Vaxman et al. 2016 <sup id="fnref:vaxman_2016"><a class="footnote-ref" href="#fn:vaxman_2016" rel="footnote">9</a></sup>.</p>
 <h3 id="global-seamless-integer-grid-parametrization">Global, seamless integer-grid parametrization<a class="headerlink" href="#global-seamless-integer-grid-parametrization" title="Permanent link">&para;</a></h3>
 <p>The previous parametrization methods were focusing on creating parametrizations
 of surface patches aimed at texture mapping or baking of other surface
@@ -995,7 +1009,7 @@ properties such as normals and high-frequency details. Global, seamless
 parametrization aims at parametrizing complex shapes with a parametrization
 that is aligned with a given set of directions for the purpose of surface
 remeshing. In libigl, we provide a reference  implementation of the pipeline
-proposed in the mixed integer quadrangulation paper [#bommes_2009][].</p>
+proposed in the mixed integer quadrangulation paper <sup id="fnref2:bommes_2009"><a class="footnote-ref" href="#fn:bommes_2009" rel="footnote">1</a></sup>.</p>
 <p>The first step involves the design of a 4-RoSy field (sometimes called <em>cross</em>
 field) that describes the alignment of the edges of the desired quadrilateral
 remeshing. The field constraints are usually manually specified or extracted
@@ -1043,7 +1057,7 @@ input cross field.</p>
 <figure><img alt="Poisson parametrization." src="../images/505_MIQ_8.png" /><figcaption>Poisson parametrization.</figcaption>
 </figure>
 <p>We hide the seams by adding integer constraints to the Poisson problem
-that align the isolines on both sides of each seam [#bommes_2009].</p>
+that align the isolines on both sides of each seam <sup id="fnref3:bommes_2009"><a class="footnote-ref" href="#fn:bommes_2009" rel="footnote">1</a></sup>.</p>
 <figure><img alt="Seamless Poisson parametrization." src="../images/505_MIQ_7.png" /><figcaption>Seamless Poisson parametrization.</figcaption>
 </figure>
 <p>Note that this parametrization can only be used for remeshing purposes, since
@@ -1057,7 +1071,7 @@ The full pipeline is implemented in <a href="../505_MIQ/main.cpp">Example 505</a
 <p>Anisotropic and non-uniform quad remeshing is important to concentrate the
 elements in the regions with more details. It is possible to extend the MIQ
 quad meshing framework to generate anisotropic quad meshes using a mesh
-deformation approach [#panozzo_2014][].</p>
+deformation approach <sup id="fnref:panozzo_2014"><a class="footnote-ref" href="#fn:panozzo_2014" rel="footnote">8</a></sup>.</p>
 <p>The input of the anisotropic remeshing algorithm is a sparse set of constraints
 that define the shape and scale of the desired quads. This can be encoded as a
 frame field, which is a pair of non-orthogonal and non-unit length vectors. The
@@ -1089,12 +1103,45 @@ only desiderata is that the generated quad mesh should be as isotropic as
 possible.</p>
 <h2 id="planarization">Planarization<a class="headerlink" href="#planarization" title="Permanent link">&para;</a></h2>
 <p>A quad mesh can be transformed in a planar quad mesh with Shape-Up
-[#bouaziz_2012], a local/global approach that uses the global step to enforce
+<sup id="fnref:bouaziz_2012"><a class="footnote-ref" href="#fn:bouaziz_2012" rel="footnote">2</a></sup>, a local/global approach that uses the global step to enforce
 surface continuity and the local step to enforce planarity.</p>
 <p><a href="../507_Planarization/main.cpp">Example 507</a> planarizes a quad mesh until it
 satisfies a user-given planarity threshold.</p>
+<h2 id="references">References<a class="headerlink" href="#references" title="Permanent link">&para;</a></h2>
 <figure><img alt="A non-planar quad mesh (left) is planarized using the libigl function igl::planarize (right). The colors represent the planarity of the quads." src="../images/509_Planarization.png" /><figcaption>A non-planar quad mesh (left) is planarized using the libigl function igl::planarize (right). The colors represent the planarity of the quads.</figcaption>
 </figure>
+<div class="footnote">
+<hr />
+<ol>
+<li id="fn:bommes_2009">
+<p>David Bommes, Henrik Zimmer, Leif Kobbelt. <a href="http://www-sop.inria.fr/members/David.Bommes/publications/miq.pdf">Mixed-integer quadrangulation</a>, 2009.&#160;<a class="footnote-backref" href="#fnref:bommes_2009" rev="footnote" title="Jump back to footnote 1 in the text">&#8617;</a><a class="footnote-backref" href="#fnref2:bommes_2009" rev="footnote" title="Jump back to footnote 1 in the text">&#8617;</a><a class="footnote-backref" href="#fnref3:bommes_2009" rev="footnote" title="Jump back to footnote 1 in the text">&#8617;</a></p>
+</li>
+<li id="fn:bouaziz_2012">
+<p>Sofien Bouaziz, Mario Deuss, Yuliy Schwartzburg, Thibaut Weise, Mark Pauly <a href="http://lgg.epfl.ch/publications/2012/shapeup.pdf">Shape-Up: Shaping Discrete Geometry with Projections</a>, 2012&#160;<a class="footnote-backref" href="#fnref:bouaziz_2012" rev="footnote" title="Jump back to footnote 2 in the text">&#8617;</a></p>
+</li>
+<li id="fn:eck_2005">
+<p>Matthias Eck, Tony DeRose, Tom Duchamp, Hugues Hoppe, Michael Lounsbery, Werner Stuetzle.  <a href="http://research.microsoft.com/en-us/um/people/hoppe/mra.pdf">Multiresolution Analysis of Arbitrary Meshes</a>, 2005.&#160;<a class="footnote-backref" href="#fnref:eck_2005" rev="footnote" title="Jump back to footnote 3 in the text">&#8617;</a></p>
+</li>
+<li id="fn:levy_2002">
+<p>Bruno Lévy, Sylvain Petitjean, Nicolas Ray, Jérome Maillot. <a href="http://www.cs.jhu.edu/~misha/Fall09/Levy02.pdf">Least Squares Conformal Maps, for Automatic Texture Atlas Generation</a>, 2002.&#160;<a class="footnote-backref" href="#fnref:levy_2002" rev="footnote" title="Jump back to footnote 4 in the text">&#8617;</a></p>
+</li>
+<li id="fn:levy_2008">
+<p>Nicolas Ray, Bruno Vallet, Wan Chiu Li, Bruno Lévy. <a href="http://alice.loria.fr/publications/papers/2008/DGF/NSDFD-TOG.pdf">N-Symmetry Direction Field Design</a>, 2008.&#160;<a class="footnote-backref" href="#fnref:levy_2008" rev="footnote" title="Jump back to footnote 5 in the text">&#8617;</a></p>
+</li>
+<li id="fn:liu_2008">
+<p>Ligang Liu, Lei Zhang, Yin Xu, Craig Gotsman, Steven J. Gortler. <a href="http://cs.harvard.edu/~sjg/papers/arap.pdf">A Local/Global Approach to Mesh Parameterization</a>, 2008.&#160;<a class="footnote-backref" href="#fnref:liu_2008" rev="footnote" title="Jump back to footnote 6 in the text">&#8617;</a></p>
+</li>
+<li id="fn:mullen_2008">
+<p>Patrick Mullen, Yiying Tong, Pierre Alliez, Mathieu Desbrun. <a href="http://www.geometry.caltech.edu/pubs/MTAD08.pdf">Spectral Conformal Parameterization</a>, 2008.&#160;<a class="footnote-backref" href="#fnref:mullen_2008" rev="footnote" title="Jump back to footnote 7 in the text">&#8617;</a></p>
+</li>
+<li id="fn:panozzo_2014">
+<p>Daniele Panozzo, Enrico Puppo, Marco Tarini, Olga Sorkine-Hornung.  <a href="http://cs.nyu.edu/~panozzo/papers/frame-fields-2014.pdf">Frame Fields: Anisotropic and Non-Orthogonal Cross Fields</a>, 2014.&#160;<a class="footnote-backref" href="#fnref:panozzo_2014" rev="footnote" title="Jump back to footnote 8 in the text">&#8617;</a></p>
+</li>
+<li id="fn:vaxman_2016">
+<p>Amir Vaxman, Marcel Campen, Olga Diamanti, Daniele Panozzo, David Bommes, Klaus Hildebrandt, Mirela Ben-Chen. <a href="https://www.google.com/search?q=Directional+Field+Synthesis+Design+and+Processing">Directional Field Synthesis, Design, and Processing</a>, 2016&#160;<a class="footnote-backref" href="#fnref:vaxman_2016" rev="footnote" title="Jump back to footnote 9 in the text">&#8617;</a></p>
+</li>
+</ol>
+</div>
                 
                   
                 

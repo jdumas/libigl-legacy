@@ -363,6 +363,13 @@
   
 </li>
       
+        <li class="md-nav__item">
+  <a href="#references" title="References" class="md-nav__link">
+    References
+  </a>
+  
+</li>
+      
       
       
       
@@ -878,6 +885,13 @@
   
 </li>
       
+        <li class="md-nav__item">
+  <a href="#references" title="References" class="md-nav__link">
+    References
+  </a>
+  
+</li>
+      
       
       
       
@@ -914,9 +928,9 @@ quadratic energy minimization problem or equivalently the solution to a linear
 partial differential equation.</p>
 <p>There are many flavors of these techniques, but a prototypical subset are those
 that consider solutions to the bi-Laplace equation, that is a biharmonic
-function [#botsch_2004][]. This fourth-order PDE provides sufficient
+function <sup id="fnref:botsch_2004"><a class="footnote-ref" href="#fn:botsch_2004" rel="footnote">1</a></sup>. This fourth-order PDE provides sufficient
 flexibility in boundary conditions to ensure <span><span class="MathJax_Preview">C^1</span><script type="math/tex">C^1</script></span> continuity at handle
-constraints (in the limit under refinement) [#jacobson_mixed_2010][].</p>
+constraints (in the limit under refinement) <sup id="fnref:jacobson_mixed_2010"><a class="footnote-ref" href="#fn:jacobson_mixed_2010" rel="footnote">5</a></sup>.</p>
 <h3 id="biharmonic-surfaces">Biharmonic surfaces<a class="headerlink" href="#biharmonic-surfaces" title="Permanent link">&para;</a></h3>
 <p>Let us first begin our discussion of biharmonic <em>deformation</em>, by considering
 biharmonic <em>surfaces</em>. We will casually define biharmonic surfaces as surface
@@ -984,7 +998,7 @@ terms of the original positions <span><span class="MathJax_Preview">\mathbf{x}</
  \|\Delta \mathbf{x}' - \Delta \mathbf{x})\|^2 dA.</span><script type="math/tex">\int\limits_S \|\Delta (\mathbf{x}' - \mathbf{x})\|^2 dA = \int\limits_S
  \|\Delta \mathbf{x}' - \Delta \mathbf{x})\|^2 dA.</script></span></p>
 <p>In the early work of Sorkine et al., the quantities <span><span class="MathJax_Preview">\Delta \mathbf{x}'</span><script type="math/tex">\Delta \mathbf{x}'</script></span> and
-<span><span class="MathJax_Preview">\Delta \mathbf{x}</span><script type="math/tex">\Delta \mathbf{x}</script></span> were dubbed &ldquo;differential coordinates&rdquo; [#sorkine_2004][].
+<span><span class="MathJax_Preview">\Delta \mathbf{x}</span><script type="math/tex">\Delta \mathbf{x}</script></span> were dubbed &ldquo;differential coordinates&rdquo; <sup id="fnref:sorkine_2004"><a class="footnote-ref" href="#fn:sorkine_2004" rel="footnote">9</a></sup>.
 Their deformations (without linearized rotations) is thus equivalent to
 biharmonic deformation fields.</p>
 <h2 id="polyharmonic-deformation">Polyharmonic deformation<a class="headerlink" href="#polyharmonic-deformation" title="Permanent link">&para;</a></h2>
@@ -1033,7 +1047,7 @@ automatically given the shape and a description of the skeleton (or in general
 any handle structure such as a cage, collection of points, selected regions,
 etc.).</p>
 <p>Bounded biharmonic weights are one such technique that casts weight computation
-as a constrained optimization problem [#jacobson_2011][]. The weights enforce
+as a constrained optimization problem <sup id="fnref:jacobson_2011"><a class="footnote-ref" href="#fn:jacobson_2011" rel="footnote">3</a></sup>. The weights enforce
 smoothness by minimizing the familiar Laplacian energy:</p>
 <p><span><span class="MathJax_Preview">\sum\limits_{i = 1}^m \int_S (\Delta w_i)^2 dA</span><script type="math/tex">\sum\limits_{i = 1}^m \int_S (\Delta w_i)^2 dA</script></span></p>
 <p>subject to constraints which enforce interpolation of handle constraints:</p>
@@ -1062,7 +1076,7 @@ coordinates by zero:</p>
  \left(\begin{array}{ccc}0&0&0\\0&0&0\\0&0&1\end{array}\right)</script></span></p>
 <p>In practice, this means the shape shrinks and collapses in regions where bone
 weights overlap: near joints.</p>
-<p>Dual quaternion skinning presents a solution [#kavan_2008]. This method
+<p>Dual quaternion skinning presents a solution <sup id="fnref:kavan_2008"><a class="footnote-ref" href="#fn:kavan_2008" rel="footnote">7</a></sup>. This method
 represents rigid transformations as a pair of unit quaternions,
 <span><span class="MathJax_Preview">\hat{\mathbf{q}}</span><script type="math/tex">\hat{\mathbf{q}}</script></span>. The linear blend skinning formula is replaced with a
 linear blend of dual quaternions:</p>
@@ -1151,11 +1165,11 @@ polar decompostion). These two steps&mdash;local and global&mdash;each weakly de
 the energy, thus we may safely iterate them until convergence.</p>
 <p>The different flavors of &ldquo;as-rigid-as-possible&rdquo; depend on the dimension and
 codimension of the domain and the edge-sets <span><span class="MathJax_Preview">T</span><script type="math/tex">T</script></span>. The proposed surface
-manipulation technique by Sorkine and Alexa [#sorkine_2007][], considers <span><span class="MathJax_Preview">T</span><script type="math/tex">T</script></span> to
+manipulation technique by Sorkine and Alexa <sup id="fnref:sorkine_2007"><a class="footnote-ref" href="#fn:sorkine_2007" rel="footnote">10</a></sup>, considers <span><span class="MathJax_Preview">T</span><script type="math/tex">T</script></span> to
 be the set of sets of edges emanating from each vertex (spokes). Later, Chao et
 al.  derived the relationship between &ldquo;as-rigid-as-possible&rdquo; mesh energies and
 co-rotational elasticity considering 0-codimension elements as edge-sets:
-triangles in 2D and tetrahedra in 3D [#chao_2010][]. They also showed how
+triangles in 2D and tetrahedra in 3D <sup id="fnref:chao_2010"><a class="footnote-ref" href="#fn:chao_2010" rel="footnote">2</a></sup>. They also showed how
 Sorkine and Alexa&rsquo;s edge-sets are not a discretization of a continuous energy,
 proposing instead edge-sets for surfaces containing all edges of elements
 incident on a vertex (spokes and rims). They show that this amounts to
@@ -1178,7 +1192,7 @@ certain constraints on the positions of vertices in <code class="codehilite">b</
 <p>which uses <code class="codehilite">U</code> as an initial guess and then computes the solution into it.</p>
 <p>Libigl&rsquo;s implementation of as-rigid-as-possible deformation takes advantage of
 the highly optimized singular value decomposition code from McAdams et al.
-[#mcadams_2011][] which leverages SSE intrinsics.</p>
+<sup id="fnref:mcadams_2011"><a class="footnote-ref" href="#fn:mcadams_2011" rel="footnote">8</a></sup> which leverages SSE intrinsics.</p>
 <figure><img alt="The example AsRigidAsPossible deforms a surface as if it were made of an elastic material" src="../images/decimated-knight-arap.jpg" /><figcaption>The example <a href="../405_AsRigidAsPossible/main.cpp">AsRigidAsPossible</a> deforms a surface as if it were made of an elastic material</figcaption>
 </figure>
 <p>The concept of local rigidity will be revisited shortly in the context of
@@ -1216,7 +1230,7 @@ Therefore, we cluster edge-sets according to their representation in
 clustered edge-sets show diminishing returns on the deformation quality so we
 may choose a small number of clusters, proportional to the number of skinning
 weight functions (rather than the number of discrete mesh vertices).</p>
-<p>This proposed deformation model [#jacobson_2012][], can simultaneously be seen as a
+<p>This proposed deformation model <sup id="fnref:jacobson_2012"><a class="footnote-ref" href="#fn:jacobson_2012" rel="footnote">4</a></sup>, can simultaneously be seen as a
 fast, subspace optimization for ARAP and as an automatic method for finding
 <em>the best</em> skinning transformation degrees of freedom.</p>
 <p>A variety of user interfaces are supported via linear equality constraints on
@@ -1280,7 +1294,7 @@ redundant) clustering of the per-triangle edge-sets.</p>
 propagating <em>full affine transformations</em> at handles (bones, points, regions,
 etc.) to the rest of the shape via weights. Another deformation framework,
 called &ldquo;generalized barycentric coordinates&rdquo;, is a special case of linear blend
-skinning [#jacobson_skinning_course_2014][]: transformations are restricted to
+skinning <sup id="fnref:jacobson_skinning_course_2014"><a class="footnote-ref" href="#fn:jacobson_skinning_course_2014" rel="footnote">6</a></sup>: transformations are restricted to
 <em>pure translations</em> and weights are required to retain <em>affine precision</em>. This
 latter requirement means that we can write the rest-position of any vertex in
 the mesh as the weighted combination of the control handle locations:</p>
@@ -1292,14 +1306,14 @@ position of each point of the shape to be the weighted combination of the
 <p><span><span class="MathJax_Preview">\mathbf{x}' = \sum\limits_{i=1}^m w_i(\mathbf{x}) * \mathbf{c}_i'.</span><script type="math/tex">\mathbf{x}' = \sum\limits_{i=1}^m w_i(\mathbf{x}) * \mathbf{c}_i'.</script></span></p>
 <p>There are <em>many</em> different flavors of &ldquo;generalized barycentric coordinates&rdquo;
 (see table in &ldquo;Automatic Methods&rdquo; section,
-[#jacobson_skinning_course_2014][]). The vague goal of &ldquo;generalized barycentric
+<sup id="fnref2:jacobson_skinning_course_2014"><a class="footnote-ref" href="#fn:jacobson_skinning_course_2014" rel="footnote">6</a></sup>). The vague goal of &ldquo;generalized barycentric
 coordinates&rdquo; is to capture as many properties of simplicial barycentric
 coordinates (e.g. for triangles in 2D and tetrahedral in 3D) for larger sets of
 points or polyhedra. Some generalized barycentric coordinates can be computed
 in closed form; others require optimization-based precomputation. Nearly all
 flavors require connectivity information describing how the control points form
 a external polyhedron around the input shape: a cage. However, a recent
-techinique does not require a cage [#wang_bc_2015][]. This method ensures
+techinique does not require a cage <sup id="fnref:wang_bc_2015"><a class="footnote-ref" href="#fn:wang_bc_2015" rel="footnote">11</a></sup>. This method ensures
 affine precision during optimization over weights of a smoothness energy with
 affine functions in its kernel:</p>
 <p><span><span class="MathJax_Preview">\mathop{\text{min}}_\mathbf{W}\,\, \text{trace}(\frac{1}{2}\mathbf{W}^T \mathbf{A}
@@ -1328,7 +1342,7 @@ the mesh:</p>
 <p>Since the Laplacian <span><span class="MathJax_Preview">\mathbf{K}</span><script type="math/tex">\mathbf{K}</script></span> is a second-order derivative it measures zero on affine
 functions, thus <span><span class="MathJax_Preview">\mathbf{A}</span><script type="math/tex">\mathbf{A}</script></span> has affine functions in its null space. A short
 derivation proves that this implies <span><span class="MathJax_Preview">\mathbf{W}</span><script type="math/tex">\mathbf{W}</script></span> will be affine precise (see
-[#wang_bc_2015][]).</p>
+<sup id="fnref2:wang_bc_2015"><a class="footnote-ref" href="#fn:wang_bc_2015" rel="footnote">11</a></sup>).</p>
 <p>Minimizers of this &ldquo;squared Laplacian&rdquo; energy are in some sense <em>discrete
 biharmonic functions</em>. Thus they&rsquo;re dubbed &ldquo;biharmonic coordinates&rdquo; (not the
 same as <em>bounded biharmonic weights</em>, which are <em>not</em> generalized barycentric
@@ -1341,6 +1355,45 @@ handles):</p>
 
 <figure><img alt="(Example 407) shows a physics simulation on a coarse orange mesh. The vertices of this mesh become control points for a biharmonic coordinates deformation of the blue high-resolution mesh." src="../images/octopus-biharmonic-coordinates-physics.gif" /><figcaption>(<a href="../407_BiharmonicCoordinates/main.cpp">Example 407</a>) shows a physics simulation on a coarse orange mesh. The vertices of this mesh become control points for a biharmonic coordinates deformation of the blue high-resolution mesh.</figcaption>
 </figure>
+<h2 id="references">References<a class="headerlink" href="#references" title="Permanent link">&para;</a></h2>
+<div class="footnote">
+<hr />
+<ol>
+<li id="fn:botsch_2004">
+<p>Matrio Botsch and Leif Kobbelt. <a href="https://www.google.com/search?q=An+Intuitive+Framework+for+Real-Time+Freeform+Modeling">An Intuitive Framework for Real-Time Freeform Modeling</a>, 2004.&#160;<a class="footnote-backref" href="#fnref:botsch_2004" rev="footnote" title="Jump back to footnote 1 in the text">&#8617;</a></p>
+</li>
+<li id="fn:chao_2010">
+<p>Isaac Chao, Ulrich Pinkall, Patrick Sanan, Peter Schröder. <a href="https://www.google.com/search?q=A+Simple+Geometric+Model+for+Elastic+Deformations">A Simple Geometric Model for Elastic Deformations</a>, 2010.&#160;<a class="footnote-backref" href="#fnref:chao_2010" rev="footnote" title="Jump back to footnote 2 in the text">&#8617;</a></p>
+</li>
+<li id="fn:jacobson_2011">
+<p>Alec Jacobson, Ilya Baran, Jovan Popović, and Olga Sorkine. <a href="https://www.google.com/search?q=Bounded+biharmonic+weights+for+real-time+deformation">Bounded Biharmonic Weights for Real-Time Deformation</a>, 2011.&#160;<a class="footnote-backref" href="#fnref:jacobson_2011" rev="footnote" title="Jump back to footnote 3 in the text">&#8617;</a></p>
+</li>
+<li id="fn:jacobson_2012">
+<p>Alec Jacobson, Ilya Baran, Ladislav Kavan, Jovan Popović, and Olga Sorkine. <a href="https://www.google.com/search?q=Fast+Automatic+Skinning+Transformations">Fast Automatic Skinning Transformations</a>, 2012.&#160;<a class="footnote-backref" href="#fnref:jacobson_2012" rev="footnote" title="Jump back to footnote 4 in the text">&#8617;</a></p>
+</li>
+<li id="fn:jacobson_mixed_2010">
+<p>Alec Jacobson, Elif Tosun, Olga Sorkine, and Denis Zorin. <a href="https://www.google.com/search?q=Mixed+Finite+Elements+for+Variational+Surface+Modeling">Mixed Finite Elements for Variational Surface Modeling</a>, 2010.&#160;<a class="footnote-backref" href="#fnref:jacobson_mixed_2010" rev="footnote" title="Jump back to footnote 5 in the text">&#8617;</a></p>
+</li>
+<li id="fn:jacobson_skinning_course_2014">
+<p>Alec Jacobson, Zhigang Deng, Ladislav Kavan, J.P. Lewis. <a href="https://www.google.com/search?q=Skinning+Real-Time+Shape+Deformation"><em>Skinning: Real-Time Shape Deformation</em></a>, 2014.&#160;<a class="footnote-backref" href="#fnref:jacobson_skinning_course_2014" rev="footnote" title="Jump back to footnote 6 in the text">&#8617;</a><a class="footnote-backref" href="#fnref2:jacobson_skinning_course_2014" rev="footnote" title="Jump back to footnote 6 in the text">&#8617;</a></p>
+</li>
+<li id="fn:kavan_2008">
+<p>Ladislav Kavan, Steven Collins, Jiri Zara, and Carol O&rsquo;Sullivan. <a href="https://www.google.com/search?q=Geometric+Skinning+with+Approximate+Dual+Quaternion+Blending">Geometric Skinning with Approximate Dual Quaternion Blending</a>, 2008.&#160;<a class="footnote-backref" href="#fnref:kavan_2008" rev="footnote" title="Jump back to footnote 7 in the text">&#8617;</a></p>
+</li>
+<li id="fn:mcadams_2011">
+<p>Alexa McAdams, Andrew Selle, Rasmus Tamstorf, Joseph Teran, Eftychios Sifakis. <a href="https://www.google.com/search?q=Computing+the+Singular+Value+Decomposition+of+3x3+matrices+with+minimal+branching+and+elementary+floating+point+operations">Computing the Singular Value Decomposition of 3x3 matrices with minimal branching and elementary floating point operations</a>, 2011.&#160;<a class="footnote-backref" href="#fnref:mcadams_2011" rev="footnote" title="Jump back to footnote 8 in the text">&#8617;</a></p>
+</li>
+<li id="fn:sorkine_2004">
+<p>Olga Sorkine, Yaron Lipman, Daniel Cohen-Or, Marc Alexa, Christian Rössl and Hans-Peter Seidel. <a href="https://www.google.com/search?q=Laplacian+Surface+Editing">Laplacian Surface Editing</a>, 2004.&#160;<a class="footnote-backref" href="#fnref:sorkine_2004" rev="footnote" title="Jump back to footnote 9 in the text">&#8617;</a></p>
+</li>
+<li id="fn:sorkine_2007">
+<p>Olga Sorkine and Marc Alexa. <a href="https://www.google.com/search?q=As-rigid-as-possible+Surface+Modeling">As-rigid-as-possible Surface Modeling</a>, 2007.&#160;<a class="footnote-backref" href="#fnref:sorkine_2007" rev="footnote" title="Jump back to footnote 10 in the text">&#8617;</a></p>
+</li>
+<li id="fn:wang_bc_2015">
+<p>Yu Wang, Alec Jacobson, Jernej Barbic, Ladislav Kavan. <a href="https://www.google.com/search?q=Linear+Subspace+Design+for+Real-Time+Shape+Deformation">Linear Subspace Design for Real-Time Shape Deformation</a>, 2015&#160;<a class="footnote-backref" href="#fnref:wang_bc_2015" rev="footnote" title="Jump back to footnote 11 in the text">&#8617;</a><a class="footnote-backref" href="#fnref2:wang_bc_2015" rev="footnote" title="Jump back to footnote 11 in the text">&#8617;</a></p>
+</li>
+</ol>
+</div>
                 
                   
                 
