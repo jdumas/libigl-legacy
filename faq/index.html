@@ -57,7 +57,7 @@
       <link rel="stylesheet" href="https://fonts.googleapis.com/icon?family=Material+Icons">
     
     
-      <link rel="stylesheet" href="../ ">
+      <link rel="stylesheet" href="../css/style.css">
     
     
   </head>
@@ -499,8 +499,8 @@
 
 
   <li class="md-nav__item">
-    <a href="../file-formats/" title="List" class="md-nav__link">
-      List
+    <a href="../file-formats/" title="Index" class="md-nav__link">
+      Index
     </a>
   </li>
 
@@ -674,9 +674,9 @@
                 
                 <h1 id="faq">FAQ<a class="headerlink" href="#faq" title="Permanent link">&para;</a></h1>
 <blockquote>
-<p><strong>Q:</strong> I'd like to merge two 3D meshes into one. How to do it with igl?</p>
+<p><strong>Q:</strong> I&rsquo;d like to merge two 3D meshes into one. How to do it with igl?</p>
 </blockquote>
-<p>It sounds like you're trying to compute a union. Are your two meshes closed, watertight manifolds? Then you could call <code class="codehilite">igl/boolean/mesh_boolean</code> with the union option. If not, then there's still hope with something else. <em>[Alec]</em></p>
+<p>It sounds like you&rsquo;re trying to compute a union. Are your two meshes closed, watertight manifolds? Then you could call <code class="codehilite">igl/boolean/mesh_boolean</code> with the union option. If not, then there&rsquo;s still hope with something else. <em>[Alec]</em></p>
 <blockquote>
 <p><strong>Q:</strong> In other apps I have seen the the user is asked to specify singularities , and the then the rosy field is generated. But in libigl it seems like you have to specify faces and direction vectors to design a field. Is it possible to specify singularities?</p>
 </blockquote>
@@ -686,7 +686,7 @@
 </blockquote>
 <p>No, it uses CGAL for triangulation. <em>[Alec]</em></p>
 <blockquote>
-<p><strong>Q:</strong> Libigl's Boolean depends on some GPL-licensed header files from CGAL. Is it possible to remove this dependency?</p>
+<p><strong>Q:</strong> Libigl&rsquo;s Boolean depends on some GPL-licensed header files from CGAL. Is it possible to remove this dependency?</p>
 </blockquote>
 <p>No, the dependency on CGAL would require severely rewriting a core function. It is possible to do, but I will not do it. <em>[Alec]</em></p>
 <blockquote>
@@ -704,7 +704,7 @@
 </blockquote>
 <p>This is unfortunately the expected behaviour, the MIQ parametrization tends to concentrate the distortion around singularities. <em>[Daniele]</em></p>
 <blockquote>
-<p><strong>Q:</strong> I am receiving compilation errors along the lines of "ISO C++ forbids declaration of ... with no type" when compiling under Windows using gcc.</p>
+<p><strong>Q:</strong> I am receiving compilation errors along the lines of &ldquo;ISO C++ forbids declaration of &hellip; with no type&rdquo; when compiling under Windows using gcc.</p>
 </blockquote>
 <p>We never tried to compile libigl on Windows with gcc, but we did test our library on:</p>
 <ul>
@@ -712,7 +712,7 @@
 <li>linux with gcc</li>
 <li>macosx with clang</li>
 </ul>
-<p>You might have a version of gcc that doesn't support (enough of) c++11. Try using Cygwin and g++ 4.9.2. <em>[Alec, Daniele]</em></p>
+<p>You might have a version of gcc that doesn&rsquo;t support (enough of) c++11. Try using Cygwin and g++ 4.9.2. <em>[Alec, Daniele]</em></p>
                 
                   
                 

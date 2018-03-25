@@ -57,7 +57,7 @@
       <link rel="stylesheet" href="https://fonts.googleapis.com/icon?family=Material+Icons">
     
     
-      <link rel="stylesheet" href="../ ">
+      <link rel="stylesheet" href="../css/style.css">
     
     
   </head>
@@ -587,8 +587,8 @@
 
 
   <li class="md-nav__item">
-    <a href="../file-formats/" title="List" class="md-nav__link">
-      List
+    <a href="../file-formats/" title="Index" class="md-nav__link">
+      Index
     </a>
   </li>
 
@@ -852,7 +852,7 @@ verbose flag:</p>
 <div class="codehilite"><pre><span></span>GTEST_COLOR=1 ctest --verbose
 </pre></div>
 
-<p>You'll see outputs for each individual test:</p>
+<p>You&rsquo;ll see outputs for each individual test:</p>
 <div class="codehilite"><pre><span></span>UpdateCTestConfiguration  from :/usr/local/libigl-unit-tests/build/DartConfiguration.tcl
 UpdateCTestConfiguration  from :/usr/local/libigl-unit-tests/build/DartConfiguration.tcl
 Test project /usr/local/libigl-unit-tests/build
@@ -934,7 +934,7 @@ testing code. So if you issue:</p>
 
 <p>Add a call to <code class="codehilite">igl::myfun</code> and an assertion (e.g., <code class="codehilite">ASSERT_EQ</code>) and this will
 add a test for <em>all</em> meshes in the <code class="codehilite">data/</code> folder. (Should also change
-<code class="codehilite">change_to_meaningful_name</code> to a meaningful name based on what you're testing).</p>
+<code class="codehilite">change_to_meaningful_name</code> to a meaningful name based on what you&rsquo;re testing).</p>
 <h2 id="conventions">Conventions<a class="headerlink" href="#conventions" title="Permanent link">&para;</a></h2>
 <p>When naming a test for a function <code class="codehilite">igl::extra::function_name</code> use:</p>
 <div class="codehilite"><pre><span></span><span class="n">TEST</span><span class="p">(</span><span class="n">extra_function_name</span><span class="p">,</span> <span class="n">meaning_test_name</span><span class="p">)</span>
@@ -959,14 +959,14 @@ being used.</p>
 <p>None.</p>
 <p>(Obviously?) The presence of a unit test here for some function (e.g.,
 <code class="codehilite">igl::cotmatrix</code>) is not a guarantee or even an endorsement of the notion that
-the libigl function <code class="codehilite">igl::cotmatrix</code> is bug free or "fully tested" or "heavily
-tested" or even "adequately tested".</p>
+the libigl function <code class="codehilite">igl::cotmatrix</code> is bug free or &ldquo;fully tested&rdquo; or &ldquo;heavily
+tested&rdquo; or even &ldquo;adequately tested&rdquo;.</p>
 <h2 id="need-work">Need work?<a class="headerlink" href="#need-work" title="Permanent link">&para;</a></h2>
 <p>Some of the most used libigl functions</p>
 <div class="codehilite"><pre><span></span>grep -hr <span class="s2">&quot;^#include \&quot;&quot;</span> ../libigl/include/igl <span class="p">|</span> sed -e <span class="s1">&#39;s/\(\.\.\/\)//g&#39;</span> <span class="p">|</span> sort <span class="p">|</span> uniq -c <span class="p">|</span> sort
 </pre></div>
 
-<p>still don't have unit tests.</p>
+<p>still don&rsquo;t have unit tests.</p>
                 
                   
                 

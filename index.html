@@ -57,7 +57,7 @@
       <link rel="stylesheet" href="https://fonts.googleapis.com/icon?family=Material+Icons">
     
     
-      <link rel="stylesheet" href="./ ">
+      <link rel="stylesheet" href="./css/style.css">
     
     
   </head>
@@ -662,8 +662,8 @@
 
 
   <li class="md-nav__item">
-    <a href="file-formats/" title="List" class="md-nav__link">
-      List
+    <a href="file-formats/" title="Index" class="md-nav__link">
+      Index
     </a>
   </li>
 
@@ -1010,7 +1010,7 @@ and Windows with Visual Studio 2015 Community Edition.</p>
 <h2 id="installation">Installation<a class="headerlink" href="#installation" title="Permanent link">&para;</a></h2>
 <p>Libigl is a <strong>header-only</strong> library. You do <strong>not</strong> need to build anything to
 install.  Simply add <code class="codehilite">libigl/include</code> to your include path and include relevant
-headers.  Here is a small "Hello, World" program:</p>
+headers.  Here is a small &ldquo;Hello, World&rdquo; program:</p>
 <div class="codehilite"><pre><span></span><span class="cp">#include</span> <span class="cpf">&lt;igl/cotmatrix.h&gt;</span><span class="cp"></span>
 <span class="cp">#include</span> <span class="cpf">&lt;Eigen/Dense&gt;</span><span class="cp"></span>
 <span class="cp">#include</span> <span class="cpf">&lt;Eigen/Sparse&gt;</span><span class="cp"></span>
@@ -1069,7 +1069,7 @@ avoiding OpenMP on Windows or proceeding with caution.</p>
 <a href="https://github.com/libigl">repository</a>.</p>
 <h2 id="known-issues">Known Issues<a class="headerlink" href="#known-issues" title="Permanent link">&para;</a></h2>
 <p>We rely heavily on Eigen. Nearly all inputs and outputs are Eigen matrices of
-some kind. However, we currently <em>only</em> officially support Eigen's default
+some kind. However, we currently <em>only</em> officially support Eigen&rsquo;s default
 column-major ordering. That means, we <strong>do not</strong> expect our code to work for
 matrices using the <code class="codehilite">Eigen::RowMajor</code> flag. If you can, change definitions like:</p>
 <div class="codehilite"><pre><span></span><span class="n">Eigen</span><span class="o">::</span><span class="n">Matrix</span><span class="o">&lt;</span><span class="kt">double</span><span class="p">,</span> <span class="n">Eigen</span><span class="o">::</span><span class="n">Dynamic</span><span class="p">,</span> <span class="mi">3</span><span class="p">,</span> <span class="n">Eigen</span><span class="o">::</span><span class="n">RowMajor</span><span class="o">&gt;</span> <span class="n">A</span><span class="p">;</span>
@@ -1094,7 +1094,7 @@ explanation, but essentially our libigl repo stores a hash for each of its
 subrepos containing which version to update to. When a change is introduced in
 a dependencies repo we can incorporate that change by pulling in our sub-repo
 and updating (i.e.  committing) that change to the hash.</p>
-<p>When pulling new changes to libigl it's also a good idea to update changes to
+<p>When pulling new changes to libigl it&rsquo;s also a good idea to update changes to
 subrepos:</p>
 <div class="codehilite"><pre><span></span>git pull
 git submodule update --recursive
@@ -1110,7 +1110,7 @@ with your changes. libigl follows strict coding guidelines, please take a look a
 <h2 id="license">License<a class="headerlink" href="#license" title="Permanent link">&para;</a></h2>
 <p>libigl is primarily <a href="http://www.mozilla.org/MPL/2.0/">MPL2</a> licensed
 (<a href="http://www.mozilla.org/MPL/2.0/FAQ.html">FAQ</a>). Some files contain
-third-party code under other licenses. We're currently in the processes of
+third-party code under other licenses. We&rsquo;re currently in the processes of
 identifying these and marking appropriately.</p>
 <h2 id="attribution">Attribution<a class="headerlink" href="#attribution" title="Permanent link">&para;</a></h2>
 <p>If you use libigl in your academic projects, please cite the papers we
@@ -1177,9 +1177,9 @@ Panozzo</a>. Please <a href="mailto:alecjacobson@gmail.com,daniele.panozzo@gmail
 us</a> if you have
 questions or comments. For troubleshooting, please post an
 <a href="https://github.com/libigl/libigl/issues">issue</a> on github.</p>
-<p>If you're using libigl in your projects, quickly <a href="mailto:alecjacobson@gmail.com,daniele.panozzo@gmail.com">drop us a
+<p>If you&rsquo;re using libigl in your projects, quickly <a href="mailto:alecjacobson@gmail.com,daniele.panozzo@gmail.com">drop us a
 note</a>. Tell us who you
-are and what you're using it for. This helps us apply for funding and justify
+are and what you&rsquo;re using it for. This helps us apply for funding and justify
 spending time maintaining this.</p>
 <p>If you find bugs or have problems please use our <a href="https://github.com/libigl/libigl/issues">github issue tracking
 page</a>.</p>

@@ -12,8 +12,6 @@
       
       
       
-        <meta name="author" content="D">
-      
       
         <meta name="lang:clipboard.copy" content="Copy to clipboard">
       
@@ -38,7 +36,7 @@
     
     
       
-        <title>libigl Tutorial</title>
+        <title>Chapter 1: Introduction to libigl - libigl</title>
       
     
     
@@ -59,7 +57,7 @@
       <link rel="stylesheet" href="https://fonts.googleapis.com/icon?family=Material+Icons">
     
     
-      <link rel="stylesheet" href="../../ ">
+      <link rel="stylesheet" href="../../css/style.css">
     
     
   </head>
@@ -78,7 +76,7 @@
     <input class="md-toggle" data-md-toggle="search" type="checkbox" id="search">
     <label class="md-overlay" data-md-component="overlay" for="drawer"></label>
     
-      <a href="#libigl-tutorial-notes" tabindex="1" class="md-skip">
+      <a href="#chapter-1" tabindex="1" class="md-skip">
         Skip to content
       </a>
     
@@ -235,8 +233,77 @@
     <ul class="md-nav__list" data-md-scrollfix>
       
         <li class="md-nav__item">
-  <a href="#originally-presented-by-daniele-panozzo-and-alec-jacobson-at-sgp-graduate-school-2014" title="originally presented by Daniele Panozzo and Alec Jacobson at SGP Graduate School 2014" class="md-nav__link">
-    originally presented by Daniele Panozzo and Alec Jacobson at SGP Graduate School 2014
+  <a href="#libigl-design-principles" title="libigl design principles" class="md-nav__link">
+    libigl design principles
+  </a>
+  
+    <nav class="md-nav">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#downloading-libigl" title="Downloading libigl" class="md-nav__link">
+    Downloading libigl
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#libigl-example-project" title="libigl example project" class="md-nav__link">
+    libigl example project
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#mesh-representation" title="Mesh representation" class="md-nav__link">
+    Mesh representation
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#visualizing-surfaces" title="Visualizing surfaces" class="md-nav__link">
+    Visualizing surfaces
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#interaction-with-keyboard-and-mouse" title="Interaction with keyboard and mouse" class="md-nav__link">
+    Interaction with keyboard and mouse
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#scalar-field-visualization" title="Scalar field visualization" class="md-nav__link">
+    Scalar field visualization
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#overlays" title="Overlays" class="md-nav__link">
+    Overlays
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#viewer-menu" title="Viewer Menu" class="md-nav__link">
+    Viewer Menu
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#multiple-meshes" title="Multiple Meshes" class="md-nav__link">
+    Multiple Meshes
   </a>
   
 </li>
@@ -541,8 +608,8 @@
 
 
   <li class="md-nav__item">
-    <a href="../../file-formats/" title="List" class="md-nav__link">
-      List
+    <a href="../../file-formats/" title="Index" class="md-nav__link">
+      Index
     </a>
   </li>
 
@@ -698,8 +765,77 @@
     <ul class="md-nav__list" data-md-scrollfix>
       
         <li class="md-nav__item">
-  <a href="#originally-presented-by-daniele-panozzo-and-alec-jacobson-at-sgp-graduate-school-2014" title="originally presented by Daniele Panozzo and Alec Jacobson at SGP Graduate School 2014" class="md-nav__link">
-    originally presented by Daniele Panozzo and Alec Jacobson at SGP Graduate School 2014
+  <a href="#libigl-design-principles" title="libigl design principles" class="md-nav__link">
+    libigl design principles
+  </a>
+  
+    <nav class="md-nav">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#downloading-libigl" title="Downloading libigl" class="md-nav__link">
+    Downloading libigl
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#libigl-example-project" title="libigl example project" class="md-nav__link">
+    libigl example project
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#mesh-representation" title="Mesh representation" class="md-nav__link">
+    Mesh representation
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#visualizing-surfaces" title="Visualizing surfaces" class="md-nav__link">
+    Visualizing surfaces
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#interaction-with-keyboard-and-mouse" title="Interaction with keyboard and mouse" class="md-nav__link">
+    Interaction with keyboard and mouse
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#scalar-field-visualization" title="Scalar field visualization" class="md-nav__link">
+    Scalar field visualization
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#overlays" title="Overlays" class="md-nav__link">
+    Overlays
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#viewer-menu" title="Viewer Menu" class="md-nav__link">
+    Viewer Menu
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#multiple-meshes" title="Multiple Meshes" class="md-nav__link">
+    Multiple Meshes
   </a>
   
 </li>
@@ -721,22 +857,21 @@
               
                 
                 
-                <p>html header:   <script type="text/javascript" src="http://cdn.mathjax.org/mathjax/latest/MathJax.js?config=TeX-AMS-MML_HTMLorMML"></script>
-<link rel="stylesheet" href="http://yandex.st/highlightjs/7.3/styles/default.min.css">
-<script src="http://yandex.st/highlightjs/7.3/highlight.min.js"></script>
-<script>hljs.initHighlightingOnLoad();</script></p>
-<h1 id="libigl-tutorial-notes">libigl tutorial notes<a class="headerlink" href="#libigl-tutorial-notes" title="Permanent link">&para;</a></h1>
-<h4 id="originally-presented-by-daniele-panozzo-and-alec-jacobson-at-sgp-graduate-school-2014">originally presented by Daniele Panozzo and Alec Jacobson at SGP Graduate School 2014<a class="headerlink" href="#originally-presented-by-daniele-panozzo-and-alec-jacobson-at-sgp-graduate-school-2014" title="Permanent link">&para;</a></h4>
-<p><img alt="" src="../images/libigl-logo.jpg" /></p>
+                <h1>libigl tutorial notes</h1>
+
+<h4>originally presented by Daniele Panozzo and Alec Jacobson at SGP Graduate School 2014</h4>
+
+<figure><img alt="" src="../images/libigl-logo.jpg" /><figcaption></figcaption>
+</figure>
 <p>Libigl is an open source C++ library for geometry processing research and development.  Dropping the heavy data structures of tradition geometry libraries, libigl is a simple header-only library of encapsulated functions. This combines the rapid prototyping familiar to Matlab or Python programmers with the performance and versatility of C++.  The tutorial is a self-contained, hands-on introduction to libigl.  Via interactive, step-by-step examples, we demonstrate how to accomplish common geometry processing tasks such as computation of differential quantities and operators, real-time deformation, parametrization, numerical optimization and remeshing. Each section of the lecture notes links to a cross-platform example application.</p>
-<h1 id="chapter-1-chapter1introductiontolibigl">Chapter 1 [chapter1:introductiontolibigl]<a class="headerlink" href="#chapter-1-chapter1introductiontolibigl" title="Permanent link">&para;</a></h1>
+<h1 id="chapter-1">Chapter 1<a class="headerlink" href="#chapter-1" title="Permanent link">&para;</a></h1>
 <p>We introduce libigl with a series of self-contained examples. The purpose of
 each example is to showcase a feature of libigl while applying to a practical
 problem in geometry processing. In this chapter, we will present the basic
 concepts of libigl and introduce a simple mesh viewer that allows to
 visualize a surface mesh and its attributes. All the tutorial examples are
 cross-platform and can be compiled on MacOSX, Linux and Windows.</p>
-<h2 id="libigl-design-principles-libigldesignprinciples"><a href="#libigldesignprinciples">libigl design principles</a> [libigldesignprinciples]<a class="headerlink" href="#libigl-design-principles-libigldesignprinciples" title="Permanent link">&para;</a></h2>
+<h2 id="libigl-design-principles">libigl design principles<a class="headerlink" href="#libigl-design-principles" title="Permanent link">&para;</a></h2>
 <p>Before getting into the examples, we summarize the main design principles in
 libigl:</p>
 <ol>
@@ -810,7 +945,7 @@ compile CoMISo.</p>
 in 32 bit on windows.</p>
 <h3 id="libigl-example-project">libigl example project<a class="headerlink" href="#libigl-example-project" title="Permanent link">&para;</a></h3>
 <p>We provide a <a href="https://github.com/libigl/libigl-example-project">blank project example</a> showing how to use libigl and cmake. Feel free and encouraged to copy or fork this project as a way of starting a new personal project using libigl.</p>
-<h2 id="mesh-representation-meshrepresentation"><a href="#meshrepresentation">Mesh representation</a> [meshrepresentation]<a class="headerlink" href="#mesh-representation-meshrepresentation" title="Permanent link">&para;</a></h2>
+<h2 id="mesh-representation">Mesh representation<a class="headerlink" href="#mesh-representation" title="Permanent link">&para;</a></h2>
 <p>libigl uses the <a href="http://eigen.tuxfamily.org/">Eigen</a> library to encode vector
 and matrices. We suggest that you keep the
 <a href="http://eigen.tuxfamily.org/dox/group__QuickRefPage.html">dense</a> and
@@ -826,7 +961,8 @@ row stores the coordinate of a vertex, with its x,y and z coordinates in the fir
 second and third column, respectively. The matrix <code class="codehilite">F</code> stores the triangle
 connectivity: each line of <code class="codehilite">F</code> denotes a triangle whose 3 vertices are
 represented as indices pointing to rows of <code class="codehilite">V</code>.</p>
-<p><img alt="A simple mesh made of 2 triangles and 4 vertices." src="../images/VF.png" /></p>
+<figure><img alt="A simple mesh made of 2 triangles and 4 vertices." src="../images/VF.png" /><figcaption>A simple mesh made of 2 triangles and 4 vertices.</figcaption>
+</figure>
 <p>Note that the order of the vertex indices in <code class="codehilite">F</code> determines the orientation of
 the triangles and it should thus be consistent for the entire surface.
 This simple representation has many advantages:</p>
@@ -850,7 +986,7 @@ Similarly, a mesh can be written in an OBJ file using:</p>
 
 <p><a href="../101_FileIO/main.cpp">Example 101</a> contains a simple mesh
 converter from OFF to OBJ format.</p>
-<h2 id="visualizing-surfaces-visualizingsurfaces"><a href="#visualizingsurfaces">Visualizing surfaces</a> [visualizingsurfaces]<a class="headerlink" href="#visualizing-surfaces-visualizingsurfaces" title="Permanent link">&para;</a></h2>
+<h2 id="visualizing-surfaces">Visualizing surfaces<a class="headerlink" href="#visualizing-surfaces" title="Permanent link">&para;</a></h2>
 <p>Libigl provides an glfw-based OpenGL 3.2 viewer to visualize surfaces, their
 properties and additional debugging information.</p>
 <p>The following code (<a href="../102_DrawMesh/main.cpp">Example 102</a>) is a basic skeleton
@@ -881,9 +1017,9 @@ Additional properties can be plotted on the mesh (as we will see later),
 and it is possible to extend the viewer with standard OpenGL code.
 Please see the documentation in
 <a href="../../include/igl/opengl/glfw/Viewer.h">Viewer.h</a> for more details.</p>
-<p><img alt="(Example 102) loads and draws a
-mesh." src="../images/102_DrawMesh.png" /></p>
-<h2 id="interaction-with-keyboard-and-mouse-interactionwithkeyboardandmouse"><a href="#interactionwithkeyboardandmouse">Interaction with keyboard and mouse</a> [interactionwithkeyboardandmouse]<a class="headerlink" href="#interaction-with-keyboard-and-mouse-interactionwithkeyboardandmouse" title="Permanent link">&para;</a></h2>
+<figure><img alt="(Example 102) loads and draws a mesh." src="../images/102_DrawMesh.png" /><figcaption>(<a href="../102_DrawMesh/main.cpp">Example 102</a>) loads and draws a mesh.</figcaption>
+</figure>
+<h2 id="interaction-with-keyboard-and-mouse">Interaction with keyboard and mouse<a class="headerlink" href="#interaction-with-keyboard-and-mouse" title="Permanent link">&para;</a></h2>
 <p>Keyboard and mouse events triggers callbacks that can be registered in the
 viewer. The viewer supports the following callbacks:</p>
 <div class="codehilite"><pre><span></span><span class="kt">bool</span> <span class="p">(</span><span class="o">*</span><span class="n">callback_pre_draw</span><span class="p">)(</span><span class="n">Viewer</span><span class="o">&amp;</span> <span class="n">viewer</span><span class="p">);</span>
@@ -928,9 +1064,9 @@ handled by the plugin, or if the viewer should process it normally. This is
 useful, for example, to disable the default mouse event handling if you want to
 control the camera directly in your code.</p>
 <p>The viewer can be extended using plugins, which are classes that implements all
-the viewer's callbacks. See the
+the viewer&rsquo;s callbacks. See the
 <a href="../../include/igl/opengl/glfw/ViewerPlugin.h">Viewer_plugin</a> for more details.</p>
-<h2 id="scalar-field-visualization-scalarfieldvisualization"><a href="#scalarfieldvisualization">Scalar field visualization</a> [scalarfieldvisualization]<a class="headerlink" href="#scalar-field-visualization-scalarfieldvisualization" title="Permanent link">&para;</a></h2>
+<h2 id="scalar-field-visualization">Scalar field visualization<a class="headerlink" href="#scalar-field-visualization" title="Permanent link">&para;</a></h2>
 <p>Colors and normals can be associated to faces or vertices using the
 set_colors function:</p>
 <div class="codehilite"><pre><span></span><span class="n">viewer</span><span class="p">.</span><span class="n">data</span><span class="p">().</span><span class="n">set_colors</span><span class="p">(</span><span class="n">C</span><span class="p">);</span>
@@ -953,18 +1089,18 @@ convert it to colors:</p>
 
 <p>The first row extracts the third column from <code class="codehilite">V</code> (the z coordinate of each
 vertex) and the second calls a libigl functions that converts a scalar field to colors. The second parameter of jet normalizes the scalar field to lie between 0 and 1 before applying the transfer function.</p>
-<p><img alt="(Example 104) igl::jet converts a scalar field to a
-color field." src="../images/104_Colors.png" /></p>
+<figure><img alt="(Example 104) igl::jet converts a scalar field to a color field." src="../images/104_Colors.png" /><figcaption>(<a href="../104_Colors/main.cpp">Example 104</a>) igl::jet converts a scalar field to a color field.</figcaption>
+</figure>
 <p><code class="codehilite">igl::jet</code> is an example of a standard function in libigl: it takes simple
 types and can be easily reused for many different tasks.  Not committing to
 heavy data structures types favors simplicity, ease of use and reusability.</p>
-<h2 id="overlays-overlays"><a href="#overlays">Overlays</a> [overlays]<a class="headerlink" href="#overlays-overlays" title="Permanent link">&para;</a></h2>
+<h2 id="overlays">Overlays<a class="headerlink" href="#overlays" title="Permanent link">&para;</a></h2>
 <p>In addition to plotting the surface, the viewer supports the visualization of points, lines and text labels: these overlays can be very helpful while developing geometric processing algorithms to plot debug information.</p>
 <div class="codehilite"><pre><span></span><span class="n">viewer</span><span class="p">.</span><span class="n">data</span><span class="p">().</span><span class="n">add_points</span><span class="p">(</span><span class="n">P</span><span class="p">,</span><span class="n">Eigen</span><span class="o">::</span><span class="n">RowVector3d</span><span class="p">(</span><span class="n">r</span><span class="p">,</span><span class="n">g</span><span class="p">,</span><span class="n">b</span><span class="p">));</span>
 </pre></div>
 
 <p>Draws a point of color r,g,b for each row of P. The point is placed at the coordinates specified in each row of P, which is a #P by 3 matrix.</p>
-<div class="codehilite"><pre><span></span><span class="n">viewer</span><span class="p">.</span><span class="n">data</span><span class="p">().</span><span class="n">add_edges</span><span class="p">(</span><span class="n">P1</span><span class="p">,</span><span class="n">P2</span><span class="p">,</span><span class="n">Eigen</span><span class="o">::</span><span class="n">RowVector3d</span><span class="p">(</span><span class="n">r</span><span class="p">,</span><span class="n">g</span><span class="p">,</span><span class="n">b</span><span class="p">);</span>
+<div class="codehilite"><pre><span></span><span class="n">viewer</span><span class="p">.</span><span class="n">data</span><span class="p">().</span><span class="n">add_edges</span><span class="p">(</span><span class="n">P1</span><span class="p">,</span><span class="n">P2</span><span class="p">,</span><span class="n">Eigen</span><span class="o">::</span><span class="n">RowVector3d</span><span class="p">(</span><span class="n">r</span><span class="p">,</span><span class="n">g</span><span class="p">,</span><span class="n">b</span><span class="p">));</span>
 </pre></div>
 
 <p>Draws a line of color r,g,b for each row of P1 and P2, which connects the 3D point in to the point in P2. Both P1 and P2 are of size #P by 3.</p>
@@ -981,9 +1117,9 @@ the bounding box of a mesh can be found by taking the colwise maximum and minimu
 <span class="n">Eigen</span><span class="o">::</span><span class="n">Vector3d</span> <span class="n">M</span> <span class="o">=</span> <span class="n">V</span><span class="p">.</span><span class="n">colwise</span><span class="p">().</span><span class="n">maxCoeff</span><span class="p">();</span>
 </pre></div>
 
-<p><img alt="(Example 105) The bounding box of a mesh is shown
-using overlays." src="../images/105_Overlays.png" /></p>
-<h2 id="viewer-menu-viewermenu"><a href="#viewermenu">Viewer Menu</a> [viewermenu]<a class="headerlink" href="#viewer-menu-viewermenu" title="Permanent link">&para;</a></h2>
+<figure><img alt="(Example 105) The bounding box of a mesh is shown using overlays." src="../images/105_Overlays.png" /><figcaption>(<a href="../105_Overlays/main.cpp">Example 105</a>) The bounding box of a mesh is shown using overlays.</figcaption>
+</figure>
+<h2 id="viewer-menu">Viewer Menu<a class="headerlink" href="#viewer-menu" title="Permanent link">&para;</a></h2>
 <p>As of latest version, the viewer uses a new menu and completely replaces
 <a href="http://anttweakbar.sourceforge.net/doc/">AntTweakBar</a> and
 <a href="https://github.com/wjakob/nanogui">nanogui</a> with <a href="https://github.com/ocornut/imgui">Dear ImGui</a>. To extend the default menu of the
@@ -1063,18 +1199,17 @@ viewer and to expose more user defined variables you have to implement a custom 
 <span class="p">};</span>
 </pre></div>
 
-<p><img alt="(Example 106) The UI of the viewer can be easily
-customized." src="../images/106_ViewerMenu.png" /></p>
-<h2 id="multiple-meshes-multiplemeshes"><a href="#multiplemeshes">Multiple Meshes</a> [multiplemeshes]<a class="headerlink" href="#multiple-meshes-multiplemeshes" title="Permanent link">&para;</a></h2>
-<p>Libigl's <code class="codehilite">igl::opengl::glfw::Viewer</code> provides basic support for rendering
+<figure><img alt="(Example 106) The UI of the viewer can be easily customized." src="../images/106_ViewerMenu.png" /><figcaption>(<a href="../106_ViewerMenu/main.cpp">Example 106</a>) The UI of the viewer can be easily customized.</figcaption>
+</figure>
+<h2 id="multiple-meshes">Multiple Meshes<a class="headerlink" href="#multiple-meshes" title="Permanent link">&para;</a></h2>
+<p>Libigl&rsquo;s <code class="codehilite">igl::opengl::glfw::Viewer</code> provides basic support for rendering
 multiple meshes.</p>
 <p>Which mesh is <em>selected</em> is controlled via the <code class="codehilite">viewer.selected_data_index</code>
 field. By default it his is set to <code class="codehilite">0</code>, so in the typical case of a single mesh
 <code class="codehilite">viewer.data()</code> returns the <code class="codehilite">igl::ViewerData</code> corresponding to the one
 and only mesh.</p>
-<p><img alt="(Example 107) The igl::opengl::glfw::Viewer
-can render multiple meshes, each with its own attributes like
-colors." src="../images/multiple-meshes.png" /></p>
+<figure><img alt="(Example 107) The igl::opengl::glfw::Viewer can render multiple meshes, each with its own attributes like colors." src="../images/multiple-meshes.png" /><figcaption>(<a href="../107_MultipleMeshes/main.cpp">Example 107</a>) The <code class="codehilite">igl::opengl::glfw::Viewer</code> can render multiple meshes, each with its own attributes like colors.</figcaption>
+</figure>
                 
                   
                 

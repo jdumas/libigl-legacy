@@ -57,7 +57,7 @@
       <link rel="stylesheet" href="https://fonts.googleapis.com/icon?family=Material+Icons">
     
     
-      <link rel="stylesheet" href="../../ ">
+      <link rel="stylesheet" href="../../css/style.css">
     
     
   </head>
@@ -628,8 +628,8 @@
 
 
   <li class="md-nav__item">
-    <a href="../../file-formats/" title="List" class="md-nav__link">
-      List
+    <a href="../../file-formats/" title="Index" class="md-nav__link">
+      Index
     </a>
   </li>
 
@@ -909,7 +909,7 @@ are a variety of ways to compute and store normals on a triangle mesh. <a href="
 with libigl.</p>
 <h3 id="per-face">Per-face<a class="headerlink" href="#per-face" title="Permanent link">&para;</a></h3>
 <p>Normals are well defined on each triangle of a mesh as the vector orthogonal to
-triangle's plane. These piecewise-constant normals produce piecewise-flat
+triangle&rsquo;s plane. These piecewise-constant normals produce piecewise-flat
 renderings: the surface appears non-smooth and reveals its underlying
 discretization.</p>
 <h3 id="per-vertex">Per-vertex<a class="headerlink" href="#per-vertex" title="Permanent link">&para;</a></h3>
@@ -929,7 +929,7 @@ or angle-based weighting is more forgiving.</p>
 <span class="n">N</span><span class="p">.</span><span class="n">rowwise</span><span class="p">().</span><span class="n">normalize</span><span class="p">();</span>
 </pre></div>
 
-<p>At first glance, it might seem inefficient to loop over incident faces---and thus constructing the per-vertex normals--- without using an half-edge data structure. However, per-vertex normals may be <em>throwing</em> each face normal to
+<p>At first glance, it might seem inefficient to loop over incident faces&mdash;and thus constructing the per-vertex normals&mdash; without using an half-edge data structure. However, per-vertex normals may be <em>throwing</em> each face normal to
 running sums on its corner vertices:</p>
 <div class="codehilite"><pre><span></span><span class="n">N</span><span class="p">.</span><span class="n">setZero</span><span class="p">(</span><span class="n">V</span><span class="p">.</span><span class="n">rows</span><span class="p">(),</span><span class="mi">3</span><span class="p">);</span>
 <span class="k">for</span><span class="p">(</span><span class="kt">int</span> <span class="n">f</span> <span class="o">=</span> <span class="mi">0</span><span class="p">;</span> <span class="n">f</span> <span class="o">&lt;</span> <span class="n">F</span><span class="p">.</span><span class="n">rows</span><span class="p">();</span><span class="n">f</span><span class="o">++</span><span class="p">)</span>
@@ -949,27 +949,27 @@ OpenGL and the .obj mesh file format. Often such normals are tuned by the mesh
 designer, but creases and corners can also be computed automatically. Libigl
 implements a simple scheme which computes corner normals as averages of
 normals of faces incident on the corresponding vertex which do not deviate by more than a specified dihedral angle (e.g. 20°).</p>
-<p><img alt="The Normals example computes per-face (left), per-vertex (middle) and
-per-corner (right) normals" src="../images/fandisk-normals.jpg" /></p>
+<figure><img alt="The Normals example computes per-face (left), per-vertex (middle) and per-corner (right) normals" src="../images/fandisk-normals.jpg" /><figcaption>The <code class="codehilite">Normals</code> example computes per-face (left), per-vertex (middle) and per-corner (right) normals</figcaption>
+</figure>
 <h2 id="gaussian-curvature">Gaussian curvature<a class="headerlink" href="#gaussian-curvature" title="Permanent link">&para;</a></h2>
 <p>Gaussian curvature on a continuous surface is defined as the product of the
 principal curvatures:</p>
 <p><span><span class="MathJax_Preview">k_G = k_1 k_2.</span><script type="math/tex">k_G = k_1 k_2.</script></span></p>
 <p>As an <em>intrinsic</em> measure, it depends on the metric and
-not the surface's embedding.</p>
+not the surface&rsquo;s embedding.</p>
 <p>Intuitively, Gaussian curvature tells how locally spherical or <em>elliptic</em> the
 surface is ( <span><span class="MathJax_Preview">k_G&gt;0</span><script type="math/tex">k_G>0</script></span> ), how locally saddle-shaped or <em>hyperbolic</em> the surface
 is ( <span><span class="MathJax_Preview">k_G&lt;0</span><script type="math/tex">k_G<0</script></span> ), or how locally cylindrical or <em>parabolic</em> ( <span><span class="MathJax_Preview">k_G=0</span><script type="math/tex">k_G=0</script></span> ) the
 surface is.</p>
-<p>In the discrete setting, one definition for a "discrete Gaussian curvature"
-on a triangle mesh is via a vertex's <em>angular deficit</em>:</p>
+<p>In the discrete setting, one definition for a &ldquo;discrete Gaussian curvature&rdquo;
+on a triangle mesh is via a vertex&rsquo;s <em>angular deficit</em>:</p>
 <p><span><span class="MathJax_Preview">k_G(v_i) = 2π - \sum\limits_{j\in N(i)}θ_{ij},</span><script type="math/tex">k_G(v_i) = 2π - \sum\limits_{j\in N(i)}θ_{ij},</script></span></p>
 <p>where <span><span class="MathJax_Preview">N(i)</span><script type="math/tex">N(i)</script></span> are the triangles incident on vertex <span><span class="MathJax_Preview">i</span><script type="math/tex">i</script></span> and <span><span class="MathJax_Preview">θ_{ij}</span><script type="math/tex">θ_{ij}</script></span> is the angle
 at vertex <span><span class="MathJax_Preview">i</span><script type="math/tex">i</script></span> in triangle <span><span class="MathJax_Preview">j</span><script type="math/tex">j</script></span> [][#meyer_2003].</p>
 <p>Just like the continuous analog, our discrete Gaussian curvature reveals
 elliptic, hyperbolic and parabolic vertices on the domain, as demonstrated in <a href="../202_GaussianCurvature/main.cpp">Example 202</a>.</p>
-<p><img alt="The GaussianCurvature example computes discrete Gaussian curvature and
-visualizes it in pseudocolor." src="../images/bumpy-gaussian-curvature.jpg" /></p>
+<figure><img alt="The GaussianCurvature example computes discrete Gaussian curvature and visualizes it in pseudocolor." src="../images/bumpy-gaussian-curvature.jpg" /><figcaption>The <code class="codehilite">GaussianCurvature</code> example computes discrete Gaussian curvature and visualizes it in pseudocolor.</figcaption>
+</figure>
 <h2 id="curvature-directions">Curvature directions<a class="headerlink" href="#curvature-directions" title="Permanent link">&para;</a></h2>
 <p>The two principal curvatures <span><span class="MathJax_Preview">(k_1,k_2)</span><script type="math/tex">(k_1,k_2)</script></span> at a point on a surface measure how
 much the surface bends in different directions. The directions of maximum and
@@ -1004,9 +1004,8 @@ quadric fitting [][#panozzo_2010]. In the neighborhood around every vertex, a
 best-fit quadric is found and principal curvature values and directions are
 analytically computed on this quadric (<a href="../203_curvatureDirections/main.cpp">Example
 203</a>).</p>
-<p><img alt="The CurvatureDirections example computes principal curvatures via quadric
-fitting and visualizes mean curvature in pseudocolor and principal directions
-with a cross field." src="../images/fertility-principal-curvature.jpg" /></p>
+<figure><img alt="The CurvatureDirections example computes principal curvatures via quadric fitting and visualizes mean curvature in pseudocolor and principal directions with a cross field." src="../images/fertility-principal-curvature.jpg" /><figcaption>The <code class="codehilite">CurvatureDirections</code> example computes principal curvatures via quadric fitting and visualizes mean curvature in pseudocolor and principal directions with a cross field.</figcaption>
+</figure>
 <h2 id="gradient">Gradient<a class="headerlink" href="#gradient" title="Permanent link">&para;</a></h2>
 <p>Scalar functions on a surface can be discretized as a piecewise linear function
 with values defined at each mesh vertex:</p>
@@ -1014,8 +1013,8 @@ with values defined at each mesh vertex:</p>
 <p>where <span><span class="MathJax_Preview">\phi_i</span><script type="math/tex">\phi_i</script></span> is a piecewise linear hat function defined by the mesh so that
 for each triangle <span><span class="MathJax_Preview">\phi_i</span><script type="math/tex">\phi_i</script></span> is <em>the</em> linear function which is one only at
 vertex <span><span class="MathJax_Preview">i</span><script type="math/tex">i</script></span> and zero at the other corners.</p>
-<p><img alt="Hat function \phi_i\phi_i is one at vertex ii, zero at all other vertices, and
-linear on incident triangles." src="../images/hat-function.jpg" /></p>
+<figure><img alt="Hat function \phi_i\phi_i is one at vertex ii, zero at all other vertices, and linear on incident triangles." src="../images/hat-function.jpg" /><figcaption>Hat function <span><span class="MathJax_Preview">\phi_i</span><script type="math/tex">\phi_i</script></span> is one at vertex <span><span class="MathJax_Preview">i</span><script type="math/tex">i</script></span>, zero at all other vertices, and linear on incident triangles.</figcaption>
+</figure>
 <p>Thus gradients of such piecewise linear functions are simply sums of gradients
 of the hat functions:</p>
 <p><span><span class="MathJax_Preview">\nabla f(\mathbf{x}) \approx
@@ -1031,10 +1030,10 @@ as a matrix multiplication taking vertex values to triangle values:</p>
 <p>where <span><span class="MathJax_Preview">\mathbf{f}</span><script type="math/tex">\mathbf{f}</script></span> is <span><span class="MathJax_Preview">n\times 1</span><script type="math/tex">n\times 1</script></span> and <span><span class="MathJax_Preview">\mathbf{G}</span><script type="math/tex">\mathbf{G}</script></span> is an <span><span class="MathJax_Preview">md\times n</span><script type="math/tex">md\times n</script></span> sparse
 matrix. This matrix <span><span class="MathJax_Preview">\mathbf{G}</span><script type="math/tex">\mathbf{G}</script></span> can be derived geometrically, e.g.
 ch. 2<sup id="fnref:jacobson_thesis_2013"><a class="footnote-ref" href="#fn:jacobson_thesis_2013" rel="footnote">1</a></sup>.
-Libigl's <code class="codehilite">grad</code> function computes <span><span class="MathJax_Preview">\mathbf{G}</span><script type="math/tex">\mathbf{G}</script></span> for
+Libigl&rsquo;s <code class="codehilite">grad</code> function computes <span><span class="MathJax_Preview">\mathbf{G}</span><script type="math/tex">\mathbf{G}</script></span> for
 triangle and tetrahedral meshes (<a href="../204_Gradient/main.cpp">Example 204</a>):</p>
-<p><img alt="The Gradient example computes gradients of an input function on a mesh and
-visualizes the vector field." src="../images/cheburashka-gradient.jpg" /></p>
+<figure><img alt="The Gradient example computes gradients of an input function on a mesh and visualizes the vector field." src="../images/cheburashka-gradient.jpg" /><figcaption>The <code class="codehilite">Gradient</code> example computes gradients of an input function on a mesh and visualizes the vector field.</figcaption>
+</figure>
 <h2 id="laplacian">Laplacian<a class="headerlink" href="#laplacian" title="Permanent link">&para;</a></h2>
 <p>The discrete Laplacian is an essential geometry processing tool. Many
 interpretations and flavors of the Laplace and Laplace-Beltrami operator exist.</p>
@@ -1051,7 +1050,7 @@ Hessian):</p>
 <p>The <em>Laplace-Beltrami</em> operator generalizes this to surfaces.</p>
 <p>When considering piecewise-linear functions on a triangle mesh, a discrete
 Laplacian may be derived in a variety of ways. The most popular in geometry
-processing is the so-called ``cotangent Laplacian'' <span><span class="MathJax_Preview">\mathbf{L}</span><script type="math/tex">\mathbf{L}</script></span>, arising
+processing is the so-called ``cotangent Laplacian&rsquo;&lsquo; <span><span class="MathJax_Preview">\mathbf{L}</span><script type="math/tex">\mathbf{L}</script></span>, arising
 simultaneously from FEM, DEC and applying divergence theorem to vertex
 one-rings. As a linear operator taking vertex values to vertex values, the
 Laplacian <span><span class="MathJax_Preview">\mathbf{L}</span><script type="math/tex">\mathbf{L}</script></span> is a <span><span class="MathJax_Preview">n\times n</span><script type="math/tex">n\times n</script></span> matrix with elements:</p>
@@ -1093,14 +1092,14 @@ of the Dirichlet energy (sum of squared gradients):</p>
 <span class="p">}</span>
 </pre></div>
 
-<p>Libigl implements discrete "cotangent" Laplacians for triangles meshes and
-tetrahedral meshes, building both with fast geometric rules rather than "by the
-book" FEM construction which involves many (small) matrix inversions, cf.
+<p>Libigl implements discrete &ldquo;cotangent&rdquo; Laplacians for triangles meshes and
+tetrahedral meshes, building both with fast geometric rules rather than &ldquo;by the
+book&rdquo; FEM construction which involves many (small) matrix inversions, cf.
 [#sharf_2007][].</p>
 <p>The operator applied to mesh vertex positions amounts to smoothing by <em>flowing</em>
 the surface along the mean curvature normal direction (<a href="../205_Laplacian/main.cpp">Example 205</a>). Note that this is equivalent to minimizing surface area.</p>
-<p><img alt="The Laplacian example computes conformalized mean curvature flow using the
-cotangent Laplacian [#kazhdan_2012][]." src="../images/cow-curvature-flow.jpg" /></p>
+<figure><img alt="The Laplacian example computes conformalized mean curvature flow using the cotangent Laplacian [#kazhdan_2012][]." src="../images/cow-curvature-flow.jpg" /><figcaption>The <code class="codehilite">Laplacian</code> example computes conformalized mean curvature flow using the cotangent Laplacian [#kazhdan_2012][].</figcaption>
+</figure>
 <h3 id="mass-matrix">Mass matrix<a class="headerlink" href="#mass-matrix" title="Permanent link">&para;</a></h3>
 <p>The mass matrix <span><span class="MathJax_Preview">\mathbf{M}</span><script type="math/tex">\mathbf{M}</script></span> is another <span><span class="MathJax_Preview">n \times n</span><script type="math/tex">n \times n</script></span> matrix which takes vertex
 values to vertex values. From an FEM point of view, it is a discretization of
@@ -1120,8 +1119,8 @@ inner-product accounting for the area associated with each triangle (i.e. the
 triangles true area).</p>
 <h3 id="alternative-construction-of-laplacian">Alternative construction of Laplacian<a class="headerlink" href="#alternative-construction-of-laplacian" title="Permanent link">&para;</a></h3>
 <p>An alternative construction of the discrete cotangent Laplacian is by
-"squaring" the discrete gradient operator. This may be derived by applying
-Green's identity (ignoring boundary conditions for the moment):</p>
+&ldquo;squaring&rdquo; the discrete gradient operator. This may be derived by applying
+Green&rsquo;s identity (ignoring boundary conditions for the moment):</p>
 <p><span><span class="MathJax_Preview">\int_S \|\nabla f\|^2 dA = \int_S f \Delta f dA</span><script type="math/tex">\int_S \|\nabla f\|^2 dA = \int_S f \Delta f dA</script></span></p>
 <p>Or in matrix form which is immediately translatable to code:</p>
 <p><span><span class="MathJax_Preview">\mathbf{f}^T \mathbf{G}^T \mathbf{T} \mathbf{G} \mathbf{f} =
@@ -1148,17 +1147,15 @@ computes the closest geodesic distances of each vertex in VT or face in FT, from
 <span class="n">VT</span><span class="p">.</span><span class="n">setLinSpaced</span><span class="p">(</span><span class="n">V</span><span class="p">.</span><span class="n">rows</span><span class="p">(),</span><span class="mi">0</span><span class="p">,</span><span class="n">V</span><span class="p">.</span><span class="n">rows</span><span class="p">()</span><span class="o">-</span><span class="mi">1</span><span class="p">);</span>
 <span class="n">Eigen</span><span class="o">::</span><span class="n">VectorXd</span> <span class="n">d</span><span class="p">;</span>
 <span class="n">igl</span><span class="o">::</span><span class="n">exact_geodesic</span><span class="p">(</span><span class="n">V</span><span class="p">,</span><span class="n">F</span><span class="p">,</span><span class="n">VS</span><span class="p">,</span><span class="n">FS</span><span class="p">,</span><span class="n">VT</span><span class="p">,</span><span class="n">FT</span><span class="p">,</span><span class="n">d</span><span class="p">);</span>
-</pre></div>
-<img alt="Example 206 allows to interactively pick the source vertex and displays the distance using a periodic color pattern.
-" src="../images/geodesicdistance.jpg" /></p>
+</pre></div></p>
+<figure><img alt="Example 206 allows to interactively pick the source vertex and displays the distance using a periodic color pattern." src="../images/geodesicdistance.jpg" /><figcaption><a href="../206_GeodesicDistance/main.cpp">Example 206</a> allows to interactively pick the source vertex and displays the distance using a periodic color pattern.</figcaption>
+</figure>
 <h2 id="references">References<a class="headerlink" href="#references" title="Permanent link">&para;</a></h2>
 <div class="footnote">
 <hr />
 <ol>
 <li id="fn:jacobson_thesis_2013">
-<p>Alec Jacobson,
-<a href="https://www.google.com/search?q=Algorithms+and+Interfaces+for+Real-Time+Deformation+of+2D+and+3D+Shapes"><em>Algorithms and Interfaces for Real-Time Deformation of 2D and 3D Shapes</em></a>,
-2013.&#160;<a class="footnote-backref" href="#fnref:jacobson_thesis_2013" rev="footnote" title="Jump back to footnote 1 in the text">&#8617;</a></p>
+<p>Alec Jacobson, <a href="https://www.google.com/search?q=Algorithms+and+Interfaces+for+Real-Time+Deformation+of+2D+and+3D+Shapes"><em>Algorithms and Interfaces for Real-Time Deformation of 2D and 3D Shapes</em></a>, 2013.&#160;<a class="footnote-backref" href="#fnref:jacobson_thesis_2013" rev="footnote" title="Jump back to footnote 1 in the text">&#8617;</a></p>
 </li>
 </ol>
 </div>

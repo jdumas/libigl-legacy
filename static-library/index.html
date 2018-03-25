@@ -57,7 +57,7 @@
       <link rel="stylesheet" href="https://fonts.googleapis.com/icon?family=Material+Icons">
     
     
-      <link rel="stylesheet" href="../ ">
+      <link rel="stylesheet" href="../css/style.css">
     
     
   </head>
@@ -757,8 +757,8 @@
 
 
   <li class="md-nav__item">
-    <a href="../file-formats/" title="List" class="md-nav__link">
-      List
+    <a href="../file-formats/" title="Index" class="md-nav__link">
+      Index
     </a>
   </li>
 
@@ -1155,7 +1155,10 @@
               
                 
                 
-                <p><link href="../css/toc.css" rel="stylesheet" type="text/css"></p>
+                <!-- Hide h3+ from toc  -->
+
+<style>.md-nav--secondary .md-nav__list .md-nav__list { display: none }</style>
+
 <h1 id="compiling-libigl-as-a-static-library">Compiling libigl as a static library<a class="headerlink" href="#compiling-libigl-as-a-static-library" title="Permanent link">&para;</a></h1>
 <blockquote>
 <p>Warning: compiling libigl as a static library is considerably more difficult
@@ -1184,7 +1187,7 @@ from <em>this current directory</em>: issue:</p>
 
 
 <p>These are (admittedly unpopular) functions that have never been used by us
-statically so we haven't explicit instantiations (yet).</p>
+statically so we haven&rsquo;t explicit instantiations (yet).</p>
 <h4 id="external">External<a class="headerlink" href="#external" title="Permanent link">&para;</a></h4>
 <p>Finally there are a number of external libraries that we include in
 <code class="codehilite">./external/</code> because they are either difficult to obtain or they have been
@@ -1206,22 +1209,20 @@ make
 
 <h2 id="extras">Extras<a class="headerlink" href="#extras" title="Permanent link">&para;</a></h2>
 <h3 id="bbw">bbw<a class="headerlink" href="#bbw" title="Permanent link">&para;</a></h3>
-<p>This library extra contains functions for computing Bounded Biharmonic Weights, can
-be used with and without the <a href="#mosek">mosek</a> extra via the <code class="codehilite">IGL_NO_MOSEK</code>
-macro.</p>
+<p>This library extra contains functions for computing Bounded Biharmonic Weights, can be used with and without the <a href="#mosek">mosek</a> extra via the <code class="codehilite">IGL_NO_MOSEK</code> macro.</p>
 <h3 id="boolean">boolean<a class="headerlink" href="#boolean" title="Permanent link">&para;</a></h3>
 <p>This library extra contains functions for computing mesh-mesh booleans,
 depending on CGAL and optionally Cork.</p>
 <h3 id="cgal">cgal<a class="headerlink" href="#cgal" title="Permanent link">&para;</a></h3>
-<p>This library extra utilizes CGAL's efficient and exact intersection and
+<p>This library extra utilizes CGAL&rsquo;s efficient and exact intersection and
 proximity queries.</p>
 <h3 id="embree">embree<a class="headerlink" href="#embree" title="Permanent link">&para;</a></h3>
-<p>This library extra utilizes embree's efficient ray tracing queries.</p>
+<p>This library extra utilizes embree&rsquo;s efficient ray tracing queries.</p>
 <h3 id="matlab">matlab<a class="headerlink" href="#matlab" title="Permanent link">&para;</a></h3>
 <p>This library extra provides support for reading and writing <code class="codehilite"><span class="na">.mat</span></code> workspace
 files, interfacing with Matlab at run time and compiling mex functions.</p>
 <h3 id="mosek">mosek<a class="headerlink" href="#mosek" title="Permanent link">&para;</a></h3>
-<p>This library extra utilizes mosek's efficient interior-point solver for
+<p>This library extra utilizes mosek&rsquo;s efficient interior-point solver for
 quadratic programs.</p>
 <h3 id="png">png<a class="headerlink" href="#png" title="Permanent link">&para;</a></h3>
 <p>This library extra uses <code class="codehilite">libpng</code> and <code class="codehilite">YImage</code> to read and write <code class="codehilite"><span class="na">.png</span></code> files.</p>
@@ -1262,7 +1263,7 @@ declaration. These should be added at the bottom of the corresponding
 <p>Of course, a developer may not know ahead of time which
 instantiations should be explicitly included in the igl static lib.
 One way to find out is to add one explicit instantiation for each
-call in one's own project. This only ever needs to be done once for
+call in one&rsquo;s own project. This only ever needs to be done once for
 each template.</p>
 <p>The process is somewhat mechanical using a linker with reasonable error
 output.</p>
@@ -1285,7 +1286,7 @@ arap_rhs(Eigen::Matrix&lt;double, -1, -1, 0, -1, -1&gt; const&amp;, Eigen::Matri
 </pre></div>
 
 
-<p>This looks like a mess, but luckily we don't really need to read it
+<p>This looks like a mess, but luckily we don&rsquo;t really need to read it
 all. Just copy the first part in quotes</p>
 <div class="codehilite"><pre><span></span>Eigen::Matrix&lt;int, -1, -1, 0, -1, -1&gt; igl::cat&lt;Eigen::Matrix&lt;int, -1, -1, 0, -1, -1&gt; &gt;(int, Eigen::Matrix&lt;int, -1, -1, 0, -1, -1&gt; const&amp;, Eigen::Matrix&lt;int, -1, -1, 0, -1, -1&gt; const&amp;)
 </pre></div>
@@ -1317,7 +1318,7 @@ process until no more symbols are undefined.</p>
 no errors first using the headers-only version to be sure that all errors are from missing template
 instantiations.</p>
 </div>
-<p>If you're using make then the following command will
+<p>If you&rsquo;re using make then the following command will
 reveal each missing symbol on its own line:</p>
 <div class="codehilite"><pre><span></span>make 2&gt;&amp;1 | grep &quot;referenced from&quot; | sed -e &quot;s/, referenced from.*//&quot;
 </pre></div>
@@ -1325,7 +1326,7 @@ reveal each missing symbol on its own line:</p>
 
 <p>Alternatively you can use the <code class="codehilite">autoexplicit.sh</code> function
 which (for well organized .h/.cpp pairs in libigl) automatically
-create explicit instantiations from your compiler's error messages.
+create explicit instantiations from your compiler&rsquo;s error messages.
 Repeat this process until convergence:</p>
 <div class="codehilite"><pre><span></span>cd /to/your/project
 make 2&gt;$LIBIGL/make.err
@@ -1347,7 +1348,7 @@ make
 <li>
 <p><strong>Debug or optimized</strong>: The IGL static
     library may be compiled in debug mode or optimized release mode
-    regardless of whether one's project is being optimized or
+    regardless of whether one&rsquo;s project is being optimized or
     debugged.</p>
 </li>
 </ul>
@@ -1376,7 +1377,7 @@ make
 <ul>
 <li>
 <p><strong>Hard to debug/edit</strong>: The compressed files are
-  automatically generated. They're huge and should not be edited. Thus
+  automatically generated. They&rsquo;re huge and should not be edited. Thus
   debugging and editing are near impossible.</p>
 </li>
 <li>
@@ -1384,7 +1385,7 @@ make
   An immediate disadvantage of this
   seems to be that even to use a single function (e.g.
   <code class="codehilite">cotmatrix</code>), compiling and linking against
-  <code class="codehilite">igl.cpp</code> will require linking to all of <code class="codehilite">libigl</code>'s
+  <code class="codehilite">igl.cpp</code> will require linking to all of <code class="codehilite">libigl</code>&lsquo;s
   dependencies (<code class="codehilite">OpenGL</code>, <code class="codehilite">GLUT</code>,
   <code class="codehilite">AntTweakBar</code>, <code class="codehilite">BLAS</code>). However, because all
   dependencies other than Eigen should be encapsulated between
@@ -1393,10 +1394,10 @@ make
 </li>
 <li>
 <p><strong>Long compile</strong>: 
-  Compiling <code class="codehilite">igl.cpp</code> takes a long time and isn't easily parallelized (no <code class="codehilite">make-j12</code> equivalent).</p>
+  Compiling <code class="codehilite">igl.cpp</code> takes a long time and isn&rsquo;t easily parallelized (no <code class="codehilite">make-j12</code> equivalent).</p>
 </li>
 </ul>
-<p>Here's a tiny test example using <code class="codehilite">igl.h</code> and <code class="codehilite">igl.cpp</code>. Save the following in <code class="codehilite">test.cpp</code>:</p>
+<p>Here&rsquo;s a tiny test example using <code class="codehilite">igl.h</code> and <code class="codehilite">igl.cpp</code>. Save the following in <code class="codehilite">test.cpp</code>:</p>
 <div class="codehilite"><pre><span></span><span class="cp">#include</span> <span class="cpf">&lt;igl.h&gt;</span><span class="cp"></span>
 <span class="cp">#include</span> <span class="cpf">&lt;Eigen/Core&gt;</span><span class="cp"></span>
 
@@ -1413,7 +1414,7 @@ make
 </pre></div>
 
 
-<p>Notice that we're using <code class="codehilite">-DIGL_NO_OPENGL -DIGL_NO_ANTTWEAKBAR</code> to disable any libigl dependencies on OpenGL and AntTweakBar.</p>
+<p>Notice that we&rsquo;re using <code class="codehilite">-DIGL_NO_OPENGL -DIGL_NO_ANTTWEAKBAR</code> to disable any libigl dependencies on OpenGL and AntTweakBar.</p>
 <p>Now compile <code class="codehilite">test.cpp</code> with:</p>
 <div class="codehilite"><pre><span></span>g++ -g -I/opt/local/include/eigen3/ -I/usr/local/igl/libigl/ -L/usr/local/igl/libigl/ -ligl -DIGL_NO_OPENGL -DIGL_NO_ANTTWEAKBAR -o test
 </pre></div>
@@ -1424,7 +1425,7 @@ make
 </pre></div>
 
 
-<p>The following bash one-liner will find all source files that contain the string <code class="codehilite">OpenGL</code> but don't contain and <code class="codehilite">IGL_NO_OPENGL</code> guard:</p>
+<p>The following bash one-liner will find all source files that contain the string <code class="codehilite">OpenGL</code> but don&rsquo;t contain and <code class="codehilite">IGL_NO_OPENGL</code> guard:</p>
 <div class="codehilite"><pre><span></span>grep OpenGL `grep -L IGL_NO_OPENGL include/igl/*`
 </pre></div>
 

@@ -57,7 +57,7 @@
       <link rel="stylesheet" href="https://fonts.googleapis.com/icon?family=Material+Icons">
     
     
-      <link rel="stylesheet" href="../../ ">
+      <link rel="stylesheet" href="../../css/style.css">
     
     
   </head>
@@ -627,8 +627,8 @@
 
 
   <li class="md-nav__item">
-    <a href="../../file-formats/" title="List" class="md-nav__link">
-      List
+    <a href="../../file-formats/" title="Index" class="md-nav__link">
+      Index
     </a>
   </li>
 
@@ -895,7 +895,11 @@
               
                 
                 
-                <h1 id="chapter-4-shape-deformation">Chapter 4: Shape deformation<a class="headerlink" href="#chapter-4-shape-deformation" title="Permanent link">&para;</a></h1>
+                <!-- Hide h4+ from toc  -->
+
+<style>.md-nav--secondary .md-nav__list .md-nav__list .md-nav__list { display: none }</style>
+
+<h1 id="chapter-4-shape-deformation">Chapter 4: Shape deformation<a class="headerlink" href="#chapter-4-shape-deformation" title="Permanent link">&para;</a></h1>
 <p>Modern mesh-based shape deformation methods satisfy user deformation
 constraints at handles (selected vertices or regions on the mesh) and propagate
 these handle deformations to the rest of shape <em>smoothly</em> and <em>without removing
@@ -919,8 +923,8 @@ biharmonic <em>surfaces</em>. We will casually define biharmonic surfaces as sur
 whose <em>position functions</em> are biharmonic with respect to some initial
 parameterization:</p>
 <p><span><span class="MathJax_Preview">\Delta^2 \mathbf{x}' = 0</span><script type="math/tex">\Delta^2 \mathbf{x}' = 0</script></span></p>
-<p>and subject to some handle constraints, conceptualized as "boundary
-conditions":</p>
+<p>and subject to some handle constraints, conceptualized as &ldquo;boundary
+conditions&rdquo;:</p>
 <p><span><span class="MathJax_Preview">\mathbf{x}'_{b} = \mathbf{x}_{bc}.</span><script type="math/tex">\mathbf{x}'_{b} = \mathbf{x}_{bc}.</script></span></p>
 <p>where <span><span class="MathJax_Preview">\mathbf{x}'</span><script type="math/tex">\mathbf{x}'</script></span> is the unknown 3D position of a point on the surface. So we
 are asking that the bi-Laplacian of each of spatial coordinate function to be
@@ -940,8 +944,8 @@ surface that does interpolate those handle positions.</p>
 <p>Thus, we may conclude that this is not an intuitive technique for shape
 deformation.</p>
 <h3 id="biharmonic-deformation-fields">Biharmonic deformation fields<a class="headerlink" href="#biharmonic-deformation-fields" title="Permanent link">&para;</a></h3>
-<p>Now we know that one useful property for a deformation technique is "rest pose
-reproduction": applying no deformation to the handles should apply no
+<p>Now we know that one useful property for a deformation technique is &ldquo;rest pose
+reproduction&rdquo;: applying no deformation to the handles should apply no
 deformation to the shape.</p>
 <p>To guarantee this by construction we can work with <em>deformation fields</em> (ie.
 displacements)
@@ -964,12 +968,11 @@ deformation field and then recover the deformed positions:</p>
 <span class="n">U</span> <span class="o">=</span> <span class="n">V</span><span class="o">+</span><span class="n">D</span><span class="p">;</span>
 </pre></div>
 
-<p><img alt="The BiharmonicDeformation example deforms a statue's head as a _biharmonic
-surface_ (top) and using a _biharmonic displacements_
-(bottom)." src="../images/max-biharmonic.jpg" /></p>
-<h4 id="relationship-to-differential-coordinates-and-laplacian-surface-editing">Relationship to "differential coordinates" and Laplacian surface editing<a class="headerlink" href="#relationship-to-differential-coordinates-and-laplacian-surface-editing" title="Permanent link">&para;</a></h4>
+<figure><img alt="The BiharmonicDeformation example deforms a statue's head as a _biharmonic surface_ (top) and using a _biharmonic displacements_ (bottom)." src="../images/max-biharmonic.jpg" /><figcaption>The <a href="../401_BiharmonicDeformation/main.cpp">BiharmonicDeformation</a> example deforms a statue&rsquo;s head as a <em>biharmonic surface</em> (top) and using a <em>biharmonic displacements</em> (bottom).</figcaption>
+</figure>
+<h4 id="relationship-to-differential-coordinates-and-laplacian-surface-editing">Relationship to &ldquo;differential coordinates&rdquo; and Laplacian surface editing<a class="headerlink" href="#relationship-to-differential-coordinates-and-laplacian-surface-editing" title="Permanent link">&para;</a></h4>
 <p>Biharmonic functions (whether positions or displacements) are solutions to the
-bi-Laplace equation, but also minimizers of the "Laplacian energy". For
+bi-Laplace equation, but also minimizers of the &ldquo;Laplacian energy&rdquo;. For
 example, for displacements <span><span class="MathJax_Preview">\mathbf{d}</span><script type="math/tex">\mathbf{d}</script></span>, the energy reads</p>
 <p><span><span class="MathJax_Preview">\int\limits_S \|\Delta \mathbf{d}\|^2 dA,</span><script type="math/tex">\int\limits_S \|\Delta \mathbf{d}\|^2 dA,</script></span></p>
 <p>where we define <span><span class="MathJax_Preview">\Delta \mathbf{d}</span><script type="math/tex">\Delta \mathbf{d}</script></span> to simply apply the Laplacian
@@ -981,7 +984,7 @@ terms of the original positions <span><span class="MathJax_Preview">\mathbf{x}</
  \|\Delta \mathbf{x}' - \Delta \mathbf{x})\|^2 dA.</span><script type="math/tex">\int\limits_S \|\Delta (\mathbf{x}' - \mathbf{x})\|^2 dA = \int\limits_S
  \|\Delta \mathbf{x}' - \Delta \mathbf{x})\|^2 dA.</script></span></p>
 <p>In the early work of Sorkine et al., the quantities <span><span class="MathJax_Preview">\Delta \mathbf{x}'</span><script type="math/tex">\Delta \mathbf{x}'</script></span> and
-<span><span class="MathJax_Preview">\Delta \mathbf{x}</span><script type="math/tex">\Delta \mathbf{x}</script></span> were dubbed "differential coordinates" [#sorkine_2004][].
+<span><span class="MathJax_Preview">\Delta \mathbf{x}</span><script type="math/tex">\Delta \mathbf{x}</script></span> were dubbed &ldquo;differential coordinates&rdquo; [#sorkine_2004][].
 Their deformations (without linearized rotations) is thus equivalent to
 biharmonic deformation fields.</p>
 <h2 id="polyharmonic-deformation">Polyharmonic deformation<a class="headerlink" href="#polyharmonic-deformation" title="Permanent link">&para;</a></h2>
@@ -995,11 +998,11 @@ implies <span><span class="MathJax_Preview">C^1</span><script type="math/tex">C^
 <span class="n">igl</span><span class="o">::</span><span class="n">harmonic</span><span class="p">(</span><span class="n">V</span><span class="p">,</span><span class="n">F</span><span class="p">,</span><span class="n">b</span><span class="p">,</span><span class="n">bc</span><span class="p">,</span><span class="n">k</span><span class="p">,</span><span class="n">Z</span><span class="p">);</span>
 </pre></div>
 
-<p><img alt="The PolyharmonicDeformation example deforms a flat domain (left) into a bump as a
-solution to various kk-harmonic PDEs." src="../images/bump-k-harmonic.jpg" /></p>
+<figure><img alt="The PolyharmonicDeformation example deforms a flat domain (left) into a bump as a solution to various kk-harmonic PDEs." src="../images/bump-k-harmonic.jpg" /><figcaption>The <a href="../402_PolyharmonicDeformation/main.cpp">PolyharmonicDeformation</a> example deforms a flat domain (left) into a bump as a solution to various <span><span class="MathJax_Preview">k</span><script type="math/tex">k</script></span>-harmonic PDEs.</figcaption>
+</figure>
 <h2 id="bounded-biharmonic-weights">Bounded biharmonic weights<a class="headerlink" href="#bounded-biharmonic-weights" title="Permanent link">&para;</a></h2>
-<p>In computer animation, shape deformation is often referred to as "skinning".
-Constraints are posed as relative rotations of internal rigid "bones" inside a
+<p>In computer animation, shape deformation is often referred to as &ldquo;skinning&rdquo;.
+Constraints are posed as relative rotations of internal rigid &ldquo;bones&rdquo; inside a
 character. The deformation method, or skinning method, determines how the
 surface of the character (i.e. its skin) should move as a function of the bone
 rotations.</p>
@@ -1042,9 +1045,8 @@ parition of unity and encourage sparsity:</p>
 <p><span><span class="MathJax_Preview">0\le w_i \le 1</span><script type="math/tex">0\le w_i \le 1</script></span> and <span><span class="MathJax_Preview">\sum\limits_{i=1}^m w_i = 1.</span><script type="math/tex">\sum\limits_{i=1}^m w_i = 1.</script></span></p>
 <p>This is a quadratic programming problem and libigl solves it using its active
 set solver or by calling out to <a href="http://www.mosek.com">Mosek</a>.</p>
-<p><img alt="The example BoundedBiharmonicWeights computes weights for a tetrahedral
-mesh given a skeleton (top) and then animates a linear blend skinning
-deformation (bottom)." src="../images/hand-bbw.jpg" /></p>
+<figure><img alt="The example BoundedBiharmonicWeights computes weights for a tetrahedral mesh given a skeleton (top) and then animates a linear blend skinning deformation (bottom)." src="../images/hand-bbw.jpg" /><figcaption>The example <a href="../403_BoundedBiharmonicWeights/main.cpp">BoundedBiharmonicWeights</a> computes weights for a tetrahedral mesh given a skeleton (top) and then animates a linear blend skinning deformation (bottom).</figcaption>
+</figure>
 <h2 id="dual-quaternion-skinning">Dual quaternion skinning<a class="headerlink" href="#dual-quaternion-skinning" title="Permanent link">&para;</a></h2>
 <p>Even with high quality weights, linear blend skinning is limited. In
 particular, it suffers from known artifacts stemming from blending rotations as
@@ -1086,9 +1088,8 @@ internally converts to the dual quaternion representation before blending:</p>
 <span class="n">igl</span><span class="o">::</span><span class="n">dqs</span><span class="p">(</span><span class="n">V</span><span class="p">,</span><span class="n">W</span><span class="p">,</span><span class="n">vQ</span><span class="p">,</span><span class="n">vT</span><span class="p">,</span><span class="n">U</span><span class="p">);</span>
 </pre></div>
 
-<p><img alt="The example DualQuaternionSkinning compares linear blend skinning (top) to dual
-quaternion skinning (bottom), highlighting LBS's candy wrapper effect (middle)
-and joint collapse (right)." src="../images/arm-dqs.jpg" /></p>
+<figure><img alt="The example DualQuaternionSkinning compares linear blend skinning (top) to dual quaternion skinning (bottom), highlighting LBS's candy wrapper effect (middle) and joint collapse (right)." src="../images/arm-dqs.jpg" /><figcaption>The example <a href="../404_DualQuaternionSkinning/main.cpp">DualQuaternionSkinning</a> compares linear blend skinning (top) to dual quaternion skinning (bottom), highlighting LBS&rsquo;s candy wrapper effect (middle) and joint collapse (right).</figcaption>
+</figure>
 <h2 id="as-rigid-as-possible">As-rigid-as-possible<a class="headerlink" href="#as-rigid-as-possible" title="Permanent link">&para;</a></h2>
 <p>Skinning and other linear methods for deformation are inherently limited.
 Difficult arises especially when large rotations are imposed by the handle
@@ -1106,9 +1107,9 @@ They work by comparing the deformation of a mesh
 vertex to its rest position <em>rotated</em> to a new coordinate frame which best
 matches the deformation. The non-linearity stems from the mutual dependence of
 the deformation and the best-fit rotation. These techniques are often labeled
-"as-rigid-as-possible" as they penalize the sum of all local deformations'
+&ldquo;as-rigid-as-possible&rdquo; as they penalize the sum of all local deformations&rsquo;
 deviations from rotations.</p>
-<p>To arrive at such an energy, let's consider a simple per-triangle energy:</p>
+<p>To arrive at such an energy, let&rsquo;s consider a simple per-triangle energy:</p>
 <p><span><span class="MathJax_Preview">E_\text{linear}(\mathbf{X}') = \sum\limits_{t \in T} a_t \sum\limits_{\{i,j\}
  \in t} w_{ij} \left\|
  \left(\mathbf{x}'_i - \mathbf{x}'_j\right) -
@@ -1116,7 +1117,7 @@ deviations from rotations.</p>
  \in t} w_{ij} \left\|
  \left(\mathbf{x}'_i - \mathbf{x}'_j\right) -
  \left(\mathbf{x}_i - \mathbf{x}_j\right)\right\|^2</script></span></p>
-<p>where <span><span class="MathJax_Preview">\mathbf{X}'</span><script type="math/tex">\mathbf{X}'</script></span> are the mesh's unknown deformed vertex positions, <span><span class="MathJax_Preview">t</span><script type="math/tex">t</script></span> is a
+<p>where <span><span class="MathJax_Preview">\mathbf{X}'</span><script type="math/tex">\mathbf{X}'</script></span> are the mesh&rsquo;s unknown deformed vertex positions, <span><span class="MathJax_Preview">t</span><script type="math/tex">t</script></span> is a
 triangle in a list of triangles <span><span class="MathJax_Preview">T</span><script type="math/tex">T</script></span>, <span><span class="MathJax_Preview">a_t</span><script type="math/tex">a_t</script></span> is the area of triangle <span><span class="MathJax_Preview">t</span><script type="math/tex">t</script></span> and
 <span><span class="MathJax_Preview">\{i,j\}</span><script type="math/tex">\{i,j\}</script></span> is an edge in triangle <span><span class="MathJax_Preview">t</span><script type="math/tex">t</script></span>. Thus, this energy measures the norm of
 change between an edge vector in the original mesh <span><span class="MathJax_Preview">\left(\mathbf{x}_i -
@@ -1127,7 +1128,7 @@ change between an edge vector in the original mesh <span><span class="MathJax_Pr
 <p>This energy is <strong>not</strong> rotation invariant. If we rotate the mesh by 90 degrees
 the change in edge vectors not aligned with the axis of rotation will be large,
 despite the overall deformation being perfectly rigid.</p>
-<p>So, the "as-rigid-as-possible" solution is to append auxiliary variables
+<p>So, the &ldquo;as-rigid-as-possible&rdquo; solution is to append auxiliary variables
 <span><span class="MathJax_Preview">\mathbf{R}_t</span><script type="math/tex">\mathbf{R}_t</script></span>
 for each triangle <span><span class="MathJax_Preview">t</span><script type="math/tex">t</script></span> which are constrained to be rotations. Then the energy is
 rewritten, this time comparing deformed edge vectors to their rotated rest
@@ -1146,16 +1147,16 @@ are held fixed then the energy is quadratic in the remaining variables
 <span><span class="MathJax_Preview">\mathbf{X}'</span><script type="math/tex">\mathbf{X}'</script></span> and can be optimized by solving a (sparse) global linear system.
 Alternatively, if <span><span class="MathJax_Preview">\mathbf{X}'</span><script type="math/tex">\mathbf{X}'</script></span> are held fixed then each rotation is the
 solution to a localized <em>Procrustes</em> problem (found via <span><span class="MathJax_Preview">3 \times 3</span><script type="math/tex">3 \times 3</script></span> SVD or
-polar decompostion). These two steps---local and global---each weakly decrease
+polar decompostion). These two steps&mdash;local and global&mdash;each weakly decrease
 the energy, thus we may safely iterate them until convergence.</p>
-<p>The different flavors of "as-rigid-as-possible" depend on the dimension and
+<p>The different flavors of &ldquo;as-rigid-as-possible&rdquo; depend on the dimension and
 codimension of the domain and the edge-sets <span><span class="MathJax_Preview">T</span><script type="math/tex">T</script></span>. The proposed surface
 manipulation technique by Sorkine and Alexa [#sorkine_2007][], considers <span><span class="MathJax_Preview">T</span><script type="math/tex">T</script></span> to
 be the set of sets of edges emanating from each vertex (spokes). Later, Chao et
-al.  derived the relationship between "as-rigid-as-possible" mesh energies and
+al.  derived the relationship between &ldquo;as-rigid-as-possible&rdquo; mesh energies and
 co-rotational elasticity considering 0-codimension elements as edge-sets:
 triangles in 2D and tetrahedra in 3D [#chao_2010][]. They also showed how
-Sorkine and Alexa's edge-sets are not a discretization of a continuous energy,
+Sorkine and Alexa&rsquo;s edge-sets are not a discretization of a continuous energy,
 proposing instead edge-sets for surfaces containing all edges of elements
 incident on a vertex (spokes and rims). They show that this amounts to
 measuring bending, albeit in a discretization-dependent way.</p>
@@ -1175,11 +1176,11 @@ certain constraints on the positions of vertices in <code class="codehilite">b</
 </pre></div>
 
 <p>which uses <code class="codehilite">U</code> as an initial guess and then computes the solution into it.</p>
-<p>Libigl's implementation of as-rigid-as-possible deformation takes advantage of
+<p>Libigl&rsquo;s implementation of as-rigid-as-possible deformation takes advantage of
 the highly optimized singular value decomposition code from McAdams et al.
 [#mcadams_2011][] which leverages SSE intrinsics.</p>
-<p><img alt="The example AsRigidAsPossible deforms a surface as if it were made of an
-elastic material" src="../images/decimated-knight-arap.jpg" /></p>
+<figure><img alt="The example AsRigidAsPossible deforms a surface as if it were made of an elastic material" src="../images/decimated-knight-arap.jpg" /><figcaption>The example <a href="../405_AsRigidAsPossible/main.cpp">AsRigidAsPossible</a> deforms a surface as if it were made of an elastic material</figcaption>
+</figure>
 <p>The concept of local rigidity will be revisited shortly in the context of
 surface parameterization.</p>
 <h2 id="fast-automatic-skinning-transformations">Fast automatic skinning transformations<a class="headerlink" href="#fast-automatic-skinning-transformations" title="Permanent link">&para;</a></h2>
@@ -1188,7 +1189,7 @@ the case of the as-rigid-as-possible optimization, the bottleneck is typically
 the large number of polar decompositions necessary to recover best fit
 rotations for each edge-set (i.e. for each triangle, tetrahedron, or vertex
 cell). Even if this code is optimized, the number of primary degrees of freedom
-is tied to the discretization level, despite the deformations' low frequency
+is tied to the discretization level, despite the deformations&rsquo; low frequency
 behavior.</p>
 <p>This invites two routes toward fast non-linear optimization. First, is it
 necessary (or even advantageous) to find so many best-fit rotations? Second,
@@ -1202,10 +1203,10 @@ linear blend skinning in matrix form:</p>
 <p><span><span class="MathJax_Preview">\mathbf{X}' = \mathbf{M}\mathbf{T}</span><script type="math/tex">\mathbf{X}' = \mathbf{M}\mathbf{T}</script></span></p>
 <p>where the mesh vertex positions in the <span><span class="MathJax_Preview">n \times 3</span><script type="math/tex">n \times 3</script></span> matrix <span><span class="MathJax_Preview">\mathbf{X}'</span><script type="math/tex">\mathbf{X}'</script></span> are
 replaced by a linear combination of a small number of degrees of freedom in the
-<span><span class="MathJax_Preview">(3+1)m \times 3</span><script type="math/tex">(3+1)m \times 3</script></span> stack of transposed "handle" transformations. Swapping in
+<span><span class="MathJax_Preview">(3+1)m \times 3</span><script type="math/tex">(3+1)m \times 3</script></span> stack of transposed &ldquo;handle&rdquo; transformations. Swapping in
 <span><span class="MathJax_Preview">\mathbf{M}\mathbf{T}</span><script type="math/tex">\mathbf{M}\mathbf{T}</script></span> for <span><span class="MathJax_Preview">\mathbf{X}'</span><script type="math/tex">\mathbf{X}'</script></span> in the ARAP energies above immediately
 sees performance gains during the global solve step as <span><span class="MathJax_Preview">m &lt;&lt; n</span><script type="math/tex">m << n</script></span>.</p>
-<p>The complexity of the local step---fitting rotations---is still bound
+<p>The complexity of the local step&mdash;fitting rotations&mdash;is still bound
 to the original mesh discretization. However, if the skinning is well behaved,
 we can make the assumption that places on the shape with similar skinning
 weights will deform similarly and thus imply similar best-fit rotations.
@@ -1242,7 +1243,7 @@ points with <span><span class="MathJax_Preview">w_i = 1</span><script type="math
 transposed homogeneous coordinates, and <span><span class="MathJax_Preview">\mathbf{c}'^T</span><script type="math/tex">\mathbf{c}'^T</script></span> the point given by the
 user.</p>
 <p>We can similarly fix just the linear part of the transformation at a handle,
-freeing the translation component (producing a "chickenhead" effect):</p>
+freeing the translation component (producing a &ldquo;chickenhead&rdquo; effect):</p>
 <p><span><span class="MathJax_Preview">\left(\begin{array}{cccc}
  1&amp;0&amp;0&amp;0\\
  0&amp;1&amp;0&amp;0\\
@@ -1254,7 +1255,7 @@ freeing the translation component (producing a "chickenhead" effect):</p>
  \mathbf{T}_i^T = \hat{\mathbf{L}}_i^T,</script></span></p>
 <p>where <span><span class="MathJax_Preview">\hat{\mathbf{L}}_i^T</span><script type="math/tex">\hat{\mathbf{L}}_i^T</script></span> is the fixed <span><span class="MathJax_Preview">3 \times 3</span><script type="math/tex">3 \times 3</script></span> linear part of the
 transformation at handle <span><span class="MathJax_Preview">i</span><script type="math/tex">i</script></span>.</p>
-<p>And lastly we can allow the user to entirely <em>free</em> the transformation's
+<p>And lastly we can allow the user to entirely <em>free</em> the transformation&rsquo;s
 degrees of freedom, delegating the optimization to find the best possible
 values for all elements. To do this, we simply abstain from adding a
 corresponding constraint.</p>
@@ -1265,22 +1266,20 @@ much. In such cases one can use the skinning subspace to build an effective
 clustering of rotation edge-sets for a traditional ARAP optimization: forgoing
 the subspace substitution. This has an two-fold effect. The cost of the
 rotation fitting, local step drastically reduces, and the deformations are
-"regularized" according the clusters. From a high level point of view, if the
+&ldquo;regularized&rdquo; according the clusters. From a high level point of view, if the
 clusters are derived from skinning weights, then they will discourage bending,
 especially along isolines of the weight functions. If handles are not known in
-advance, one could also cluster according to a "geodesic embedding" like the
+advance, one could also cluster according to a &ldquo;geodesic embedding&rdquo; like the
 biharmonic distance embedding.</p>
-<p>In this light, we can think of the "spokes+rims" style surface ARAP as a (slight and
+<p>In this light, we can think of the &ldquo;spokes+rims&rdquo; style surface ARAP as a (slight and
 redundant) clustering of the per-triangle edge-sets.</p>
-<p><img alt="The example FastAutomaticSkinningTransformations compares a full (slow)
-ARAP deformation on a detailed shape (left of middle), to ARAP with grouped
-rotation edge sets (right of middle), to the very fast subpsace method
-(right)." src="../images/armadillo-fast.jpg" /></p>
+<figure><img alt="The example FastAutomaticSkinningTransformations compares a full (slow) ARAP deformation on a detailed shape (left of middle), to ARAP with grouped rotation edge sets (right of middle), to the very fast subpsace method (right)." src="../images/armadillo-fast.jpg" /><figcaption>The example <a href="../406_FastAutomaticSkinningTransformations/main.cpp">FastAutomaticSkinningTransformations</a> compares a full (slow) ARAP deformation on a detailed shape (left of middle), to ARAP with grouped rotation edge sets (right of middle), to the very fast subpsace method (right).</figcaption>
+</figure>
 <h2 id="biharmonic-coordinates">Biharmonic Coordinates<a class="headerlink" href="#biharmonic-coordinates" title="Permanent link">&para;</a></h2>
 <p>Linear blend skinning (as <a href="#boundedbiharmonicweights">above</a>) deforms a mesh by
 propagating <em>full affine transformations</em> at handles (bones, points, regions,
 etc.) to the rest of the shape via weights. Another deformation framework,
-called "generalized barycentric coordinates", is a special case of linear blend
+called &ldquo;generalized barycentric coordinates&rdquo;, is a special case of linear blend
 skinning [#jacobson_skinning_course_2014][]: transformations are restricted to
 <em>pure translations</em> and weights are required to retain <em>affine precision</em>. This
 latter requirement means that we can write the rest-position of any vertex in
@@ -1291,10 +1290,10 @@ simplifies the deformation formula at run-time. We can simply take the new
 position of each point of the shape to be the weighted combination of the
 <em>translated</em> control point positions:</p>
 <p><span><span class="MathJax_Preview">\mathbf{x}' = \sum\limits_{i=1}^m w_i(\mathbf{x}) * \mathbf{c}_i'.</span><script type="math/tex">\mathbf{x}' = \sum\limits_{i=1}^m w_i(\mathbf{x}) * \mathbf{c}_i'.</script></span></p>
-<p>There are <em>many</em> different flavors of "generalized barycentric coordinates"
-(see table in "Automatic Methods" section,
-[#jacobson_skinning_course_2014][]). The vague goal of "generalized barycentric
-coordinates" is to capture as many properties of simplicial barycentric
+<p>There are <em>many</em> different flavors of &ldquo;generalized barycentric coordinates&rdquo;
+(see table in &ldquo;Automatic Methods&rdquo; section,
+[#jacobson_skinning_course_2014][]). The vague goal of &ldquo;generalized barycentric
+coordinates&rdquo; is to capture as many properties of simplicial barycentric
 coordinates (e.g. for triangles in 2D and tetrahedral in 3D) for larger sets of
 points or polyhedra. Some generalized barycentric coordinates can be computed
 in closed form; others require optimization-based precomputation. Nearly all
@@ -1307,8 +1306,8 @@ affine functions in its kernel:</p>
  \mathbf{W}), \text{subject to: } \mathbf{C} = \mathbf{W}\mathbf{C}</span><script type="math/tex">\mathop{\text{min}}_\mathbf{W}\,\, \text{trace}(\frac{1}{2}\mathbf{W}^T \mathbf{A}
  \mathbf{W}), \text{subject to: } \mathbf{C} = \mathbf{W}\mathbf{C}</script></span></p>
 <p>subject to interpolation constraints at selected vertices. If <span><span class="MathJax_Preview">\mathbf{A}</span><script type="math/tex">\mathbf{A}</script></span> has
-affine functions in its kernel---that is, if <span><span class="MathJax_Preview">\mathbf{A}\mathbf{V} = 0</span><script type="math/tex">\mathbf{A}\mathbf{V} = 0</script></span>---then
-the weights <span><span class="MathJax_Preview">\mathbf{W}</span><script type="math/tex">\mathbf{W}</script></span> will retain affine precision and we'll have that:</p>
+affine functions in its kernel&mdash;that is, if <span><span class="MathJax_Preview">\mathbf{A}\mathbf{V} = 0</span><script type="math/tex">\mathbf{A}\mathbf{V} = 0</script></span>&mdash;then
+the weights <span><span class="MathJax_Preview">\mathbf{W}</span><script type="math/tex">\mathbf{W}</script></span> will retain affine precision and we&rsquo;ll have that:</p>
 <p><span><span class="MathJax_Preview">\mathbf{V} = \mathbf{W}\mathbf{C}</span><script type="math/tex">\mathbf{V} = \mathbf{W}\mathbf{C}</script></span></p>
 <p>the matrix form of the equality above. The proposed way to define <span><span class="MathJax_Preview">\mathbf{A}</span><script type="math/tex">\mathbf{A}</script></span>
 is to construct a matrix <span><span class="MathJax_Preview">\mathbf{K}</span><script type="math/tex">\mathbf{K}</script></span> that measures the Laplacian at all
@@ -1330,8 +1329,8 @@ the mesh:</p>
 functions, thus <span><span class="MathJax_Preview">\mathbf{A}</span><script type="math/tex">\mathbf{A}</script></span> has affine functions in its null space. A short
 derivation proves that this implies <span><span class="MathJax_Preview">\mathbf{W}</span><script type="math/tex">\mathbf{W}</script></span> will be affine precise (see
 [#wang_bc_2015][]).</p>
-<p>Minimizers of this "squared Laplacian" energy are in some sense <em>discrete
-biharmonic functions</em>. Thus they're dubbed "biharmonic coordinates" (not the
+<p>Minimizers of this &ldquo;squared Laplacian&rdquo; energy are in some sense <em>discrete
+biharmonic functions</em>. Thus they&rsquo;re dubbed &ldquo;biharmonic coordinates&rdquo; (not the
 same as <em>bounded biharmonic weights</em>, which are <em>not</em> generalized barycentric
 coordinates).</p>
 <p>In libigl, one can compute biharmonic coordinates given a mesh <code class="codehilite">(V,F)</code> and a
@@ -1340,10 +1339,8 @@ handles):</p>
 <div class="codehilite"><pre><span></span><span class="n">igl</span><span class="o">::</span><span class="n">biharmonic_coordinates</span><span class="p">(</span><span class="n">V</span><span class="p">,</span><span class="n">F</span><span class="p">,</span><span class="n">S</span><span class="p">,</span><span class="n">W</span><span class="p">);</span>
 </pre></div>
 
-<p><img alt="(Example 407) shows a physics
-simulation on a coarse orange mesh. The vertices of this mesh become control
-points for a biharmonic coordinates deformation of the blue high-resolution
-mesh." src="../images/octopus-biharmonic-coordinates-physics.gif" /></p>
+<figure><img alt="(Example 407) shows a physics simulation on a coarse orange mesh. The vertices of this mesh become control points for a biharmonic coordinates deformation of the blue high-resolution mesh." src="../images/octopus-biharmonic-coordinates-physics.gif" /><figcaption>(<a href="../407_BiharmonicCoordinates/main.cpp">Example 407</a>) shows a physics simulation on a coarse orange mesh. The vertices of this mesh become control points for a biharmonic coordinates deformation of the blue high-resolution mesh.</figcaption>
+</figure>
                 
                   
                 

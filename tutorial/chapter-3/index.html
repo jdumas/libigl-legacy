@@ -57,7 +57,7 @@
       <link rel="stylesheet" href="https://fonts.googleapis.com/icon?family=Material+Icons">
     
     
-      <link rel="stylesheet" href="../../ ">
+      <link rel="stylesheet" href="../../css/style.css">
     
     
   </head>
@@ -600,8 +600,8 @@
 
 
   <li class="md-nav__item">
-    <a href="../../file-formats/" title="List" class="md-nav__link">
-      List
+    <a href="../../file-formats/" title="Index" class="md-nav__link">
+      Index
     </a>
   </li>
 
@@ -848,7 +848,7 @@ routines which bootstrap Eigen and make it feel even more similar to a high-leve
 algebra library such as Matlab.</p>
 <h2 id="slice">Slice<a class="headerlink" href="#slice" title="Permanent link">&para;</a></h2>
 <p>A very familiar and powerful routine in Matlab is array slicing. This allows
-reading from or writing to a possibly non-contiguous sub-matrix. Let's consider
+reading from or writing to a possibly non-contiguous sub-matrix. Let&rsquo;s consider
 the Matlab code:</p>
 <div class="codehilite"><pre><span></span><span class="n">B</span> <span class="p">=</span> <span class="n">A</span><span class="p">(</span><span class="n">R</span><span class="p">,</span><span class="n">C</span><span class="p">);</span>
 </pre></div>
@@ -875,8 +875,8 @@ functionality is provided in libigl using <code class="codehilite">slice_into</c
 <div class="codehilite"><pre><span></span><span class="n">igl</span><span class="o">::</span><span class="n">slice_into</span><span class="p">(</span><span class="n">B</span><span class="p">,</span><span class="n">R</span><span class="p">,</span><span class="n">C</span><span class="p">,</span><span class="n">A</span><span class="p">);</span>
 </pre></div>
 
-<p><img alt="The example Slice shows how to use igl::slice to change the colors for
-triangles on a mesh." src="../images/decimated-knight-slice-color.jpg" /></p>
+<figure><img alt="The example Slice shows how to use igl::slice to change the colors for triangles on a mesh." src="../images/decimated-knight-slice-color.jpg" /><figcaption>The example <code class="codehilite">Slice</code> shows how to use <code class="codehilite">igl::slice</code> to change the colors for triangles on a mesh.</figcaption>
+</figure>
 <h2 id="sort">Sort<a class="headerlink" href="#sort" title="Permanent link">&para;</a></h2>
 <p>Matlab and other higher-level languages make it very easy to extract indices of
 sorting and comparison routines. For example in Matlab, one can write:</p>
@@ -901,9 +901,8 @@ output <code class="codehilite">I</code> is a <span><span class="MathJax_Preview
 where again <code class="codehilite">I</code> reveals the index of sort so that it can be reproduced with
 <code class="codehilite">igl::slice(X,I,1,Y)</code>.</p>
 <p>Analogous functions are available in libigl for: <code class="codehilite">max</code>, <code class="codehilite">min</code>, and <code class="codehilite">unique</code>.</p>
-<p><img alt="The example Sort shows how to use igl::sortrows to
-pseudocolor triangles according to their barycenters' sorted
-order (Example 302)." src="../images/decimated-knight-sort-color.jpg" /></p>
+<figure><img alt="The example Sort shows how to use igl::sortrows to pseudocolor triangles according to their barycenters' sorted order (Example 302)." src="../images/decimated-knight-sort-color.jpg" /><figcaption>The example <code class="codehilite">Sort</code> shows how to use <code class="codehilite">igl::sortrows</code> to pseudocolor triangles according to their barycenters&rsquo; sorted order (<a href="../302_Sort/main.cpp">Example 302</a>).</figcaption>
+</figure>
 <h3 id="other-matlab-style-functions">Other Matlab-style functions<a class="headerlink" href="#other-matlab-style-functions" title="Permanent link">&para;</a></h3>
 <p>Libigl implements a variety of other routines with the same api and
 functionality as common Matlab functions.</p>
@@ -937,11 +936,11 @@ functionality as common Matlab functions.</p>
 </tr>
 <tr>
 <td align="left"><code class="codehilite">igl::colon</code></td>
-<td align="left">Act like Matlab's <code class="codehilite">:</code>, similar to Eigen's <code class="codehilite">LinSpaced</code></td>
+<td align="left">Act like Matlab&rsquo;s <code class="codehilite">:</code>, similar to Eigen&rsquo;s <code class="codehilite">LinSpaced</code></td>
 </tr>
 <tr>
 <td align="left"><code class="codehilite">igl::components</code></td>
-<td align="left">Connected components of graph (cf. Matlab's <code class="codehilite">graphconncomp</code>)</td>
+<td align="left">Connected components of graph (cf. Matlab&rsquo;s <code class="codehilite">graphconncomp</code>)</td>
 </tr>
 <tr>
 <td align="left"><code class="codehilite">igl::count</code></td>
@@ -977,7 +976,7 @@ functionality as common Matlab functions.</p>
 </tr>
 <tr>
 <td align="left"><code class="codehilite">igl::hsv_to_rgb</code></td>
-<td align="left">Convert HSV colors to RGB (cf. Matlab's <code class="codehilite">hsv2rgb</code>)</td>
+<td align="left">Convert HSV colors to RGB (cf. Matlab&rsquo;s <code class="codehilite">hsv2rgb</code>)</td>
 </tr>
 <tr>
 <td align="left"><code class="codehilite">igl::intersect</code></td>
@@ -1037,11 +1036,11 @@ functionality as common Matlab functions.</p>
 </tr>
 <tr>
 <td align="left"><code class="codehilite">igl::randperm</code></td>
-<td align="left">Generate a random permutation of [0,...,n-1]</td>
+<td align="left">Generate a random permutation of [0,&hellip;,n-1]</td>
 </tr>
 <tr>
 <td align="left"><code class="codehilite">igl::rgb_to_hsv</code></td>
-<td align="left">Convert RGB colors to HSV (cf. Matlab's <code class="codehilite">rgb2hsv</code>)</td>
+<td align="left">Convert RGB colors to HSV (cf. Matlab&rsquo;s <code class="codehilite">rgb2hsv</code>)</td>
 </tr>
 <tr>
 <td align="left"><code class="codehilite">igl::repmat</code></td>
@@ -1061,19 +1060,19 @@ functionality as common Matlab functions.</p>
 </tr>
 <tr>
 <td align="left"><code class="codehilite">igl::setxor</code></td>
-<td align="left">Set exclusive "or" of matrix elements</td>
+<td align="left">Set exclusive &ldquo;or&rdquo; of matrix elements</td>
 </tr>
 <tr>
 <td align="left"><code class="codehilite">igl::slice</code></td>
-<td align="left">Slice parts of matrix using index lists: (cf. Matlab's <code class="codehilite">B = A(I,J)</code>)</td>
+<td align="left">Slice parts of matrix using index lists: (cf. Matlab&rsquo;s <code class="codehilite">B = A(I,J)</code>)</td>
 </tr>
 <tr>
 <td align="left"><code class="codehilite">igl::slice_mask</code></td>
-<td align="left">Slice parts of matrix using boolean masks: (cf. Matlab's <code class="codehilite">B = A(M,N)</code>)</td>
+<td align="left">Slice parts of matrix using boolean masks: (cf. Matlab&rsquo;s <code class="codehilite">B = A(M,N)</code>)</td>
 </tr>
 <tr>
 <td align="left"><code class="codehilite">igl::slice_into</code></td>
-<td align="left">Slice left-hand side of matrix assignment using index lists (cf. Matlab's <code class="codehilite">B(I,J) = A</code>)</td>
+<td align="left">Slice left-hand side of matrix assignment using index lists (cf. Matlab&rsquo;s <code class="codehilite">B(I,J) = A</code>)</td>
 </tr>
 <tr>
 <td align="left"><code class="codehilite">igl::sort</code></td>
@@ -1141,7 +1140,7 @@ vertices come first and then boundary vertices:</p>
  \left(\begin{array}{c}
  \mathbf{0}_{in}\\
  \mathbf{z}_{bc}\end{array}\right)</script></span></script></span></p>
-<p>The bottom block of equations is no longer meaningful so we'll only consider
+<p>The bottom block of equations is no longer meaningful so we&rsquo;ll only consider
 the top block:</p>
 <p><span><span class="MathJax_Preview"><span><span class="MathJax_Preview">\left(\begin{array}{cc}
  \mathbf{L}_{in,in} &amp; \mathbf{L}_{in,b}\end{array}\right)
@@ -1187,8 +1186,8 @@ this solution is not very general.</p>
 submatrix blocks (<span><span class="MathJax_Preview">\mathbf{L}_{in,in}</span><script type="math/tex">\mathbf{L}_{in,in}</script></span>, <span><span class="MathJax_Preview">\mathbf{L}_{in,b}</span><script type="math/tex">\mathbf{L}_{in,b}</script></span>, etc.) and follow
 the linear algebra above directly. Then we can slice the solution <em>into</em> the
 rows of <code class="codehilite">Z</code> corresponding to the interior vertices (<a href="../303_LaplaceEquation/main.cpp">Example 303</a>).</p>
-<p><img alt="The LaplaceEquation example solves a Laplace equation with Dirichlet
-boundary conditions." src="../images/camelhead-laplace-equation.jpg" /></p>
+<figure><img alt="The LaplaceEquation example solves a Laplace equation with Dirichlet boundary conditions." src="../images/camelhead-laplace-equation.jpg" /><figcaption>The <code class="codehilite">LaplaceEquation</code> example solves a Laplace equation with Dirichlet boundary conditions.</figcaption>
+</figure>
 <h3 id="quadratic-energy-minimization">Quadratic energy minimization<a class="headerlink" href="#quadratic-energy-minimization" title="Permanent link">&para;</a></h3>
 <p>The same Laplace equation may be equivalently derived by minimizing Dirichlet
 energy subject to the same boundary conditions:</p>
@@ -1250,8 +1249,8 @@ constraint in the right-hand sides:</p>
 correctly placed to match the mesh vertices <code class="codehilite">V</code>.</p>
 <h2 id="linear-equality-constraints">Linear equality constraints<a class="headerlink" href="#linear-equality-constraints" title="Permanent link">&para;</a></h2>
 <p>We saw above that <code class="codehilite">min_quad_with_fixed_*</code> in libigl provides a compact way to
-solve general quadratic programs. Let's consider another example, this time
-with active linear equality constraints. Specifically let's solve the
+solve general quadratic programs. Let&rsquo;s consider another example, this time
+with active linear equality constraints. Specifically let&rsquo;s solve the
 <code class="codehilite">bi-Laplace equation</code> or equivalently minimize the Laplace energy:</p>
 <p><span><span class="MathJax_Preview"><span><span class="MathJax_Preview">\Delta^2 z = 0 \leftrightarrow \mathop{\text{minimize }}\limits_z \frac{1}{2}
  \int\limits_S (\Delta z)^2 dA</span><script type="math/tex">\Delta^2 z = 0 \leftrightarrow \mathop{\text{minimize }}\limits_z \frac{1}{2}
@@ -1280,7 +1279,9 @@ saddle problem:</p>
  \mathbf{z} - \mathbf{B}_{eq}\right)</script></span></script></span></p>
 <p>This can be rewritten in a more familiar form by stacking <span><span class="MathJax_Preview">\mathbf{z}</span><script type="math/tex">\mathbf{z}</script></span> and
 <span><span class="MathJax_Preview">\lambda</span><script type="math/tex">\lambda</script></span> into one <span><span class="MathJax_Preview">(m+n) \times 1</span><script type="math/tex">(m+n) \times 1</script></span> vector of unknowns:</p>
-<p><span><span class="MathJax_Preview"><span><span class="MathJax_Preview">\mathop{\text{find saddle }}_{\mathbf{z},\lambda}\,
+<div>
+<div class="MathJax_Preview">
+ \mathop{\text{find saddle }}_{\mathbf{z},\lambda}\,
  \frac{1}{2}
  \left(
   \mathbf{z}^T
@@ -1308,7 +1309,10 @@ saddle problem:</p>
   -\mathbf{B}_{eq}
   \end{array}
   \right)
-  + \text{constant}</span><script type="math/tex">\mathop{\text{find saddle }}_{\mathbf{z},\lambda}\,
+  + \text{constant}
+</div>
+<script type="math/tex; mode=display">
+ \mathop{\text{find saddle }}_{\mathbf{z},\lambda}\,
  \frac{1}{2}
  \left(
   \mathbf{z}^T
@@ -1336,74 +1340,18 @@ saddle problem:</p>
   -\mathbf{B}_{eq}
   \end{array}
   \right)
-  + \text{constant}</script></span></span><script type="math/tex"><span><span class="MathJax_Preview">\mathop{\text{find saddle }}_{\mathbf{z},\lambda}\,
- \frac{1}{2}
- \left(
-  \mathbf{z}^T
-  \lambda^T
- \right)
- \left(
-  \begin{array}{cc}
-  \mathbf{Q}      &amp; \mathbf{A}_{eq}^T\\
-  \mathbf{A}_{eq} &amp; 0
-  \end{array}
- \right)
- \left(
-  \begin{array}{c}
-  \mathbf{z}\\
-  \lambda
-  \end{array}
- \right) +
- \left(
-  \mathbf{z}^T
-  \lambda^T
- \right)
- \left(
-  \begin{array}{c}
-  \mathbf{B}\\
-  -\mathbf{B}_{eq}
-  \end{array}
-  \right)
-  + \text{constant}</span><script type="math/tex">\mathop{\text{find saddle }}_{\mathbf{z},\lambda}\,
- \frac{1}{2}
- \left(
-  \mathbf{z}^T
-  \lambda^T
- \right)
- \left(
-  \begin{array}{cc}
-  \mathbf{Q}      & \mathbf{A}_{eq}^T\\
-  \mathbf{A}_{eq} & 0
-  \end{array}
- \right)
- \left(
-  \begin{array}{c}
-  \mathbf{z}\\
-  \lambda
-  \end{array}
- \right) +
- \left(
-  \mathbf{z}^T
-  \lambda^T
- \right)
- \left(
-  \begin{array}{c}
-  \mathbf{B}\\
-  -\mathbf{B}_{eq}
-  \end{array}
-  \right)
-  + \text{constant}</script></span></script></span></p>
+  + \text{constant}
+</script>
+</div>
 <p>Differentiating with respect to <span><span class="MathJax_Preview">\left( \mathbf{z}^T \lambda^T \right)</span><script type="math/tex">\left( \mathbf{z}^T \lambda^T \right)</script></span> reveals
 a linear system and we can solve for <span><span class="MathJax_Preview">\mathbf{z}</span><script type="math/tex">\mathbf{z}</script></span> and <span><span class="MathJax_Preview">\lambda</span><script type="math/tex">\lambda</script></span>. The only
 difference from the straight quadratic <em>minimization</em> system, is that this
 saddle problem system will not be positive definite. Thus, we must use a
-different factorization technique (LDLT rather than LLT): libigl's
+different factorization technique (LDLT rather than LLT): libigl&rsquo;s
 <code class="codehilite">min_quad_with_fixed_precompute</code> automatically chooses the correct solver in
 the presence of linear equality constraints (<a href="../304_LinearEqualityConstraints/main.cpp">Example 304</a>).</p>
-<p><img alt="The example LinearEqualityConstraints first solves with just fixed value
-constraints (left: 1 and -1 on the left hand and foot respectively), then
-solves with an additional linear equality constraint (right: points on right
-hand and foot constrained to be equal)." src="../images/cheburashka-biharmonic-leq.jpg" /></p>
+<figure><img alt="The example LinearEqualityConstraints first solves with just fixed value constraints (left: 1 and -1 on the left hand and foot respectively), then solves with an additional linear equality constraint (right: points on right hand and foot constrained to be equal)." src="../images/cheburashka-biharmonic-leq.jpg" /><figcaption>The example <code class="codehilite">LinearEqualityConstraints</code> first solves with just fixed value constraints (left: 1 and -1 on the left hand and foot respectively), then solves with an additional linear equality constraint (right: points on right hand and foot constrained to be equal).</figcaption>
+</figure>
 <h2 id="quadratic-programming">Quadratic programming<a class="headerlink" href="#quadratic-programming" title="Permanent link">&para;</a></h2>
 <p>We can generalize the quadratic optimization in the previous section even more
 by allowing inequality constraints. Specifically box constraints (lower and
@@ -1419,8 +1367,8 @@ and general linear inequality constraints:</p>
 rows of the linear inequality constraints, but bounds appear frequently enough
 to merit a dedicated api.</p>
 <p>Libigl implements its own active set routine for solving <em>quadratric programs</em>
-(QPs). This algorithm works by iteratively "activating" violated inequality
-constraints by enforcing them as equalities and "deactivating" constraints
+(QPs). This algorithm works by iteratively &ldquo;activating&rdquo; violated inequality
+constraints by enforcing them as equalities and &ldquo;deactivating&rdquo; constraints
 which are no longer needed.</p>
 <p>After deciding which constraints are active at each iteration, the problem
 reduces to a quadratic minimization subject to linear <em>equality</em> constraints,
@@ -1434,9 +1382,7 @@ a warm-start (initial guess for the solution vector <span><span class="MathJax_P
 <span class="n">igl</span><span class="o">::</span><span class="n">active_set</span><span class="p">(</span><span class="n">Q</span><span class="p">,</span><span class="n">B</span><span class="p">,</span><span class="n">b</span><span class="p">,</span><span class="n">bc</span><span class="p">,</span><span class="n">Aeq</span><span class="p">,</span><span class="n">Beq</span><span class="p">,</span><span class="n">Aieq</span><span class="p">,</span><span class="n">Bieq</span><span class="p">,</span><span class="n">lx</span><span class="p">,</span><span class="n">ux</span><span class="p">,</span><span class="n">as</span><span class="p">,</span><span class="n">Z</span><span class="p">);</span>
 </pre></div>
 
-<p><img alt=" Example 305 uses an active set solver to optimize
-discrete biharmonic kernels [#rustamov_2011][] at multiple scales
-." src="../images/cheburashka-multiscale-biharmonic-kernels.jpg" /></p>
+<p><img alt=" Example 305 uses an active set solver to optimize discrete biharmonic kernels [#rustamov_2011][] at multiple scales ." src="../images/cheburashka-multiscale-biharmonic-kernels.jpg" /></p>
 <h2 id="eigen-decomposition">Eigen Decomposition<a class="headerlink" href="#eigen-decomposition" title="Permanent link">&para;</a></h2>
 <p>Libigl has rudimentary support for extracting eigen pairs of a generalized
 eigen value problem:</p>
@@ -1472,7 +1418,7 @@ analysis and model subspaces have been used frequently in real-time deformation
 <p>In <a href="../306_EigenDecomposition/main.cpp">Example 306</a>), the first 5 eigen vectors
 of the discrete Laplace-Beltrami operator are computed and displayed in
 pseudo-color atop the beetle. Eigen vectors are computed using <code class="codehilite">igl::eigs</code>
-(mirroring MATLAB's <code class="codehilite">eigs</code>). The 5 eigen vectors are placed into the columns
+(mirroring MATLAB&rsquo;s <code class="codehilite">eigs</code>). The 5 eigen vectors are placed into the columns
 of <code class="codehilite">U</code> and the eigen values are placed into the entries of <code class="codehilite">S</code>:</p>
 <div class="codehilite"><pre><span></span><span class="n">SparseMatrix</span><span class="o">&lt;</span><span class="kt">double</span><span class="o">&gt;</span> <span class="n">L</span><span class="p">,</span><span class="n">M</span><span class="p">;</span>
 <span class="n">igl</span><span class="o">::</span><span class="n">cotmatrix</span><span class="p">(</span><span class="n">V</span><span class="p">,</span><span class="n">F</span><span class="p">,</span><span class="n">L</span><span class="p">);</span>
@@ -1482,9 +1428,8 @@ of <code class="codehilite">U</code> and the eigen values are placed into the en
 <span class="n">igl</span><span class="o">::</span><span class="n">eigs</span><span class="p">(</span><span class="n">L</span><span class="p">,</span><span class="n">M</span><span class="p">,</span><span class="mi">5</span><span class="p">,</span><span class="n">igl</span><span class="o">::</span><span class="n">EIGS_TYPE_SM</span><span class="p">,</span><span class="n">U</span><span class="p">,</span><span class="n">S</span><span class="p">);</span>
 </pre></div>
 
-<p><img alt="(Example 306) Low frequency eigen vectors
-of the discrete Laplace-Beltrami operator vary smoothly and slowly over the
-_Beetle_." src="../images/beetle-eigen-decomposition.gif" /></p>
+<figure><img alt="(Example 306) Low frequency eigen vectors of the discrete Laplace-Beltrami operator vary smoothly and slowly over the _Beetle_." src="../images/beetle-eigen-decomposition.gif" /><figcaption>(<a href="../306_EigenDecomposition/main.cpp">Example 306</a>) Low frequency eigen vectors of the discrete Laplace-Beltrami operator vary smoothly and slowly over the <em>Beetle</em>.</figcaption>
+</figure>
                 
                   
                 
