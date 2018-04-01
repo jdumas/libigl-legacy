@@ -564,6 +564,18 @@
 
 
   <li class="md-nav__item">
+    <a href="static-library/" title="Static Library" class="md-nav__link">
+      Static Library
+    </a>
+  </li>
+
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
     <a href="third-party/" title="External Dependencies" class="md-nav__link">
       External Dependencies
     </a>
@@ -1058,7 +1070,7 @@ header file contains a single function (e.g. <code class="codehilite">igl/cotmat
 <code class="codehilite">igl::cotmatrix()</code>). Most are tailored to operate on a generic triangle mesh
 stored in an n-by-3 matrix of vertex positions <code class="codehilite">V</code> and an m-by-3 matrix of
 triangle indices <code class="codehilite">F</code>.</p>
-<p><em>Optionally</em> the library may also be <a href="./optional/">pre-compiled</a> into a statically
+<p><em>Optionally</em> the library may also be <a href="http://libigl.github.io/static-library/">pre-compiled</a> into a statically
 linked library, for faster compile times with your projects. This only effects
 compile time (run-time performance and behavior is identical). If in doubt, use
 the header-only default mode: (i.e. just include the headers you want to use).</p>
@@ -1073,7 +1085,7 @@ and Windows with Visual Studio 2015 Community Edition.</p>
 <h2 id="libigl-example-project">libigl Example Project<a class="headerlink" href="#libigl-example-project" title="Permanent link">&para;</a></h2>
 <p>We provide a <a href="https://github.com/libigl/libigl-example-project">blank project example</a> showing how to use libigl and cmake. Feel free and encouraged to copy or fork this project as a way of starting a new personal project using libigl.</p>
 <h2 id="coding-guidelines-and-tips">Coding Guidelines and Tips<a class="headerlink" href="#coding-guidelines-and-tips" title="Permanent link">&para;</a></h2>
-<p>libigl follows strict coding guidelines, please take a look <a href="http://libigl.github.io/libigl/style-guidelines.html">here</a> before submitting your pull requests. We also have a set of <a href="http://libigl.github.io/libigl/coding-guidelines.html">general coding tips</a> on how to code a geometry processing research project.</p>
+<p>libigl follows strict coding guidelines, please take a look <a href="http://libigl.github.io/libigl/style-guidelines">here</a> before submitting your pull requests. We also have a set of <a href="http://libigl.github.io/libigl/coding-guidelines">general coding tips</a> on how to code a geometry processing research project.</p>
 <h2 id="installation">Installation<a class="headerlink" href="#installation" title="Permanent link">&para;</a></h2>
 <p>Libigl is a <strong>header-only</strong> library. You do <strong>not</strong> need to build anything to
 install.  Simply add <code class="codehilite">libigl/include</code> to your include path and include relevant
@@ -1115,7 +1127,7 @@ Eigen is installed in <code class="codehilite">/usr/local/include/eigen3</code>)
 <h2 id="dependencies">Dependencies<a class="headerlink" href="#dependencies" title="Permanent link">&para;</a></h2>
 <p>Dependencies are on a per-include basis and the majority of the functions in
 libigl depends only on the <a href="http://eigen.tuxfamily.org">Eigen</a> library.</p>
-<p>For more information see our <a href="./tutorial/tutorial.html">tutorial</a>.</p>
+<p>For more information see our <a href="http://libigl.github.io/libigl/tutorial/tutorial.html">tutorial</a>.</p>
 <h3 id="optional-dependencies">Optional Dependencies<a class="headerlink" href="#optional-dependencies" title="Permanent link">&para;</a></h3>
 <p>Libigl compartmentalizes its <strong>optional</strong> dependences via its directory
 organization in the <code class="codehilite">include/</code> folder. All header files located <em>directly</em> in
@@ -1154,7 +1166,7 @@ a major <em>todo</em> for our development.</p>
 <h2 id="git-submodules">Git Submodules<a class="headerlink" href="#git-submodules" title="Permanent link">&para;</a></h2>
 <p>Libigl uses git submodules for its <em>optional</em> dependencies,
 in particular, those needed by the OpenGL viewer to run the examples in the
-<a href="./tutorial/tutorial.html">tutorial</a>. Git submodules allow use to treat clones of
+<a href="http://libigl.github.io/libigl/tutorial/tutorial.html">tutorial</a>. Git submodules allow use to treat clones of
 other libraries as sub-directories within ours while separating our commits.
 Read the <a href="http://git-scm.com/docs/git-submodule">documentation</a> for a detailed
 explanation, but essentially our libigl repo stores a hash for each of its
@@ -1173,7 +1185,7 @@ repository</a> for unit testing.</p>
 <h2 id="how-to-contribute">How to Contribute<a class="headerlink" href="#how-to-contribute" title="Permanent link">&para;</a></h2>
 <p>If you are interested in joining development, please fork the repository and
 submit a <a href="https://help.github.com/articles/using-pull-requests/">pull request</a>
-with your changes. libigl follows strict coding guidelines, please take a look at our  <a href="./style-guidelines.html">style guidelines</a> before submitting your pull requests.</p>
+with your changes. libigl follows strict coding guidelines, please take a look at our  <a href="http://libigl.github.io/libigl/style-guidelines">style guidelines</a> before submitting your pull requests.</p>
 <h2 id="license">License<a class="headerlink" href="#license" title="Permanent link">&para;</a></h2>
 <p>libigl is primarily <a href="http://www.mozilla.org/MPL/2.0/">MPL2</a> licensed
 (<a href="http://www.mozilla.org/MPL/2.0/FAQ.html">FAQ</a>). Some files contain
