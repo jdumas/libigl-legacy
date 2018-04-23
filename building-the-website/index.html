@@ -726,6 +726,16 @@ If you want to preview changes to the libigl website before a commit, you can fo
 <p class="admonition-title">Tip</p>
 <p>Be careful to not have any <code class="codehilite">&lt;&gt;</code> characters in your email in your <code class="codehilite"><span class="na">.gitconfig</span></code>, otherwise the <code class="codehilite">gh-deploy</code> script will fail.</p>
 </div>
+<div class="admonition tip">
+<p class="admonition-title">Tip</p>
+<p>Dead links can be checked using the <a href="https://wummel.github.io/linkchecker/">LinkChecker</a> tool. Run the website locally, then run LinkChecker on it:
+<div class="codehilite"><pre><span></span>linkchecker http://127.0.0.1:8000
+</pre></div></p>
+</div>
+<div class="admonition note">
+<p class="admonition-title">Note</p>
+<p>The reason we are using <code class="codehilite">python -m mkdocs serve</code> instead of <code class="codehilite">mkdocs serve</code> directly is because we are using local extensions for mkdocs. Those extensions are located in the <code class="codehilite">scripts/</code> folder of libigl. Running <code class="codehilite">mkdocs</code> as a module adds the current directory to the <code class="codehilite">PYTHONPATH</code>, allowing us to load those extensions without installing them on the system or in a virtualenv.</p>
+</div>
 <h2 id="references">References<a class="headerlink" href="#references" title="Permanent link">&para;</a></h2>
 <ul>
 <li><a href="http://www.mkdocs.org/">MkDocs</a></li>
