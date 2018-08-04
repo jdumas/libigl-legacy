@@ -26,6 +26,12 @@ bool key_down(igl::opengl::glfw::Viewer& viewer, unsigned char key, int modifier
     viewer.data().set_mesh(V2, F2);
     viewer.core.align_camera_center(V2,F2);
   }
+  else if (key == '3')
+  {
+    igl::opengl::glfw::Viewer viewer;
+    viewer.data().set_mesh(V1, F1);
+    viewer.launch();
+  }
 
   return false;
 }

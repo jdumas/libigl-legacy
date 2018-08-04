@@ -29,6 +29,16 @@ namespace imgui
 
 class ImGuiMenu : public igl::opengl::glfw::ViewerPlugin
 {
+public:
+  ImGuiMenu() = default;
+  virtual ~ImGuiMenu() = default;
+private:
+  // Delete copy and move constructors, since we need to manage the internal ImGuiContext *
+  ImGuiMenu(ImGuiMenu&&) = delete;
+  ImGuiMenu& operator=(ImGuiMenu&&) = delete;
+  ImGuiMenu(const ImGuiMenu&) = delete;
+  ImGuiMenu& operator=(const ImGuiMenu&) = delete;
+
 protected:
   // Hidpi scaling to be used for text rendering.
   float hidpi_scaling_;
@@ -43,9 +53,13 @@ protected:
 public:
   IGL_INLINE virtual void init(igl::opengl::glfw::Viewer *_viewer) override;
 
+  IGL_INLINE void init_imgui();
+
   IGL_INLINE virtual void reload_font(int font_size = 13);
 
   IGL_INLINE virtual void shutdown() override;
+
+  IGL_INLINE virtual void restore() override;
 
   IGL_INLINE virtual bool pre_draw() override;
 

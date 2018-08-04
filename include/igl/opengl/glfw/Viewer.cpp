@@ -148,18 +148,19 @@ namespace glfw
       glfwWindowHint(GLFW_OPENGL_PROFILE, GLFW_OPENGL_CORE_PROFILE);
       glfwWindowHint(GLFW_OPENGL_FORWARD_COMPAT, GL_TRUE);
     #endif
+    GLFWwindow *prev_window = nullptr; //(__windows.empty() ? nullptr : __windows.back());
     if(fullscreen)
     {
       GLFWmonitor *monitor = glfwGetPrimaryMonitor();
       const GLFWvidmode *mode = glfwGetVideoMode(monitor);
-      window = glfwCreateWindow(mode->width,mode->height,"libigl viewer",monitor,nullptr);
+      window = glfwCreateWindow(mode->width,mode->height,"libigl viewer",monitor,prev_window);
     }
     else
     {
       if (core.viewport.tail<2>().any()) {
-        window = glfwCreateWindow(core.viewport(2),core.viewport(3),"libigl viewer",nullptr,nullptr);
+        window = glfwCreateWindow(core.viewport(2),core.viewport(3),"libigl viewer",nullptr,prev_window);
       } else {
-        window = glfwCreateWindow(1280,800,"libigl viewer",nullptr,nullptr);
+        window = glfwCreateWindow(1280,800,"libigl viewer",nullptr,prev_window);
       }
     }
     if (!window)
@@ -167,10 +168,7 @@ namespace glfw
       glfwTerminate();
       return EXIT_FAILURE;
     }
-    if(GLFWwindow *old_window = glfwGetCurrentContext())
-    {
-      __windows.push_back(old_window);
-    }
+    __windows.push_back(window);
     glfwMakeContextCurrent(window);
     glfwSwapInterval(1); // Enable vsync
     // Load OpenGL and its extensions
@@ -257,6 +255,7 @@ namespace glfw
     core.shut();
     shutdown_plugins();
     glfwDestroyWindow(window);
+    __windows.pop_back();
     // If the current window stack is empty, terminate GLFW.
     // Otherwise, restore previous window's context
     if (__windows.empty())
@@ -265,8 +264,14 @@ namespace glfw
     }
     else
     {
-      glfwMakeContextCurrent(__windows.back());
-      __windows.pop_back();
+      GLFWwindow *prev_window = __windows.back();
+      auto * prev_viewer = reinterpret_cast<igl::opengl::glfw::Viewer *>(glfwGetWindowUserPointer(prev_window));
+      // Restore OpenGL context a plugin states
+      glfwMakeContextCurrent(prev_window);
+      for (unsigned int i = 0; i<prev_viewer->plugins.size(); ++i)
+      {
+        prev_viewer->plugins[i]->restore();
+      }
     }
     return;
   }

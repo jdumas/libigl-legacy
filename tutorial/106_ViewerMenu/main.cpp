@@ -3,6 +3,7 @@
 #include <igl/opengl/glfw/imgui/ImGuiMenu.h>
 #include <igl/opengl/glfw/imgui/ImGuiHelpers.h>
 #include <imgui/imgui.h>
+#include <imgui_impl_opengl3.h>
 #include <iostream>
 #include "tutorial_shared_path.h"
 
@@ -75,6 +76,8 @@ int main(int argc, char *argv[])
     }
   };
 
+  bool launch_nested_viewer = false;
+
   // Draw additional windows
   menu.callback_draw_custom_window = [&]()
   {
@@ -86,7 +89,6 @@ int main(int argc, char *argv[])
         ImGuiWindowFlags_NoSavedSettings
     );
 
-
     // Expose the same variable directly ...
     ImGui::PushItemWidth(-80);
     ImGui::DragScalar("double", ImGuiDataType_Double, &doubleVariable, 0.1, 0, 0, "%.4f");
@@ -95,7 +97,24 @@ int main(int argc, char *argv[])
     static std::string str = "bunny";
     ImGui::InputText("Name", str);
 
+    if (ImGui::Button("New Viewer")) {
+      launch_nested_viewer = true;
+    }
+
     ImGui::End();
+  };
+
+  viewer.callback_post_draw = [&](igl::opengl::glfw::Viewer& _)
+  {
+    if (launch_nested_viewer) {
+      igl::opengl::glfw::Viewer viewer;
+      igl::opengl::glfw::imgui::ImGuiMenu menu;
+      viewer.plugins.push_back(&menu);
+      viewer.data().set_mesh(V, F);
+      viewer.launch();
+      launch_nested_viewer = false;
+    }
+    return true;
   };
 
   // Plot the mesh
