@@ -98,9 +98,24 @@ int main(int argc, char *argv[])
     ImGui::InputText("Name", str);
 
     if (ImGui::Button("New Viewer")) {
-      launch_nested_viewer = true;
+        igl::opengl::glfw::Viewer viewer;
+        igl::opengl::glfw::imgui::ImGuiMenu menu;
+        menu.callback_draw_viewer_menu = [&]() {
+          if (ImGui::Button("New Viewer")) {
+            igl::opengl::glfw::Viewer viewer;
+            igl::opengl::glfw::imgui::ImGuiMenu menu;
+            viewer.plugins.push_back(&menu);
+            viewer.data().set_mesh(V, F);
+            viewer.launch();
+          }
+        };
+        viewer.plugins.push_back(&menu);
+        viewer.data().set_mesh(V, F);
+        viewer.launch();
     }
-
+    // if (ImGui::Button("Deferred Viewer")) {
+    //   launch_nested_viewer = true;
+    // }
     ImGui::End();
   };
 

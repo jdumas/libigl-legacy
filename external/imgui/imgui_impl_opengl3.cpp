@@ -51,6 +51,8 @@
 
 #include "imgui.h"
 #include "imgui_impl_opengl3.h"
+#include <vector>
+#include <array>
 #include <stdio.h>
 #if defined(_MSC_VER) && _MSC_VER <= 1500 // MSVC 2008 or earlier
 #include <stddef.h>     // intptr_t
@@ -72,12 +74,73 @@
 #endif
 
 // OpenGL Data
-static char         g_GlslVersionString[32] = "";
+static char g_GlslVersionString[32] = "";
 static GLuint       g_FontTexture = 0;
 static GLuint       g_ShaderHandle = 0, g_VertHandle = 0, g_FragHandle = 0;
 static int          g_AttribLocationTex = 0, g_AttribLocationProjMtx = 0;
 static int          g_AttribLocationPosition = 0, g_AttribLocationUV = 0, g_AttribLocationColor = 0;
 static unsigned int g_VboHandle = 0, g_ElementsHandle = 0;
+
+// OpenGL Data
+struct ImGui_ImplOpenGL3_Data {
+    char         g_GlslVersionString[32] = "";
+    GLuint       g_FontTexture = 0;
+    GLuint       g_ShaderHandle = 0, g_VertHandle = 0, g_FragHandle = 0;
+    int          g_AttribLocationTex = 0, g_AttribLocationProjMtx = 0;
+    int          g_AttribLocationPosition = 0, g_AttribLocationUV = 0, g_AttribLocationColor = 0;
+    unsigned int g_VboHandle = 0, g_ElementsHandle = 0;
+};
+std::vector<ImGui_ImplOpenGL3_Data> g_DataStack;
+
+// Nested states
+void     ImGui_ImplOpenGL3_PushState() {
+    ImGui_ImplOpenGL3_Data state;
+    strncpy(state.g_GlslVersionString, g_GlslVersionString, 32);
+    state.g_FontTexture = g_FontTexture;
+    state.g_ShaderHandle = g_ShaderHandle;
+    state.g_VertHandle = g_VertHandle;
+    state.g_FragHandle = g_FragHandle;
+    state.g_AttribLocationTex = g_AttribLocationTex;
+    state.g_AttribLocationProjMtx = g_AttribLocationProjMtx;
+    state.g_AttribLocationPosition = g_AttribLocationPosition;
+    state.g_AttribLocationUV = g_AttribLocationUV;
+    state.g_AttribLocationColor = g_AttribLocationColor;
+    state.g_VboHandle = g_VboHandle;
+    state.g_ElementsHandle = g_ElementsHandle;
+    g_DataStack.push_back(state);
+    strncpy(g_GlslVersionString, "", 32);
+    g_FontTexture = 0;
+    g_ShaderHandle = 0;
+    g_VertHandle = 0;
+    g_FragHandle = 0;
+    g_AttribLocationTex = 0;
+    g_AttribLocationProjMtx = 0;
+    g_AttribLocationPosition = 0;
+    g_AttribLocationUV = 0;
+    g_AttribLocationColor = 0;
+    g_VboHandle = 0;
+    g_ElementsHandle = 0;
+}
+
+void     ImGui_ImplOpenGL3_PopState() {
+    if (g_DataStack.empty()) {
+        return;
+    }
+    const ImGui_ImplOpenGL3_Data & state = g_DataStack.back();
+    strncpy(g_GlslVersionString, state.g_GlslVersionString, 32);
+    g_FontTexture = state.g_FontTexture;
+    g_ShaderHandle = state.g_ShaderHandle;
+    g_VertHandle = state.g_VertHandle;
+    g_FragHandle = state.g_FragHandle;
+    g_AttribLocationTex = state.g_AttribLocationTex;
+    g_AttribLocationProjMtx = state.g_AttribLocationProjMtx;
+    g_AttribLocationPosition = state.g_AttribLocationPosition;
+    g_AttribLocationUV = state.g_AttribLocationUV;
+    g_AttribLocationColor = state.g_AttribLocationColor;
+    g_VboHandle = state.g_VboHandle;
+    g_ElementsHandle = state.g_ElementsHandle;
+}
+
 
 // Functions
 bool    ImGui_ImplOpenGL3_Init(const char* glsl_version)

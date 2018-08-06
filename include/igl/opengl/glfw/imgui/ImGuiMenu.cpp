@@ -25,6 +25,8 @@ namespace glfw
 namespace imgui
 {
 
+ImGuiMenu * ImGuiMenu::active_menu_ = nullptr;
+
 IGL_INLINE void ImGuiMenu::init(igl::opengl::glfw::Viewer *_viewer)
 {
   ViewerPlugin::init(_viewer);
@@ -38,15 +40,23 @@ IGL_INLINE void ImGuiMenu::init_imgui()
 {
   // Setup ImGui binding
   IMGUI_CHECKVERSION();
+  ImGui_ImplOpenGL3_Shutdown();
+  ImGui_ImplGlfw_Shutdown();
+  if (active_menu_)
+  {
+    assert(ImGui::GetCurrentContext());
+    active_menu_->skip_frame();
+  }
   if (!context_)
   {
     context_ = ImGui::CreateContext();
     ImGui::SetCurrentContext(context_);
+    active_menu_ = this;
   }
   const char* glsl_version = "#version 150";
   ImGui_ImplGlfw_InitForOpenGL(viewer->window, false);
   ImGui_ImplOpenGL3_Init(glsl_version);
-  ImGui_ImplOpenGL3_DestroyDeviceObjects();
+  tex_id_ = (GLuint)(intptr_t) ImGui::GetIO().Fonts->TexID;
   ImGui::GetIO().IniFilename = nullptr;
   ImGui::StyleColorsDark();
   ImGuiStyle& style = ImGui::GetStyle();
@@ -72,13 +82,17 @@ IGL_INLINE void ImGuiMenu::shutdown()
   ImGui_ImplGlfw_Shutdown();
   ImGui::DestroyContext(context_);
   context_ = nullptr;
+  active_menu_ = nullptr;
 }
 
 IGL_INLINE void ImGuiMenu::restore()
 {
   ImGui::SetCurrentContext(context_);
-  shutdown();
-  init_imgui();
+  active_menu_ = this;
+  const char* glsl_version = "#version 150";
+  ImGui_ImplGlfw_InitForOpenGL(viewer->window, false);
+  ImGui_ImplOpenGL3_Init();
+  ImGui::GetIO().Fonts->TexID = (void *)(intptr_t) tex_id_;
 }
 
 IGL_INLINE bool ImGuiMenu::pre_draw()
@@ -101,9 +115,19 @@ IGL_INLINE bool ImGuiMenu::pre_draw()
 
 IGL_INLINE bool ImGuiMenu::post_draw()
 {
-  draw_menu();
-  ImGui::Render();
-  ImGui_ImplOpenGL3_RenderDrawData(ImGui::GetDrawData());
+  // try {
+    draw_menu();
+    ImGui::Render();
+    if (skip_frame_)
+     skip_frame_ = false;
+    else
+      ImGui_ImplOpenGL3_RenderDrawData(ImGui::GetDrawData());
+  // }
+  // catch (const AbortFrame &e)
+  // {
+  //   ImGui::EndFrame();
+  //   e.deferred_callback_();
+  // }
   return false;
 }
 

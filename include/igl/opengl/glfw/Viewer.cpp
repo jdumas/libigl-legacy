@@ -148,7 +148,7 @@ namespace glfw
       glfwWindowHint(GLFW_OPENGL_PROFILE, GLFW_OPENGL_CORE_PROFILE);
       glfwWindowHint(GLFW_OPENGL_FORWARD_COMPAT, GL_TRUE);
     #endif
-    GLFWwindow *prev_window = nullptr; //(__windows.empty() ? nullptr : __windows.back());
+    GLFWwindow *prev_window = (__windows.empty() ? nullptr : __windows.back());
     if(fullscreen)
     {
       GLFWmonitor *monitor = glfwGetPrimaryMonitor();
